@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/background_light"
+    tools:context=".PreferencesActivity">
+
+    <ScrollView
+        android:layout_width="424dp"
+        android:layout_height="597dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="60dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textViewTitle"
+                    android:layout_width="352dp"
+                    android:layout_height="42dp"
+                    android:layout_marginStart="33dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="17dp"
+                    android:layout_marginBottom="749dp"
+                    android:fontFamily="@font/aladin"
+                    android:text="@string/select_your_preferences"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/imageViewCinema"
+                    android:layout_width="161dp"
+                    android:layout_height="148dp"
+                    android:layout_marginStart="27dp"
+                    android:layout_marginTop="55dp"
+                    android:layout_marginEnd="223dp"
+                    android:layout_marginBottom="500dp"
+                    android:contentDescription="@string/cinema"
+                    android:scaleType="fitXY"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/cine" />
+
+                <ImageView
+                    android:id="@+id/imageViewFood"
+                    android:layout_width="161dp"
+                    android:layout_height="148dp"
+                    android:layout_marginStart="210dp"
+                    android:layout_marginTop="55dp"
+                    android:layout_marginEnd="40dp"
+                    android:layout_marginBottom="500dp"
+                    android:contentDescription="@string/foodThings"
+                    android:scaleType="fitXY"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/food" />
+
+                <ImageView
+                    android:id="@+id/imageViewMusic"
+                    android:layout_width="161dp"
+                    android:layout_height="148dp"
+                    android:layout_marginStart="27dp"
+                    android:layout_marginTop="266dp"
+                    android:layout_marginEnd="223dp"
+                    android:layout_marginBottom="370dp"
+                    android:contentDescription="@string/musicThings"
+                    android:scaleType="fitXY"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/music" />
+
+                <ImageView
+                    android:id="@+id/imageViewTravel"
+                    android:layout_width="161dp"
+                    android:layout_height="148dp"
+                    android:layout_marginStart="210dp"
+                    android:layout_marginTop="266dp"
+                    android:layout_marginEnd="40dp"
+                    android:layout_marginBottom="370dp"
+                    android:contentDescription="@string/travelThings"
+                    android:scaleType="fitXY"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/viaje" />
+
+                <ImageView
+                    android:id="@+id/imageViewTV"
+                    android:layout_width="161dp"
+                    android:layout_height="148dp"
+                    android:layout_marginStart="27dp"
+                    android:layout_marginTop="431dp"
+                    android:layout_marginEnd="223dp"
+                    android:layout_marginBottom="200dp"
+                    android:contentDescription="@string/tvThings"
+                    android:scaleType="fitXY"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/tv" />
+
+                <ImageView
+                    android:id="@+id/imageViewScience"
+                    android:layout_width="161dp"
+                    android:layout_height="148dp"
+                    android:layout_marginStart="210dp"
+                    android:layout_marginTop="431dp"
+                    android:layout_marginEnd="40dp"
+                    android:layout_marginBottom="200dp"
+                    android:contentDescription="@string/scienceThings"
+                    android:scaleType="fitXY"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/science" />
+
+                <ImageView
+                    android:id="@+id/imageViewBooks"
+                    android:layout_width="161dp"
+                    android:layout_height="148dp"
+                    android:layout_marginStart="33dp"
+                    android:layout_marginTop="570dp"
+                    android:layout_marginEnd="230dp"
+                    android:scaleType="fitXY"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/books" />
+
+                <ImageView
+                    android:id="@+id/imageViewVideoGames"
+                    android:layout_width="161dp"
+                    android:layout_height="148dp"
+                    android:layout_marginStart="216dp"
+                    android:layout_marginTop="570dp"
+                    android:layout_marginEnd="40dp"
+                    android:scaleType="fitXY"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/videogames" />
+
+                <CheckBox
+                    android:id="@+id/checkBoxCinema"
+                    style="@android:style/Widget.Holo.CompoundButton.CheckBox"
+                    android:layout_width="124dp"
+                    android:layout_height="36dp"
+                    android:layout_marginStart="26dp"
+                    android:layout_marginTop="175dp"
+                    android:layout_marginEnd="261dp"
+                    android:layout_marginBottom="500dp"
+                    android:text="@string/cinema"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+                    android:textColor="@android:color/white"
+                    android:buttonTint="@android:color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <CheckBox
+                    android:id="@+id/checkBoxFood"
+                    style="@android:style/Widget.Holo.CompoundButton.CheckBox"
+                    android:layout_width="124dp"
+                    android:layout_height="36dp"
+                    android:layout_marginStart="210dp"
+                    android:layout_marginTop="175dp"
+                    android:layout_marginEnd="77dp"
+                    android:layout_marginBottom="500dp"
+                    android:text="@string/food"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+                    android:textColor="@android:color/white"
+                    android:buttonTint="@android:color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <CheckBox
+                    android:id="@+id/checkBoxMusic"
+                    style="@android:style/Widget.Holo.CompoundButton.CheckBox"
+                    android:layout_width="129dp"
+                    android:layout_height="36dp"
+                    android:layout_marginStart="26dp"
+                    android:layout_marginTop="378dp"
+                    android:layout_marginEnd="256dp"
+                    android:layout_marginBottom="370dp"
+                    android:text="@string/music"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+                    android:textColor="@android:color/white"
+                    android:buttonTint="@android:color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <CheckBox
+                    android:id="@+id/checkBoxTravel"
+                    style="@android:style/Widget.Holo.CompoundButton.CheckBox"
+                    android:layout_width="124dp"
+                    android:layout_height="36dp"
+                    android:layout_marginStart="210dp"
+                    android:layout_marginTop="378dp"
+                    android:layout_marginEnd="77dp"
+                    android:layout_marginBottom="370dp"
+                    android:text="@string/travel"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+                    android:textColor="@android:color/white"
+                    android:buttonTint="@android:color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <CheckBox
+                    android:id="@+id/checkBoxTV"
+                    style="@android:style/Widget.Holo.CompoundButton.CheckBox"
+                    android:layout_width="129dp"
+                    android:layout_height="36dp"
+                    android:layout_marginStart="26dp"
+                    android:layout_marginTop="573dp"
+                    android:layout_marginEnd="262dp"
+                    android:layout_marginBottom="225dp"
+                    android:text="@string/tv_shows"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+                    android:textColor="@android:color/white"
+                    android:buttonTint="@android:color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <CheckBox
+                    android:id="@+id/checkBoxScience"
+                    style="@android:style/Widget.Holo.CompoundButton.CheckBox"
+                    android:layout_width="124dp"
+                    android:layout_height="36dp"
+                    android:layout_marginStart="210dp"
+                    android:layout_marginTop="573dp"
+                    android:layout_marginEnd="77dp"
+                    android:layout_marginBottom="225dp"
+                    android:text="@string/science"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+                    android:textColor="@android:color/white"
+                    android:buttonTint="@android:color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <CheckBox
+                    android:id="@+id/checkBoxBooks"
+                    style="@android:style/Widget.Holo.CompoundButton.CheckBox"
+                    android:layout_width="124dp"
+                    android:layout_height="36dp"
+                    android:layout_marginStart="37dp"
+                    android:layout_marginTop="741dp"
+                    android:layout_marginEnd="263dp"
+                    android:layout_marginBottom="57dp"
+                    android:text="Books"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+                    android:textColor="@android:color/white"
+                    android:buttonTint="@android:color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Books" />
+
+                <CheckBox
+                    android:id="@+id/checkBoxVideoGames"
+                    style="@android:style/Widget.Holo.CompoundButton.CheckBox"
+                    android:layout_width="165dp"
+                    android:layout_height="54dp"
+                    android:layout_marginStart="219dp"
+                    android:layout_marginTop="738dp"
+                    android:layout_marginEnd="81dp"
+                    android:layout_marginBottom="60dp"
+                    android:text="@string/videogames"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+                    android:textColor="@android:color/white"
+                    android:buttonTint="@android:color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0"
+                    tools:text="Video Games" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+    <Button
+        android:id="@+id/btn_save"
+        android:layout_width="401dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="605dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="6dp"
+        android:background="@android:color/transparent"
+        android:backgroundTint="@color/colorPrimary"
+        android:drawableEnd="@drawable/arrow_right_black_18dp"
+        android:fontFamily="casual"
+        android:text="@string/submit"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,59 @@
+<resources>
+    <string name="app_name">ProyectoNavigation</string>
+    <string name="title_home">Home</string>
+    <string name="title_search">Search</string>
+    <string name="title_profile">Profile</string>
+    <string name="tv_shows">TV Shows</string>
+
+    <string name="science">Science</string>
+    <string name="food">Food</string>
+    <string name="travel">Travel</string>
+    <string name="cinema">Cinema</string>
+
+    <string name="submit">Submit</string>
+    <string name="my_interests">My interests are...</string>
+    <string name="save">SAVE</string>
+    <string name="name">Name</string>
+    <string name="about_me">About me</string>
+    <string name="upload">Upload</string>
+    <string name="cinema_preferences">cinema preferences</string>
+    <string name="food_preferences">food preferences</string>
+    <string name="tv_preferences">tv preferences</string>
+    <string name="personalimage">PersonalImage</string>
+    <string name="techno">Techno</string>
+    <string name="metal">Metal</string>
+    <string name="pop">Pop</string>
+    <string name="reggaeton">Reggaeton</string>
+    <string name="title_activity_homepage">Homepage</string>
+    <string name="title_activity_music">MusicActivity</string>
+    <string name="scienceThings">science</string>
+    <string name="foodThings">food</string>
+    <string name="musicThings">music</string>
+    <string name="travelThings">travel</string>
+    <string name="tvThings">tv</string>
+    <string name="select_your_preferences">Select your preferences</string>
+    <string name="saveButton">Save</string>
+    <string name="select_your_music_preferences">Select your preferences</string>
+    <string name="Rock">rock</string>
+    <string name="Soul">soul</string>
+    <string name="Metal">metal</string>
+    <string name="my_interests_are_select_at_least_four">interest</string>
+    <string name="categoriaViajes">categoriaViajes</string>
+    <string name="PopMusic">PopMusic</string>
+    <string name="reage">Reage</string>
+    <string name="Techno">Techno</string>
+    <string name="cocinafrancesa">cocinafrancesa</string>
+    <string name="indian_food">Indian food</string>
+    <string name="french_food">French food</string>
+    <string name="save1">Save</string>
+    <string name="select_yours">Select yours...</string>
+    <string name="videogames">Video Games</string>
+    <string name="books">Books</string>
+    <string name="title_activity_navigation">NavigationActivity</string>
+    <string name="music">Music</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_map">Map</string>
+
+
+</resources>

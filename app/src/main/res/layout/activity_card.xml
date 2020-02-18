@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/background_light"
+    tools:context=".InsidePlanActivity">
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="409dp"
+        android:layout_height="255dp"
+        android:layout_marginBottom="404dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/wella" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="399dp"
+        android:layout_height="328dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.77">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="23dp"
+                android:text="Restautante Hotel Wela"
+                android:textColor="@android:color/black"
+                android:textSize="34dp" />
+
+            <TextView
+                android:id="@+id/txtDes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Dirección: Carrer de Calàbria, 110 (Barcelona). Entre Diputació y Gran Vía de les Corts Catalanes."
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/txtDes1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Precio: Entre 20-30 Euros (Precio medio 25 €)"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/txtDes2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Teléfono de reservas: +34 930173371"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/txtDes3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Comida: Brasería, China"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/txtDes4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Horario: Hoy Martes, Comida: 13:00h -16:00h. Cena: 19:30h - 23:30h."
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/txtDes5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Comentario: El Restaurante Wela Barbacoa ofrece, para preparar en las parrillas al centro de cada mesa, una gama de carnes, pescados y vegetales frescos. El restaurante también ofrece platos chinos como fideos, arroces, ensaladas y tallarines, todo en un ambiente amplio y luminoso."
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/txtDes6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Platos: Ensalada de tofu con cebollin. Wela salteado de ternera con molleja y albóndigas de langostino. Secreto ibérico en salsa especial. Tallarines en caldo con albóndigas de pescado o de langostino. Selección de carnes, pescado y vegetales para llevar a la parrilla."
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/txtDes7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Características: Abierto en domingo, Incorporación."
+                android:textColor="@android:color/black" />
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

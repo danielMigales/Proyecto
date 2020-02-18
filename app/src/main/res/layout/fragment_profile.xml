@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/background_light"
+    tools:context=".ProfileActivity">
+
+    <ImageView
+        android:id="@+id/imageViewPicture"
+        android:layout_width="170dp"
+        android:layout_height="155dp"
+        android:layout_marginStart="34dp"
+        android:layout_marginTop="42dp"
+        android:layout_marginEnd="207dp"
+        android:layout_marginBottom="534dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/photo_profile" />
+
+    <TextView
+        android:id="@+id/textViewName"
+        android:layout_width="173dp"
+        android:layout_height="125dp"
+        android:layout_marginStart="222dp"
+        android:layout_marginTop="128dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="478dp"
+        android:fontFamily="@font/aladin"
+        android:text="Your name"
+        android:textColor="@android:color/black"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="96dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="41dp"
+        android:layout_marginTop="213dp"
+        android:layout_marginEnd="274dp"
+        android:layout_marginBottom="478dp"
+        android:fontFamily="@font/aladin"
+        android:text="My info"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewEmail"
+        android:layout_width="308dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="41dp"
+        android:layout_marginTop="267dp"
+        android:layout_marginEnd="62dp"
+        android:layout_marginBottom="429dp"
+        android:textColor="@android:color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Your email" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="235dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="41dp"
+        android:layout_marginTop="314dp"
+        android:layout_marginEnd="135dp"
+        android:layout_marginBottom="384dp"
+        android:fontFamily="@font/aladin"
+        android:text="My actual preferences"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <HorizontalScrollView
+        android:layout_width="409dp"
+        android:layout_height="109dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="366dp"
+        android:layout_marginBottom="256dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/editCinema"
+                android:layout_width="140dp"
+                android:layout_height="110dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/cine"
+                android:drawableEnd="@drawable/baseline_add_circle_outline_white_18dp"
+                android:textColor="@android:color/black"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/editTVShows"
+                android:layout_width="140dp"
+                android:layout_height="110dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/tv"
+                android:drawableEnd="@drawable/baseline_add_circle_outline_white_18dp"
+                android:textColor="@android:color/black"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/editMusic"
+                android:layout_width="140dp"
+                android:layout_height="110dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/music"
+                android:drawableEnd="@drawable/baseline_add_circle_outline_white_18dp"
+                android:textColor="@android:color/black"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/editFood"
+                android:layout_width="140dp"
+                android:layout_height="110dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/food"
+                android:drawableEnd="@drawable/baseline_add_circle_outline_white_18dp"
+                android:textColor="@android:color/black"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/editTravel"
+                android:layout_width="140dp"
+                android:layout_height="110dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/viaje"
+                android:drawableEnd="@drawable/baseline_add_circle_outline_white_18dp"
+                android:textColor="@android:color/black"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/editScience"
+                android:layout_width="140dp"
+                android:layout_height="110dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/science"
+                android:drawableEnd="@drawable/baseline_add_circle_outline_white_18dp"
+                android:textColor="@android:color/black"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/editBooks"
+                android:layout_width="140dp"
+                android:layout_height="110dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/books"
+                android:drawableEnd="@drawable/baseline_add_circle_outline_white_18dp"
+                android:textColor="@android:color/black"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/editVideoGames"
+                android:layout_width="140dp"
+                android:layout_height="110dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/videogames"
+                android:drawableEnd="@drawable/baseline_add_circle_outline_white_18dp"
+                android:textColor="@android:color/black"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <Button
+        android:id="@+id/buttonChangeProfileData"
+        android:layout_width="49dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="321dp"
+        android:layout_marginTop="42dp"
+        android:layout_marginEnd="26dp"
+        android:layout_marginBottom="640dp"
+        android:alpha="@dimen/material_emphasis_medium"
+        android:background="@drawable/outline_settings_white_18dp"
+        android:backgroundTint="@android:color/black"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
