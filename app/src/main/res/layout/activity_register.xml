@@ -12,6 +12,7 @@
     android:background="@drawable/gradient_background"
     android:theme="@style/Theme.Design.NoActionBar"
     tools:context=".RegisterActivity">
+
     <ImageView
         android:id="@+id/logo"
         android:src="@drawable/ic_launcher_foreground"
@@ -80,9 +81,9 @@
 
     <Button
         android:id="@+id/btn_regist"
-        android:layout_width="100dp"
+        android:layout_width="220dp"
         android:layout_height="50dp"
-        android:layout_marginLeft="120dp"
+        android:layout_marginLeft="60dp"
         android:layout_marginTop="40dp"
         android:backgroundTint="@color/colorPrimary"
         android:text="Register"

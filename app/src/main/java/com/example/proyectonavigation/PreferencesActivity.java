@@ -45,6 +45,8 @@ public class PreferencesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_preferences);
 
+        getSupportActionBar().hide();
+
         cinema = (CheckBox) findViewById(R.id.checkBoxCinema);
         food = (CheckBox) findViewById(R.id.checkBoxFood);
         music = (CheckBox) findViewById(R.id.checkBoxMusic);

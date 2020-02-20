@@ -10,5 +10,7 @@ public class CinemaPreferencesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cinema_preferences);
+
+        getSupportActionBar().hide();
     }
 }

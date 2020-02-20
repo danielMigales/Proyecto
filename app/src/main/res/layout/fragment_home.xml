@@ -45,7 +45,7 @@
                     android:id="@+id/textViewCardview1"
                     android:layout_width="310dp"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
+                    android:layout_gravity="bottom|center"
                     android:clickable="false"
                     android:fontFamily="@font/aladin"
                     android:gravity="center"
@@ -54,9 +54,11 @@
                     android:textColor="@android:color/white"
                     android:textSize="24sp"
                     android:textStyle="bold" />
+
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+
                 android:id="@+id/cardview2"
                 android:layout_width="322dp"
                 android:layout_height="223dp"
@@ -99,5 +101,26 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
+
+    <com.google.android.material.tabs.TabLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TODAY" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="WEEKEND" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SOON" />
+    </com.google.android.material.tabs.TabLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

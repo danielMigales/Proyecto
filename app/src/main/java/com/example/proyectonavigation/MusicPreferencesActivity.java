@@ -45,6 +45,8 @@ public class MusicPreferencesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_music_preferences);
 
+        getSupportActionBar().hide();
+
         metal = (CheckBox) findViewById(R.id.checkBoxMetal);
         pop = (CheckBox) findViewById(R.id.checkBoxPop);
         rock = (CheckBox) findViewById(R.id.checkBoxRock);

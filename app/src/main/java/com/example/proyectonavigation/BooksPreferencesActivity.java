@@ -10,5 +10,7 @@ public class BooksPreferencesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_books_preferences);
+
+        getSupportActionBar().hide();
     }
 }

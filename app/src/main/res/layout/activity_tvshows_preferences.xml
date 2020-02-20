@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/background_light"
-    tools:context=".TVShowsActivity">
+    tools:context=".TVShowsPreferencesActivity">
 
     <ScrollView
         android:layout_width="406dp"
@@ -212,6 +212,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/tvscifi"
                     tools:srcCompat="@drawable/tvscifi" />
 
 
