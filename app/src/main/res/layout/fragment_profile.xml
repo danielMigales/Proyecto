@@ -156,7 +156,7 @@
                 android:textSize="12sp" />
 
             <Button
-                android:id="@+id/editTravel"
+                android:id="@+id/editOutdoor"
                 android:layout_width="140dp"
                 android:layout_height="110dp"
                 android:layout_marginLeft="10dp"

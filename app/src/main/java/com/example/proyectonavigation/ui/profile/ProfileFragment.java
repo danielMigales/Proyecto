@@ -19,10 +19,10 @@ import com.example.proyectonavigation.CinemaPreferencesActivity;
 import com.example.proyectonavigation.CulturePreferencesActivity;
 import com.example.proyectonavigation.FoodPreferencesActivity;
 import com.example.proyectonavigation.MusicPreferencesActivity;
+import com.example.proyectonavigation.OutdoorPreferencesActivity;
 import com.example.proyectonavigation.R;
 import com.example.proyectonavigation.SportsPreferencesActivity;
 import com.example.proyectonavigation.TVShowsPreferencesActivity;
-import com.example.proyectonavigation.TravelPreferencesActivity;
 import com.example.proyectonavigation.VideoGamesPreferencesActivity;
 
 public class ProfileFragment extends Fragment {
@@ -35,7 +35,7 @@ public class ProfileFragment extends Fragment {
     private Button editCinema;
     private Button editfood;
     private Button editMusic;
-    private Button editTravel;
+    private Button editOutdoor;
     private Button editTVShows;
     private Button editCulture;
     private Button editBooks;
@@ -95,15 +95,15 @@ public class ProfileFragment extends Fragment {
                 startActivityForResult(intent,0); }
         });
 
-        editTravel = view.findViewById(R.id.editTravel);
-        editTravel.setOnClickListener(new View.OnClickListener() {
+        editOutdoor = view.findViewById(R.id.editOutdoor);
+        editOutdoor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), TravelPreferencesActivity.class);
+                Intent intent = new Intent(getContext(), OutdoorPreferencesActivity.class);
                 startActivityForResult(intent,0); }
         });
 
-        editCulture = view.findViewById(R.id.editScience);
+        editCulture = view.findViewById(R.id.editCulture);
         editCulture.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

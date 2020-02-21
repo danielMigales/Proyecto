@@ -29,7 +29,7 @@ public class PreferencesActivity extends AppCompatActivity {
     private CheckBox cinema;
     private CheckBox food;
     private CheckBox music;
-    private CheckBox travel;
+    private CheckBox outdoor;
     private CheckBox tv;
     private CheckBox culture;
     private CheckBox books;
@@ -51,7 +51,7 @@ public class PreferencesActivity extends AppCompatActivity {
         cinema = (CheckBox) findViewById(R.id.checkBoxCinema);
         food = (CheckBox) findViewById(R.id.checkBoxFood);
         music = (CheckBox) findViewById(R.id.checkBoxMusic);
-        travel = (CheckBox) findViewById(R.id.checkBoxTravel);
+        outdoor = (CheckBox) findViewById(R.id.checkBoxOutdoor);
         tv = (CheckBox) findViewById(R.id.checkBoxTV);
         culture = (CheckBox) findViewById(R.id.checkBoxCulture);
         books = (CheckBox) findViewById(R.id.checkBoxBooks);
@@ -87,8 +87,8 @@ public class PreferencesActivity extends AppCompatActivity {
         if (music.isChecked()){
             preferences.add("music");
         }
-        if (travel.isChecked()){
-            preferences.add("travel");
+        if (outdoor.isChecked()){
+            preferences.add("outdoor");
         }
         if (tv.isChecked()){
             preferences.add("tv");

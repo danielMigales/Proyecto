@@ -17,7 +17,7 @@
         <activity android:name=".CulturePreferencesActivity" />
         <activity android:name=".VideoGamesPreferencesActivity" />
         <activity android:name=".BooksPreferencesActivity" />
-        <activity android:name=".TravelPreferencesActivity" />
+        <activity android:name=".OutdoorPreferencesActivity" />
         <activity android:name=".TVShowsPreferencesActivity" />
         <activity android:name=".MusicPreferencesActivity" />
         <activity android:name=".FoodPreferencesActivity" />

@@ -97,7 +97,7 @@
                     app:srcCompat="@drawable/music" />
 
                 <ImageView
-                    android:id="@+id/imageViewTravel"
+                    android:id="@+id/imageViewOutdoor"
                     android:layout_width="161dp"
                     android:layout_height="148dp"
                     android:layout_marginStart="210dp"
@@ -263,7 +263,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <CheckBox
-                    android:id="@+id/checkBoxTravel"
+                    android:id="@+id/checkBoxOutdoor"
                     style="@android:style/Widget.Holo.CompoundButton.CheckBox"
                     android:layout_width="161dp"
                     android:layout_height="148dp"
@@ -272,7 +272,7 @@
                     android:layout_marginBottom="370dp"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="@string/travel"
+                    android:text="@string/outdoor"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/background_light"
-    tools:context=".BooksPreferencesActivity">
+    tools:context=".CulturePreferencesActivity">
 
     <ScrollView
         android:layout_width="407dp"
@@ -34,7 +34,7 @@
                     android:layout_marginEnd="40dp"
                     android:layout_marginBottom="1252dp"
                     android:fontFamily="@font/aladin"
-                    android:text="Book Genres"
+                    android:text="Culture Activities"
                     android:textAlignment="center"
                     android:textColor="@android:color/black"
                     android:textSize="30sp"
@@ -44,11 +44,11 @@
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:text="Book Genres" />
+                    tools:text="Culture Activities" />
 
 
                 <ImageView
-                    android:id="@+id/imageViewHistory"
+                    android:id="@+id/imageViewTheater"
                     android:layout_width="161dp"
                     android:layout_height="148dp"
                     android:layout_marginStart="37dp"
@@ -62,11 +62,11 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.344"
-                    app:srcCompat="@drawable/bookshistory"
-                    tools:srcCompat="@drawable/bookshistory" />
+                    app:srcCompat="@drawable/theater"
+                    tools:srcCompat="@drawable/theater" />
 
                 <CheckBox
-                    android:id="@+id/checkBoxHistory"
+                    android:id="@+id/checkBoxTheater"
                     style="@android:style/Widget.Holo.CompoundButton.CheckBox"
                     android:layout_width="161dp"
                     android:layout_height="148dp"
@@ -76,7 +76,7 @@
                     android:layout_marginBottom="412dp"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="History"
+                    android:text="Theater"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
@@ -87,10 +87,10 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.0"
-                    tools:text="History" />
+                    tools:text="Theater" />
 
                 <ImageView
-                    android:id="@+id/imageViewScifi"
+                    android:id="@+id/imageViewMuseum"
                     android:layout_width="161dp"
                     android:layout_height="148dp"
                     android:layout_marginStart="37dp"
@@ -103,11 +103,11 @@
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/booksscifi"
-                    tools:srcCompat="@drawable/booksscifi" />
+                    app:srcCompat="@drawable/museum"
+                    tools:srcCompat="@drawable/museum" />
 
                 <CheckBox
-                    android:id="@+id/checkBoxScifi"
+                    android:id="@+id/checkBoxMuseum"
                     style="@android:style/Widget.Holo.CompoundButton.CheckBox"
                     android:layout_width="161dp"
                     android:layout_height="148dp"
@@ -117,7 +117,7 @@
                     android:layout_marginBottom="1112dp"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="Sci-fi"
+                    android:text="Museum"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
@@ -128,10 +128,10 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.923"
-                    tools:text="Sci-fi" />
+                    tools:text="Museum" />
 
                 <ImageView
-                    android:id="@+id/imageViewRomance"
+                    android:id="@+id/imageViewShows"
                     android:layout_width="161dp"
                     android:layout_height="148dp"
                     android:layout_marginStart="210dp"
@@ -144,11 +144,11 @@
                     app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/booksromance"
-                    tools:srcCompat="@drawable/booksromance" />
+                    app:srcCompat="@drawable/shows"
+                    tools:srcCompat="@drawable/shows" />
 
                 <CheckBox
-                    android:id="@+id/checkBoxRomance"
+                    android:id="@+id/checkBoxShows"
                     style="@android:style/Widget.Holo.CompoundButton.CheckBox"
                     android:layout_width="161dp"
                     android:layout_height="148dp"
@@ -158,7 +158,7 @@
                     android:layout_marginBottom="1112dp"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="Romance"
+                    android:text="Shows"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
@@ -168,10 +168,10 @@
                     app:layout_constraintHorizontal_bias="0.277"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:text="Romance" />
+                    tools:text="Shows" />
 
                 <ImageView
-                    android:id="@+id/imageViewMistery"
+                    android:id="@+id/imageViewComedians"
                     android:layout_width="161dp"
                     android:layout_height="148dp"
                     android:layout_marginStart="37dp"
@@ -185,11 +185,11 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.655"
-                    app:srcCompat="@drawable/booksmistery"
-                    tools:srcCompat="@drawable/booksmistery" />
+                    app:srcCompat="@drawable/comedian"
+                    tools:srcCompat="@drawable/comedian" />
 
                 <CheckBox
-                    android:id="@+id/checkBoxMistery"
+                    android:id="@+id/checkBoxComedians"
                     style="@android:style/Widget.Holo.CompoundButton.CheckBox"
                     android:layout_width="161dp"
                     android:layout_height="148dp"
@@ -199,7 +199,7 @@
                     android:layout_marginBottom="944dp"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="Mistery"
+                    android:text="Comedians"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
@@ -210,10 +210,10 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="1.0"
-                    tools:text="Mistery" />
+                    tools:text="Comedians" />
 
                 <ImageView
-                    android:id="@+id/imageViewLaw"
+                    android:id="@+id/imageViewExhibitions"
                     android:layout_width="161dp"
                     android:layout_height="148dp"
                     android:layout_marginStart="210dp"
@@ -227,11 +227,11 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.758"
-                    app:srcCompat="@drawable/bookslaw"
-                    tools:srcCompat="@drawable/bookslaw" />
+                    app:srcCompat="@drawable/exhibitions"
+                    tools:srcCompat="@drawable/exhibitions" />
 
                 <CheckBox
-                    android:id="@+id/checkBoxLaw"
+                    android:id="@+id/checkBoxExhibitions"
                     style="@android:style/Widget.Holo.CompoundButton.CheckBox"
                     android:layout_width="161dp"
                     android:layout_height="148dp"
@@ -241,7 +241,7 @@
                     android:layout_marginBottom="944dp"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="Law"
+                    android:text="Exhibitions"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
@@ -252,10 +252,10 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="1.0"
-                    tools:text="Law" />
+                    tools:text="Exhibitions" />
 
                 <ImageView
-                    android:id="@+id/imageViewChildren"
+                    android:id="@+id/imageViewChildrenActivities"
                     android:layout_width="161dp"
                     android:layout_height="148dp"
                     android:layout_marginStart="37dp"
@@ -268,11 +268,11 @@
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/bookschildren"
-                    tools:srcCompat="@drawable/bookschildren" />
+                    app:srcCompat="@drawable/childrenactivities"
+                    tools:srcCompat="@drawable/childrenactivities" />
 
                 <CheckBox
-                    android:id="@+id/checkBoxChildren"
+                    android:id="@+id/checkBoxChildrenActivities"
                     style="@android:style/Widget.Holo.CompoundButton.CheckBox"
                     android:layout_width="161dp"
                     android:layout_height="148dp"
@@ -282,7 +282,7 @@
                     android:layout_marginBottom="764dp"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="Children"
+                    android:text="Children's Activities"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
@@ -293,10 +293,10 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.38"
-                    tools:text="Children" />
+                    tools:text="Children's Activities" />
 
                 <ImageView
-                    android:id="@+id/imageViewReligion"
+                    android:id="@+id/imageViewReligionActivities"
                     android:layout_width="161dp"
                     android:layout_height="148dp"
                     android:layout_marginStart="210dp"
@@ -308,11 +308,11 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/booksreligion"
-                    tools:srcCompat="@drawable/booksreligion" />
+                    app:srcCompat="@drawable/religionactivities"
+                    tools:srcCompat="@drawable/religionactivities" />
 
                 <CheckBox
-                    android:id="@+id/checkBoxReligion"
+                    android:id="@+id/checkBoxReligionActivities"
                     style="@android:style/Widget.Holo.CompoundButton.CheckBox"
                     android:layout_width="161dp"
                     android:layout_height="148dp"
@@ -322,7 +322,7 @@
                     android:layout_marginBottom="764dp"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="Religion"
+                    android:text="Religion Activities"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
@@ -333,10 +333,10 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.272"
-                    tools:text="Religion" />
+                    tools:text="Religion Activities" />
 
                 <ImageView
-                    android:id="@+id/imageViewCook"
+                    android:id="@+id/imageViewArtGallery"
                     android:layout_width="161dp"
                     android:layout_height="148dp"
                     android:layout_marginStart="37dp"
@@ -349,11 +349,11 @@
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/bookscook"
-                    tools:srcCompat="@drawable/bookscook" />
+                    app:srcCompat="@drawable/artgallery"
+                    tools:srcCompat="@drawable/artgallery" />
 
                 <CheckBox
-                    android:id="@+id/checkBoxCook"
+                    android:id="@+id/checkBoxArtGallery"
                     style="@android:style/Widget.Holo.CompoundButton.CheckBox"
                     android:layout_width="161dp"
                     android:layout_height="148dp"
@@ -363,7 +363,7 @@
                     android:layout_marginBottom="592dp"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="Cooking"
+                    android:text="Art Gallery"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
@@ -374,10 +374,10 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.0"
-                    tools:text="Cooking" />
+                    tools:text="Art Gallery" />
 
                 <ImageView
-                    android:id="@+id/imageViewTechnology"
+                    android:id="@+id/imageViewTechnologicalActivities"
                     android:layout_width="161dp"
                     android:layout_height="148dp"
                     android:layout_marginStart="210dp"
@@ -389,11 +389,11 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/bookstechnology"
-                    tools:srcCompat="@drawable/bookstechnology" />
+                    app:srcCompat="@drawable/technologicalactivities"
+                    tools:srcCompat="@drawable/technologicalactivities" />
 
                 <CheckBox
-                    android:id="@+id/checkBoxTechnology"
+                    android:id="@+id/checkBoxTechnologicalActivities"
                     style="@android:style/Widget.Holo.CompoundButton.CheckBox"
                     android:layout_width="161dp"
                     android:layout_height="148dp"
@@ -403,7 +403,7 @@
                     android:layout_marginBottom="594dp"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="Technology"
+                    android:text="Technological Activities"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
@@ -414,10 +414,10 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.0"
-                    tools:text="Technology" />
+                    tools:text="Technological Activities" />
 
                 <ImageView
-                    android:id="@+id/imageViewComics"
+                    android:id="@+id/imageViewNatureActivities"
                     android:layout_width="161dp"
                     android:layout_height="148dp"
                     android:layout_marginStart="204dp"
@@ -431,11 +431,11 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.366"
-                    app:srcCompat="@drawable/bookscomics"
-                    tools:srcCompat="@drawable/bookscomics" />
+                    app:srcCompat="@drawable/natureactivities"
+                    tools:srcCompat="@drawable/natureactivities" />
 
                 <CheckBox
-                    android:id="@+id/checkBoxcomics"
+                    android:id="@+id/checkBoxNatureActivities"
                     style="@android:style/Widget.Holo.CompoundButton.CheckBox"
                     android:layout_width="161dp"
                     android:layout_height="148dp"
@@ -445,7 +445,7 @@
                     android:layout_marginBottom="408dp"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="Comics"
+                    android:text="Nature Activities"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
@@ -456,7 +456,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.0"
-                    tools:text="Comics" />
+                    tools:text="Nature Activities" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>

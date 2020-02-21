@@ -61,5 +61,6 @@
     <string name="editpassword">Edit your password</string>
     <string name="editage">Edit your birthday</string>
     <string name="uploadPhoto">upload your photo</string>
+    <string name="outdoor">Outdoor Activities</string>
 
 </resources>

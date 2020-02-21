@@ -192,10 +192,10 @@
                     android:scaleType="fitXY"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintHorizontal_bias="0.166"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.71"
+                    app:layout_constraintVertical_bias="0.709"
                     app:srcCompat="@drawable/animation"
                     tools:srcCompat="@drawable/animation" />
 
@@ -393,10 +393,10 @@
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.7"
+                    app:layout_constraintHorizontal_bias="0.416"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.668"
+                    app:layout_constraintVertical_bias="0.667"
                     tools:text="Musical" />
 
                 <CheckBox
@@ -439,10 +439,10 @@
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintHorizontal_bias="0.166"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.712"
+                    app:layout_constraintVertical_bias="0.709"
                     tools:text="Animation" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>

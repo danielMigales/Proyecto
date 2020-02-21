@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/background_light"
-    tools:context=".VideoGamesPreferencesActivity">
+    tools:context=".OutdoorPreferencesActivity">
 
     <ScrollView
         android:layout_width="407dp"
@@ -34,18 +34,19 @@
                     android:layout_marginEnd="40dp"
                     android:layout_marginBottom="1252dp"
                     android:fontFamily="@font/aladin"
-                    android:text="Video Games"
+                    android:text="Outdoor Activities"
                     android:textAlignment="center"
                     android:textColor="@android:color/black"
                     android:textSize="30sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.545"
+                    app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="1.0"
-                    tools:text="Video Games" />
+                    tools:text="Outdoor Activities" />
+
+
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
