@@ -8,11 +8,8 @@
     tools:context=".FoodPreferencesActivity">
 
     <ScrollView
-        android:layout_width="406dp"
-        android:layout_height="611dp"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginEnd="3dp"
+        android:layout_width="410dp"
+        android:layout_height="630dp"
         android:layout_marginBottom="118dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

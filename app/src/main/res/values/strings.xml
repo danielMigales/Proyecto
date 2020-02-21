@@ -26,14 +26,15 @@
     <string name="reggaeton">Reggaeton</string>
     <string name="title_activity_homepage">Homepage</string>
     <string name="title_activity_music">MusicActivity</string>
-    <string name="scienceThings">science</string>
+    <string name="cultureThings">culture</string>
+    <string name="culture">culture</string>
     <string name="foodThings">food</string>
     <string name="musicThings">music</string>
     <string name="travelThings">travel</string>
     <string name="tvThings">tv</string>
     <string name="select_your_preferences">Select your preferences</string>
     <string name="saveButton">Save</string>
-    <string name="select_your_music_preferences">Select your preferences</string>
+    <string name="select_your_music_preferences">Select your Music preferences</string>
     <string name="Rock">rock</string>
     <string name="Soul">soul</string>
     <string name="Metal">metal</string>
@@ -46,7 +47,7 @@
     <string name="indian_food">Indian food</string>
     <string name="french_food">French food</string>
     <string name="save1">Save</string>
-    <string name="select_yours">Select yours...</string>
+    <string name="select_yours">Select yours</string>
     <string name="videogames">Video Games</string>
     <string name="books">Books</string>
     <string name="title_activity_navigation">NavigationActivity</string>
@@ -54,6 +55,11 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <string name="title_map">Map</string>
-
+    <string name="logout">Log Out</string>
+    <string name="Edityourname">Edit your name</string>
+    <string name="edityouremail">Edit your mail</string>
+    <string name="editpassword">Edit your password</string>
+    <string name="editage">Edit your birthday</string>
+    <string name="uploadPhoto">upload your photo</string>
 
 </resources>

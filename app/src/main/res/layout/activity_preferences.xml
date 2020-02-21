@@ -9,9 +9,7 @@
 
     <ScrollView
         android:layout_width="410dp"
-        android:layout_height="630dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="3dp"
+        android:layout_height="635dp"
         android:layout_marginBottom="97dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -125,41 +123,44 @@
                     android:scaleType="fitXY"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.818"
+                    app:layout_constraintHorizontal_bias="0.727"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.759"
+                    app:layout_constraintVertical_bias="0.746"
                     app:srcCompat="@drawable/tv" />
 
                 <ImageView
-                    android:id="@+id/imageViewScience"
+                    android:id="@+id/imageViewCulture"
                     android:layout_width="161dp"
                     android:layout_height="148dp"
                     android:layout_marginStart="210dp"
                     android:layout_marginEnd="37dp"
                     android:layout_marginBottom="200dp"
-                    android:contentDescription="@string/scienceThings"
+                    android:contentDescription="@string/cultureThings"
                     android:scaleType="fitXY"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.759"
-                    app:srcCompat="@drawable/science" />
+                    app:layout_constraintVertical_bias="0.746"
+                    app:srcCompat="@drawable/culture" />
 
                 <ImageView
                     android:id="@+id/imageViewBooks"
                     android:layout_width="161dp"
                     android:layout_height="148dp"
                     android:layout_marginStart="37dp"
+                    android:layout_marginTop="621dp"
                     android:layout_marginEnd="230dp"
+                    android:contentDescription="categoryBooks"
                     android:scaleType="fitXY"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.388"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.799"
+                    app:layout_constraintVertical_bias="0.0"
                     app:srcCompat="@drawable/books" />
 
                 <ImageView
@@ -167,16 +168,34 @@
                     android:layout_width="161dp"
                     android:layout_height="148dp"
                     android:layout_marginStart="216dp"
+                    android:layout_marginTop="622dp"
                     android:layout_marginEnd="37dp"
-                    android:layout_marginBottom="163dp"
+                    android:layout_marginBottom="164dp"
                     android:scaleType="fitXY"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="1.0"
+                    app:layout_constraintVertical_bias="0.0"
                     app:srcCompat="@drawable/videogames" />
+
+                <ImageView
+                    android:id="@+id/imageViewSports"
+                    android:layout_width="161dp"
+                    android:layout_height="148dp"
+                    android:layout_marginStart="37dp"
+                    android:layout_marginTop="793dp"
+                    android:layout_marginEnd="223dp"
+                    android:layout_marginBottom="8dp"
+                    android:contentDescription="categorySports"
+                    android:scaleType="fitXY"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.909"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/sports" />
 
                 <CheckBox
                     android:id="@+id/checkBoxCinema"
@@ -225,11 +244,12 @@
                 <CheckBox
                     android:id="@+id/checkBoxMusic"
                     style="@android:style/Widget.Holo.CompoundButton.CheckBox"
-                    android:layout_width="161dp"
-                    android:layout_height="148dp"
-                    android:layout_marginStart="37dp"
-                    android:layout_marginEnd="256dp"
-                    android:layout_marginBottom="370dp"
+                    android:layout_width="162dp"
+                    android:layout_height="149dp"
+                    android:layout_marginStart="29dp"
+                    android:layout_marginTop="278dp"
+                    android:layout_marginEnd="219dp"
+                    android:layout_marginBottom="521dp"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
                     android:text="@string/music"
@@ -239,10 +259,8 @@
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.204"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.647" />
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <CheckBox
                     android:id="@+id/checkBoxTravel"
@@ -271,8 +289,9 @@
                     android:layout_width="161dp"
                     android:layout_height="148dp"
                     android:layout_marginStart="37dp"
-                    android:layout_marginEnd="262dp"
-                    android:layout_marginBottom="225dp"
+                    android:layout_marginTop="448dp"
+                    android:layout_marginEnd="222dp"
+                    android:layout_marginBottom="352dp"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
                     android:text="@string/tv_shows"
@@ -282,22 +301,22 @@
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.18"
+                    app:layout_constraintHorizontal_bias="0.9"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.483" />
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <CheckBox
-                    android:id="@+id/checkBoxScience"
+                    android:id="@+id/checkBoxCulture"
                     style="@android:style/Widget.Holo.CompoundButton.CheckBox"
                     android:layout_width="161dp"
                     android:layout_height="148dp"
                     android:layout_marginStart="210dp"
+                    android:layout_marginTop="448dp"
                     android:layout_marginEnd="37dp"
-                    android:layout_marginBottom="225dp"
+                    android:layout_marginBottom="253dp"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="@string/science"
+                    android:text="@string/culture"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
@@ -307,16 +326,18 @@
                     app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.792" />
+                    app:layout_constraintVertical_bias="0.0"
+                    tools:text="Culture" />
 
                 <CheckBox
                     android:id="@+id/checkBoxBooks"
                     style="@android:style/Widget.Holo.CompoundButton.CheckBox"
                     android:layout_width="161dp"
                     android:layout_height="148dp"
-                    android:layout_marginStart="37dp"
+                    android:layout_marginStart="27dp"
+                    android:layout_marginTop="620dp"
                     android:layout_marginEnd="263dp"
-                    android:layout_marginBottom="57dp"
+                    android:layout_marginBottom="180dp"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
                     android:text="Books"
@@ -326,19 +347,43 @@
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.196"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.862"
                     tools:text="Books" />
+
+                <CheckBox
+                    android:id="@+id/checkBoxSports"
+                    style="@android:style/Widget.Holo.CompoundButton.CheckBox"
+                    android:layout_width="161dp"
+                    android:layout_height="148dp"
+                    android:layout_marginStart="27dp"
+                    android:layout_marginTop="793dp"
+                    android:layout_marginEnd="263dp"
+                    android:layout_marginBottom="8dp"
+                    android:buttonTint="@android:color/white"
+                    android:gravity="bottom"
+                    android:text="Sports"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Sports" />
 
                 <CheckBox
                     android:id="@+id/checkBoxVideoGames"
                     style="@android:style/Widget.Holo.CompoundButton.CheckBox"
                     android:layout_width="161dp"
                     android:layout_height="148dp"
-                    android:layout_marginTop="637dp"
-                    android:layout_marginBottom="162dp"
+                    android:layout_marginStart="210dp"
+                    android:layout_marginTop="620dp"
+                    android:layout_marginEnd="39dp"
+                    android:layout_marginBottom="180dp"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
                     android:text="@string/videogames"
@@ -347,8 +392,10 @@
                     android:textSize="16sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:layout_editor_absoluteX="211dp"
                     tools:text="Video Games" />
 
 

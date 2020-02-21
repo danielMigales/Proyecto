@@ -31,9 +31,10 @@ public class PreferencesActivity extends AppCompatActivity {
     private CheckBox music;
     private CheckBox travel;
     private CheckBox tv;
-    private CheckBox science;
+    private CheckBox culture;
     private CheckBox books;
     private CheckBox videogames;
+    private CheckBox sports;
     private Button submit;
 
     ArrayList<String> preferences = new ArrayList();
@@ -52,9 +53,10 @@ public class PreferencesActivity extends AppCompatActivity {
         music = (CheckBox) findViewById(R.id.checkBoxMusic);
         travel = (CheckBox) findViewById(R.id.checkBoxTravel);
         tv = (CheckBox) findViewById(R.id.checkBoxTV);
-        science = (CheckBox) findViewById(R.id.checkBoxScience);
+        culture = (CheckBox) findViewById(R.id.checkBoxCulture);
         books = (CheckBox) findViewById(R.id.checkBoxBooks);
         videogames = (CheckBox) findViewById(R.id.checkBoxVideoGames);
+        sports= (CheckBox) findViewById(R.id.checkBoxSports);
 
         Intent intent = getIntent();
         final String email = intent.getStringExtra("email");
@@ -91,14 +93,17 @@ public class PreferencesActivity extends AppCompatActivity {
         if (tv.isChecked()){
             preferences.add("tv");
         }
-        if (science.isChecked()){
-            preferences.add("science");
+        if (culture.isChecked()){
+            preferences.add("culture");
         }
         if (books.isChecked()){
             preferences.add("books");
         }
         if (videogames.isChecked()){
             preferences.add("videogames");
+        }
+        if (sports.isChecked()){
+            preferences.add("sports");
         }
     }
 

@@ -16,10 +16,11 @@ import androidx.lifecycle.ViewModelProviders;
 import com.example.proyectonavigation.BooksPreferencesActivity;
 import com.example.proyectonavigation.ChangeProfileActivity;
 import com.example.proyectonavigation.CinemaPreferencesActivity;
+import com.example.proyectonavigation.CulturePreferencesActivity;
 import com.example.proyectonavigation.FoodPreferencesActivity;
 import com.example.proyectonavigation.MusicPreferencesActivity;
 import com.example.proyectonavigation.R;
-import com.example.proyectonavigation.SciencePreferencesActivity;
+import com.example.proyectonavigation.SportsPreferencesActivity;
 import com.example.proyectonavigation.TVShowsPreferencesActivity;
 import com.example.proyectonavigation.TravelPreferencesActivity;
 import com.example.proyectonavigation.VideoGamesPreferencesActivity;
@@ -36,9 +37,10 @@ public class ProfileFragment extends Fragment {
     private Button editMusic;
     private Button editTravel;
     private Button editTVShows;
-    private Button editScience;
+    private Button editCulture;
     private Button editBooks;
     private Button editVideoGames;
+    private Button editSports;
     private Button changeData;
 
     private ProfileViewModel profileViewModel;
@@ -101,11 +103,11 @@ public class ProfileFragment extends Fragment {
                 startActivityForResult(intent,0); }
         });
 
-        editScience = view.findViewById(R.id.editScience);
-        editScience.setOnClickListener(new View.OnClickListener() {
+        editCulture = view.findViewById(R.id.editScience);
+        editCulture.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), SciencePreferencesActivity.class);
+                Intent intent = new Intent(getContext(), CulturePreferencesActivity.class);
                 startActivityForResult(intent,0); }
         });
 
@@ -122,6 +124,14 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), VideoGamesPreferencesActivity.class);
+                startActivityForResult(intent,0); }
+        });
+
+        editSports = view.findViewById(R.id.editSports);
+        editSports.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), SportsPreferencesActivity.class);
                 startActivityForResult(intent,0); }
         });
 

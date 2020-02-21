@@ -169,14 +169,14 @@
                 android:textSize="12sp" />
 
             <Button
-                android:id="@+id/editScience"
+                android:id="@+id/editCulture"
                 android:layout_width="140dp"
                 android:layout_height="110dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="10dp"
-                android:background="@drawable/science"
+                android:background="@drawable/culture"
                 android:drawableEnd="@drawable/baseline_add_circle_outline_white_18dp"
                 android:textColor="@android:color/black"
                 android:textSize="12sp" />
@@ -203,6 +203,19 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/videogames"
+                android:drawableEnd="@drawable/baseline_add_circle_outline_white_18dp"
+                android:textColor="@android:color/black"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/editSports"
+                android:layout_width="140dp"
+                android:layout_height="110dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/sports"
                 android:drawableEnd="@drawable/baseline_add_circle_outline_white_18dp"
                 android:textColor="@android:color/black"
                 android:textSize="12sp" />

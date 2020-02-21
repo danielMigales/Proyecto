@@ -11,9 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".CardActivity"></activity>
+        <activity android:name=".SportsPreferencesActivity"></activity>
+        <activity android:name=".CardActivity" />
         <activity android:name=".ChangeProfileActivity" />
-        <activity android:name=".SciencePreferencesActivity" />
+        <activity android:name=".CulturePreferencesActivity" />
         <activity android:name=".VideoGamesPreferencesActivity" />
         <activity android:name=".BooksPreferencesActivity" />
         <activity android:name=".TravelPreferencesActivity" />
