@@ -5,12 +5,17 @@
     android:layout_height="match_parent">
 
     <ScrollView
-        android:layout_width="408dp"
-        android:layout_height="596dp"
-        android:layout_marginBottom="135dp"
+        android:layout_width="389dp"
+        android:layout_height="634dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="198dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tabLayout"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/linearLayout"
@@ -19,13 +24,13 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardview1"
-                android:layout_width="0dp"
-                android:layout_height="223dp"
-                android:layout_marginStart="44dp"
-                android:layout_marginTop="70dp"
-                android:layout_marginEnd="44dp"
-                android:layout_marginBottom="284dp"
-                app:cardCornerRadius="8dp"
+                android:layout_width="374dp"
+                android:layout_height="360dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="63dp"
+                android:layout_marginEnd="11dp"
+                android:layout_marginBottom="1216dp"
+                app:cardCornerRadius="15dp"
                 app:cardElevation="2dp"
                 app:contentPadding="5dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -37,15 +42,17 @@
                 <ImageView
                     android:id="@+id/imageViewCardview1"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="240dp"
+                    android:layout_gravity="center"
                     android:scaleType="fitXY"
                     app:srcCompat="@drawable/wella" />
 
                 <TextView
                     android:id="@+id/textViewCardview1"
-                    android:layout_width="310dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom|center"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_gravity="top"
+                    android:background="@android:color/holo_blue_dark"
                     android:clickable="false"
                     android:fontFamily="@font/aladin"
                     android:gravity="center"
@@ -55,18 +62,40 @@
                     android:textSize="24sp"
                     android:textStyle="bold" />
 
+                <RatingBar
+                    android:id="@+id/ratingBar1"
+                    style="@style/Widget.AppCompat.RatingBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_gravity="bottom"
+                    android:isIndicator="true"
+                    android:max="5"
+                    android:numStars="5"
+                    android:progress="4"
+                    android:progressTint="#FFEB3B"
+                    android:rating="3" />
+
+                <Button
+                    android:id="@+id/buttonLike1"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|center|right"
+                    android:background="@drawable/baseline_favorite_border_black_18dp"
+                    android:backgroundTint="#D51A1A"
+                    android:textColor="#F61010" />
+
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
 
                 android:id="@+id/cardview2"
-                android:layout_width="322dp"
-                android:layout_height="223dp"
-                android:layout_marginStart="45dp"
-                android:layout_marginTop="323dp"
-                android:layout_marginEnd="44dp"
-                android:layout_marginBottom="32dp"
-                app:cardCornerRadius="8dp"
+                android:layout_width="374dp"
+                android:layout_height="360dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="441dp"
+                android:layout_marginEnd="11dp"
+                android:layout_marginBottom="836dp"
+                app:cardCornerRadius="15dp"
                 app:cardElevation="2dp"
                 app:contentPadding="5dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -77,32 +106,118 @@
 
                 <ImageView
                     android:id="@+id/imageViewCardview2"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="240dp"
+                    android:layout_gravity="center"
                     android:scaleType="fitXY"
                     app:srcCompat="@drawable/razzmatazzz" />
 
                 <TextView
                     android:id="@+id/textViewCardview2"
                     android:layout_width="match_parent"
-                    android:layout_height="55dp"
-                    android:layout_gravity="bottom"
+                    android:layout_height="60dp"
+                    android:layout_gravity="top"
+                    android:background="@android:color/holo_blue_dark"
                     android:clickable="false"
                     android:fontFamily="@font/aladin"
                     android:gravity="center"
                     android:inputType="textLongMessage"
-                    android:lineSpacingExtra="8sp"
-                    android:text="Razzmatazz Carnival Mandanga"
-                    android:textAlignment="textStart"
+                    android:text="Mandanga Carnival at Razzmatazz "
                     android:textColor="@android:color/white"
                     android:textSize="24sp"
                     android:textStyle="bold" />
+
+                <RatingBar
+                    android:id="@+id/ratingBar2"
+                    style="@style/Widget.AppCompat.RatingBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_gravity="bottom"
+                    android:isIndicator="true"
+                    android:max="5"
+                    android:numStars="5"
+                    android:progress="4"
+                    android:progressTint="#FFEB3B"
+                    android:rating="3" />
+
+                <Button
+                    android:id="@+id/buttonLike2"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|center|right"
+                    android:background="@drawable/baseline_favorite_border_black_18dp"
+                    android:backgroundTint="#D51A1A"
+                    android:textColor="#F61010" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardview3"
+                android:layout_width="374dp"
+                android:layout_height="360dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="826dp"
+                android:layout_marginEnd="11dp"
+                android:layout_marginBottom="452dp"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="2dp"
+                app:contentPadding="5dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="240dp"
+                    android:layout_gravity="center"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/zoo" />
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_gravity="top"
+                    android:background="@android:color/holo_blue_dark"
+                    android:clickable="false"
+                    android:fontFamily="@font/aladin"
+                    android:gravity="center"
+                    android:inputType="textLongMessage"
+                    android:text="Enjoy at Barcelona's Zoo"
+                    android:textColor="@android:color/white"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+                <RatingBar
+                    android:id="@+id/ratingBar3"
+                    style="@style/Widget.AppCompat.RatingBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_gravity="bottom"
+                    android:isIndicator="true"
+                    android:max="5"
+                    android:numStars="5"
+                    android:progress="4"
+                    android:progressTint="#FFEB3B"
+                    android:rating="3" />
+
+                <Button
+                    android:id="@+id/buttonLike3"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|center|right"
+                    android:background="@drawable/baseline_favorite_border_black_18dp"
+                    android:backgroundTint="#D51A1A"
+                    android:textColor="#F61010" />
             </androidx.cardview.widget.CardView>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
     <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent">
