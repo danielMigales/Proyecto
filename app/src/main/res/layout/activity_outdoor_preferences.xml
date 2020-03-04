@@ -8,10 +8,10 @@
     tools:context=".OutdoorPreferencesActivity">
 
     <ScrollView
-        android:layout_width="407dp"
-        android:layout_height="661dp"
+        android:layout_width="400dp"
+        android:layout_height="635dp"
         android:layout_marginTop="3dp"
-        android:layout_marginBottom="67dp"
+        android:layout_marginBottom="70dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,11 +26,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
+
                 <TextView
                     android:id="@+id/textViewTitle"
                     android:layout_width="338dp"
                     android:layout_height="41dp"
                     android:layout_marginStart="40dp"
+                    android:layout_marginTop="35dp"
                     android:layout_marginEnd="40dp"
                     android:layout_marginBottom="1252dp"
                     android:fontFamily="@font/aladin"
@@ -41,11 +43,11 @@
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintHorizontal_bias="0.6"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.033"
                     tools:text="Outdoor Activities" />
-
 
                 <ImageView
                     android:id="@+id/imageViewPaintball"

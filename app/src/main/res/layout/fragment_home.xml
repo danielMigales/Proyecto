@@ -5,17 +5,16 @@
     android:layout_height="match_parent">
 
     <ScrollView
-        android:layout_width="389dp"
-        android:layout_height="634dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginBottom="198dp"
+        android:layout_width="394dp"
+        android:layout_height="580dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="49dp"
+        android:layout_marginEnd="11dp"
+        android:layout_marginBottom="97dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/tabLayout"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/linearLayout"
@@ -24,24 +23,21 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardview1"
-                android:layout_width="374dp"
+                android:layout_width="0dp"
                 android:layout_height="360dp"
-                android:layout_marginStart="8dp"
                 android:layout_marginTop="63dp"
-                android:layout_marginEnd="11dp"
-                android:layout_marginBottom="1216dp"
+                android:layout_marginBottom="19dp"
                 app:cardCornerRadius="15dp"
                 app:cardElevation="2dp"
                 app:contentPadding="5dp"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/cardview2"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
                     android:id="@+id/imageViewCardview1"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="240dp"
                     android:layout_gravity="center"
                     android:scaleType="fitXY"
@@ -50,7 +46,7 @@
                 <TextView
                     android:id="@+id/textViewCardview1"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp"
+                    android:layout_height="50dp"
                     android:layout_gravity="top"
                     android:background="@android:color/holo_blue_dark"
                     android:clickable="false"
@@ -65,7 +61,7 @@
                 <RatingBar
                     android:id="@+id/ratingBar1"
                     style="@style/Widget.AppCompat.RatingBar"
-                    android:layout_width="wrap_content"
+                    android:layout_width="341dp"
                     android:layout_height="50dp"
                     android:layout_gravity="bottom"
                     android:isIndicator="true"
@@ -89,20 +85,17 @@
             <androidx.cardview.widget.CardView
 
                 android:id="@+id/cardview2"
-                android:layout_width="374dp"
+                android:layout_width="0dp"
                 android:layout_height="360dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="441dp"
-                android:layout_marginEnd="11dp"
-                android:layout_marginBottom="836dp"
+                android:layout_marginTop="19dp"
+                android:layout_marginBottom="24dp"
                 app:cardCornerRadius="15dp"
                 app:cardElevation="2dp"
                 app:contentPadding="5dp"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/cardview3"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toBottomOf="@+id/cardview1">
 
                 <ImageView
                     android:id="@+id/imageViewCardview2"
@@ -152,20 +145,17 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardview3"
-                android:layout_width="374dp"
+                android:layout_width="0dp"
                 android:layout_height="360dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="826dp"
-                android:layout_marginEnd="11dp"
-                android:layout_marginBottom="452dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginBottom="20dp"
                 app:cardCornerRadius="15dp"
                 app:cardElevation="2dp"
                 app:contentPadding="5dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toBottomOf="@+id/cardview2">
 
                 <ImageView
                     android:id="@+id/imageView3"

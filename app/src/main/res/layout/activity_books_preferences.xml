@@ -9,13 +9,9 @@
 
     <ScrollView
         android:layout_width="407dp"
-        android:layout_height="661dp"
-        android:layout_marginTop="3dp"
-        android:layout_marginBottom="67dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="570dp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -26,13 +22,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
+
                 <TextView
                     android:id="@+id/textViewTitle"
                     android:layout_width="338dp"
-                    android:layout_height="41dp"
-                    android:layout_marginStart="40dp"
-                    android:layout_marginEnd="40dp"
-                    android:layout_marginBottom="1252dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="37dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginEnd="32dp"
+                    android:layout_marginBottom="1338dp"
                     android:fontFamily="@font/aladin"
                     android:text="Book Genres"
                     android:textAlignment="center"
@@ -41,11 +39,9 @@
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:text="Book Genres" />
-
 
                 <ImageView
                     android:id="@+id/imageViewHistory"
@@ -73,7 +69,7 @@
                     android:layout_marginStart="37dp"
                     android:layout_marginTop="850dp"
                     android:layout_marginEnd="267dp"
-                    android:layout_marginBottom="412dp"
+                    android:layout_marginBottom="32dp"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
                     android:text="History"
@@ -442,7 +438,7 @@
                     android:layout_marginStart="216dp"
                     android:layout_marginTop="847dp"
                     android:layout_marginEnd="84dp"
-                    android:layout_marginBottom="408dp"
+                    android:layout_marginBottom="32dp"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
                     android:text="Comics"

@@ -8,8 +8,8 @@
     tools:context=".CinemaPreferencesActivity">
 
     <ScrollView
-        android:layout_width="413dp"
-        android:layout_height="651dp"
+        android:layout_width="410dp"
+        android:layout_height="632dp"
         android:layout_marginBottom="80dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

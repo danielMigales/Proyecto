@@ -30,6 +30,7 @@
                     android:layout_width="340dp"
                     android:layout_height="46dp"
                     android:layout_marginStart="20dp"
+                    android:layout_marginTop="30dp"
                     android:layout_marginEnd="20dp"
                     android:layout_marginBottom="749dp"
                     android:fontFamily="@font/aladin"

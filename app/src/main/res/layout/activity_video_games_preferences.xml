@@ -8,8 +8,8 @@
     tools:context=".VideoGamesPreferencesActivity">
 
     <ScrollView
-        android:layout_width="407dp"
-        android:layout_height="661dp"
+        android:layout_width="402dp"
+        android:layout_height="629dp"
         android:layout_marginTop="3dp"
         android:layout_marginBottom="67dp"
         app:layout_constraintBottom_toBottomOf="parent"
