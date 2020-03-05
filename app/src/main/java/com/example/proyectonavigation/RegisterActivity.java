@@ -63,8 +63,8 @@ public class RegisterActivity extends AppCompatActivity {
                 Intent intent = new Intent(RegisterActivity.this, PreferencesActivity.class);
                 intent.putExtra("email", email.getText().toString());
                 intent.putExtra("name", name.getText().toString());
-                startActivityForResult(intent,0);
-                }
+                startActivityForResult(intent, 0);
+            }
         });
     }
 

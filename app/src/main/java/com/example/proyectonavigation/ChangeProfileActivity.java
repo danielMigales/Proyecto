@@ -24,7 +24,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 import java.io.ByteArrayOutputStream;
-import java.util.Hashtable;
+import java.util.HashMap;
 import java.util.Map;
 
 public class ChangeProfileActivity extends AppCompatActivity {
@@ -34,16 +34,17 @@ public class ChangeProfileActivity extends AppCompatActivity {
     private Bitmap imageBitmap;
     private String UPLOAD_URL = "https://proyectogrupod.000webhostapp.com/register_php/uploadPhoto.php";
     static final int REQUEST_IMAGE_CAPTURE = 1;
-    private String KEY_PHOTO = "photo";
-    private String KEY_NAME = "name";
 
+    private String email;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_profile);
         getSupportActionBar().hide();
+        requestCameraPermission(); //PERMISO PARA LA CAMARA
 
-        requestCameraPermission();
+        Intent intent = getIntent();
+        email = intent.getStringExtra("email");
 
         photo = findViewById(R.id.imageViewPhoto);
 
@@ -79,7 +80,6 @@ public class ChangeProfileActivity extends AppCompatActivity {
             Bundle extras = data.getExtras();
             imageBitmap = (Bitmap) extras.get("data");
             photo.setImageBitmap(imageBitmap); //COLOCA LA IMAGEN EN EL IMAGEVIEW
-
             uploadImage();
         }
     }
@@ -101,33 +101,26 @@ public class ChangeProfileActivity extends AppCompatActivity {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String s) {
-                        //Descartar el diálogo de progreso
                         loading.dismiss();
-                        //Mostrando el mensaje de la respuesta
                         Toast.makeText(ChangeProfileActivity.this, s, Toast.LENGTH_LONG).show();
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError volleyError) {
-                        //Descartar el diálogo de progreso
                         loading.dismiss();
-                        //Showing toast
                         Toast.makeText(ChangeProfileActivity.this, volleyError.getMessage().toString(), Toast.LENGTH_LONG).show();
                     }
                 }) {
+
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+
                 //Convertir bits a cadena
                 String photo = getStringImagen(imageBitmap);
-
-                //Creación de parámetros
-                Map<String, String> params = new Hashtable<String, String>();
-
-                //Agregando de parámetros
-                params.put(KEY_PHOTO, photo);
-               // params.put(KEY_NAME, name);
-
+                params.put("photo", photo);
+                params.put("email", email);
                 //Parámetros de retorno
                 return params;
             }
