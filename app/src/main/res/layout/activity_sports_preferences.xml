@@ -8,8 +8,8 @@
     tools:context=".SportsPreferencesActivity">
 
     <ScrollView
-        android:layout_width="404dp"
-        android:layout_height="619dp"
+        android:layout_width="399dp"
+        android:layout_height="660dp"
         android:layout_marginTop="3dp"
         android:layout_marginBottom="67dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -32,21 +32,22 @@
                     android:layout_width="338dp"
                     android:layout_height="41dp"
                     android:layout_marginStart="40dp"
+                    android:layout_marginTop="45dp"
                     android:layout_marginEnd="40dp"
-                    android:layout_marginBottom="1252dp"
+                    android:layout_marginBottom="1332dp"
                     android:fontFamily="@font/aladin"
-                    android:text="Sports"
+                    android:text="Deportes"
                     android:textAlignment="center"
                     android:textColor="@android:color/black"
                     android:textSize="30sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.545"
+                    app:layout_constraintHorizontal_bias="0.368"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.36"
-                    tools:text="Sports" />
+                    app:layout_constraintVertical_bias="0.0"
+                    tools:text="Deportes" />
 
                 <ImageView
                     android:id="@+id/imageViewFootball"
@@ -77,7 +78,7 @@
                     android:layout_marginBottom="412dp"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="Football"
+                    android:text="Futbol Americano"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
@@ -88,7 +89,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.0"
-                    tools:text="Foottball" />
+                    tools:text="Futbol Americano" />
 
                 <ImageView
                     android:id="@+id/imageViewBasketball"
@@ -242,7 +243,7 @@
                     android:layout_marginBottom="944dp"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="Soccer"
+                    android:text="Futbol"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
@@ -253,7 +254,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="1.0"
-                    tools:text="Soccer" />
+                    tools:text="Futbol" />
 
                 <ImageView
                     android:id="@+id/imageViewMartialArts"
@@ -283,7 +284,7 @@
                     android:layout_marginBottom="764dp"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="Martial Arts"
+                    android:text="Artes Marciales"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
@@ -294,7 +295,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.38"
-                    tools:text="Martial Arts" />
+                    tools:text="Artes Marciales" />
 
                 <ImageView
                     android:id="@+id/imageViewSki"
@@ -364,7 +365,7 @@
                     android:layout_marginBottom="592dp"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="Athletics"
+                    android:text="Athletismo"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
@@ -375,7 +376,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.0"
-                    tools:text="Athletics" />
+                    tools:text="Athletismo" />
 
                 <ImageView
                     android:id="@+id/imageViewSwimming"
@@ -404,7 +405,7 @@
                     android:layout_marginBottom="594dp"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="Swimming"
+                    android:text="Natacion"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
@@ -415,7 +416,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.0"
-                    tools:text="Swimming" />
+                    tools:text="Natacion" />
 
                 <ImageView
                     android:id="@+id/imageViewFitness"

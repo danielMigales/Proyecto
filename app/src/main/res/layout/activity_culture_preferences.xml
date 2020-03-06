@@ -34,7 +34,7 @@
                     android:layout_marginEnd="40dp"
                     android:layout_marginBottom="1252dp"
                     android:fontFamily="@font/aladin"
-                    android:text="Culture Activities"
+                    android:text="Actividades culturales"
                     android:textAlignment="center"
                     android:textColor="@android:color/black"
                     android:textSize="30sp"
@@ -44,7 +44,7 @@
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:text="Culture Activities" />
+                    tools:text="Actividades culturale" />
 
 
                 <ImageView
@@ -76,7 +76,7 @@
                     android:layout_marginBottom="412dp"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="Theater"
+                    android:text="Teatro"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
@@ -117,7 +117,7 @@
                     android:layout_marginBottom="1112dp"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="Museum"
+                    android:text="Museos"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
@@ -128,7 +128,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.923"
-                    tools:text="Museum" />
+                    tools:text="Museos" />
 
                 <ImageView
                     android:id="@+id/imageViewShows"
@@ -158,7 +158,7 @@
                     android:layout_marginBottom="1112dp"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="Shows"
+                    android:text="Espectaculos"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
@@ -168,7 +168,7 @@
                     app:layout_constraintHorizontal_bias="0.277"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:text="Shows" />
+                    tools:text="Espectaculos" />
 
                 <ImageView
                     android:id="@+id/imageViewComedians"
@@ -199,7 +199,7 @@
                     android:layout_marginBottom="944dp"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="Comedians"
+                    android:text="Comedia"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
@@ -210,7 +210,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="1.0"
-                    tools:text="Comedians" />
+                    tools:text="Comedia" />
 
                 <ImageView
                     android:id="@+id/imageViewExhibitions"
@@ -241,7 +241,7 @@
                     android:layout_marginBottom="944dp"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="Exhibitions"
+                    android:text="Exposiciones"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
@@ -252,7 +252,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="1.0"
-                    tools:text="Exhibitions" />
+                    tools:text="Exposiciones" />
 
                 <ImageView
                     android:id="@+id/imageViewChildrenActivities"
@@ -282,7 +282,7 @@
                     android:layout_marginBottom="764dp"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="Children's Activities"
+                    android:text="Actividades con niños"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
@@ -293,7 +293,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.38"
-                    tools:text="Children's Activities" />
+                    tools:text="Actividades con niños" />
 
                 <ImageView
                     android:id="@+id/imageViewReligionActivities"
@@ -322,7 +322,7 @@
                     android:layout_marginBottom="764dp"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="Religion Activities"
+                    android:text="Actividades Religiosas"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
@@ -333,7 +333,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.272"
-                    tools:text="Religion Activities" />
+                    tools:text="Actividades Religiosas" />
 
                 <ImageView
                     android:id="@+id/imageViewArtGallery"
@@ -363,7 +363,7 @@
                     android:layout_marginBottom="592dp"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="Art Gallery"
+                    android:text="Galerias de arte"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
@@ -374,7 +374,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.0"
-                    tools:text="Art Gallery" />
+                    tools:text="Galerias de arte" />
 
                 <ImageView
                     android:id="@+id/imageViewTechnologicalActivities"
@@ -403,7 +403,7 @@
                     android:layout_marginBottom="594dp"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="Technological Activities"
+                    android:text="Actividades Tecnologicas"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
@@ -414,7 +414,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.0"
-                    tools:text="Technological Activities" />
+                    tools:text="Actividades Tecnologicas" />
 
                 <ImageView
                     android:id="@+id/imageViewNatureActivities"
@@ -445,7 +445,7 @@
                     android:layout_marginBottom="408dp"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="Nature Activities"
+                    android:text="Actividades con Naturaleza"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
@@ -456,7 +456,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.0"
-                    tools:text="Nature Activities" />
+                    tools:text="Actividades con Naturaleza" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>

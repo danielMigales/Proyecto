@@ -36,7 +36,7 @@
                     android:layout_marginEnd="23dp"
                     android:layout_marginBottom="1500dp"
                     android:fontFamily="@font/aladin"
-                    android:text="Movie Genres"
+                    android:text="Generos cinematograficos"
                     android:textAlignment="center"
                     android:textColor="@android:color/black"
                     android:textSize="30sp"
@@ -248,7 +248,7 @@
                     android:layout_marginBottom="1200dp"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="Comedy"
+                    android:text="Comedia"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
@@ -259,7 +259,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.506"
-                    tools:text="Comedy" />
+                    tools:text="Comedia" />
 
                 <CheckBox
                     android:id="@+id/checkBoxAction"
@@ -271,7 +271,7 @@
                     android:layout_marginBottom="828dp"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="Action"
+                    android:text="Accion"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
@@ -282,7 +282,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.481"
-                    tools:text="Action" />
+                    tools:text="Accion" />
 
                 <CheckBox
                     android:id="@+id/checkBoxRomantic"
@@ -294,7 +294,7 @@
                     android:layout_marginBottom="832dp"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="Romantic"
+                    android:text="Romantico"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
@@ -305,7 +305,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.49"
-                    tools:text="Romantic" />
+                    tools:text="Romantico" />
 
                 <CheckBox
                     android:id="@+id/checkBoxScifi"
@@ -317,7 +317,7 @@
                     android:layout_marginBottom="652dp"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="Sci-fi"
+                    android:text="Ciencia Ficcion"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
@@ -328,7 +328,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.604"
-                    tools:text="Sci-fi" />
+                    tools:text="Ciencia Ficcion" />
 
                 <CheckBox
                     android:id="@+id/checkBoxFantastic"
@@ -340,7 +340,7 @@
                     android:layout_marginBottom="652dp"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="Fantastic"
+                    android:text="Fantastico"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
@@ -351,7 +351,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.602"
-                    tools:text="Fantastic" />
+                    tools:text="Fantastico" />
 
                 <CheckBox
                     android:id="@+id/checkBoxDrama"
@@ -432,7 +432,7 @@
                     android:layout_marginBottom="292dp"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="Animation"
+                    android:text="Animacion"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
@@ -443,7 +443,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.709"
-                    tools:text="Animation" />
+                    tools:text="Animacion" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>

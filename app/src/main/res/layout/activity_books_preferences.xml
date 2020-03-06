@@ -32,7 +32,7 @@
                     android:layout_marginEnd="32dp"
                     android:layout_marginBottom="1338dp"
                     android:fontFamily="@font/aladin"
-                    android:text="Book Genres"
+                    android:text="Generos Literarios"
                     android:textAlignment="center"
                     android:textColor="@android:color/black"
                     android:textSize="30sp"
@@ -41,7 +41,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:text="Book Genres" />
+                    tools:text="Generos Literarios" />
 
                 <ImageView
                     android:id="@+id/imageViewHistory"
@@ -72,7 +72,7 @@
                     android:layout_marginBottom="32dp"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="History"
+                    android:text="Historia"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
@@ -83,7 +83,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.0"
-                    tools:text="History" />
+                    tools:text="Historia" />
 
                 <ImageView
                     android:id="@+id/imageViewScifi"
@@ -113,7 +113,7 @@
                     android:layout_marginBottom="1112dp"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="Sci-fi"
+                    android:text="Ciencia Ficcion"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
@@ -124,7 +124,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.923"
-                    tools:text="Sci-fi" />
+                    tools:text="Ciencia Ficcion" />
 
                 <ImageView
                     android:id="@+id/imageViewRomance"
@@ -195,7 +195,7 @@
                     android:layout_marginBottom="944dp"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="Mistery"
+                    android:text="Misterio"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
@@ -206,7 +206,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="1.0"
-                    tools:text="Mistery" />
+                    tools:text="Misterio" />
 
                 <ImageView
                     android:id="@+id/imageViewLaw"
@@ -237,7 +237,7 @@
                     android:layout_marginBottom="944dp"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="Law"
+                    android:text="Leyes"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
@@ -248,7 +248,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="1.0"
-                    tools:text="Law" />
+                    tools:text="Leyes" />
 
                 <ImageView
                     android:id="@+id/imageViewChildren"
@@ -278,7 +278,7 @@
                     android:layout_marginBottom="764dp"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="Children"
+                    android:text="Niños"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
@@ -289,7 +289,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.38"
-                    tools:text="Children" />
+                    tools:text="Niños" />
 
                 <ImageView
                     android:id="@+id/imageViewReligion"
@@ -359,7 +359,7 @@
                     android:layout_marginBottom="592dp"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="Cooking"
+                    android:text="Cocina"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
@@ -370,7 +370,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.0"
-                    tools:text="Cooking" />
+                    tools:text="Cocina" />
 
                 <ImageView
                     android:id="@+id/imageViewTechnology"
@@ -399,7 +399,7 @@
                     android:layout_marginBottom="594dp"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="Technology"
+                    android:text="Tecnologia"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
@@ -410,7 +410,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.0"
-                    tools:text="Technology" />
+                    tools:text="Tecnologia" />
 
                 <ImageView
                     android:id="@+id/imageViewComics"

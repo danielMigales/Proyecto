@@ -1,10 +1,7 @@
 package com.example.proyectonavigation.ui.profile;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +19,7 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.proyectonavigation.BooksPreferencesActivity;
@@ -36,8 +34,12 @@ import com.example.proyectonavigation.SportsPreferencesActivity;
 import com.example.proyectonavigation.TVShowsPreferencesActivity;
 import com.example.proyectonavigation.VideoGamesPreferencesActivity;
 
+import org.json.JSONObject;
+
 import java.util.HashMap;
 import java.util.Map;
+
+import static com.android.volley.Request.Method.POST;
 
 public class ProfileFragment extends Fragment {
 
@@ -46,8 +48,9 @@ public class ProfileFragment extends Fragment {
     private TextView textEmail;
     private String email;
     private String name;
-    private static String URL_PHOTO = "https://proyectogrupod.000webhostapp.com/register_php/downloadPhoto.php";
+
     private static String URL_NAME = "https://proyectogrupod.000webhostapp.com/register_php/getName.php";
+    String URL_IMAGE = "https://proyectogrupod.000webhostapp.com/register_php/getImage.php";
     private Button editCinema;
     private Button editfood;
     private Button editMusic;
@@ -64,192 +67,174 @@ public class ProfileFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         profileViewModel =
-                ViewModelProviders.of(this).get(ProfileViewModel.class);
-        View view = inflater.inflate(R.layout.fragment_profile, container, false);
+                ViewModelProviders.of( this ).get( ProfileViewModel.class );
+        View view = inflater.inflate( R.layout.fragment_profile, container, false );
 
         //ESTE BLOQUE EXTRAE EL NOMBRE Y EL EMAIL QUE SE HAN PASADO DESDE OTRAS ACTIVIDADES PARA COLOCARLOS EN EL PERFIL
         //EN UNA FUTURA ACTUALIZACION LOS DATOS SE OBTENDRAN DE LA BBDD
         Intent intent = getActivity().getIntent();
 
-        email = intent.getStringExtra("email");
-        textEmail = view.findViewById(R.id.textViewEmail);
-        textEmail.setText(email);
+        email = intent.getStringExtra( "email" );
+        textEmail = view.findViewById( R.id.textViewEmail );
+        textEmail.setText( email );
 
-        //EL NOMBRE HA DE VENIR DE LA BD YA QUE CUANDO INICIAS DESDE LOGIN NO SE OBTIENE EL NAME
-        name = intent.getStringExtra("name");
-        textName = view.findViewById(R.id.textViewName);
-        textName.setText(name);
+        //EL NOMBRE DE USUARIO VIENE DE LA BD CON EL METODO GETNAME
+        textName = view.findViewById( R.id.textViewName );
+        getName();
 
-        photo = view.findViewById(R.id.imageViewPicture);
-        downloadImage();
+        photo = view.findViewById( R.id.imageViewPicture );
 
 
         //ESTE BLOQUE SON TODOS LOS BOTONES QUE HAY EN EL SCROLLHORIZONTAL Y QUE REDIRIGEN HACIA LAS ACTIVITIES PARA SELECCIONAR PREFERENCIAS
-        editCinema = view.findViewById(R.id.editCinema);
-        editCinema.setOnClickListener(new View.OnClickListener() {
+        editCinema = view.findViewById( R.id.editCinema );
+        editCinema.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), CinemaPreferencesActivity.class);
-                startActivityForResult(intent, 0);
+                Intent intent = new Intent( getContext(), CinemaPreferencesActivity.class );
+                startActivityForResult( intent, 0 );
             }
-        });
+        } );
 
-        editfood = view.findViewById(R.id.editFood);
-        editfood.setOnClickListener(new View.OnClickListener() {
+        editfood = view.findViewById( R.id.editFood );
+        editfood.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), FoodPreferencesActivity.class);
-                startActivityForResult(intent, 0);
+                Intent intent = new Intent( getContext(), FoodPreferencesActivity.class );
+                startActivityForResult( intent, 0 );
             }
-        });
+        } );
 
-        editMusic = view.findViewById(R.id.editMusic);
-        editMusic.setOnClickListener(new View.OnClickListener() {
+        editMusic = view.findViewById( R.id.editMusic );
+        editMusic.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), MusicPreferencesActivity.class);
-                intent.putExtra("email", email);
-                startActivityForResult(intent, 0);
+                Intent intent = new Intent( getContext(), MusicPreferencesActivity.class );
+                intent.putExtra( "email", email );
+                startActivityForResult( intent, 0 );
             }
-        });
+        } );
 
-        editTVShows = view.findViewById(R.id.editTVShows);
-        editTVShows.setOnClickListener(new View.OnClickListener() {
+        editTVShows = view.findViewById( R.id.editTVShows );
+        editTVShows.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), TVShowsPreferencesActivity.class);
-                startActivityForResult(intent, 0);
+                Intent intent = new Intent( getContext(), TVShowsPreferencesActivity.class );
+                startActivityForResult( intent, 0 );
             }
-        });
+        } );
 
-        editOutdoor = view.findViewById(R.id.editOutdoor);
-        editOutdoor.setOnClickListener(new View.OnClickListener() {
+        editOutdoor = view.findViewById( R.id.editOutdoor );
+        editOutdoor.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), OutdoorPreferencesActivity.class);
-                startActivityForResult(intent, 0);
+                Intent intent = new Intent( getContext(), OutdoorPreferencesActivity.class );
+                startActivityForResult( intent, 0 );
             }
-        });
+        } );
 
-        editCulture = view.findViewById(R.id.editCulture);
-        editCulture.setOnClickListener(new View.OnClickListener() {
+        editCulture = view.findViewById( R.id.editCulture );
+        editCulture.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), CulturePreferencesActivity.class);
-                startActivityForResult(intent, 0);
+                Intent intent = new Intent( getContext(), CulturePreferencesActivity.class );
+                startActivityForResult( intent, 0 );
             }
-        });
+        } );
 
-        editBooks = view.findViewById(R.id.editBooks);
-        editBooks.setOnClickListener(new View.OnClickListener() {
+        editBooks = view.findViewById( R.id.editBooks );
+        editBooks.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), BooksPreferencesActivity.class);
-                startActivityForResult(intent, 0);
+                Intent intent = new Intent( getContext(), BooksPreferencesActivity.class );
+                startActivityForResult( intent, 0 );
             }
-        });
+        } );
 
-        editVideoGames = view.findViewById(R.id.editVideoGames);
-        editVideoGames.setOnClickListener(new View.OnClickListener() {
+        editVideoGames = view.findViewById( R.id.editVideoGames );
+        editVideoGames.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), VideoGamesPreferencesActivity.class);
-                startActivityForResult(intent, 0);
+                Intent intent = new Intent( getContext(), VideoGamesPreferencesActivity.class );
+                startActivityForResult( intent, 0 );
             }
-        });
+        } );
 
-        editSports = view.findViewById(R.id.editSports);
-        editSports.setOnClickListener(new View.OnClickListener() {
+        editSports = view.findViewById( R.id.editSports );
+        editSports.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), SportsPreferencesActivity.class);
-                startActivityForResult(intent, 0);
+                Intent intent = new Intent( getContext(), SportsPreferencesActivity.class );
+                startActivityForResult( intent, 0 );
             }
-        });
+        } );
 
-        changeData = view.findViewById(R.id.buttonChangeProfileData);
-        changeData.setOnClickListener(new View.OnClickListener() {
+        changeData = view.findViewById( R.id.buttonChangeProfileData );
+        changeData.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), ChangeProfileActivity.class);
-                intent.putExtra("email", email);
-                startActivityForResult(intent, 0);
+                Intent intent = new Intent( getContext(), ChangeProfileActivity.class );
+                intent.putExtra( "email", email );
+                startActivityForResult( intent, 0 );
             }
-        });
+        } );
+
 
         return view;
     }
 
-    private void downloadImage() {
-
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_PHOTO,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        try {
-
-                            byte[] byteData = Base64.decode( response, Base64.DEFAULT);
-                            Bitmap picture = BitmapFactory.decodeByteArray( byteData, 0,
-                                    byteData.length);
-                            photo.setImageBitmap(picture);
-                        }
-                        catch(Exception e) {
-                            e.printStackTrace();
-                        }
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError volleyError) {
-                        Toast.makeText(getContext(), volleyError.getMessage().toString(), Toast.LENGTH_LONG).show();
-                    }
-                }) {
-
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String, String> params = new HashMap<>();
-                params.put("email", email);
-                return params;
-            }
-        };
-
-        //Creación de una cola de solicitudes
-        RequestQueue requestQueue = Volley.newRequestQueue(getContext());
-
-        //Agregar solicitud a la cola
-        requestQueue.add(stringRequest);
-    }
-
     private void getName() {
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_NAME,
+        StringRequest stringRequest = new StringRequest( POST, URL_NAME,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-
+                        textName.setText( response);
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError volleyError) {
-
+                        textName.setText( "????");
                     }
-                }) {
+                } ) {
 
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
-                params.put("email", email);
+                params.put( "email", email );
                 return params;
             }
         };
 
         //Creación de una cola de solicitudes
-        RequestQueue requestQueue = Volley.newRequestQueue(getContext());
+        RequestQueue requestQueue = Volley.newRequestQueue( getContext() );
 
         //Agregar solicitud a la cola
-        requestQueue.add(stringRequest);
+        requestQueue.add( stringRequest );
     }
 
+    public void getImage(){
+        RequestQueue requestQueue = Volley.newRequestQueue(getContext());
+        try {
+
+            JSONObject object = new JSONObject();
+            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest( Request.Method.GET, URL_IMAGE, null, new Response.Listener<JSONObject>() {
+                @Override
+                public void onResponse(JSONObject response) {
+
+                    Toast.makeText(getContext(), "Json OK", Toast.LENGTH_LONG).show();
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    Toast.makeText(getContext(), "Error Comunicacion", Toast.LENGTH_LONG).show();
+                }
+            });
+            requestQueue.add(jsonObjectRequest);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
 }
+

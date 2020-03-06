@@ -41,7 +41,7 @@
             android:id="@+id/password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Password"
+            android:hint="Contraseña"
             android:inputType="textPassword"
             android:textColor="@color/design_default_color_on_primary" />
 
@@ -64,7 +64,7 @@
         android:layout_marginTop="50dp"
 
         android:backgroundTint="#2196F3"
-        android:text="LOGIN"
+        android:text="Acceder"
         android:textColor="@color/design_default_color_on_primary" />
 
     <TextView
@@ -75,7 +75,7 @@
         android:layout_marginBottom="50dp"
         android:drawableEnd="@drawable/arrow_right_white_18dp"
         android:gravity="center"
-        android:text="Create a new account"
+        android:text="Crear nueva cuenta"
         android:textColor="@android:color/white" />
 
 </RelativeLayout>

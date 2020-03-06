@@ -8,8 +8,8 @@
     tools:context=".VideoGamesPreferencesActivity">
 
     <ScrollView
-        android:layout_width="402dp"
-        android:layout_height="629dp"
+        android:layout_width="395dp"
+        android:layout_height="661dp"
         android:layout_marginTop="3dp"
         android:layout_marginBottom="67dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -26,26 +26,24 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
+
                 <TextView
                     android:id="@+id/textViewTitle"
                     android:layout_width="338dp"
                     android:layout_height="41dp"
-                    android:layout_marginStart="40dp"
-                    android:layout_marginEnd="40dp"
-                    android:layout_marginBottom="1252dp"
+                    android:layout_marginStart="27dp"
+                    android:layout_marginTop="37dp"
+                    android:layout_marginEnd="27dp"
                     android:fontFamily="@font/aladin"
-                    android:text="Video Games"
+                    android:text="Video Juegos"
                     android:textAlignment="center"
                     android:textColor="@android:color/black"
                     android:textSize="30sp"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:text="Video Games" />
-
+                    tools:text="Video Juegos" />
 
                 <ImageView
                     android:id="@+id/imageViewArcade"
@@ -117,7 +115,7 @@
                     android:layout_marginBottom="1112dp"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="Beat 'em up"
+                    android:text="Lucha"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
@@ -128,7 +126,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.923"
-                    tools:text="Beat 'em up" />
+                    tools:text="Lucha" />
 
                 <ImageView
                     android:id="@+id/imageViewAdventure"
@@ -158,7 +156,7 @@
                     android:layout_marginBottom="1112dp"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="Adventure"
+                    android:text="Aventura"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
@@ -168,7 +166,7 @@
                     app:layout_constraintHorizontal_bias="0.277"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:text="Adventure" />
+                    tools:text="Aventura" />
 
                 <ImageView
                     android:id="@+id/imageViewShooter"
@@ -199,7 +197,7 @@
                     android:layout_marginBottom="944dp"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="Shooter"
+                    android:text="Disparos"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
@@ -210,7 +208,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="1.0"
-                    tools:text="Shooter" />
+                    tools:text="Disparos" />
 
                 <ImageView
                     android:id="@+id/imageViewPlatform"
@@ -241,7 +239,7 @@
                     android:layout_marginBottom="944dp"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="Platform"
+                    android:text="Plataformas"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
@@ -252,7 +250,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="1.0"
-                    tools:text="Platform" />
+                    tools:text="Plataformas" />
 
                 <ImageView
                     android:id="@+id/imageViewStrategy"
@@ -282,7 +280,7 @@
                     android:layout_marginBottom="764dp"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="Strategy"
+                    android:text="Estrategia"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
@@ -293,7 +291,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.38"
-                    tools:text="Strategy" />
+                    tools:text="Estrategia" />
 
                 <ImageView
                     android:id="@+id/imageViewRacing"
@@ -322,7 +320,7 @@
                     android:layout_marginBottom="764dp"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="Racing"
+                    android:text="Carreras"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
@@ -333,7 +331,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.272"
-                    tools:text="Racing" />
+                    tools:text="Carreras" />
 
                 <ImageView
                     android:id="@+id/imageViewSports"
@@ -363,7 +361,7 @@
                     android:layout_marginBottom="592dp"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="Sports"
+                    android:text="Deportivos"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
@@ -374,7 +372,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.0"
-                    tools:text="Sports" />
+                    tools:text="Deportivos" />
 
                 <ImageView
                     android:id="@+id/imageViewSurvival"
@@ -445,7 +443,7 @@
                     android:layout_marginBottom="408dp"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="Role Playing"
+                    android:text="Rol"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
@@ -456,7 +454,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.0"
-                    tools:text="RolePlaying" />
+                    tools:text="Rol" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>

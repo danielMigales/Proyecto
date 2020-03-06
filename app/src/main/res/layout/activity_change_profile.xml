@@ -29,7 +29,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
-        tools:text="Edit your name" />
+        tools:text="Nombre de usuario" />
 
     <Button
         android:id="@+id/buttonLogOut"
@@ -52,7 +52,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
-        tools:text="Log Out" />
+        tools:text="Desconectarse" />
 
     <Button
         android:id="@+id/buttonPassword"
@@ -76,7 +76,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
-        tools:text="Edit your password" />
+        tools:text="Contraseña" />
 
     <Button
         android:id="@+id/buttonBirthday"
@@ -99,7 +99,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
-        tools:text="Edit your birthday" />
+        tools:text="Fecha de nacimiento" />
 
     <Button
         android:id="@+id/buttonEmail"
@@ -124,7 +124,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
-        tools:text="Edit your email" />
+        tools:text="Email" />
 
     <ImageView
         android:id="@+id/imageViewPhoto"

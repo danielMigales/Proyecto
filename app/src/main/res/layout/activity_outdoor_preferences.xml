@@ -8,10 +8,12 @@
     tools:context=".OutdoorPreferencesActivity">
 
     <ScrollView
-        android:layout_width="400dp"
-        android:layout_height="635dp"
-        android:layout_marginTop="3dp"
-        android:layout_marginBottom="70dp"
+        android:layout_width="402dp"
+        android:layout_height="646dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="81dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -36,7 +38,7 @@
                     android:layout_marginEnd="40dp"
                     android:layout_marginBottom="1252dp"
                     android:fontFamily="@font/aladin"
-                    android:text="Outdoor Activities"
+                    android:text="Actividades al aire libre"
                     android:textAlignment="center"
                     android:textColor="@android:color/black"
                     android:textSize="30sp"
@@ -47,7 +49,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.033"
-                    tools:text="Outdoor Activities" />
+                    tools:text="Actividades al aire libre" />
 
                 <ImageView
                     android:id="@+id/imageViewPaintball"
@@ -119,7 +121,7 @@
                     android:layout_marginBottom="1112dp"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="Walking"
+                    android:text="Pasear"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
@@ -130,7 +132,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.923"
-                    tools:text="Walking" />
+                    tools:text="Pasear" />
 
                 <ImageView
                     android:id="@+id/imageViewBikeTours"
@@ -160,7 +162,7 @@
                     android:layout_marginBottom="1112dp"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="Bike Tours"
+                    android:text="Excursion en bici"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
@@ -170,7 +172,7 @@
                     app:layout_constraintHorizontal_bias="0.277"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:text="Bike Tours" />
+                    tools:text="Excursion en bici" />
 
                 <ImageView
                     android:id="@+id/imageViewTrekking"
@@ -201,7 +203,7 @@
                     android:layout_marginBottom="944dp"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="Trekking"
+                    android:text="Senderismo"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
@@ -212,7 +214,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="1.0"
-                    tools:text="Trekking" />
+                    tools:text="Senderismo" />
 
                 <ImageView
                     android:id="@+id/imageViewFoodWine"
@@ -243,7 +245,7 @@
                     android:layout_marginBottom="944dp"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="FoodWine"
+                    android:text="Tapeo"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
@@ -254,7 +256,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="1.0"
-                    tools:text="FoodWine" />
+                    tools:text="Tapeo" />
 
                 <ImageView
                     android:id="@+id/imageViewDiscoBar"
@@ -365,7 +367,7 @@
                     android:layout_marginBottom="592dp"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="Cars"
+                    android:text="Rutas en coche"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
@@ -376,7 +378,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.0"
-                    tools:text="Cars" />
+                    tools:text="Rutas en coche" />
 
                 <ImageView
                     android:id="@+id/imageViewBeach"
@@ -405,7 +407,7 @@
                     android:layout_marginBottom="594dp"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="Beach"
+                    android:text="Playa"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
@@ -416,7 +418,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.0"
-                    tools:text="Beach" />
+                    tools:text="Playa" />
 
                 <ImageView
                     android:id="@+id/imageViewShopping"
@@ -447,7 +449,7 @@
                     android:layout_marginBottom="408dp"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="Shopping"
+                    android:text="Ir de compras"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
@@ -458,7 +460,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.0"
-                    tools:text="Shopping" />
+                    tools:text="Ir de compras" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>

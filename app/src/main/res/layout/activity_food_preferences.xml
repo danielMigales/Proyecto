@@ -34,7 +34,7 @@
                     android:layout_marginEnd="20dp"
                     android:layout_marginBottom="1321dp"
                     android:fontFamily="@font/aladin"
-                    android:text="Food Styles"
+                    android:text="Gastronomia"
                     android:textAlignment="center"
                     android:textColor="@android:color/black"
                     android:textSize="30sp"
@@ -218,7 +218,7 @@
                     android:layout_marginBottom="1100dp"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="American"
+                    android:text="Americana"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
@@ -229,7 +229,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.686"
-                    tools:text="American" />
+                    tools:text="Americana" />
 
                 <CheckBox
                     android:id="@+id/checkBoxIndian"
@@ -241,7 +241,7 @@
                     android:layout_marginBottom="1100dp"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="Indian"
+                    android:text="India"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
@@ -263,7 +263,7 @@
                     android:layout_marginBottom="932dp"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="Chinesse"
+                    android:text="China"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
@@ -274,7 +274,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.87"
-                    tools:text="Chinesse" />
+                    tools:text="China" />
 
                 <CheckBox
                     android:id="@+id/checkBoxSpanish"
@@ -286,7 +286,7 @@
                     android:layout_marginBottom="932dp"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="Spanish"
+                    android:text="Española"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
@@ -297,7 +297,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.874"
-                    tools:text="Spanish" />
+                    tools:text="Española" />
 
                 <CheckBox
                     android:id="@+id/checkBoxFrench"
@@ -309,7 +309,7 @@
                     android:layout_marginBottom="754dp"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="French"
+                    android:text="Francesa"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
@@ -320,7 +320,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.908"
-                    tools:text="French" />
+                    tools:text="Francesa" />
 
                 <CheckBox
                     android:id="@+id/checkBoxGreek"
@@ -332,7 +332,7 @@
                     android:layout_marginBottom="754dp"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="Greek"
+                    android:text="Griega"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
@@ -343,7 +343,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.908"
-                    tools:text="Greek" />
+                    tools:text="Griega" />
 
                 <CheckBox
                     android:id="@+id/checkBoxMexican"
@@ -355,7 +355,7 @@
                     android:layout_marginBottom="579dp"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="Mexican"
+                    android:text="Mexicana"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
@@ -366,7 +366,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.933"
-                    tools:text="Mexican" />
+                    tools:text="Mexicana" />
 
                 <CheckBox
                     android:id="@+id/checkBoxItalian"
@@ -378,7 +378,7 @@
                     android:layout_marginBottom="577dp"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="Italian"
+                    android:text="Italiana"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
@@ -389,7 +389,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.926"
-                    tools:text="Italian" />
+                    tools:text="Italiana" />
 
                 <CheckBox
                     android:id="@+id/checkBoxFastFood"
@@ -401,7 +401,7 @@
                     android:layout_marginBottom="404dp"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="Fast food"
+                    android:text="Comida Rapida"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
@@ -412,7 +412,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.947"
-                    tools:text="Fast food" />
+                    tools:text="Comida Rapida" />
 
                 <CheckBox
                     android:id="@+id/checkBoxVegan"
@@ -424,7 +424,7 @@
                     android:layout_marginBottom="402dp"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="Vegan"
+                    android:text="Vegana"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
@@ -435,7 +435,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.942"
-                    tools:text="Vegan" />
+                    tools:text="Vegana" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>

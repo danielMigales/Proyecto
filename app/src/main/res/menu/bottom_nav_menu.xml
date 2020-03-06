@@ -12,6 +12,12 @@
         android:title="@string/title_search" />
 
     <item
+        android:id="@+id/navigation_map"
+        android:icon="@android:drawable/ic_dialog_map"
+        android:title="Mapa"
+        android:visible="true" />
+
+    <item
         android:id="@+id/navigation_profile"
         android:icon="@drawable/outline_perm_identity_white_18dp"
         android:title="@string/title_profile" />

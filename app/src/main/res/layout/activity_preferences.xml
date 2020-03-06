@@ -8,8 +8,8 @@
     tools:context=".PreferencesActivity">
 
     <ScrollView
-        android:layout_width="410dp"
-        android:layout_height="635dp"
+        android:layout_width="415dp"
+        android:layout_height="630dp"
         android:layout_marginBottom="97dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -29,10 +29,10 @@
                     android:id="@+id/textViewTitle"
                     android:layout_width="340dp"
                     android:layout_height="46dp"
-                    android:layout_marginStart="20dp"
+                    android:layout_marginStart="31dp"
                     android:layout_marginTop="30dp"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginBottom="749dp"
+                    android:layout_marginEnd="33dp"
+                    android:layout_marginBottom="873dp"
                     android:fontFamily="@font/aladin"
                     android:text="@string/select_your_preferences"
                     android:textAlignment="center"
@@ -41,10 +41,10 @@
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.266"
+                    app:layout_constraintHorizontal_bias="0.366"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.192" />
+                    app:layout_constraintVertical_bias="0.0" />
 
                 <ImageView
                     android:id="@+id/imageViewCinema"
@@ -328,7 +328,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.0"
-                    tools:text="Culture" />
+                    tools:text="Cultura" />
 
                 <CheckBox
                     android:id="@+id/checkBoxBooks"
@@ -341,7 +341,7 @@
                     android:layout_marginBottom="180dp"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="Books"
+                    android:text="Libros"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
@@ -351,7 +351,7 @@
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:text="Books" />
+                    tools:text="Libros" />
 
                 <CheckBox
                     android:id="@+id/checkBoxSports"
@@ -364,7 +364,7 @@
                     android:layout_marginBottom="8dp"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="Sports"
+                    android:text="Deportes"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
@@ -374,7 +374,7 @@
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:text="Sports" />
+                    tools:text="Deportes" />
 
                 <CheckBox
                     android:id="@+id/checkBoxVideoGames"
@@ -397,7 +397,7 @@
                     app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:text="Video Games" />
+                    tools:text="Video Juegos" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>

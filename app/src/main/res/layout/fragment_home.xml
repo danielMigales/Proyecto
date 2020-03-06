@@ -53,7 +53,7 @@
                     android:fontFamily="@font/aladin"
                     android:gravity="center"
                     android:inputType="textLongMessage"
-                    android:text="Romantic Dinner at Hotel Wella"
+                    android:text="Cena romantica en el hotel Wella"
                     android:textColor="@android:color/white"
                     android:textSize="24sp"
                     android:textStyle="bold" />
@@ -115,7 +115,7 @@
                     android:fontFamily="@font/aladin"
                     android:gravity="center"
                     android:inputType="textLongMessage"
-                    android:text="Mandanga Carnival at Razzmatazz "
+                    android:text="Mandanga Carnival en Razzmatazz "
                     android:textColor="@android:color/white"
                     android:textSize="24sp"
                     android:textStyle="bold" />
@@ -175,7 +175,7 @@
                     android:fontFamily="@font/aladin"
                     android:gravity="center"
                     android:inputType="textLongMessage"
-                    android:text="Enjoy at Barcelona's Zoo"
+                    android:text="Visita al Zoo de Barcelona"
                     android:textColor="@android:color/white"
                     android:textSize="24sp"
                     android:textStyle="bold" />
@@ -215,17 +215,17 @@
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TODAY" />
+            android:text="hoy" />
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="WEEKEND" />
+            android:text="fin de semana" />
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="SOON" />
+            android:text="proximamente" />
     </com.google.android.material.tabs.TabLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

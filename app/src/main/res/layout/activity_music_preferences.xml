@@ -35,7 +35,7 @@
                     android:layout_marginEnd="25dp"
                     android:layout_marginBottom="1150dp"
                     android:fontFamily="@font/aladin"
-                    android:text="Musical Genres"
+                    android:text="Generos Musicales"
                     android:textAlignment="center"
                     android:textColor="@android:color/black"
                     android:textSize="30sp"
@@ -265,7 +265,7 @@
                     android:layout_marginBottom="735dp"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="Reage"
+                    android:text="Reagge"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
@@ -427,7 +427,7 @@
                     android:layout_marginBottom="460dp"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="Classic"
+                    android:text="Clasica"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
@@ -436,7 +436,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:text="Classic" />
+                    tools:text="Clasica" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>

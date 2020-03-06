@@ -8,9 +8,9 @@
     tools:context=".TVShowsPreferencesActivity">
 
     <ScrollView
-        android:layout_width="408dp"
-        android:layout_height="612dp"
-        android:layout_marginTop="2dp"
+        android:layout_width="401dp"
+        android:layout_height="632dp"
+        android:layout_marginTop="3dp"
         android:layout_marginBottom="96dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -35,7 +35,7 @@
                     android:layout_marginEnd="25dp"
                     android:layout_marginBottom="1365dp"
                     android:fontFamily="@font/aladin"
-                    android:text="TV Genres"
+                    android:text="Generos televisivos"
                     android:textAlignment="center"
                     android:textColor="@android:color/black"
                     android:textSize="30sp"
@@ -117,7 +117,7 @@
                     android:layout_marginBottom="1198dp"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="Sitcom"
+                    android:text="Telecomedia"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
@@ -126,7 +126,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:text="TV Comedy" />
+                    tools:text="Telecomedia" />
 
                 <ImageView
                     android:id="@+id/imageViewTVaction"
@@ -157,7 +157,7 @@
                     android:layout_marginBottom="1026dp"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="Action"
+                    android:text="Accion"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
@@ -166,7 +166,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:text="Action" />
+                    tools:text="Accion" />
 
                 <ImageView
                     android:id="@+id/imageViewTVheroes"
@@ -238,7 +238,7 @@
                     android:layout_marginBottom="851dp"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="Sci-fi"
+                    android:text="Ciencia Ficcion"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
@@ -249,7 +249,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.0"
-                    tools:text="Sci-fi" />
+                    tools:text="Ciencia Ficcion" />
 
                 <ImageView
                     android:id="@+id/imageViewTVFantasy"
@@ -280,7 +280,7 @@
                     android:layout_marginBottom="851dp"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="Fantasy"
+                    android:text="Fantasia"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
@@ -289,7 +289,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:text="Fantasy" />
+                    tools:text="Fantasia" />
 
                 <ImageView
                     android:id="@+id/imageViewTVDrama"
@@ -359,7 +359,7 @@
                     android:layout_marginBottom="675dp"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="Crime"
+                    android:text="Crimen"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
@@ -368,7 +368,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:text="Crime" />
+                    tools:text="Crimen" />
 
                 <ImageView
                     android:id="@+id/imageViewTVAnimation"
@@ -400,7 +400,7 @@
                     android:layout_marginBottom="499dp"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="Animation"
+                    android:text="Animacion"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
@@ -409,7 +409,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:text="Animation" />
+                    tools:text="Animacion" />
 
                 <ImageView
                     android:id="@+id/imageViewTVThriller"
