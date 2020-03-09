@@ -1,7 +1,10 @@
 package com.example.proyectonavigation.ui.profile;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,13 +17,11 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
-import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.proyectonavigation.BooksPreferencesActivity;
 import com.example.proyectonavigation.ChangeProfileActivity;
@@ -34,12 +35,12 @@ import com.example.proyectonavigation.SportsPreferencesActivity;
 import com.example.proyectonavigation.TVShowsPreferencesActivity;
 import com.example.proyectonavigation.VideoGamesPreferencesActivity;
 
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import static com.android.volley.Request.Method.POST;
 
 public class ProfileFragment extends Fragment {
 
@@ -49,8 +50,8 @@ public class ProfileFragment extends Fragment {
     private String email;
     private String name;
 
-    private static String URL_NAME = "https://proyectogrupod.000webhostapp.com/register_php/getName.php";
-    String URL_IMAGE = "https://proyectogrupod.000webhostapp.com/register_php/getImage.php";
+    String url_userdata = "https://proyectogrupod.000webhostapp.com/register_php/getUserData.php";
+
     private Button editCinema;
     private Button editfood;
     private Button editMusic;
@@ -70,19 +71,17 @@ public class ProfileFragment extends Fragment {
                 ViewModelProviders.of( this ).get( ProfileViewModel.class );
         View view = inflater.inflate( R.layout.fragment_profile, container, false );
 
-        //ESTE BLOQUE EXTRAE EL NOMBRE Y EL EMAIL QUE SE HAN PASADO DESDE OTRAS ACTIVIDADES PARA COLOCARLOS EN EL PERFIL
-        //EN UNA FUTURA ACTUALIZACION LOS DATOS SE OBTENDRAN DE LA BBDD
+        //INTENT PARA OBTENER EL EMAIL DEL USUARIO QUE SE USA EN EL SELECT DE LA BD PARA CONSEGUIR EL RESTO DE DATOS
         Intent intent = getActivity().getIntent();
-
         email = intent.getStringExtra( "email" );
+
         textEmail = view.findViewById( R.id.textViewEmail );
-        textEmail.setText( email );
-
-        //EL NOMBRE DE USUARIO VIENE DE LA BD CON EL METODO GETNAME
         textName = view.findViewById( R.id.textViewName );
-        getName();
-
         photo = view.findViewById( R.id.imageViewPicture );
+
+        //OBTENER LOS DATOS DE LA BD
+
+        getData();
 
 
         //ESTE BLOQUE SON TODOS LOS BOTONES QUE HAY EN EL SCROLLHORIZONTAL Y QUE REDIRIGEN HACIA LAS ACTIVITIES PARA SELECCIONAR PREFERENCIAS
@@ -182,59 +181,62 @@ public class ProfileFragment extends Fragment {
         return view;
     }
 
-    private void getName() {
 
-        StringRequest stringRequest = new StringRequest( POST, URL_NAME,
-                new Response.Listener<String>() {
+    public void getData() {
+
+        JsonArrayRequest request = new JsonArrayRequest( Request.Method.POST, url_userdata,null,
+                new Response.Listener<JSONArray>() {
                     @Override
-                    public void onResponse(String response) {
-                        textName.setText( response);
+                    public void onResponse(JSONArray jsonArray) {
+
+                        for (int i = 0; i < jsonArray.length(); i++) {
+                            try {
+                                JSONObject jsonObject = jsonArray.getJSONObject( i );
+                                String user_email = jsonObject.getString( "email" );
+                                String user_picture = jsonObject.getString( "picture" );
+                                decodeImage( user_picture ); //LLAMADA AL METODO PARA DECODIFICAR LA IMAGEN QUE ES UN STRING
+
+                                textEmail.setText( user_email );
+
+
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
-                    public void onErrorResponse(VolleyError volleyError) {
-                        textName.setText( "????");
-                    }
-                } ) {
 
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText( getContext(), "Error al obtener los datos", Toast.LENGTH_SHORT ).show();
+
+                    }
+
+                } ) {
             @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String, String> params = new HashMap<>();
-                params.put( "email", email );
+            protected Map<String, String> getParams() {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put( "email", email);
                 return params;
             }
+            @Override
+            public int getMethod(){
+                return Method.POST;
+            }
         };
-
-        //Creación de una cola de solicitudes
-        RequestQueue requestQueue = Volley.newRequestQueue( getContext() );
-
-        //Agregar solicitud a la cola
-        requestQueue.add( stringRequest );
-    }
-
-    public void getImage(){
         RequestQueue requestQueue = Volley.newRequestQueue(getContext());
-        try {
-
-            JSONObject object = new JSONObject();
-            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest( Request.Method.GET, URL_IMAGE, null, new Response.Listener<JSONObject>() {
-                @Override
-                public void onResponse(JSONObject response) {
-
-                    Toast.makeText(getContext(), "Json OK", Toast.LENGTH_LONG).show();
-                }
-            }, new Response.ErrorListener() {
-                @Override
-                public void onErrorResponse(VolleyError error) {
-                    Toast.makeText(getContext(), "Error Comunicacion", Toast.LENGTH_LONG).show();
-                }
-            });
-            requestQueue.add(jsonObjectRequest);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        requestQueue.add( request );
     }
+
+    public void decodeImage(String picture) {
+
+        byte[] imageBytes;
+        imageBytes = Base64.decode( picture, Base64.DEFAULT );
+        Bitmap decodedImage = BitmapFactory.decodeByteArray( imageBytes, 0, imageBytes.length );
+        photo.setImageBitmap( decodedImage );
+    }
+
 
 }
 

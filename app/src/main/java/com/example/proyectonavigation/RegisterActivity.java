@@ -36,69 +36,90 @@ public class RegisterActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register);
+        super.onCreate( savedInstanceState );
+        setContentView( R.layout.activity_register );
 
         getSupportActionBar().hide();
 
-        name = findViewById(R.id.name);
-        email = findViewById(R.id.email);
-        password = findViewById(R.id.password);
-        c_password = findViewById(R.id.c_password);
-        btn_regist = findViewById(R.id.btn_regist);
+        name = findViewById( R.id.name );
+        email = findViewById( R.id.email );
+        password = findViewById( R.id.password );
+        c_password = findViewById( R.id.c_password );
+        btn_regist = findViewById( R.id.btn_regist );
 
-        back_login = findViewById(R.id.loginTxt);
+        back_login = findViewById( R.id.loginTxt );
 
-        back_login.setOnClickListener(new View.OnClickListener() {
+        back_login.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
+                startActivity( new Intent( RegisterActivity.this, LoginActivity.class ) );
             }
-        });
+        } );
 
-        btn_regist.setOnClickListener(new View.OnClickListener() {
+        btn_regist.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Regist();
-                Intent intent = new Intent(RegisterActivity.this, PreferencesActivity.class);
-                intent.putExtra("email", email.getText().toString());
-                intent.putExtra("name", name.getText().toString());
-                startActivityForResult(intent, 0);
+
+                String mName = name.getText().toString().trim();
+                String mEmail = email.getText().toString().trim();
+                String mPassword = password.getText().toString().trim();
+                String mCPassword = c_password.getText().toString().trim();
+
+                if (!mName.isEmpty()) {
+                    if (!mEmail.isEmpty()) {
+                        if (!mPassword.isEmpty()) {
+                            if (!mCPassword.isEmpty()) {
+                                Regist();
+                            }
+                        }
+                    }
+                } else {
+                    name.setError( "Introduzca su nombre " );
+                    email.setError( "Introduzca su email" );
+                    password.setError( "Introduzca su password" );
+                    c_password.setError( "Confirme su password" );
+                }
             }
-        });
+        } );
     }
 
     private void Regist() {
 
-        btn_regist.setVisibility(View.GONE);
+        btn_regist.setVisibility( View.GONE );
 
         final String name = this.name.getText().toString().trim();
         final String email = this.email.getText().toString().trim();
         final String password = this.password.getText().toString().trim();
 
         //Variables para el metodo de encriptado hash AÑADIDO DIA 24/01
-        byte[] passwordByte = hash(password);
-        final String passwordHash = byteToHex(passwordByte);
+        byte[] passwordByte = hash( password );
+        final String passwordHash = byteToHex( passwordByte );
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_REGIST,
+        StringRequest stringRequest = new StringRequest( Request.Method.POST, URL_REGIST,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         try {
-                            JSONObject jsonObject = new JSONObject(response);
-                            String success = jsonObject.getString("success");
+                            JSONObject jsonObject = new JSONObject( response );
+                            String success = jsonObject.getString( "success" );
 
-                            if (success.equals("1")) {
-                                btn_regist.setVisibility(View.VISIBLE);
-                                Toast.makeText(RegisterActivity.this, "Register Success", Toast.LENGTH_SHORT).show();
-
+                            if (success.equals( "1" )) {
+                                btn_regist.setVisibility( View.VISIBLE );
+                                Toast.makeText( RegisterActivity.this, "Registro Completo", Toast.LENGTH_SHORT ).show();
+                                Intent intent = new Intent( RegisterActivity.this, PreferencesActivity.class );
+                                intent.putExtra( "email", email);
+                                intent.putExtra( "name", name );
+                                startActivityForResult( intent, 0 );
+                            }
+                            else{
+                                Toast.makeText( RegisterActivity.this, "Registro Fallido", Toast.LENGTH_SHORT ).show();
                             }
 
                         } catch (JSONException e) {
                             e.printStackTrace();
-                            Toast.makeText(RegisterActivity.this, "JSON Error "
-                                    + e.toString(), Toast.LENGTH_SHORT).show();
-                            btn_regist.setVisibility(View.VISIBLE);
+                            Toast.makeText( RegisterActivity.this, "JSON Error "
+                                    + e.toString(), Toast.LENGTH_SHORT ).show();
+                            btn_regist.setVisibility( View.VISIBLE );
                         }
                     }
                 },
@@ -106,24 +127,24 @@ public class RegisterActivity extends AppCompatActivity {
                     @Override
                     public void onErrorResponse(VolleyError error) {
 
-                        Toast.makeText(RegisterActivity.this, "Response Error "
-                                + error.toString(), Toast.LENGTH_SHORT).show();
-                        btn_regist.setVisibility(View.VISIBLE);
+                        Toast.makeText( RegisterActivity.this, "Response Error "
+                                + error.toString(), Toast.LENGTH_SHORT ).show();
+                        btn_regist.setVisibility( View.VISIBLE );
                     }
-                }) {
+                } ) {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
-                params.put("name", name);
-                params.put("email", email);
+                params.put( "name", name );
+                params.put( "email", email );
                 //Se le añade la variable nueva de password con hash AÑADIDO DIA 24/01
-                params.put("password", passwordHash);
+                params.put( "password", passwordHash );
                 return params;
             }
         };
 
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
-        requestQueue.add(stringRequest);
+        RequestQueue requestQueue = Volley.newRequestQueue( this );
+        requestQueue.add( stringRequest );
 
     }
 
@@ -133,8 +154,8 @@ public class RegisterActivity extends AppCompatActivity {
         byte[] hash = null;
         try {
             byte[] data = password.getBytes();
-            MessageDigest md = MessageDigest.getInstance("SHA-256");
-            hash = md.digest(data);
+            MessageDigest md = MessageDigest.getInstance( "SHA-256" );
+            hash = md.digest( data );
         } catch (Exception ex) {
 
         }
@@ -143,7 +164,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     //Metodo que convierte el password con hash de nuevo a String AÑADIDO DIA 24/01
     public static String byteToHex(byte[] bytes) {
-        BigInteger bi = new BigInteger(1, bytes);
-        return String.format("%0" + (bytes.length << 1) + "X", bi);
+        BigInteger bi = new BigInteger( 1, bytes );
+        return String.format( "%0" + (bytes.length << 1) + "X", bi );
     }
 }
