@@ -31,7 +31,7 @@
         android:layout_marginTop="42dp"
         android:layout_marginEnd="191dp"
         android:layout_marginBottom="528dp"
-        android:scaleType="fitXY"
+        android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -128,12 +128,12 @@
 
     <ImageView
         android:id="@+id/imageViewPhoto"
-        android:layout_width="250dp"
-        android:layout_height="213dp"
+        android:layout_width="231dp"
+        android:layout_height="203dp"
         android:layout_marginStart="27dp"
         android:layout_marginTop="40dp"
-        android:layout_marginEnd="125dp"
-        android:layout_marginBottom="524dp"
+        android:layout_marginEnd="153dp"
+        android:layout_marginBottom="488dp"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

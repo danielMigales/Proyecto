@@ -48,11 +48,9 @@ public class ProfileFragment extends Fragment {
     private ImageView photo;
     private TextView textName;
     private TextView textEmail;
+    private TextView preferences;
     private String email;
     private String name;
-
-    String url_userdata = "https://proyectogrupodapp.000webhostapp.com/users/getUserData.php";
-
     private Button editCinema;
     private Button editfood;
     private Button editMusic;
@@ -79,11 +77,11 @@ public class ProfileFragment extends Fragment {
         textEmail = view.findViewById( R.id.textViewEmail );
         textName = view.findViewById( R.id.textViewName );
         photo = view.findViewById( R.id.imageViewPicture );
+        preferences = view.findViewById( R.id.textViewPreferencias );
 
         //OBTENER LOS DATOS DE LA BD
 
         getData();
-
 
         //ESTE BLOQUE SON TODOS LOS BOTONES QUE HAY EN EL SCROLLHORIZONTAL Y QUE REDIRIGEN HACIA LAS ACTIVITIES PARA SELECCIONAR PREFERENCIAS
         editCinema = view.findViewById( R.id.editCinema );
@@ -183,16 +181,9 @@ public class ProfileFragment extends Fragment {
 
     public void getData() {
 
-        final JSONArray jsonArrayParams = new JSONArray();
-        JSONObject jsonObjectParams = new JSONObject();
-        try {
-            jsonObjectParams.put( "email", email );
-            jsonArrayParams.put( jsonObjectParams );
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        String url_userdata = "https://proyectogrupodapp.000webhostapp.com/users/getUserData.php?email=" + email;
 
-        JsonArrayRequest request = new JsonArrayRequest( Request.Method.POST, url_userdata, jsonArrayParams,
+        JsonArrayRequest request = new JsonArrayRequest( Request.Method.POST, url_userdata, null,
                 new Response.Listener<JSONArray>() {
 
                     @Override
@@ -203,8 +194,13 @@ public class ProfileFragment extends Fragment {
                                 JSONObject jsonObject = jsonArray.getJSONObject( i );
                                 String user_email = jsonObject.getString( "email" );
                                 String user_picture = jsonObject.getString( "picture" );
+                                String user_name = jsonObject.getString( "name" );
+                                String user_preferences = jsonObject.getString( "preferencias" );
                                 decodeImage( user_picture ); //LLAMADA AL METODO PARA DECODIFICAR LA IMAGEN QUE ES UN STRING
                                 textEmail.setText( user_email );
+                                textName.setText( user_name );
+                                preferences.setText( user_preferences );
+
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
