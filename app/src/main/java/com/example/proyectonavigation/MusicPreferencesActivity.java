@@ -38,7 +38,7 @@ public class MusicPreferencesActivity extends AppCompatActivity {
     private CheckBox clasic;
     private Button submit;
     ArrayList<String> music = new ArrayList();
-    private static String URL = "https://proyectogrupod.000webhostapp.com/register_php/setMusic.php";
+    private static String URL = "https://proyectogrupodapp.000webhostapp.com/users/setMusic.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

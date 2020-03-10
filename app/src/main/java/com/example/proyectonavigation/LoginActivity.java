@@ -27,7 +27,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText email, password;
     private Button btn_login;
     private TextView link_regist;
-    private static String URL_LOGIN = "https://proyectogrupod.000webhostapp.com/register_php/login.php";
+    private static String URL_LOGIN = "https://proyectogrupodapp.000webhostapp.com/users/login.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

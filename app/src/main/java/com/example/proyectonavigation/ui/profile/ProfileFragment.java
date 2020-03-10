@@ -17,6 +17,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -50,7 +51,7 @@ public class ProfileFragment extends Fragment {
     private String email;
     private String name;
 
-    String url_userdata = "https://proyectogrupod.000webhostapp.com/register_php/getUserData.php";
+    String url_userdata = "https://proyectogrupodapp.000webhostapp.com/users/getUserData.php";
 
     private Button editCinema;
     private Button editfood;
@@ -177,15 +178,23 @@ public class ProfileFragment extends Fragment {
             }
         } );
 
-
         return view;
     }
 
-
     public void getData() {
 
-        JsonArrayRequest request = new JsonArrayRequest( Request.Method.POST, url_userdata,null,
+        final JSONArray jsonArrayParams = new JSONArray();
+        JSONObject jsonObjectParams = new JSONObject();
+        try {
+            jsonObjectParams.put( "email", email );
+            jsonArrayParams.put( jsonObjectParams );
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        JsonArrayRequest request = new JsonArrayRequest( Request.Method.POST, url_userdata, jsonArrayParams,
                 new Response.Listener<JSONArray>() {
+
                     @Override
                     public void onResponse(JSONArray jsonArray) {
 
@@ -195,10 +204,7 @@ public class ProfileFragment extends Fragment {
                                 String user_email = jsonObject.getString( "email" );
                                 String user_picture = jsonObject.getString( "picture" );
                                 decodeImage( user_picture ); //LLAMADA AL METODO PARA DECODIFICAR LA IMAGEN QUE ES UN STRING
-
                                 textEmail.setText( user_email );
-
-
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
@@ -210,22 +216,23 @@ public class ProfileFragment extends Fragment {
 
                     public void onErrorResponse(VolleyError error) {
                         Toast.makeText( getContext(), "Error al obtener los datos", Toast.LENGTH_SHORT ).show();
-
                     }
 
                 } ) {
+
             @Override
-            protected Map<String, String> getParams() {
-                Map<String, String> params = new HashMap<String, String>();
-                params.put( "email", email);
-                return params;
-            }
-            @Override
-            public int getMethod(){
+            public int getMethod() {
                 return Method.POST;
             }
+
+            @Override
+            public Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                params.put( "email", email.toString().trim() );
+                return params;
+            }
         };
-        RequestQueue requestQueue = Volley.newRequestQueue(getContext());
+        RequestQueue requestQueue = Volley.newRequestQueue( getActivity() );
         requestQueue.add( request );
     }
 

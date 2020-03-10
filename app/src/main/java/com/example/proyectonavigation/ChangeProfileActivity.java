@@ -32,7 +32,7 @@ public class ChangeProfileActivity extends AppCompatActivity {
     private ImageView photo;
     private Button takePicture;
     private Bitmap imageBitmap;
-    private String UPLOAD_URL = "https://proyectogrupod.000webhostapp.com/register_php/uploadPhoto.php";
+    private String UPLOAD_URL = "https://proyectogrupodapp.000webhostapp.com/users/uploadPhoto.php";
     static final int REQUEST_IMAGE_CAPTURE = 1;
 
     private String email;

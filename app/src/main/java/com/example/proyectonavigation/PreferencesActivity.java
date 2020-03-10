@@ -39,7 +39,7 @@ public class PreferencesActivity extends AppCompatActivity {
 
     ArrayList<String> preferences = new ArrayList();
 
-    private static String URL_PREFER = "https://proyectogrupod.000webhostapp.com/register_php/setPreferences.php";
+    private static String URL_PREFER = "https://proyectogrupodapp.000webhostapp.com/users/setPreferences.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
