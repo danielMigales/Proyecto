@@ -34,6 +34,8 @@ public class DialogFragmentEmail extends DialogFragment {
     private Button save;
     private Button cancel;
     private String email;
+    private String newEmail;
+    String url_update = "https://proyectogrupodapp.000webhostapp.com/users/ChangeEmail.php";
 
     public DialogFragmentEmail() {
         // Required empty public constructor
@@ -59,6 +61,10 @@ public class DialogFragmentEmail extends DialogFragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate( R.layout.fragment_dialog_email, container, false );
 
+        Intent intent = getActivity().getIntent();
+        email = intent.getStringExtra( "email" );
+
+
         //EDITTEXT PARA INTRODUCIR EL NUEVO MAIL
         enterMail = view.findViewById( R.id.editTextNewMail );
         enterMail.setOnClickListener( new View.OnClickListener() {
@@ -73,12 +79,20 @@ public class DialogFragmentEmail extends DialogFragment {
         save.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                changeEmail();
-                enterMail.setText( "" );
-                Intent intent = new Intent(getContext(), LoginActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                intent.putExtra("EXIT", true);
-                startActivity(intent);
+
+                newEmail = enterMail.getText().toString().trim();
+
+                if (!newEmail.isEmpty()) {
+
+                    changeEmail();
+                    enterMail.setText( "" );
+                    Intent intent = new Intent( getContext(), LoginActivity.class );
+                    startActivity( intent );
+
+                } else {
+                    enterMail.setError( "Introduzca su nueva direccion" );
+                }
+
             }
         } );
 
@@ -96,11 +110,6 @@ public class DialogFragmentEmail extends DialogFragment {
     }
 
     public void changeEmail() {
-
-        Intent intent = getActivity().getIntent();
-        email = intent.getStringExtra( "email" );
-        final String newEmail = this.enterMail.getText().toString().trim();
-        String url_update = "https://proyectogrupodapp.000webhostapp.com/users/ChangeEmail.php";
 
         StringRequest stringRequest = new StringRequest( Request.Method.POST, url_update,
                 new Response.Listener<String>() {

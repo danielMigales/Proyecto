@@ -34,6 +34,8 @@ public class DialogFragmentUsername extends DialogFragment {
     private Button save;
     private Button cancel;
     private String email;
+    private String name;
+    String url_updateName = "https://proyectogrupodapp.000webhostapp.com/users/ChangeUsername.php";
 
     public DialogFragmentUsername() {
         // Required empty public constructor
@@ -69,14 +71,25 @@ public class DialogFragmentUsername extends DialogFragment {
             }
         } );
 
+        Intent intent = getActivity().getIntent();
+        email = intent.getStringExtra( "email" );
+
+
         //boton guardar
         save = view.findViewById( R.id.btnDone );
         save.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                changeName();
-                enterName.setText( "" );
-                getDialog().hide();
+
+                name = enterName.getText().toString().trim();
+
+                if (!name.isEmpty()) {
+                    changeName();
+                    enterName.setText( "" );
+                    getDialog().hide();
+                } else {
+                    enterName.setError( "Introduzca su  nuevo nombre" );
+                }
             }
         } );
 
@@ -88,17 +101,10 @@ public class DialogFragmentUsername extends DialogFragment {
                 dismiss();
             }
         } );
-
-
         return view;
     }
 
     public void changeName() {
-
-        Intent intent = getActivity().getIntent();
-        email = intent.getStringExtra( "email" );
-        final String name = this.enterName.getText().toString().trim();
-        String url_updateName = "https://proyectogrupodapp.000webhostapp.com/users/ChangeUsername.php";
 
         StringRequest stringRequest = new StringRequest( Request.Method.POST, url_updateName,
                 new Response.Listener<String>() {
@@ -126,6 +132,5 @@ public class DialogFragmentUsername extends DialogFragment {
         };
         Volley.newRequestQueue( getContext() ).add( stringRequest );
     }
-
 }
 

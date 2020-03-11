@@ -91,7 +91,7 @@ public class RegisterActivity extends AppCompatActivity {
         final String email = this.email.getText().toString().trim();
         final String password = this.password.getText().toString().trim();
 
-        //Variables para el metodo de encriptado hash AÑADIDO DIA 24/01
+        //Variables para el metodo de encriptado hash
         byte[] passwordByte = hash( password );
         final String passwordHash = byteToHex( passwordByte );
 
@@ -148,7 +148,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     }
 
-    //Metodo que recibe el password desde el textview y lo convierte a hash AÑADIDO DIA 24/01
+    //Metodo que recibe el password desde el textview y lo convierte a hash
     public static byte[] hash(String password) {
 
         byte[] hash = null;
@@ -162,7 +162,7 @@ public class RegisterActivity extends AppCompatActivity {
         return hash;
     }
 
-    //Metodo que convierte el password con hash de nuevo a String AÑADIDO DIA 24/01
+    //Metodo que convierte el password con hash de nuevo a String
     public static String byteToHex(byte[] bytes) {
         BigInteger bi = new BigInteger( 1, bytes );
         return String.format( "%0" + (bytes.length << 1) + "X", bi );
