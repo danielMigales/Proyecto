@@ -2,6 +2,7 @@ package com.example.proyectonavigation;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -25,6 +26,7 @@ import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Pattern;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -66,21 +68,54 @@ public class RegisterActivity extends AppCompatActivity {
                 String mCPassword = c_password.getText().toString().trim();
 
                 if (!mName.isEmpty()) {
-                    if (!mEmail.isEmpty()) {
-                        if (!mPassword.isEmpty()) {
-                            if (!mCPassword.isEmpty()) {
-                                Regist();
+                    if(esNombreValido( mName )){
+                        if (!mEmail.isEmpty()) {
+                            if (!mPassword.isEmpty()) {
+                                if (!mCPassword.isEmpty()) {
+                                    if(esCorreoValido( mEmail)){
+                                        Regist();
+                                    }
+                                }
+                                else{
+                                    c_password.setError( "Confirme su password" );
+                                }
                             }
+                            else{
+                                password.setError( "Introduzca su password" );
+                            }
+                        }
+                        else{
+                            email.setError( "Introduzca su email" );
                         }
                     }
                 } else {
                     name.setError( "Introduzca su nombre " );
-                    email.setError( "Introduzca su email" );
-                    password.setError( "Introduzca su password" );
-                    c_password.setError( "Confirme su password" );
                 }
             }
         } );
+    }
+
+    //VALIDACION DE NOMBRE DE USUARIO
+    private boolean esNombreValido(String nombre) {
+        Pattern patron = Pattern.compile("^[a-zA-Z ]+$");
+        if (!patron.matcher(nombre).matches() || nombre.length() > 30) {
+            name.setError("Nombre inválido");
+            return false;
+        } else {
+            name.setError(null);
+        }
+        return true;
+    }
+
+    //VALIDACION DE CORREO ELECTRONICO
+    private boolean esCorreoValido(String correo) {
+        if (!Patterns.EMAIL_ADDRESS.matcher(correo).matches()) {
+            email.setError("Correo electrónico inválido");
+            return false;
+        } else {
+            email.setError(null);
+        }
+        return true;
     }
 
     private void Regist() {
@@ -107,11 +142,10 @@ public class RegisterActivity extends AppCompatActivity {
                                 btn_regist.setVisibility( View.VISIBLE );
                                 Toast.makeText( RegisterActivity.this, "Registro Completo", Toast.LENGTH_SHORT ).show();
                                 Intent intent = new Intent( RegisterActivity.this, PreferencesActivity.class );
-                                intent.putExtra( "email", email);
+                                intent.putExtra( "email", email );
                                 intent.putExtra( "name", name );
                                 startActivityForResult( intent, 0 );
-                            }
-                            else{
+                            } else {
                                 Toast.makeText( RegisterActivity.this, "Registro Fallido", Toast.LENGTH_SHORT ).show();
                             }
 

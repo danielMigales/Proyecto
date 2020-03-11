@@ -62,10 +62,22 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/layoutPassword"
         android:layout_marginTop="50dp"
-
-        android:backgroundTint="#2196F3"
+        android:background="@drawable/borde_redondo"
         android:text="Acceder"
-        android:textColor="@color/design_default_color_on_primary" />
+        android:textColor="@android:color/white" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_login"
+        android:layout_marginStart="110dp"
+        android:layout_marginLeft="110dp"
+        android:layout_marginTop="50dp"
+        android:clickable="true"
+        android:gravity="left"
+        android:text="Recordar contraseña"
+        android:textColor="#FFFFFF" />
 
     <TextView
         android:id="@+id/registerTxt"
@@ -77,5 +89,7 @@
         android:gravity="center"
         android:text="Crear nueva cuenta"
         android:textColor="@android:color/white" />
+
+
 
 </RelativeLayout>

@@ -30,6 +30,17 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="cambio">Cambio de nombre</string>
+    <string name="generos_literarios">Generos Literarios</string>
+    <string name="ciencia_ficcion">Ciencia Ficcion</string>
+    <string name="romance">Romance</string>
+    <string name="misterio">Misterio</string>
+    <string name="leyes">Leyes</string>
+    <string name="historia">Historia</string>
+    <string name="ni_os">Niños</string>
+    <string name="religion">Religion</string>
+    <string name="cocina">Cocina</string>
+    <string name="tecnologia">Tecnologia</string>
+    <string name="comics">Comics</string>
 
 
 </resources>

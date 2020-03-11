@@ -9,8 +9,8 @@
 
     <ScrollView
         android:layout_width="410dp"
-        android:layout_height="630dp"
-        android:layout_marginBottom="118dp"
+        android:layout_height="600dp"
+        android:layout_marginBottom="131dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,13 +26,13 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/textView7"
+                    android:id="@+id/textViewTitle"
                     android:layout_width="338dp"
-                    android:layout_height="41dp"
+                    android:layout_height="40dp"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginEnd="20dp"
-                    android:layout_marginBottom="1321dp"
+                    android:layout_marginBottom="1320dp"
                     android:fontFamily="@font/aladin"
                     android:text="Gastronomia"
                     android:textAlignment="center"
@@ -449,11 +449,11 @@
         android:layout_marginTop="605dp"
         android:layout_marginEnd="1dp"
         android:layout_marginBottom="6dp"
-        android:background="@android:color/transparent"
-        android:drawableEnd="@drawable/arrow_right_black_18dp"
+        android:background="@drawable/borde_redondo"
+        android:drawableEnd="@drawable/arrow_right_white_18dp"
         android:fontFamily="casual"
         android:text="@string/submit"
-        android:textColor="@android:color/black"
+        android:textColor="@android:color/white"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
