@@ -110,7 +110,7 @@ public class PreferencesActivity extends AppCompatActivity {
     public void savePreferences(){
 
         for (int i = 0; i < preferences.size(); i++) {
-            Toast.makeText(this,"You have selected: " + preferences.toString(), Toast.LENGTH_LONG).show();
+            Toast.makeText(this,"Preferencias guardadas: " + preferences.toString(), Toast.LENGTH_LONG).show();
         }
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_PREFER,
@@ -122,7 +122,7 @@ public class PreferencesActivity extends AppCompatActivity {
                             String success = jsonObject.getString("success");
 
                             if (success.equals("1")) {
-                                Toast.makeText(PreferencesActivity.this, "Preferences saved", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(PreferencesActivity.this, "Preferencias guardadas", Toast.LENGTH_SHORT).show();
                             }
 
                         } catch (JSONException e) {

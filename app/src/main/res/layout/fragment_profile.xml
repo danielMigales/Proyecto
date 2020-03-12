@@ -8,8 +8,8 @@
 
     <Button
         android:id="@+id/buttonChangeProfileData"
-        android:layout_width="49dp"
-        android:layout_height="41dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_marginStart="337dp"
         android:layout_marginTop="71dp"
         android:layout_marginEnd="25dp"
@@ -40,14 +40,14 @@
 
     <TextView
         android:id="@+id/textViewName"
-        android:layout_width="144dp"
-        android:layout_height="56dp"
+        android:layout_width="140dp"
+        android:layout_height="50dp"
         android:layout_marginStart="242dp"
-        android:layout_marginTop="147dp"
+        android:layout_marginTop="145dp"
         android:layout_marginEnd="25dp"
-        android:layout_marginBottom="528dp"
+        android:layout_marginBottom="530dp"
         android:fontFamily="@font/aladin"
-        android:textAlignment="center"
+        android:textAlignment="viewStart"
         android:textColor="@android:color/black"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -58,13 +58,13 @@
     <TextView
         android:id="@+id/textViewInfo"
         android:layout_width="100dp"
-        android:layout_height="41dp"
+        android:layout_height="40dp"
         android:layout_marginStart="45dp"
-        android:layout_marginTop="231dp"
+        android:layout_marginTop="230dp"
         android:layout_marginEnd="266dp"
         android:layout_marginBottom="459dp"
         android:fontFamily="@font/aladin"
-        android:text="Mis Datos"
+        android:text="@string/mis_datos"
         android:textColor="@android:color/black"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -75,8 +75,8 @@
 
     <TextView
         android:id="@+id/textViewEmail"
-        android:layout_width="298dp"
-        android:layout_height="36dp"
+        android:layout_width="300dp"
+        android:layout_height="35dp"
         android:layout_marginStart="45dp"
         android:layout_marginTop="272dp"
         android:layout_marginEnd="68dp"
@@ -90,13 +90,13 @@
     <TextView
         android:id="@+id/textViewActualPreferences"
         android:layout_width="235dp"
-        android:layout_height="33dp"
+        android:layout_height="30dp"
         android:layout_marginStart="45dp"
-        android:layout_marginTop="324dp"
+        android:layout_marginTop="325dp"
         android:layout_marginEnd="131dp"
-        android:layout_marginBottom="374dp"
+        android:layout_marginBottom="375dp"
         android:fontFamily="@font/aladin"
-        android:text="Mis Preferencias"
+        android:text="@string/mis_preferencias_actuales"
         android:textColor="@android:color/black"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -107,10 +107,10 @@
 
     <TextView
         android:id="@+id/textViewPreferencias"
-        android:layout_width="308dp"
-        android:layout_height="34dp"
+        android:layout_width="310dp"
+        android:layout_height="30dp"
         android:layout_marginStart="45dp"
-        android:layout_marginTop="357dp"
+        android:layout_marginTop="360dp"
         android:layout_marginEnd="58dp"
         android:layout_marginBottom="340dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -120,12 +120,12 @@
 
     <TextView
         android:id="@+id/textViewTotalPreferencies"
-        android:layout_width="232dp"
-        android:layout_height="32dp"
+        android:layout_width="230dp"
+        android:layout_height="30dp"
         android:layout_marginStart="45dp"
-        android:layout_marginTop="422dp"
-        android:layout_marginEnd="134dp"
-        android:layout_marginBottom="277dp"
+        android:layout_marginTop="417dp"
+        android:layout_marginEnd="136dp"
+        android:layout_marginBottom="284dp"
         android:fontFamily="@font/aladin"
         android:text="Seleccionar preferencias"
         android:textColor="@android:color/black"
@@ -138,11 +138,12 @@
         tools:text="Seleccionar preferencias" />
 
     <HorizontalScrollView
+        android:id="@+id/horizontalScrollView"
         android:layout_width="410dp"
         android:layout_height="134dp"
-        android:layout_marginTop="483dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="114dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="475dp"
+        android:layout_marginBottom="122dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -162,8 +163,11 @@
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/cine"
                 android:drawableEnd="@drawable/baseline_add_circle_outline_white_18dp"
-                android:textColor="@android:color/black"
-                android:textSize="12sp" />
+                android:gravity="bottom|center"
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                tools:text="Cine" />
 
             <Button
                 android:id="@+id/editTVShows"
@@ -175,8 +179,11 @@
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/tv"
                 android:drawableEnd="@drawable/baseline_add_circle_outline_white_18dp"
-                android:textColor="@android:color/black"
-                android:textSize="12sp" />
+                android:gravity="bottom|center"
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                tools:text="Television" />
 
             <Button
                 android:id="@+id/editMusic"
@@ -188,8 +195,11 @@
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/music"
                 android:drawableEnd="@drawable/baseline_add_circle_outline_white_18dp"
-                android:textColor="@android:color/black"
-                android:textSize="12sp" />
+                android:gravity="bottom|center"
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                tools:text="Musica" />
 
             <Button
                 android:id="@+id/editFood"
@@ -201,8 +211,11 @@
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/food"
                 android:drawableEnd="@drawable/baseline_add_circle_outline_white_18dp"
-                android:textColor="@android:color/black"
-                android:textSize="12sp" />
+                android:gravity="bottom|center"
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                tools:text="Gastronomia" />
 
             <Button
                 android:id="@+id/editOutdoor"
@@ -214,8 +227,11 @@
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/viaje"
                 android:drawableEnd="@drawable/baseline_add_circle_outline_white_18dp"
-                android:textColor="@android:color/black"
-                android:textSize="12sp" />
+                android:gravity="bottom|center"
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                tools:text="salir" />
 
             <Button
                 android:id="@+id/editCulture"
@@ -227,8 +243,11 @@
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/culture"
                 android:drawableEnd="@drawable/baseline_add_circle_outline_white_18dp"
-                android:textColor="@android:color/black"
-                android:textSize="12sp" />
+                android:gravity="bottom|center"
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                tools:text="Cultura" />
 
             <Button
                 android:id="@+id/editBooks"
@@ -240,8 +259,11 @@
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/books"
                 android:drawableEnd="@drawable/baseline_add_circle_outline_white_18dp"
-                android:textColor="@android:color/black"
-                android:textSize="12sp" />
+                android:gravity="bottom|center"
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                tools:text="Literatura" />
 
             <Button
                 android:id="@+id/editVideoGames"
@@ -253,8 +275,11 @@
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/videogames"
                 android:drawableEnd="@drawable/baseline_add_circle_outline_white_18dp"
-                android:textColor="@android:color/black"
-                android:textSize="12sp" />
+                android:gravity="bottom|center"
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                tools:text="videoJuegos" />
 
             <Button
                 android:id="@+id/editSports"
@@ -266,11 +291,27 @@
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/sports"
                 android:drawableEnd="@drawable/baseline_add_circle_outline_white_18dp"
-                android:textColor="@android:color/black"
-                android:textSize="12sp" />
-
+                android:gravity="bottom|center"
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                tools:text="Deportes" />
         </LinearLayout>
     </HorizontalScrollView>
 
+    <Button
+        android:id="@+id/button"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="282dp"
+        android:layout_marginTop="325dp"
+        android:layout_marginEnd="79dp"
+        android:layout_marginBottom="376dp"
+        android:background="@drawable/baseline_add_circle_outline_white_18dp"
+        android:backgroundTint="@android:color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

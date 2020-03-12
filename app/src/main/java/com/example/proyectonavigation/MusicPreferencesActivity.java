@@ -38,6 +38,7 @@ public class MusicPreferencesActivity extends AppCompatActivity {
     private CheckBox clasic;
     private Button submit;
     ArrayList<String> music = new ArrayList();
+    private String email;
     private static String URL = "https://proyectogrupodapp.000webhostapp.com/users/setMusic.php";
 
     @Override
@@ -59,7 +60,7 @@ public class MusicPreferencesActivity extends AppCompatActivity {
         clasic = (CheckBox) findViewById(R.id.checkBoxClasic);
 
         Intent intent = getIntent();
-        final String email = intent.getStringExtra("email");
+        email = intent.getStringExtra("email");
 
         submit = findViewById(R.id.btn_save);
         submit.setOnClickListener(new View.OnClickListener() {
@@ -73,36 +74,36 @@ public class MusicPreferencesActivity extends AppCompatActivity {
     }
     public void comprobarCheckbox(View v) {
 
-        if (metal.isChecked()){
-            music.add("metal");
-        }
-        if (rock.isChecked()){
-            music.add("rock");
-        }
-        if (pop.isChecked()){
-            music.add("pop");
-        }
-        if (regaton.isChecked()){
-            music.add("regaton");
-        }
-        if (reagge.isChecked()){
-            music.add("reagge");
-        }
-        if (clasic.isChecked()){
-            music.add("classic");
-        }
-        if (rap.isChecked()){
-            music.add("rap");
-        }
-        if (techno.isChecked()){
-            music.add("techno");
-        }
-        if (soul.isChecked()){
-            music.add("soul");
-        }
-        if (blues.isChecked()){
-            music.add("blues");
-        }
+            if (metal.isChecked()){
+                music.add("metal");
+            }
+            if (rock.isChecked()){
+                music.add("rock");
+            }
+            if (pop.isChecked()){
+                music.add("pop");
+            }
+            if (regaton.isChecked()){
+                music.add("regaton");
+            }
+            if (reagge.isChecked()){
+                music.add("reagge");
+            }
+            if (clasic.isChecked()){
+                music.add("classic");
+            }
+            if (rap.isChecked()){
+                music.add("rap");
+            }
+            if (techno.isChecked()){
+                music.add("techno");
+            }
+            if (soul.isChecked()){
+                music.add("soul");
+            }
+            if (blues.isChecked()){
+                music.add("blues");
+            }
     }
 
     public void savePreferences(){
@@ -138,9 +139,6 @@ public class MusicPreferencesActivity extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
-
-                Intent intent = getIntent();
-                String email = intent.getStringExtra("email");
                 params.put("email", email);
                 params.put("music", music.toString());
                 return params;

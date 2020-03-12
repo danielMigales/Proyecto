@@ -41,6 +41,8 @@
     <string name="cocina">Cocina</string>
     <string name="tecnologia">Tecnologia</string>
     <string name="comics">Comics</string>
+    <string name="mis_preferencias_actuales">Mis Preferencias actuales</string>
+    <string name="mis_datos">Mis Datos</string>
 
 
 </resources>

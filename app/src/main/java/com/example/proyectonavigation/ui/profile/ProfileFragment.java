@@ -195,7 +195,7 @@ public class ProfileFragment extends Fragment {
                                 String user_email = jsonObject.getString( "email" );
                                 String user_picture = jsonObject.getString( "picture" );
                                 String user_name = jsonObject.getString( "name" );
-                                String user_preferences = jsonObject.getString( "preferencias" );
+                                String user_preferences = jsonObject.getString( "preferences" );
                                 decodeImage( user_picture ); //LLAMADA AL METODO PARA DECODIFICAR LA IMAGEN QUE ES UN STRING
                                 textEmail.setText( user_email );
                                 textName.setText( user_name );
