@@ -38,7 +38,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class ProfileFragment extends Fragment {
@@ -52,9 +54,8 @@ public class ProfileFragment extends Fragment {
     private TextView preferences;
     private Button addPreferences;
     private Button changeData;
-
+    private List<Categories> categories;
     private RecyclerView recyclerView;
-    private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
 
     private ProfileViewModel profileViewModel;
@@ -107,12 +108,14 @@ public class ProfileFragment extends Fragment {
             }
         } );
 
-        recyclerView = (RecyclerView) view.findViewById(R.id.recyclerviewPreferences);
+        //IMPLEMENTACION DE RECYCLERVIEW
+        recyclerView = view.findViewById(R.id.recyclerviewPreferences);
+        LinearLayoutManager  layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setHasFixedSize(true);
-        layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
-        mAdapter = new MyAdapter(myDataset);
-        recyclerView.setAdapter(mAdapter);
+
+        initializeData();
+        initializeAdapter();
 
         return view;
     }
@@ -169,9 +172,11 @@ public class ProfileFragment extends Fragment {
                                 JSONObject jsonObject = jsonArray.getJSONObject( i );
                                 String user_email = jsonObject.getString( "email" );
                                 String user_picture = jsonObject.getString( "picture" );
+                                decodeImage( user_picture ); //LLAMADA AL METODO PARA DECODIFICAR LA IMAGEN QUE ES UN STRING
                                 String user_name = jsonObject.getString( "name" );
                                 String user_preferences = jsonObject.getString( "preferences" );
-                                decodeImage( user_picture ); //LLAMADA AL METODO PARA DECODIFICAR LA IMAGEN QUE ES UN STRING
+                                String[] parts = user_preferences.split(",");
+
                                 textEmail.setText( user_email );
                                 textName.setText( user_name );
                                 preferences.setText( user_preferences );
@@ -259,5 +264,23 @@ public class ProfileFragment extends Fragment {
         requestQueue.add( stringRequest );
     }
 
+    //INICIALIZADOR DE RECYCLER VIEW Y OBJETOS DE SU INTERIOR
+    private void initializeData(){
+        categories = new ArrayList<>();
+        categories.add(new Categories("Cine", R.drawable.cine));
+        categories.add(new Categories("Musica", R.drawable.music));
+        categories.add(new Categories("Television", R.drawable.tv));
+        categories.add(new Categories("Deportes", R.drawable.sports));
+        categories.add(new Categories("Actividades al aire libre", R.drawable.viaje));
+        categories.add(new Categories("Cultura", R.drawable.culture));
+        categories.add(new Categories("Literatura", R.drawable.books));
+        categories.add(new Categories("Videojuegos", R.drawable.videogames));
+        categories.add(new Categories("Gastronomia", R.drawable.food));
+    }
+
+    private void initializeAdapter(){
+        MyAdapter adapter = new MyAdapter(categories);
+        recyclerView.setAdapter(adapter);
+    }
 }
 
