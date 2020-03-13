@@ -1,15 +1,17 @@
-package com.example.proyectonavigation;
+package com.example.proyectonavigation.preferences_activities;
 
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class TVShowsPreferencesActivity extends AppCompatActivity {
+import com.example.proyectonavigation.R;
+
+public class CulturePreferencesActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tvshows_preferences);
+        setContentView( R.layout.activity_culture_preferences);
 
         getSupportActionBar().hide();
     }

@@ -1,9 +1,12 @@
 package com.example.proyectonavigation.ui.profile;
 
+import android.Manifest;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,8 +17,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -23,44 +29,33 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.proyectonavigation.BooksPreferencesActivity;
-import com.example.proyectonavigation.ChangeProfileActivity;
-import com.example.proyectonavigation.CinemaPreferencesActivity;
-import com.example.proyectonavigation.CulturePreferencesActivity;
-import com.example.proyectonavigation.FoodPreferencesActivity;
-import com.example.proyectonavigation.MusicPreferencesActivity;
-import com.example.proyectonavigation.OutdoorPreferencesActivity;
 import com.example.proyectonavigation.R;
-import com.example.proyectonavigation.SportsPreferencesActivity;
-import com.example.proyectonavigation.TVShowsPreferencesActivity;
-import com.example.proyectonavigation.VideoGamesPreferencesActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.ByteArrayOutputStream;
 import java.util.HashMap;
 import java.util.Map;
 
 public class ProfileFragment extends Fragment {
 
+    private String email;
+    private Bitmap imageBitmap;
+    private static final int REQUEST_IMAGE_CAPTURE = 1;
     private ImageView photo;
     private TextView textName;
     private TextView textEmail;
     private TextView preferences;
-    private String email;
-    private String name;
-    private Button editCinema;
-    private Button editfood;
-    private Button editMusic;
-    private Button editOutdoor;
-    private Button editTVShows;
-    private Button editCulture;
-    private Button editBooks;
-    private Button editVideoGames;
-    private Button editSports;
+    private Button addPreferences;
     private Button changeData;
+
+    private RecyclerView recyclerView;
+    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager layoutManager;
 
     private ProfileViewModel profileViewModel;
 
@@ -74,97 +69,16 @@ public class ProfileFragment extends Fragment {
         Intent intent = getActivity().getIntent();
         email = intent.getStringExtra( "email" );
 
-        textEmail = view.findViewById( R.id.textViewEmail );
-        textName = view.findViewById( R.id.textViewName );
-        photo = view.findViewById( R.id.imageViewPicture );
-        preferences = view.findViewById( R.id.textViewPreferencias );
-
-        //OBTENER LOS DATOS DE LA BD
-
+        //OBTENER LOS DATOS DE LA BD AL CARGARSE LA ACTIVIDAD
         getData();
 
-        //ESTE BLOQUE SON TODOS LOS BOTONES QUE HAY EN EL SCROLLHORIZONTAL Y QUE REDIRIGEN HACIA LAS ACTIVITIES PARA SELECCIONAR PREFERENCIAS
-        editCinema = view.findViewById( R.id.editCinema );
-        editCinema.setOnClickListener( new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent( getContext(), CinemaPreferencesActivity.class );
-                startActivityForResult( intent, 0 );
-            }
-        } );
+        // SOLICITAR PERMISO PARA LA CAMARA
+        requestCameraPermission();
 
-        editfood = view.findViewById( R.id.editFood );
-        editfood.setOnClickListener( new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent( getContext(), FoodPreferencesActivity.class );
-                startActivityForResult( intent, 0 );
-            }
-        } );
+        textEmail = view.findViewById( R.id.textViewEmail );
+        textName = view.findViewById( R.id.textViewName );
 
-        editMusic = view.findViewById( R.id.editMusic );
-        editMusic.setOnClickListener( new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent( getContext(), MusicPreferencesActivity.class );
-                intent.putExtra( "email", email );
-                startActivityForResult( intent, 0 );
-            }
-        } );
-
-        editTVShows = view.findViewById( R.id.editTVShows );
-        editTVShows.setOnClickListener( new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent( getContext(), TVShowsPreferencesActivity.class );
-                startActivityForResult( intent, 0 );
-            }
-        } );
-
-        editOutdoor = view.findViewById( R.id.editOutdoor );
-        editOutdoor.setOnClickListener( new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent( getContext(), OutdoorPreferencesActivity.class );
-                startActivityForResult( intent, 0 );
-            }
-        } );
-
-        editCulture = view.findViewById( R.id.editCulture );
-        editCulture.setOnClickListener( new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent( getContext(), CulturePreferencesActivity.class );
-                startActivityForResult( intent, 0 );
-            }
-        } );
-
-        editBooks = view.findViewById( R.id.editBooks );
-        editBooks.setOnClickListener( new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent( getContext(), BooksPreferencesActivity.class );
-                startActivityForResult( intent, 0 );
-            }
-        } );
-
-        editVideoGames = view.findViewById( R.id.editVideoGames );
-        editVideoGames.setOnClickListener( new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent( getContext(), VideoGamesPreferencesActivity.class );
-                startActivityForResult( intent, 0 );
-            }
-        } );
-
-        editSports = view.findViewById( R.id.editSports );
-        editSports.setOnClickListener( new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent( getContext(), SportsPreferencesActivity.class );
-                startActivityForResult( intent, 0 );
-            }
-        } );
+        preferences = view.findViewById( R.id.textViewPreferencias );
 
         changeData = view.findViewById( R.id.buttonChangeProfileData );
         changeData.setOnClickListener( new View.OnClickListener() {
@@ -176,9 +90,70 @@ public class ProfileFragment extends Fragment {
             }
         } );
 
+        photo = view.findViewById( R.id.imageViewPicture );
+        photo.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dispatchTakePictureIntent();
+            }
+        } );
+
+        //ESTE BOTON LLEVA A LA ACTIVIDAD PARA SELECCIONAR LAS CATEGORIAS PRINCIPALES
+        addPreferences = view.findViewById( R.id.buttonAddPreferences );
+        addPreferences.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        } );
+
+        recyclerView = (RecyclerView) view.findViewById(R.id.recyclerviewPreferences);
+        recyclerView.setHasFixedSize(true);
+        layoutManager = new LinearLayoutManager(getContext());
+        recyclerView.setLayoutManager(layoutManager);
+        mAdapter = new MyAdapter(myDataset);
+        recyclerView.setAdapter(mAdapter);
+
         return view;
     }
 
+    //SOLICITAR PERMISOS
+    private void requestCameraPermission() {
+        ActivityCompat.requestPermissions( getActivity(),
+                new String[]{Manifest.permission.CAMERA},
+                REQUEST_IMAGE_CAPTURE );
+    }
+
+    //EL METODO FALLA PORQUE DENIEGA EL PERMISO A LA CAMARA. RECORDATORIO DE REVISAR PERMISOS
+    public void dispatchTakePictureIntent() {
+        Intent takePictureIntent = new Intent( MediaStore.ACTION_IMAGE_CAPTURE );
+        if (takePictureIntent.resolveActivity( getActivity().getPackageManager() ) != null) {
+            startActivityForResult( takePictureIntent, REQUEST_IMAGE_CAPTURE );
+        }
+    }
+
+    //COLOCA LA FOTO EN EL IMAGEVIEW
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult( requestCode, resultCode, data );
+        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == getActivity().RESULT_OK) {
+            Bundle extras = data.getExtras();
+            imageBitmap = (Bitmap) extras.get( "data" );
+            photo.setImageBitmap( imageBitmap ); //COLOCA LA IMAGEN EN EL IMAGEVIEW
+            uploadImage();
+        }
+    }
+
+    //CODIGO PARA COMRPRIMIR LA IMAGEN A STRING
+    public String getStringImagen(Bitmap bmp) {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bmp.compress( Bitmap.CompressFormat.JPEG, 100, baos );
+        byte[] imageBytes = baos.toByteArray();
+        String encodedImage = Base64.encodeToString( imageBytes, Base64.DEFAULT );
+        return encodedImage;
+    }
+
+    //OBTIENE LOS DATOS CARGANDOLOS DE LA BD
     public void getData() {
 
         String url_userdata = "https://proyectogrupodapp.000webhostapp.com/users/getUserData.php?email=" + email;
@@ -224,7 +199,7 @@ public class ProfileFragment extends Fragment {
             @Override
             public Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
-                params.put( "email", email.toString().trim() );
+                params.put( "email", email );
                 return params;
             }
         };
@@ -232,6 +207,7 @@ public class ProfileFragment extends Fragment {
         requestQueue.add( request );
     }
 
+    //DECODIFCA LA IMAGEN QUE RECIBE DE LA BD EN FORMATO STRING
     public void decodeImage(String picture) {
 
         byte[] imageBytes;
@@ -240,6 +216,48 @@ public class ProfileFragment extends Fragment {
         photo.setImageBitmap( decodedImage );
     }
 
+    //CODIGO PARA SUBIR IMAGEN A BASE DE DATOS
+    public void uploadImage() {
+
+        String UPLOAD_URL = "https://proyectogrupodapp.000webhostapp.com/users/uploadPhoto.php";
+
+        //MUESTRA UN DIALOGO DE PROGRESO
+        final ProgressDialog loading = ProgressDialog.show( getContext(), "Uploading...", "uploading...", false, false );
+
+        StringRequest stringRequest = new StringRequest( Request.Method.POST, UPLOAD_URL,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String s) {
+                        loading.dismiss();
+                        Toast.makeText( getContext(), s, Toast.LENGTH_LONG ).show();
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError volleyError) {
+                        loading.dismiss();
+                        Toast.makeText( getContext(), volleyError.getMessage(), Toast.LENGTH_LONG ).show();
+                    }
+                } ) {
+
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                //Convertir bits a cadena
+                String photo = getStringImagen( imageBitmap );
+                params.put( "photo", photo );
+                params.put( "email", email );
+                //Parámetros de retorno
+                return params;
+            }
+        };
+
+        //Creación de una cola de solicitudes
+        RequestQueue requestQueue = Volley.newRequestQueue( getContext() );
+
+        //Agregar solicitud a la cola
+        requestQueue.add( stringRequest );
+    }
 
 }
 

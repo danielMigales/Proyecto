@@ -1,4 +1,4 @@
-package com.example.proyectonavigation;
+package com.example.proyectonavigation.preferences_activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,6 +16,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.proyectonavigation.R;
+import com.example.proyectonavigation.start.MainActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -44,7 +46,7 @@ public class PreferencesActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_preferences);
+        setContentView( R.layout.activity_preferences);
 
         getSupportActionBar().hide();
 
@@ -68,7 +70,7 @@ public class PreferencesActivity extends AppCompatActivity {
             public void onClick(View v) {
                 comprobarCheckbox(v);
                 savePreferences();
-                Intent intent = new Intent(PreferencesActivity.this,MainActivity.class);
+                Intent intent = new Intent(PreferencesActivity.this, MainActivity.class);
                 intent.putExtra("email", email);
                 intent.putExtra("name", name);
                 startActivity(intent);

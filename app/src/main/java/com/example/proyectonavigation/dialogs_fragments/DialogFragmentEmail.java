@@ -1,4 +1,4 @@
-package com.example.proyectonavigation;
+package com.example.proyectonavigation.dialogs_fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,11 +17,13 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.proyectonavigation.R;
+import com.example.proyectonavigation.start.LoginActivity;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class DialogFragmentUsername extends DialogFragment {
+public class DialogFragmentEmail extends DialogFragment {
 
     //VARIABLES POR DEFECTO AL CREAR EL FRAGMENT
     private static final String ARG_PARAM1 = "param1";
@@ -30,20 +32,19 @@ public class DialogFragmentUsername extends DialogFragment {
     private String mParam2;
 
     //VARIABLES DE LOS WIDGETS
-    private TextView enterName;
+    private TextView enterMail;
     private Button save;
     private Button cancel;
     private String email;
-    private String name;
-    String url_updateName = "https://proyectogrupodapp.000webhostapp.com/users/ChangeUsername.php";
+    private String newEmail;
+    String url_update = "https://proyectogrupodapp.000webhostapp.com/users/ChangeEmail.php";
 
-    public DialogFragmentUsername() {
+    public DialogFragmentEmail() {
         // Required empty public constructor
     }
 
-    //METODO POR DEFECTO AL CREAR FRAGMENT
-    public static DialogFragmentUsername newInstance(String param1, String param2) {
-        DialogFragmentUsername fragment = new DialogFragmentUsername();
+    public static DialogFragmentEmail newInstance(String param1, String param2) {
+        DialogFragmentEmail fragment = new DialogFragmentEmail();
         Bundle args = new Bundle();
         args.putString( ARG_PARAM1, param1 );
         args.putString( ARG_PARAM2, param2 );
@@ -54,26 +55,26 @@ public class DialogFragmentUsername extends DialogFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        View view = inflater.inflate( R.layout.fragment_dialog_email, container, false );
 
-        View view = inflater.inflate( R.layout.fragment_dialog_username, container, false );
+        Intent intent = getActivity().getIntent();
+        email = intent.getStringExtra( "email" );
 
-        //EDITTEXT PARA INTRODUCIR EL NUEVO NOMBRE
-        enterName = view.findViewById( R.id.editTextNewName );
-        enterName.setOnClickListener( new View.OnClickListener() {
+
+        //EDITTEXT PARA INTRODUCIR EL NUEVO MAIL
+        enterMail = view.findViewById( R.id.editTextNewMail );
+        enterMail.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
             }
         } );
-
-        Intent intent = getActivity().getIntent();
-        email = intent.getStringExtra( "email" );
-
 
         //boton guardar
         save = view.findViewById( R.id.btnDone );
@@ -81,15 +82,19 @@ public class DialogFragmentUsername extends DialogFragment {
             @Override
             public void onClick(View v) {
 
-                name = enterName.getText().toString().trim();
+                newEmail = enterMail.getText().toString().trim();
 
-                if (!name.isEmpty()) {
-                    changeName();
-                    enterName.setText( "" );
-                    getDialog().hide();
+                if (!newEmail.isEmpty()) {
+
+                    changeEmail();
+                    enterMail.setText( "" );
+                    Intent intent = new Intent( getContext(), LoginActivity.class );
+                    startActivity( intent );
+
                 } else {
-                    enterName.setError( "Introduzca su  nuevo nombre" );
+                    enterMail.setError( "Introduzca su nueva direccion" );
                 }
+
             }
         } );
 
@@ -101,17 +106,19 @@ public class DialogFragmentUsername extends DialogFragment {
                 dismiss();
             }
         } );
+
         return view;
+
     }
 
-    public void changeName() {
+    public void changeEmail() {
 
-        StringRequest stringRequest = new StringRequest( Request.Method.POST, url_updateName,
+        StringRequest stringRequest = new StringRequest( Request.Method.POST, url_update,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         if (response.contains( "1" )) {
-                            Toast.makeText( getContext(), "Nombre actualizado con exito", Toast.LENGTH_SHORT ).show();
+                            Toast.makeText( getContext(), "Email actualizado con exito", Toast.LENGTH_SHORT ).show();
                         } else {
                             Toast.makeText( getContext(), "La actualizacion fallo", Toast.LENGTH_SHORT ).show();
                         }
@@ -126,11 +133,10 @@ public class DialogFragmentUsername extends DialogFragment {
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
                 params.put( "email", email.toString().trim() );
-                params.put( "name", name );
+                params.put( "newEmail", newEmail );
                 return params;
             }
         };
         Volley.newRequestQueue( getContext() ).add( stringRequest );
     }
 }
-

@@ -21,20 +21,20 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".SportsPreferencesActivity" />
-        <activity android:name=".CardActivity" />
-        <activity android:name=".ChangeProfileActivity" />
-        <activity android:name=".CulturePreferencesActivity" />
-        <activity android:name=".VideoGamesPreferencesActivity" />
-        <activity android:name=".BooksPreferencesActivity" />
-        <activity android:name=".OutdoorPreferencesActivity" />
-        <activity android:name=".TVShowsPreferencesActivity" />
-        <activity android:name=".MusicPreferencesActivity" />
-        <activity android:name=".FoodPreferencesActivity" />
-        <activity android:name=".CinemaPreferencesActivity" />
-        <activity android:name=".PreferencesActivity" />
-        <activity android:name=".RegisterActivity" />
-        <activity android:name=".LoginActivity">
+        <activity android:name=".preferences_activities.SportsPreferencesActivity" />
+        <activity android:name=".ui.home.CardActivity" />
+        <activity android:name=".ui.profile.ChangeProfileActivity" />
+        <activity android:name=".preferences_activities.CulturePreferencesActivity" />
+        <activity android:name=".preferences_activities.VideoGamesPreferencesActivity" />
+        <activity android:name=".preferences_activities.BooksPreferencesActivity" />
+        <activity android:name=".preferences_activities.OutdoorPreferencesActivity" />
+        <activity android:name=".preferences_activities.TVShowsPreferencesActivity" />
+        <activity android:name=".preferences_activities.MusicPreferencesActivity" />
+        <activity android:name=".preferences_activities.FoodPreferencesActivity" />
+        <activity android:name=".preferences_activities.CinemaPreferencesActivity" />
+        <activity android:name=".preferences_activities.PreferencesActivity" />
+        <activity android:name=".start.RegisterActivity" />
+        <activity android:name=".start.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -43,7 +43,7 @@
         </activity>
 
         <activity
-            android:name=".MainActivity"
+            android:name=".start.MainActivity"
             android:label="@string/app_name">
         </activity>
 

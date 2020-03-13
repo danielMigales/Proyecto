@@ -1,4 +1,4 @@
-package com.example.proyectonavigation;
+package com.example.proyectonavigation.preferences_activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,6 +16,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.proyectonavigation.R;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -44,7 +45,7 @@ public class MusicPreferencesActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_music_preferences);
+        setContentView( R.layout.activity_music_preferences);
 
         getSupportActionBar().hide();
 

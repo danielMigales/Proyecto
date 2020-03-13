@@ -1,15 +1,17 @@
-package com.example.proyectonavigation;
+package com.example.proyectonavigation.ui.home;
 
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class CinemaPreferencesActivity extends AppCompatActivity {
+import com.example.proyectonavigation.R;
+
+public class CardActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cinema_preferences);
+        setContentView( R.layout.activity_card);
 
         getSupportActionBar().hide();
     }

@@ -1,5 +1,7 @@
-package com.example.proyectonavigation;
+package com.example.proyectonavigation.start;
 
+import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -16,6 +19,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.proyectonavigation.R;
+import com.example.proyectonavigation.dialogs_fragments.DialogFragmentForgotPassword;
 
 import java.math.BigInteger;
 import java.security.MessageDigest;
@@ -27,18 +32,20 @@ public class LoginActivity extends AppCompatActivity {
     private EditText email, password;
     private Button btn_login;
     private TextView link_regist;
+    private TextView forgotPassword;
     private static String URL_LOGIN = "https://proyectogrupodapp.000webhostapp.com/users/login.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView( R.layout.activity_login);
 
         getSupportActionBar().hide();
 
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
         btn_login = findViewById(R.id.btn_login);
+        forgotPassword = findViewById( R.id.textViewForgotPassword);
         link_regist = findViewById(R.id.registerTxt);
 
         btn_login.setOnClickListener(new View.OnClickListener() {
@@ -55,6 +62,15 @@ public class LoginActivity extends AppCompatActivity {
                     email.setError("Email is missing");
                     password.setError("Password is missing");
                 }
+            }
+        });
+
+        forgotPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog();
+                DialogFragment dialogFragment = new DialogFragmentForgotPassword();
+                dialogFragment.show( getSupportFragmentManager(), "dialog" );
             }
         });
 
@@ -125,5 +141,14 @@ public class LoginActivity extends AppCompatActivity {
     public static String byteToHex(byte[] bytes) {
         BigInteger bi = new BigInteger(1, bytes);
         return String.format("%0" + (bytes.length << 1) + "X", bi);
+    }
+
+    public void dialog() {
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        Fragment prev = getFragmentManager().findFragmentByTag( "dialog" );
+        if (prev != null) {
+            ft.remove( prev );
+        }
+        ft.addToBackStack( null );
     }
 }

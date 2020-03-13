@@ -7,7 +7,7 @@
     android:layout_height="250dp"
     android:orientation="vertical"
     android:padding="10dp"
-    tools:context=".DialogFragmentUsername">
+    tools:context=".dialogs_fragments.DialogFragmentUsername">
 
     <TextView
         android:id="@+id/textviewEnterNameMessage"

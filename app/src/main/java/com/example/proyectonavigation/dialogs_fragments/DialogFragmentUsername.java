@@ -1,17 +1,14 @@
-package com.example.proyectonavigation;
+package com.example.proyectonavigation.dialogs_fragments;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.CalendarView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.fragment.app.DialogFragment;
 
 import com.android.volley.AuthFailureError;
@@ -20,31 +17,34 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.proyectonavigation.R;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class DialogFragmentBirthday extends DialogFragment {
+public class DialogFragmentUsername extends DialogFragment {
 
+    //VARIABLES POR DEFECTO AL CREAR EL FRAGMENT
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     private String mParam1;
     private String mParam2;
 
-    CalendarView calendarView;
-    TextView dateView;
-    private Button ok;
+    //VARIABLES DE LOS WIDGETS
+    private TextView enterName;
+    private Button save;
     private Button cancel;
     private String email;
-    String url_updateBirth = "https://proyectogrupodapp.000webhostapp.com/users/ChangeBirthday.php";
-    private String birthday;
+    private String name;
+    String url_updateName = "https://proyectogrupodapp.000webhostapp.com/users/ChangeUsername.php";
 
-    public DialogFragmentBirthday() {
+    public DialogFragmentUsername() {
         // Required empty public constructor
     }
 
-    public static DialogFragmentBirthday newInstance(String param1, String param2) {
-        DialogFragmentBirthday fragment = new DialogFragmentBirthday();
+    //METODO POR DEFECTO AL CREAR FRAGMENT
+    public static DialogFragmentUsername newInstance(String param1, String param2) {
+        DialogFragmentUsername fragment = new DialogFragmentUsername();
         Bundle args = new Bundle();
         args.putString( ARG_PARAM1, param1 );
         args.putString( ARG_PARAM2, param2 );
@@ -55,61 +55,64 @@ public class DialogFragmentBirthday extends DialogFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString( ARG_PARAM1 );
-            mParam2 = getArguments().getString( ARG_PARAM2 );
-        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate( R.layout.fragment_dialog_birthday, container, false );
+
+        View view = inflater.inflate( R.layout.fragment_dialog_username, container, false );
+
+        //EDITTEXT PARA INTRODUCIR EL NUEVO NOMBRE
+        enterName = view.findViewById( R.id.editTextNewName );
+        enterName.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        } );
 
         Intent intent = getActivity().getIntent();
         email = intent.getStringExtra( "email" );
 
-        calendarView = view.findViewById( R.id.calendarView );
-        calendarView.setFocusedMonthDateColor( Color.BLUE );
-        dateView = view.findViewById( R.id.dateView );
-        calendarView.setOnDateChangeListener( new CalendarView.OnDateChangeListener() {
-            @Override
-            public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
-                birthday = year + "-" + (month + 1) + "-" + dayOfMonth;
-                dateView.setText( birthday );
-            }
-        } );
 
         //boton guardar
-        ok = view.findViewById( R.id.buttonOK );
-        ok.setOnClickListener( new View.OnClickListener() {
+        save = view.findViewById( R.id.btnDone );
+        save.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                changeBirthday();
-                getDialog().hide();
+
+                name = enterName.getText().toString().trim();
+
+                if (!name.isEmpty()) {
+                    changeName();
+                    enterName.setText( "" );
+                    getDialog().hide();
+                } else {
+                    enterName.setError( "Introduzca su  nuevo nombre" );
+                }
             }
         } );
 
         //BOTON CANCELAR
-        cancel = view.findViewById( R.id.buttonCancel );
+        cancel = view.findViewById( R.id.btnExit );
         cancel.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 dismiss();
             }
         } );
-
         return view;
     }
 
-    public void changeBirthday() {
+    public void changeName() {
 
-        StringRequest stringRequest = new StringRequest( Request.Method.POST, url_updateBirth,
+        StringRequest stringRequest = new StringRequest( Request.Method.POST, url_updateName,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         if (response.contains( "1" )) {
-                            Toast.makeText( getContext(), "Fecha de nacimiento actualizada con exito", Toast.LENGTH_SHORT ).show();
+                            Toast.makeText( getContext(), "Nombre actualizado con exito", Toast.LENGTH_SHORT ).show();
                         } else {
                             Toast.makeText( getContext(), "La actualizacion fallo", Toast.LENGTH_SHORT ).show();
                         }
@@ -123,11 +126,12 @@ public class DialogFragmentBirthday extends DialogFragment {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
-                params.put( "email", email );
-                params.put( "birthday", birthday);
+                params.put( "email", email.toString().trim() );
+                params.put( "name", name );
                 return params;
             }
         };
         Volley.newRequestQueue( getContext() ).add( stringRequest );
     }
 }
+

@@ -4,8 +4,220 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ChangeProfileActivity"
+    tools:context=".ui.profile.ChangeProfileActivity"
     tools:layout_editor_absoluteY="25dp">
+
+
+    <TextView
+        android:id="@+id/textViewTotalPreferencies"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="45dp"
+        android:layout_marginEnd="195dp"
+        android:layout_marginBottom="656dp"
+        android:fontFamily="@font/aladin"
+        android:text="Modificar preferencias"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:text="Modificar preferencias" />
+
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView"
+        android:layout_width="410dp"
+        android:layout_height="134dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="104dp"
+        android:layout_marginBottom="493dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/editCinema"
+                android:layout_width="140dp"
+                android:layout_height="110dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/cine"
+                android:drawableEnd="@drawable/baseline_add_circle_outline_white_18dp"
+                android:gravity="bottom|center"
+                android:text="Cine"
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                tools:text="Cine" />
+
+            <Button
+                android:id="@+id/editTVShows"
+                android:layout_width="140dp"
+                android:layout_height="110dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/tv"
+                android:drawableEnd="@drawable/baseline_add_circle_outline_white_18dp"
+                android:gravity="bottom|center"
+                android:text="Television"
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                tools:text="Television" />
+
+            <Button
+                android:id="@+id/editMusic"
+                android:layout_width="140dp"
+                android:layout_height="110dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/music"
+                android:drawableEnd="@drawable/baseline_add_circle_outline_white_18dp"
+                android:gravity="bottom|center"
+                android:text="Musica"
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                tools:text="Musica" />
+
+            <Button
+                android:id="@+id/editFood"
+                android:layout_width="140dp"
+                android:layout_height="110dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/food"
+                android:drawableEnd="@drawable/baseline_add_circle_outline_white_18dp"
+                android:gravity="bottom|center"
+                android:text="Gastronomia"
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                tools:text="Gastronomia" />
+
+            <Button
+                android:id="@+id/editOutdoor"
+                android:layout_width="140dp"
+                android:layout_height="110dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/viaje"
+                android:drawableEnd="@drawable/baseline_add_circle_outline_white_18dp"
+                android:gravity="bottom|center"
+                android:text="salir"
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                tools:text="salir" />
+
+            <Button
+                android:id="@+id/editCulture"
+                android:layout_width="140dp"
+                android:layout_height="110dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/culture"
+                android:drawableEnd="@drawable/baseline_add_circle_outline_white_18dp"
+                android:gravity="bottom|center"
+                android:text="Cultura"
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                tools:text="Cultura" />
+
+            <Button
+                android:id="@+id/editBooks"
+                android:layout_width="140dp"
+                android:layout_height="110dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/books"
+                android:drawableEnd="@drawable/baseline_add_circle_outline_white_18dp"
+                android:gravity="bottom|center"
+                android:text="Literatura"
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                tools:text="Literatura" />
+
+            <Button
+                android:id="@+id/editVideoGames"
+                android:layout_width="140dp"
+                android:layout_height="110dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/videogames"
+                android:drawableEnd="@drawable/baseline_add_circle_outline_white_18dp"
+                android:gravity="bottom|center"
+                android:text="videoJuegos"
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                tools:text="videoJuegos" />
+
+            <Button
+                android:id="@+id/editSports"
+                android:layout_width="140dp"
+                android:layout_height="110dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/sports"
+                android:drawableEnd="@drawable/baseline_add_circle_outline_white_18dp"
+                android:gravity="bottom|center"
+                android:text="Deportes"
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                tools:text="Deportes" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <TextView
+        android:id="@+id/textViewChangePreferences"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="263dp"
+        android:layout_marginEnd="163dp"
+        android:layout_marginBottom="438dp"
+        android:fontFamily="@font/aladin"
+        android:text="Modificar datos de usuario"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Modificar datos de usuario" />
 
     <Button
         android:id="@+id/buttonName"
@@ -21,7 +233,6 @@
         android:textAlignment="viewStart"
         android:textColor="@android:color/black"
         android:textSize="14sp"
-        android:textStyle="bold"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -44,7 +255,6 @@
         android:text="@string/logout"
         android:textAlignment="viewStart"
         android:textColor="@android:color/black"
-        android:textStyle="bold"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -68,7 +278,6 @@
         android:textAlignment="viewStart"
         android:textColor="@android:color/black"
         android:textSize="14sp"
-        android:textStyle="bold"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -91,7 +300,6 @@
         android:text="@string/editage"
         android:textAlignment="viewStart"
         android:textColor="@android:color/black"
-        android:textStyle="bold"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -116,7 +324,6 @@
         android:textAlignment="viewStart"
         android:textColor="@android:color/black"
         android:textSize="14sp"
-        android:textStyle="bold"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -125,38 +332,5 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
         tools:text="Email" />
-
-    <ImageView
-        android:id="@+id/imageViewPhoto"
-        android:layout_width="231dp"
-        android:layout_height="203dp"
-        android:layout_marginStart="27dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="153dp"
-        android:layout_marginBottom="488dp"
-        android:scaleType="fitXY"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/photo_profile" />
-
-    <Button
-        android:id="@+id/buttonPhoto"
-        android:layout_width="61dp"
-        android:layout_height="51dp"
-        android:layout_marginStart="324dp"
-        android:layout_marginTop="228dp"
-        android:layout_marginEnd="36dp"
-        android:layout_marginBottom="588dp"
-        android:background="@drawable/baseline_add_a_photo_black_18dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.191" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,7 +7,7 @@
     android:layout_height="370dp"
     android:orientation="vertical"
     android:padding="10dp"
-    tools:context=".DialogFragmentBirthday">
+    tools:context=".dialogs_fragments.DialogFragmentBirthday">
 
     <CalendarView
         android:id="@+id/calendarView"

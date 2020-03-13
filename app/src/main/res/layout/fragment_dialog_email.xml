@@ -7,7 +7,7 @@
     android:layout_height="250dp"
     android:orientation="vertical"
     android:padding="10dp"
-    tools:context=".DialogFragmentEmail">
+    tools:context=".dialogs_fragments.DialogFragmentEmail">
 
     <TextView
         android:id="@+id/textviewEnterMailMessage"
