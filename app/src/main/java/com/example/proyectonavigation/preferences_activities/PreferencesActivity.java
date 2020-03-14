@@ -81,31 +81,31 @@ public class PreferencesActivity extends AppCompatActivity {
     public void comprobarCheckbox(View v) {
 
         if (cinema.isChecked()){
-            preferences.add("cinema");
+            preferences.add("cine");
         }
         if (food.isChecked()){
-            preferences.add("food");
+            preferences.add("gastronomia");
         }
         if (music.isChecked()){
-            preferences.add("music");
+            preferences.add("musica");
         }
         if (outdoor.isChecked()){
-            preferences.add("outdoor");
+            preferences.add("salir");
         }
         if (tv.isChecked()){
-            preferences.add("tv");
+            preferences.add("television");
         }
         if (culture.isChecked()){
-            preferences.add("culture");
+            preferences.add("cultura");
         }
         if (books.isChecked()){
-            preferences.add("books");
+            preferences.add("literatura");
         }
         if (videogames.isChecked()){
-            preferences.add("videogames");
+            preferences.add("videojuegos");
         }
         if (sports.isChecked()){
-            preferences.add("sports");
+            preferences.add("deportes");
         }
     }
 

@@ -45,18 +45,23 @@ import java.util.Map;
 
 public class ProfileFragment extends Fragment {
 
+    //VARIABLES DE WIDGETS
     private String email;
     private Bitmap imageBitmap;
-    private static final int REQUEST_IMAGE_CAPTURE = 1;
     private ImageView photo;
     private TextView textName;
     private TextView textEmail;
     private TextView preferences;
     private Button addPreferences;
     private Button changeData;
+
+    //VARIABLE PARA OBTENER FOTO DE CAMARA
+    private static final int REQUEST_IMAGE_CAPTURE = 1;
+
+    //VARIABLES PARA LA LISTA DE PREFERENCIAS EN RECYCLERVIEW
     private List<Categories> categories;
     private RecyclerView recyclerView;
-    private RecyclerView.LayoutManager layoutManager;
+
 
     private ProfileViewModel profileViewModel;
 
@@ -109,13 +114,15 @@ public class ProfileFragment extends Fragment {
         } );
 
         //IMPLEMENTACION DE RECYCLERVIEW
-        recyclerView = view.findViewById(R.id.recyclerviewPreferences);
-        LinearLayoutManager  layoutManager = new LinearLayoutManager(getContext());
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(layoutManager);
+        recyclerView = view.findViewById( R.id.recyclerviewPreferences );
+        LinearLayoutManager layoutManager = new LinearLayoutManager( getContext() );
+        recyclerView.setHasFixedSize( true );
+        recyclerView.setLayoutManager( layoutManager );
 
-        initializeData();
-        initializeAdapter();
+        //aqui los inicia
+
+        //initializeData();
+        //initializeAdapter();
 
         return view;
     }
@@ -170,18 +177,30 @@ public class ProfileFragment extends Fragment {
                         for (int i = 0; i < jsonArray.length(); i++) {
                             try {
                                 JSONObject jsonObject = jsonArray.getJSONObject( i );
+
                                 String user_email = jsonObject.getString( "email" );
                                 String user_picture = jsonObject.getString( "picture" );
                                 decodeImage( user_picture ); //LLAMADA AL METODO PARA DECODIFICAR LA IMAGEN QUE ES UN STRING
                                 String user_name = jsonObject.getString( "name" );
                                 String user_preferences = jsonObject.getString( "preferences" );
-                                String[] parts = user_preferences.split(",");
+                                String formattedString = user_preferences
+                                        .replace( "[", "" )  //quitar corchete
+                                        .replace( "]", "" )  //quitar corchete
+                                        .trim();
 
+                                //SE PASAN LOS RESULTADOS A LOS WIDGETS DE LA INTERFAZ
                                 textEmail.setText( user_email );
                                 textName.setText( user_name );
-                                preferences.setText( user_preferences );
+                                preferences.setText( formattedString );
 
-                            } catch (JSONException e) {
+                                //SE CREA UN ARRAYLIST CON LAS PREFERENCIAS Y SE LLAMA A LA CONSTRUCCION DE LA RECYCLERVIEW PARA QUE MUESTRE ESTOS RESULTADOS
+
+                                initializeData( formattedString );
+                                initializeAdapter();
+
+
+                            } catch (JSONException
+                                    e) {
                                 e.printStackTrace();
                             }
                         }
@@ -265,22 +284,54 @@ public class ProfileFragment extends Fragment {
     }
 
     //INICIALIZADOR DE RECYCLER VIEW Y OBJETOS DE SU INTERIOR
-    private void initializeData(){
-        categories = new ArrayList<>();
-        categories.add(new Categories("Cine", R.drawable.cine));
-        categories.add(new Categories("Musica", R.drawable.music));
-        categories.add(new Categories("Television", R.drawable.tv));
-        categories.add(new Categories("Deportes", R.drawable.sports));
-        categories.add(new Categories("Actividades al aire libre", R.drawable.viaje));
-        categories.add(new Categories("Cultura", R.drawable.culture));
-        categories.add(new Categories("Literatura", R.drawable.books));
-        categories.add(new Categories("Videojuegos", R.drawable.videogames));
-        categories.add(new Categories("Gastronomia", R.drawable.food));
-    }
+    private void initializeData(String lista) {
 
-    private void initializeAdapter(){
-        MyAdapter adapter = new MyAdapter(categories);
-        recyclerView.setAdapter(adapter);
+        String[] parts = lista.split(",");
+
+        categories = new ArrayList<>();
+
+            for ( int i = 0; i < parts.length; i++) {
+                if (parts[i].contains( "cine" ) ) {
+                    categories.add( new Categories( "Cine", R.drawable.cine ) );
+                }
+
+                if (parts[i].contains( "musica" ) ) {
+                    categories.add( new Categories( "Musica", R.drawable.music ) );
+                }
+
+                if (parts[i].contains( "television" ) ) {
+                    categories.add( new Categories( "Television", R.drawable.tv ) );
+                }
+
+                if (parts[i].contains( "gastronomia" ) ) {
+                    categories.add( new Categories( "Gastronomia", R.drawable.food ) );
+                }
+
+                if (parts[i].contains( "literatura" ) ) {
+                    categories.add( new Categories( "Literatura", R.drawable.books ) );
+                }
+
+                if (parts[i].contains( "videojuegos" ) ) {
+                    categories.add( new Categories( "Videojuegos", R.drawable.videogames ) );
+                }
+
+                if (parts[i].contains( "deportes" ) ) {
+                    categories.add( new Categories( "Deportes", R.drawable.sports ) );
+                }
+
+                if (parts[i].contains( "salir" ) ) {
+                    categories.add( new Categories( "Actividades al aire libre", R.drawable.viaje ) );
+                }
+
+                if (parts[i].contains( "cultura" ) ) {
+                    categories.add( new Categories( "Cultura", R.drawable.culture ) );
+                }
+            }
+        }
+
+    private void initializeAdapter() {
+        MyAdapter adapter = new MyAdapter( categories );
+        recyclerView.setAdapter( adapter );
     }
 }
 

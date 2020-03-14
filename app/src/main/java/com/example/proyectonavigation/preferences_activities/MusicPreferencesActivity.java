@@ -91,7 +91,7 @@ public class MusicPreferencesActivity extends AppCompatActivity {
                 music.add("reagge");
             }
             if (clasic.isChecked()){
-                music.add("classic");
+                music.add("clasica");
             }
             if (rap.isChecked()){
                 music.add("rap");
@@ -110,7 +110,7 @@ public class MusicPreferencesActivity extends AppCompatActivity {
     public void savePreferences(){
 
         for (int i = 0; i < music.size(); i++) {
-            Toast.makeText(this,"You have selected: " + music.toString(), Toast.LENGTH_LONG).show();
+            Toast.makeText(this,"Ha seleccionado: " + music.toString(), Toast.LENGTH_LONG).show();
         }
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL,
@@ -122,7 +122,7 @@ public class MusicPreferencesActivity extends AppCompatActivity {
                             String success = jsonObject.getString("success");
 
                             if (success.equals("1")) {
-                                Toast.makeText(MusicPreferencesActivity.this, "Preferences saved", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(MusicPreferencesActivity.this, "Preferencias guardadas", Toast.LENGTH_SHORT).show();
                             }
 
                         } catch (JSONException e) {

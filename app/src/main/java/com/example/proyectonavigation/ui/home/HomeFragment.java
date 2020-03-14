@@ -53,6 +53,7 @@ public class HomeFragment extends Fragment {
                 startActivityForResult( intent, 0 );
             }
         } );
+
         getData();
 
         return view;
@@ -67,6 +68,7 @@ public class HomeFragment extends Fragment {
 
                     @Override
                     public void onResponse(JSONArray jsonArray) {
+
                         int cantidad = 0;
                         ActividadesComida ac;
                         ArrayList<ActividadesComida> mi_list = new ArrayList<>();
@@ -75,7 +77,6 @@ public class HomeFragment extends Fragment {
                         for (int i = 0; i < jsonArray.length(); i++) {
                             try {
                                 JSONObject jsonObject = jsonArray.getJSONObject( i );
-
 
                                 String id = jsonObject.getString( "id" );
                                 String name = jsonObject.getString( "name" );
@@ -88,7 +89,7 @@ public class HomeFragment extends Fragment {
 
                                 mi_list.add( new ActividadesComida( id, name, latitud, longitud, phone, price, photo, horario_ini ) );
 
-                                System.out.println(mi_list.toString());
+                                System.out.println( mi_list.toString() );
                                 System.err.println( i );
 
                             } catch (JSONException e) {
