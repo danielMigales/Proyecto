@@ -40,6 +40,29 @@
     <string name="comics">Comics</string>
     <string name="mis_preferencias_actuales">Mis Preferencias actuales</string>
     <string name="mis_datos">Mis Datos</string>
+    <string name="subcategoria_cienciaficcion">subcategoria cienciaficcion</string>
+    <string name="subcategoria_romance">subcategoria romance</string>
+    <string name="subcategoria_misterio">subcategoria misterio</string>
+    <string name="subcategoria_ley">subcategoria ley</string>
+    <string name="subcategoria_ni_os">subcategoria niños</string>
+    <string name="subcategoria_religion">subcategoria religion</string>
+    <string name="subcategoria_tecnologia">subcategoria tecnologia</string>
+    <string name="subcategoria_gastronomia">subcategoria gastronomia</string>
+    <string name="subcategoria_historia">subcategoria historia</string>
+    <string name="subcategoria_comics">subcategoria comics</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="marque_sus_preferencias">Marque sus preferencias</string>
+    <string name="musica">Musica</string>
+    <string name="cine">Cine</string>
+    <string name="salir">Salir</string>
+    <string name="videojuegos">Videojuegos</string>
+    <string name="deportes">Deportes</string>
+    <string name="literatura">Literatura</string>
+    <string name="cultura">Cultura</string>
+    <string name="television">Television</string>
+    <string name="gastronomia">Gastronomia</string>
 
 
 </resources>

@@ -19,6 +19,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -32,6 +33,7 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.proyectonavigation.R;
+import com.example.proyectonavigation.dialogs_fragments.DialogFragmentPreferences;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -61,7 +63,6 @@ public class ProfileFragment extends Fragment {
     //VARIABLES PARA LA LISTA DE PREFERENCIAS EN RECYCLERVIEW
     private List<Categories> categories;
     private RecyclerView recyclerView;
-
 
     private ProfileViewModel profileViewModel;
 
@@ -110,19 +111,24 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
+                DialogFragmentPreferences dialogFragment = new DialogFragmentPreferences();
+                FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
+                Fragment prev = getActivity().getSupportFragmentManager().findFragmentByTag( "dialog" );
+                if (prev != null) {
+                    ft.remove( prev );
+                }
+                ft.addToBackStack( null );
+                dialogFragment.show( ft, "dialog" );
             }
         } );
 
         //IMPLEMENTACION DE RECYCLERVIEW
-        recyclerView = view.findViewById( R.id.recyclerviewPreferences );
         LinearLayoutManager layoutManager = new LinearLayoutManager( getContext() );
+        layoutManager.setOrientation( LinearLayoutManager.VERTICAL );
+
+        recyclerView = view.findViewById( R.id.recyclerviewPreferences );
         recyclerView.setHasFixedSize( true );
         recyclerView.setLayoutManager( layoutManager );
-
-        //aqui los inicia
-
-        //initializeData();
-        //initializeAdapter();
 
         return view;
     }
@@ -193,14 +199,9 @@ public class ProfileFragment extends Fragment {
                                 textName.setText( user_name );
                                 preferences.setText( formattedString );
 
-                                //SE CREA UN ARRAYLIST CON LAS PREFERENCIAS Y SE LLAMA A LA CONSTRUCCION DE LA RECYCLERVIEW PARA QUE MUESTRE ESTOS RESULTADOS
-
                                 initializeData( formattedString );
-                                initializeAdapter();
 
-
-                            } catch (JSONException
-                                    e) {
+                            } catch (JSONException e) {
                                 e.printStackTrace();
                             }
                         }
@@ -286,52 +287,50 @@ public class ProfileFragment extends Fragment {
     //INICIALIZADOR DE RECYCLER VIEW Y OBJETOS DE SU INTERIOR
     private void initializeData(String lista) {
 
-        String[] parts = lista.split(",");
+        String[] parts = lista.split( "," );
 
         categories = new ArrayList<>();
 
-            for ( int i = 0; i < parts.length; i++) {
-                if (parts[i].contains( "cine" ) ) {
-                    categories.add( new Categories( "Cine", R.drawable.cine ) );
-                }
+        for (int i = 0; i < parts.length; i++) {
+            if (parts[i].contains( "cine" )) {
+                categories.add( new Categories( "Cine", R.drawable.cine ) );
+            }
 
-                if (parts[i].contains( "musica" ) ) {
-                    categories.add( new Categories( "Musica", R.drawable.music ) );
-                }
+            if (parts[i].contains( "musica" )) {
+                categories.add( new Categories( "Musica", R.drawable.music ) );
+            }
 
-                if (parts[i].contains( "television" ) ) {
-                    categories.add( new Categories( "Television", R.drawable.tv ) );
-                }
+            if (parts[i].contains( "television" )) {
+                categories.add( new Categories( "Television", R.drawable.tv ) );
+            }
 
-                if (parts[i].contains( "gastronomia" ) ) {
-                    categories.add( new Categories( "Gastronomia", R.drawable.food ) );
-                }
+            if (parts[i].contains( "gastronomia" )) {
+                categories.add( new Categories( "Gastronomia", R.drawable.food ) );
+            }
 
-                if (parts[i].contains( "literatura" ) ) {
-                    categories.add( new Categories( "Literatura", R.drawable.books ) );
-                }
+            if (parts[i].contains( "literatura" )) {
+                categories.add( new Categories( "Literatura", R.drawable.books ) );
+            }
 
-                if (parts[i].contains( "videojuegos" ) ) {
-                    categories.add( new Categories( "Videojuegos", R.drawable.videogames ) );
-                }
+            if (parts[i].contains( "videojuegos" )) {
+                categories.add( new Categories( "Videojuegos", R.drawable.videogames ) );
+            }
 
-                if (parts[i].contains( "deportes" ) ) {
-                    categories.add( new Categories( "Deportes", R.drawable.sports ) );
-                }
+            if (parts[i].contains( "deportes" )) {
+                categories.add( new Categories( "Deportes", R.drawable.sports ) );
+            }
 
-                if (parts[i].contains( "salir" ) ) {
-                    categories.add( new Categories( "Actividades al aire libre", R.drawable.viaje ) );
-                }
+            if (parts[i].contains( "salir" )) {
+                categories.add( new Categories( "Actividades al aire libre", R.drawable.viaje ) );
+            }
 
-                if (parts[i].contains( "cultura" ) ) {
-                    categories.add( new Categories( "Cultura", R.drawable.culture ) );
-                }
+            if (parts[i].contains( "cultura" )) {
+                categories.add( new Categories( "Cultura", R.drawable.culture ) );
             }
         }
 
-    private void initializeAdapter() {
         MyAdapter adapter = new MyAdapter( categories );
         recyclerView.setAdapter( adapter );
     }
-}
 
+}
