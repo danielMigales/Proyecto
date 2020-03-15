@@ -24,7 +24,7 @@ import com.example.proyectonavigation.preferences_activities.OutdoorPreferencesA
 import com.example.proyectonavigation.preferences_activities.SportsPreferencesActivity;
 import com.example.proyectonavigation.preferences_activities.TVShowsPreferencesActivity;
 import com.example.proyectonavigation.preferences_activities.VideoGamesPreferencesActivity;
-import com.example.proyectonavigation.start.LoginActivity;
+import com.example.proyectonavigation.ui.start.LoginActivity;
 
 public class ChangeProfileActivity extends AppCompatActivity {
 

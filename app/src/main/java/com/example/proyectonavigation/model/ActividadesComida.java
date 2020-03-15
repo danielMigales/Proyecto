@@ -1,4 +1,4 @@
-package com.example.proyectonavigation.ui.home;
+package com.example.proyectonavigation.model;
 
 public class ActividadesComida {
 

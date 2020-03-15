@@ -24,7 +24,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -48,6 +50,8 @@ public class DialogFragmentPreferences extends DialogFragment implements
     private Switch games;
     private Switch culture;
     private Button save;
+
+    List<String> preferencesList = new ArrayList<String>();
 
     private String email;
     String url_updatePreferences = "https://proyectogrupodapp.000webhostapp.com/users/UpdatePreferences.php";
@@ -87,30 +91,28 @@ public class DialogFragmentPreferences extends DialogFragment implements
 
         //SWITCHES DE PREFERENCIAS
         music = (Switch) view.findViewById( R.id.switchMusic );
-        music.setOnClickListener(this);
+        music.setOnClickListener( this );
         cine = (Switch) view.findViewById( R.id.switchCine );
-        cine.setOnClickListener(this);
+        cine.setOnClickListener( this );
         food = (Switch) view.findViewById( R.id.switchFood );
-        food.setOnClickListener(this);
+        food.setOnClickListener( this );
         sports = (Switch) view.findViewById( R.id.switchSports );
-        sports.setOnClickListener(this);
+        sports.setOnClickListener( this );
         tv = (Switch) view.findViewById( R.id.switchTV );
-        tv.setOnClickListener(this);
+        tv.setOnClickListener( this );
         outdoor = (Switch) view.findViewById( R.id.switchOutdoor );
-        outdoor.setOnClickListener(this);
+        outdoor.setOnClickListener( this );
         books = (Switch) view.findViewById( R.id.switchBooks );
-        books.setOnClickListener(this);
+        books.setOnClickListener( this );
         games = (Switch) view.findViewById( R.id.switchGames );
-        games.setOnClickListener(this);
+        games.setOnClickListener( this );
         culture = (Switch) view.findViewById( R.id.switchCulture );
-        culture.setOnClickListener(this);
+        culture.setOnClickListener( this );
         save = view.findViewById( R.id.buttonSave );
-        save.setOnClickListener(this);
+        save.setOnClickListener( this );
 
         //OBTENCION DE LAS PREFERENCIAS DE LA BASE DE DATOS PARA MARCAR DE INICIO LAS QUE YA ESTAN ESCOGIDAS
         getData( email );
-
-
 
 
         return view;
@@ -141,6 +143,7 @@ public class DialogFragmentPreferences extends DialogFragment implements
                                         .trim();
 
                                 String[] parts = formattedString.split( "," );
+
                                 for (i = 0; i < parts.length; i++) {
                                     if (parts[i].contains( "cine" )) {
                                         cine.setChecked( true );
@@ -204,58 +207,59 @@ public class DialogFragmentPreferences extends DialogFragment implements
         requestQueue.add( request );
     }
 
+    public void comprobarEstados() {
+
+
+        if (cine.isChecked()) {
+            preferencesList.add( "cine" );
+        }
+
+        if (books.isChecked()) {
+            preferencesList.add( "literatura" );
+        }
+
+        if (culture.isChecked()) {
+            preferencesList.add( "cultura" );
+        }
+
+        if (food.isChecked()) {
+            preferencesList.add( "gastronomia" );
+        }
+
+
+        if (games.isChecked()) {
+            preferencesList.add( "videojuegos" );
+        }
+
+
+        if (music.isChecked()) {
+            preferencesList.add( "musica" );
+        }
+
+
+        if (cine.isChecked()) {
+            preferencesList.add( "salir" );
+        }
+
+        if (outdoor.isChecked()) {
+            preferencesList.add( "deportes" );
+        }
+
+
+        if (tv.isChecked()) {
+            preferencesList.add( "television" );
+        }
+
+
+        System.out.println( preferencesList.toString() );
+    }
 
     @Override
-    public void onClick(View v) {
+    public void onClick(View view) {
 
-        boolean isChecked = true;
-        
-        switch (v.getId()) {
-
-            case R.id.switchCine:
-
-
-                if (isChecked) {
-
-                }
-                break;
-
-            case R.id.switchMusic:
-
-                break;
-
-            case R.id.switchFood:
-
-                break;
-
-            case R.id.switchBooks:
-
-                break;
-
-            case R.id.switchCulture:
-
-                break;
-
-            case R.id.switchGames:
-
-                break;
-
-            case R.id.switchOutdoor:
-
-                break;
-
-            case R.id.switchSports:
-
-                break;
-
-            case R.id.switchTV:
-
-                break;
-
-            default:
-
-                break;
+        if (view.getId() == R.id.buttonSave) {
+            comprobarEstados();
+            getDialog().dismiss();
         }
     }
 }
-

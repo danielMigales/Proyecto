@@ -20,6 +20,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.proyectonavigation.R;
+import com.example.proyectonavigation.model.ActividadesComida;
 
 import org.json.JSONArray;
 import org.json.JSONException;

@@ -18,7 +18,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.proyectonavigation.R;
-import com.example.proyectonavigation.start.LoginActivity;
+import com.example.proyectonavigation.ui.start.LoginActivity;
 
 import java.util.HashMap;
 import java.util.Map;

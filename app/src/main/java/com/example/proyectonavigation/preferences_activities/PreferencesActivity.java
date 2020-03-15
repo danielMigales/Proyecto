@@ -17,7 +17,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.proyectonavigation.R;
-import com.example.proyectonavigation.start.MainActivity;
+import com.example.proyectonavigation.ui.start.MainActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -146,7 +146,8 @@ public class PreferencesActivity extends AppCompatActivity {
                 Intent intent = getIntent();
                 String email = intent.getStringExtra("email");
                 params.put("email", email);
-                params.put("preferences",preferences.toString());
+                String formattedString = preferences.toString().replace( "[", "" ).replace( "]", "" ).trim();
+                params.put("preferences",formattedString);
                 return params;
             }
         };

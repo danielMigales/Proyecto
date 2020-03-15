@@ -27,7 +27,7 @@
     <string name="editage">Edita tu fecha de nacimiento</string>
     <string name="outdoor">Actividades al aire libre</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
+
     <string name="ciencia_ficcion">Ciencia Ficcion</string>
     <string name="romance">Romance</string>
     <string name="misterio">Misterio</string>
@@ -51,7 +51,7 @@
     <string name="subcategoria_historia">subcategoria historia</string>
     <string name="subcategoria_comics">subcategoria comics</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="marque_sus_preferencias">Marque sus preferencias</string>
     <string name="musica">Musica</string>
