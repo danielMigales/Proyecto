@@ -1,6 +1,6 @@
 package com.example.proyectonavigation.model;
 
-public class ActividadesComida {
+public class FoodActivities {
 
     String id;
     String name ;
@@ -12,8 +12,7 @@ public class ActividadesComida {
     String horario_ini ;
     String horario_fin;
 
-
-    public ActividadesComida(String id, String name, String latitud, String longitud, String phone, String price, String photo, String horario_ini) {
+    public FoodActivities(String id, String name, String latitud, String longitud, String phone, String price, String photo, String horario_ini, String horario_fin) {
         this.id = id;
         this.name = name;
         this.latitud = latitud;
@@ -22,8 +21,8 @@ public class ActividadesComida {
         this.price = price;
         this.photo = photo;
         this.horario_ini = horario_ini;
+        this.horario_fin = horario_fin;
     }
-
 
     public String getId() {
         return id;
@@ -87,5 +86,28 @@ public class ActividadesComida {
 
     public void setHorario_ini(String horario_ini) {
         this.horario_ini = horario_ini;
+    }
+
+    public String getHorario_fin() {
+        return horario_fin;
+    }
+
+    public void setHorario_fin(String horario_fin) {
+        this.horario_fin = horario_fin;
+    }
+
+    @Override
+    public String toString() {
+        return "FoodActivities{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", latitud='" + latitud + '\'' +
+                ", longitud='" + longitud + '\'' +
+                ", phone='" + phone + '\'' +
+                ", price='" + price + '\'' +
+                ", photo='" + photo + '\'' +
+                ", horario_ini='" + horario_ini + '\'' +
+                ", horario_fin='" + horario_fin + '\'' +
+                '}';
     }
 }

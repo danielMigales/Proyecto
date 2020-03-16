@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.os.Handler;
 import android.provider.MediaStore;
 import android.util.Base64;
 import android.view.LayoutInflater;
@@ -34,6 +35,8 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.proyectonavigation.R;
 import com.example.proyectonavigation.dialogs_fragments.DialogFragmentPreferences;
+import com.example.proyectonavigation.model.Categories;
+import com.example.proyectonavigation.model.CategoriesAdapter;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -63,6 +66,10 @@ public class ProfileFragment extends Fragment {
     //VARIABLES PARA LA LISTA DE PREFERENCIAS EN RECYCLERVIEW
     private List<Categories> categories;
     private RecyclerView recyclerView;
+
+    public static final long PERIODO = 1000; // 1 segundos (1 * 1000 millisegundos)
+    private Handler handler;
+    private Runnable runnable;
 
     private ProfileViewModel profileViewModel;
 
@@ -131,6 +138,28 @@ public class ProfileFragment extends Fragment {
         recyclerView.setLayoutManager( layoutManager );
 
         return view;
+    }
+
+    //LOS METODOS onResume Y onPause DEBERIAN SERVIR PARA QUE LA ACTIVITY SE REFRESCARA AUTOMATICAMENTE DESPUES DE VOLVER DE ALGUN DIALOGO (NO ESTA FUNCIONANDO)
+    @Override
+    public void onResume() {
+        super.onResume();
+        this.onCreate( null );
+
+        handler = new Handler();
+        runnable = new Runnable() {
+            @Override
+            public void run() {
+                handler.postDelayed( this, PERIODO );
+            }
+        };
+        handler.postDelayed( runnable, PERIODO );
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        handler.removeCallbacks(runnable);
     }
 
     //SOLICITAR PERMISOS
@@ -329,7 +358,7 @@ public class ProfileFragment extends Fragment {
             }
         }
 
-        MyAdapter adapter = new MyAdapter( categories );
+        CategoriesAdapter adapter = new CategoriesAdapter( categories );
         recyclerView.setAdapter( adapter );
     }
 

@@ -1,216 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
-    <ScrollView
-        android:layout_width="379dp"
-        android:layout_height="568dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="58dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginBottom="101dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/linearLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardview1"
-                android:layout_width="0dp"
-                android:layout_height="360dp"
-                android:layout_marginTop="63dp"
-                android:layout_marginBottom="19dp"
-                app:cardCornerRadius="15dp"
-                app:cardElevation="2dp"
-                app:contentPadding="5dp"
-                app:layout_constraintBottom_toTopOf="@+id/cardview2"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <ImageView
-                    android:id="@+id/imageViewCardview1"
-                    android:layout_width="match_parent"
-                    android:layout_height="240dp"
-                    android:layout_gravity="center"
-                    android:scaleType="fitXY"
-                    app:srcCompat="@drawable/wella" />
-
-                <TextView
-                    android:id="@+id/textViewCardview1"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_gravity="top"
-                    android:background="@android:color/holo_blue_dark"
-                    android:clickable="false"
-                    android:fontFamily="@font/aladin"
-                    android:gravity="center"
-                    android:inputType="textLongMessage"
-                    android:text="Cena romantica en el hotel Wella"
-                    android:textColor="@android:color/white"
-                    android:textSize="24sp"
-                    android:textStyle="bold" />
-
-                <RatingBar
-                    android:id="@+id/ratingBar1"
-                    style="@style/Widget.AppCompat.RatingBar"
-                    android:layout_width="341dp"
-                    android:layout_height="50dp"
-                    android:layout_gravity="bottom"
-                    android:isIndicator="true"
-                    android:max="5"
-                    android:numStars="5"
-                    android:progress="4"
-                    android:progressTint="#FFEB3B"
-                    android:rating="3" />
-
-                <Button
-                    android:id="@+id/buttonLike1"
-                    android:layout_width="50dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom|center|right"
-                    android:background="@drawable/baseline_favorite_border_black_18dp"
-                    android:backgroundTint="#D51A1A"
-                    android:textColor="#F61010" />
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-
-                android:id="@+id/cardview2"
-                android:layout_width="0dp"
-                android:layout_height="360dp"
-                android:layout_marginTop="19dp"
-                android:layout_marginBottom="24dp"
-                app:cardCornerRadius="15dp"
-                app:cardElevation="2dp"
-                app:contentPadding="5dp"
-                app:layout_constraintBottom_toTopOf="@+id/cardview3"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cardview1">
-
-                <ImageView
-                    android:id="@+id/imageViewCardview2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="240dp"
-                    android:layout_gravity="center"
-                    android:scaleType="fitXY"
-                    app:srcCompat="@drawable/razzmatazzz" />
-
-                <TextView
-                    android:id="@+id/textViewCardview2"
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:layout_gravity="top"
-                    android:background="@android:color/holo_blue_dark"
-                    android:clickable="false"
-                    android:fontFamily="@font/aladin"
-                    android:gravity="center"
-                    android:inputType="textLongMessage"
-                    android:text="Mandanga Carnival en Razzmatazz "
-                    android:textColor="@android:color/white"
-                    android:textSize="24sp"
-                    android:textStyle="bold" />
-
-                <RatingBar
-                    android:id="@+id/ratingBar2"
-                    style="@style/Widget.AppCompat.RatingBar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="50dp"
-                    android:layout_gravity="bottom"
-                    android:isIndicator="true"
-                    android:max="5"
-                    android:numStars="5"
-                    android:progress="4"
-                    android:progressTint="#FFEB3B"
-                    android:rating="3" />
-
-                <Button
-                    android:id="@+id/buttonLike2"
-                    android:layout_width="50dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom|center|right"
-                    android:background="@drawable/baseline_favorite_border_black_18dp"
-                    android:backgroundTint="#D51A1A"
-                    android:textColor="#F61010" />
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardview3"
-                android:layout_width="0dp"
-                android:layout_height="360dp"
-                android:layout_marginTop="14dp"
-                android:layout_marginBottom="20dp"
-                app:cardCornerRadius="15dp"
-                app:cardElevation="2dp"
-                app:contentPadding="5dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cardview2">
-
-                <ImageView
-                    android:id="@+id/imageView3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="240dp"
-                    android:layout_gravity="center"
-                    android:scaleType="fitXY"
-                    app:srcCompat="@drawable/zoo" />
-
-                <TextView
-                    android:id="@+id/textView3"
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:layout_gravity="top"
-                    android:background="@android:color/holo_blue_dark"
-                    android:clickable="false"
-                    android:fontFamily="@font/aladin"
-                    android:gravity="center"
-                    android:inputType="textLongMessage"
-                    android:text="Visita al Zoo de Barcelona"
-                    android:textColor="@android:color/white"
-                    android:textSize="24sp"
-                    android:textStyle="bold" />
-
-                <RatingBar
-                    android:id="@+id/ratingBar3"
-                    style="@style/Widget.AppCompat.RatingBar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="50dp"
-                    android:layout_gravity="bottom"
-                    android:isIndicator="true"
-                    android:max="5"
-                    android:numStars="5"
-                    android:progress="4"
-                    android:progressTint="#FFEB3B"
-                    android:rating="3" />
-
-                <Button
-                    android:id="@+id/buttonLike3"
-                    android:layout_width="50dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom|center|right"
-                    android:background="@drawable/baseline_favorite_border_black_18dp"
-                    android:backgroundTint="#D51A1A"
-                    android:textColor="#F61010" />
-            </androidx.cardview.widget.CardView>
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="wrap_content">
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
@@ -228,4 +24,35 @@
             android:text="proximamente" />
     </com.google.android.material.tabs.TabLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <Button
+        android:id="@+id/buttonFilter"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="62dp"
+        android:background="@android:color/transparent"
+        android:backgroundTint="@android:color/holo_blue_dark"
+        android:drawableStart="@drawable/filter_icon"
+        android:text="FILTRAR POR"
+        android:textColor="@android:color/holo_blue_dark" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="530dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="-1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="100dp"
+        android:orientation="vertical">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewPlans"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+</RelativeLayout>

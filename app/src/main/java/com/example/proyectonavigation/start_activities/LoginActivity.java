@@ -1,4 +1,4 @@
-package com.example.proyectonavigation.ui.start;
+package com.example.proyectonavigation.start_activities;
 
 import android.app.Fragment;
 import android.app.FragmentTransaction;
@@ -99,9 +99,9 @@ public class LoginActivity extends AppCompatActivity {
                             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                             intent.putExtra("email", email);
                             startActivity(intent);
-                            Toast.makeText(LoginActivity.this, "Login Success", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this, "Bienvenido", Toast.LENGTH_SHORT).show();
                         } else {
-                            Toast.makeText(LoginActivity.this, "Wrong username or password", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this, "Usuario o password incorrecto", Toast.LENGTH_SHORT).show();
                         }
                     }
                 }, new Response.ErrorListener() {

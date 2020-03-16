@@ -10,7 +10,7 @@
     android:paddingTop="60dp"
     android:paddingRight="30dp"
     android:theme="@style/Theme.Design.NoActionBar"
-    tools:context=".ui.start.RegisterActivity">
+    tools:context=".start_activities.RegisterActivity">
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"

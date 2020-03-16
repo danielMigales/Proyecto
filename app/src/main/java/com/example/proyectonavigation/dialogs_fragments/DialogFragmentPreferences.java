@@ -17,6 +17,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.proyectonavigation.R;
 
@@ -52,9 +53,7 @@ public class DialogFragmentPreferences extends DialogFragment implements
     private Button save;
 
     List<String> preferencesList = new ArrayList<String>();
-
     private String email;
-    String url_updatePreferences = "https://proyectogrupodapp.000webhostapp.com/users/UpdatePreferences.php";
 
     //CONSTRUCTORES POR DEFECTO
     public DialogFragmentPreferences() {
@@ -131,10 +130,6 @@ public class DialogFragmentPreferences extends DialogFragment implements
                         for (int i = 0; i < jsonArray.length(); i++) {
                             try {
                                 JSONObject jsonObject = jsonArray.getJSONObject( i );
-
-                                String user_email = jsonObject.getString( "email" );
-                                String user_picture = jsonObject.getString( "picture" );
-                                String user_name = jsonObject.getString( "name" );
                                 String user_preferences = jsonObject.getString( "preferences" );
 
                                 String formattedString = user_preferences
@@ -209,7 +204,6 @@ public class DialogFragmentPreferences extends DialogFragment implements
 
     public void comprobarEstados() {
 
-
         if (cine.isChecked()) {
             preferencesList.add( "cine" );
         }
@@ -226,30 +220,26 @@ public class DialogFragmentPreferences extends DialogFragment implements
             preferencesList.add( "gastronomia" );
         }
 
-
         if (games.isChecked()) {
             preferencesList.add( "videojuegos" );
         }
-
 
         if (music.isChecked()) {
             preferencesList.add( "musica" );
         }
 
 
-        if (cine.isChecked()) {
+        if (outdoor.isChecked()) {
             preferencesList.add( "salir" );
         }
 
-        if (outdoor.isChecked()) {
+        if (sports.isChecked()) {
             preferencesList.add( "deportes" );
         }
-
 
         if (tv.isChecked()) {
             preferencesList.add( "television" );
         }
-
 
         System.out.println( preferencesList.toString() );
     }
@@ -259,7 +249,58 @@ public class DialogFragmentPreferences extends DialogFragment implements
 
         if (view.getId() == R.id.buttonSave) {
             comprobarEstados();
-            getDialog().dismiss();
+            savePreferences();
+            dismiss();
         }
     }
+
+    @Override
+    public void dismiss () {
+        super.dismiss();
+    }
+
+    public void savePreferences(){
+
+        String url_updatePreferences = "https://proyectogrupodapp.000webhostapp.com/users/setPreferences.php";
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, url_updatePreferences,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONObject jsonObject = new JSONObject(response);
+                            String success = jsonObject.getString("success");
+
+                            if (success.equals("1")) {
+
+                            }
+                            else{
+
+                            }
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText( getContext(), "Response Error " + error.toString(), Toast.LENGTH_SHORT ).show();
+                    }
+                }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                params.put("email", email);
+                String formattedString = preferencesList.toString().replace( "[", "" ).replace( "]", "" ).trim();
+                params.put("preferences",formattedString);
+                return params;
+            }
+        };
+
+        Volley.newRequestQueue( getContext() ).add( stringRequest );
+    }
+
+
 }

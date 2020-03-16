@@ -1,4 +1,4 @@
-package com.example.proyectonavigation.ui.profile;
+package com.example.proyectonavigation.model;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,7 +14,7 @@ import com.example.proyectonavigation.R;
 
 import java.util.List;
 
-public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
+public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.MyViewHolder> {
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
 
@@ -35,7 +35,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View v = LayoutInflater.from(parent.getContext()).inflate( R.layout.categories, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate( R.layout.categories_cardview, parent, false);
         MyViewHolder viewHolder = new MyViewHolder(v);
         return viewHolder;
     }
@@ -54,7 +54,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     List<Categories> categories;
 
-    MyAdapter(List<Categories> categories){
+    public CategoriesAdapter(List<Categories> categories){
         this.categories = categories;
     }
 

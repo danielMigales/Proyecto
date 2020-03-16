@@ -19,17 +19,17 @@
 
         <TextView
             android:id="@+id/textViewCategory"
-            android:layout_width="220dp"
+            android:layout_width="250dp"
             android:layout_height="100dp"
             android:layout_gravity="right"
             android:layout_marginStart="5dp"
             android:layout_marginRight="50dp"
-            android:fontFamily="casual"
+            android:fontFamily="@font/aladin"
             android:gravity="center"
             android:text="textview"
             android:textAlignment="viewStart"
             android:textColor="@android:color/black"
-            android:textSize="18sp"
+            android:textSize="24sp"
             android:textStyle="bold" />
 
         <ImageView
@@ -45,3 +45,4 @@
     </androidx.cardview.widget.CardView>
 
 </RelativeLayout>
+

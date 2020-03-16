@@ -1,4 +1,4 @@
-package com.example.proyectonavigation.ui.start;
+package com.example.proyectonavigation.start_activities;
 
 import android.os.Bundle;
 

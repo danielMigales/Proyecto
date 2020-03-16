@@ -50,9 +50,6 @@
     <string name="subcategoria_gastronomia">subcategoria gastronomia</string>
     <string name="subcategoria_historia">subcategoria historia</string>
     <string name="subcategoria_comics">subcategoria comics</string>
-
-
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="marque_sus_preferencias">Marque sus preferencias</string>
     <string name="musica">Musica</string>
     <string name="cine">Cine</string>
@@ -63,6 +60,23 @@
     <string name="cultura">Cultura</string>
     <string name="television">Television</string>
     <string name="gastronomia">Gastronomia</string>
+    <string name="hoy" />
+    <string name="fin_de_semana" />
+    <string name="proximamente" />
+    <string name="generos_literarios">Generos Literarios</string>
+    <string name="generos_cinematograficos">Generos cinematograficos</string>
+    <string name="terror">Terror</string>
+    <string name="comedia">Comedia</string>
+    <string name="romantico">Romantico</string>
+    <string name="accion">Accion</string>
+    <string name="fantastico">Fantastico</string>
+    <string name="drama">Drama</string>
+    <string name="musical">Musical</string>
+    <string name="thriller">Thriller</string>
+    <string name="animacion">Animacion</string>
+    <string name="titulo_de_la_actividad">Titulo de la actividad</string>
+    <string name="tags">Tags:</string>
+    <string name="fotografia_de_la_actividad">Fotografia de la actividad</string>
 
 
 </resources>

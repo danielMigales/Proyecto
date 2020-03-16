@@ -1,4 +1,4 @@
-package com.example.proyectonavigation.ui.profile;
+package com.example.proyectonavigation.model;
 
 public class Categories {
     String name;
