@@ -9,39 +9,43 @@
 
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imageViewPicture"
         android:layout_width="match_parent"
         android:layout_height="255dp"
+        android:contentDescription="imagen del evento"
         android:scaleType="fitXY"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textViewTitulo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Restautante Tagliatella"
-        android:textColor="@android:color/black"
-        android:textSize="34dp"
+        android:layout_marginTop="270dp"
+        android:layout_marginBottom="506dp"
+        android:background="@android:color/holo_blue_dark"
+        android:fontFamily="casual"
+        android:text="Nombre actividad"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="30sp"
         android:textStyle="bold|italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.016" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
-        android:id="@+id/scrollView2"
-        android:layout_width="406dp"
-        android:layout_height="322dp"
+        android:id="@+id/scrollView"
+        android:layout_width="0dp"
+        android:layout_height="450dp"
+        android:layout_marginTop="329dp"
+        android:layout_marginBottom="27dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -49,50 +53,79 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/txtDes"
+                android:id="@+id/textviewAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginEnd="10dp"
+                android:drawableStart="@android:drawable/ic_menu_directions"
+                android:gravity="fill"
+                android:text="Direccion del evento"
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/textviewPrice"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="14dp"
-
-                android:text="C/ Enric Granados, 63 08008, 08008 Barcelona"
-                android:textColor="@android:color/black" />
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:drawableStart="@drawable/outline_euro_symbol_white_18dp"
+                android:drawableTint="@android:color/darker_gray"
+                android:text="Precio del evento"
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/txtDes1"
+                android:id="@+id/textviewPhone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="14dp"
-
-                android:text="20-30 € (Precio medio 25 €)"
-                android:textColor="@android:color/black" />
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:drawableStart="@android:drawable/ic_menu_call"
+                android:text="Telefono de contacto"
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/txtDes2"
+                android:id="@+id/textviewTimetable"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="14dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:drawableStart="@android:drawable/ic_menu_recent_history"
+                android:text="Horario"
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
 
-                android:text="+34 930173371"
+            <TextView
+                android:id="@+id/textviewDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:drawableStart="@android:drawable/ic_menu_edit"
+                android:text="Descripcion exhaustiva"
                 android:textColor="@android:color/black" />
 
             <TextView
-                android:id="@+id/txtDes4"
+                android:id="@+id/textViewURL"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="14dp"
-
-                android:text="Open all day"
-                android:textColor="@android:color/black" />
-
-            <TextView
-                android:id="@+id/txtDes5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-
-                android:text="Pizzes fetes al tradicional forno italià; carpaccios acompanyats de genuïna mozzarella di bufala, amanides amb forma de torre de Pisa, elaborades amb autèntiques verdures a la planxa; risottos amb magret d’ànec i tòfona, amb ibèrics…"
-                android:textColor="@android:color/black" />
-
-
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="30dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:drawableStart="@drawable/outline_http_white_18dp"
+                android:drawableTint="@android:color/darker_gray"
+                android:text="URL"
+                android:textColor="#2196F3"
+                android:textSize="18sp" />
         </LinearLayout>
     </ScrollView>
 

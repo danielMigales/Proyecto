@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -45,6 +46,8 @@ public class HomeFragment extends Fragment {
     private ArrayList<Plannings> plans;
     private RecyclerView recyclerView;
 
+    //INSTANCIA DE LA CARDVIEW QUE AL PULSARLA REDIRIGE A LA DESCRIPCION
+    private CardView cardviewPlan;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -92,25 +95,25 @@ public class HomeFragment extends Fragment {
                                 JSONObject jsonObject = jsonArray.getJSONObject( i );
 
                                 //OBTENCION DE TODOS LOS CAMPOS DE LA TABLA
-                                //int activity_id = jsonObject.getInt( "activity_id" );
-                                //String activity_name = jsonObject.getString( "activity_name" );
+                                int activity_id = jsonObject.getInt( "activity_id" );
+                                String activity_name = jsonObject.getString( "activity_name" );
                                 String activity_title = jsonObject.getString( "activity_title" );
-                                float activity_rating = BigDecimal.valueOf(jsonObject.getDouble( "activity_rating") ).floatValue();
-                                // int activity_like = jsonObject.getInt( "activity_like" );
+                                float activity_rating = BigDecimal.valueOf( jsonObject.getDouble( "activity_rating" ) ).floatValue();
                                 String activitiy_category = jsonObject.getString( "activitiy_category" );
                                 String activity_subcategory = jsonObject.getString( "activity_subcategory" );
-                                // String activity_start_date = jsonObject.getString( "activity_start_date" );
-                                // String activity_end_date = jsonObject.getString( "activity_end_date" );
+                                String activity_start_date = jsonObject.getString( "activity_start_date" );
+                                String activity_end_date = jsonObject.getString( "activity_end_date" );
                                 String activity_picture = jsonObject.getString( "activity_picture" );
 
-
                                 Bitmap decoded_activity_picture = decodeImage( activity_picture );
-                                plans.add( new Plannings( activity_title, activity_rating, activitiy_category, activity_subcategory, decoded_activity_picture ) );
+                                plans.add( new Plannings(activity_id,activity_name, activity_title, activity_rating, activitiy_category, activity_subcategory,
+                                        activity_start_date, activity_end_date, decoded_activity_picture ) );
 
                                 //CONTADOR PARA VER CUANTOS ENCUENTRA
                                 contador++;
-                                System.out.println(contador);
+                                System.out.println( contador );
 
+                                //INICIALIZADOR DEL RECYCLERVIEW
                                 initializeAdapter();
                             }
                         } catch (JSONException e) {
@@ -123,7 +126,7 @@ public class HomeFragment extends Fragment {
                     @Override
 
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText( getContext(), "Error al obtener los datos", Toast.LENGTH_SHORT ).show();
+                        Toast.makeText( getContext(), "No se han encontrado actividades para hoy", Toast.LENGTH_SHORT ).show();
                     }
 
                 } ) {
@@ -157,7 +160,6 @@ public class HomeFragment extends Fragment {
 
         PlanningsAdapter adapter = new PlanningsAdapter( plans );
         recyclerView.setAdapter( adapter );
-
 
     }
 

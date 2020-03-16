@@ -7,14 +7,16 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cardviewActivityPlan"
         android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_height="420dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
+        android:clickable="true"
         app:cardCornerRadius="10dp"
         app:contentPadding="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        android:focusable="true">
 
         <ImageView
             android:id="@+id/imageViewCardviewActivity"
@@ -55,13 +57,15 @@
             android:rating="4" />
 
         <Button
-            android:id="@+id/buttonLikeCardviewActivity"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
+            android:id="@+id/buttonAsistireCardviewActivity"
+            android:layout_width="130dp"
+            android:layout_height="50dp"
             android:layout_gravity="bottom|center|right"
-            android:background="@drawable/baseline_favorite_border_black_18dp"
-            android:backgroundTint="#D51A1A"
-            android:textColor="#F61010" />
+            android:backgroundTint="@android:color/holo_blue_light"
+            android:drawableStart="@drawable/baseline_favorite_border_black_18dp"
+            android:drawableTint="#F44336"
+            android:text="@string/asistire"
+            android:textColor="@android:color/white" />
 
         <TextView
             android:id="@+id/textViewTagsCardviewActivity"
