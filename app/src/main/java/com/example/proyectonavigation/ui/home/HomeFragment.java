@@ -78,6 +78,7 @@ public class HomeFragment extends Fragment {
     public void getData() {
 
         String url_getPlans = "https://proyectogrupodapp.000webhostapp.com/users/get_plannings_cardview.php";
+        System.out.println(url_getPlans);
 
         JsonArrayRequest request = new JsonArrayRequest( Request.Method.POST, url_getPlans, null,
                 new Response.Listener<JSONArray>() {

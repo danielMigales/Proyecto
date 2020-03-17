@@ -59,6 +59,7 @@ public class PlanningsAdapter extends RecyclerView.Adapter<PlanningsAdapter.MyVi
 
                 Intent intent = new Intent(view.getContext(), CardActivity.class);
                 intent.putExtra("activity_id", plans.get(position).activity_id);
+                intent.putExtra( "activity_category", plans.get( position ).activitiy_category );
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 view.getContext().startActivity(intent);
             }

@@ -126,6 +126,11 @@
                 android:text="URL"
                 android:textColor="#2196F3"
                 android:textSize="18sp" />
+
+            <com.google.android.gms.maps.MapView
+                android:id="@+id/mapViewPlan"
+                android:layout_width="match_parent"
+                android:layout_height="250dp" />
         </LinearLayout>
     </ScrollView>
 
