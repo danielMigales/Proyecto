@@ -78,7 +78,6 @@ public class HomeFragment extends Fragment {
     public void getData() {
 
         String url_getPlans = "https://proyectogrupodapp.000webhostapp.com/users/get_plannings_cardview.php";
-        System.out.println(url_getPlans);
 
         JsonArrayRequest request = new JsonArrayRequest( Request.Method.POST, url_getPlans, null,
                 new Response.Listener<JSONArray>() {
@@ -107,12 +106,11 @@ public class HomeFragment extends Fragment {
                                 String activity_picture = jsonObject.getString( "activity_picture" );
 
                                 Bitmap decoded_activity_picture = decodeImage( activity_picture );
-                                plans.add( new Plannings(activity_id,activity_name, activity_title, activity_rating, activitiy_category, activity_subcategory,
+                                plans.add( new Plannings( activity_id, activity_name, activity_title, activity_rating, activitiy_category, activity_subcategory,
                                         activity_start_date, activity_end_date, decoded_activity_picture ) );
 
                                 //CONTADOR PARA VER CUANTOS ENCUENTRA
                                 contador++;
-                                System.out.println( contador );
 
                                 //INICIALIZADOR DEL RECYCLERVIEW
                                 initializeAdapter();

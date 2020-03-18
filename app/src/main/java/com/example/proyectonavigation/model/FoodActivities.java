@@ -3,13 +3,13 @@ package com.example.proyectonavigation.model;
 public class FoodActivities {
 
     String id;
-    String name ;
+    String name;
     String latitud;
     String longitud;
     String phone;
-    String price ;
+    String price;
     String photo;
-    String horario_ini ;
+    String horario_ini;
     String horario_fin;
 
     public FoodActivities(String id, String name, String latitud, String longitud, String phone, String price, String photo, String horario_ini, String horario_fin) {

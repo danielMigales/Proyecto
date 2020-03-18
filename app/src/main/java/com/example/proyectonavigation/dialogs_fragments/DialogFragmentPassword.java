@@ -157,7 +157,7 @@ public class DialogFragmentPassword extends DialogFragment {
             }
         };
 
-        RequestQueue requestQueue = Volley.newRequestQueue( getContext());
+        RequestQueue requestQueue = Volley.newRequestQueue( getContext() );
         requestQueue.add( stringRequest );
 
     }

@@ -10,8 +10,8 @@ public class VideoGamesPreferencesActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView( R.layout.activity_video_games_preferences);
+        super.onCreate( savedInstanceState );
+        setContentView( R.layout.activity_video_games_preferences );
 
         getSupportActionBar().hide();
     }

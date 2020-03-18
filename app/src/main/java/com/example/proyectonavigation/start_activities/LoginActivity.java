@@ -37,18 +37,18 @@ public class LoginActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView( R.layout.activity_login);
+        super.onCreate( savedInstanceState );
+        setContentView( R.layout.activity_login );
 
         getSupportActionBar().hide();
 
-        email = findViewById(R.id.email);
-        password = findViewById(R.id.password);
-        btn_login = findViewById(R.id.btn_login);
-        forgotPassword = findViewById( R.id.textViewForgotPassword);
-        link_regist = findViewById(R.id.registerTxt);
+        email = findViewById( R.id.email );
+        password = findViewById( R.id.password );
+        btn_login = findViewById( R.id.btn_login );
+        forgotPassword = findViewById( R.id.textViewForgotPassword );
+        link_regist = findViewById( R.id.registerTxt );
 
-        btn_login.setOnClickListener(new View.OnClickListener() {
+        btn_login.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -59,27 +59,27 @@ public class LoginActivity extends AppCompatActivity {
                     Login();
 
                 } else {
-                    email.setError("Email is missing");
-                    password.setError("Password is missing");
+                    email.setError( "Email is missing" );
+                    password.setError( "Password is missing" );
                 }
             }
-        });
+        } );
 
-        forgotPassword.setOnClickListener(new View.OnClickListener() {
+        forgotPassword.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 dialog();
                 DialogFragment dialogFragment = new DialogFragmentForgotPassword();
                 dialogFragment.show( getSupportFragmentManager(), "dialog" );
             }
-        });
+        } );
 
-        link_regist.setOnClickListener(new View.OnClickListener() {
+        link_regist.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
+                startActivity( new Intent( LoginActivity.this, RegisterActivity.class ) );
             }
-        });
+        } );
     }
 
     private void Login() {
@@ -88,39 +88,39 @@ public class LoginActivity extends AppCompatActivity {
         final String password = this.password.getText().toString().trim();
 
         //Variables para el metodo de encriptado hash AÑADIDO DIA 24/01
-        byte[] passwordByte = hash(password);
-        final String passwordHash = byteToHex(passwordByte);
+        byte[] passwordByte = hash( password );
+        final String passwordHash = byteToHex( passwordByte );
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_LOGIN,
+        StringRequest stringRequest = new StringRequest( Request.Method.POST, URL_LOGIN,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        if (response.contains("1")) {
-                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                            intent.putExtra("email", email);
-                            startActivity(intent);
-                            Toast.makeText(LoginActivity.this, "Bienvenido", Toast.LENGTH_SHORT).show();
+                        if (response.contains( "1" )) {
+                            Intent intent = new Intent( LoginActivity.this, MainActivity.class );
+                            intent.putExtra( "email", email );
+                            startActivity( intent );
+                            Toast.makeText( LoginActivity.this, "Bienvenido", Toast.LENGTH_SHORT ).show();
                         } else {
-                            Toast.makeText(LoginActivity.this, "Usuario o password incorrecto", Toast.LENGTH_SHORT).show();
+                            Toast.makeText( LoginActivity.this, "Usuario o password incorrecto", Toast.LENGTH_SHORT ).show();
                         }
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(LoginActivity.this, "Response Error "
-                        + error.toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText( LoginActivity.this, "Response Error "
+                        + error.toString(), Toast.LENGTH_SHORT ).show();
             }
-        }) {
+        } ) {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
-                params.put("email", email.toString().trim());
+                params.put( "email", email.toString().trim() );
                 //Se le añade la variable nueva de password con hash AÑADIDO DIA 24/01
-                params.put("password", passwordHash);
+                params.put( "password", passwordHash );
                 return params;
             }
         };
-        Volley.newRequestQueue(this).add(stringRequest);
+        Volley.newRequestQueue( this ).add( stringRequest );
     }
 
     //Metodo que recibe el password desde el textview y lo convierte a hash AÑADIDO DIA 24/01
@@ -129,8 +129,8 @@ public class LoginActivity extends AppCompatActivity {
         byte[] hash = null;
         try {
             byte[] data = password.getBytes();
-            MessageDigest md = MessageDigest.getInstance("SHA-256");
-            hash = md.digest(data);
+            MessageDigest md = MessageDigest.getInstance( "SHA-256" );
+            hash = md.digest( data );
         } catch (Exception ex) {
 
         }
@@ -139,8 +139,8 @@ public class LoginActivity extends AppCompatActivity {
 
     //Metodo que convierte el password con hash de nuevo a String AÑADIDO DIA 24/01
     public static String byteToHex(byte[] bytes) {
-        BigInteger bi = new BigInteger(1, bytes);
-        return String.format("%0" + (bytes.length << 1) + "X", bi);
+        BigInteger bi = new BigInteger( 1, bytes );
+        return String.format( "%0" + (bytes.length << 1) + "X", bi );
     }
 
     public void dialog() {

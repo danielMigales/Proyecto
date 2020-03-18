@@ -44,110 +44,111 @@ public class MusicPreferencesActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView( R.layout.activity_music_preferences);
+        super.onCreate( savedInstanceState );
+        setContentView( R.layout.activity_music_preferences );
 
         getSupportActionBar().hide();
 
-        metal = (CheckBox) findViewById(R.id.checkBoxMetal);
-        pop = (CheckBox) findViewById(R.id.checkBoxPop);
-        rock = (CheckBox) findViewById(R.id.checkBoxRock);
-        soul = (CheckBox) findViewById(R.id.checkBoxSoul);
-        reagge = (CheckBox) findViewById(R.id.checkBoxReage);
-        techno = (CheckBox) findViewById(R.id.checkBoxTechno);
-        blues = (CheckBox) findViewById(R.id.checkBoxBlues);
-        rap = (CheckBox) findViewById(R.id.checkBoxRap);
-        regaton = (CheckBox) findViewById(R.id.checkBoxRegaton);
-        clasic = (CheckBox) findViewById(R.id.checkBoxClasic);
+        metal = (CheckBox) findViewById( R.id.checkBoxMetal );
+        pop = (CheckBox) findViewById( R.id.checkBoxPop );
+        rock = (CheckBox) findViewById( R.id.checkBoxRock );
+        soul = (CheckBox) findViewById( R.id.checkBoxSoul );
+        reagge = (CheckBox) findViewById( R.id.checkBoxReage );
+        techno = (CheckBox) findViewById( R.id.checkBoxTechno );
+        blues = (CheckBox) findViewById( R.id.checkBoxBlues );
+        rap = (CheckBox) findViewById( R.id.checkBoxRap );
+        regaton = (CheckBox) findViewById( R.id.checkBoxRegaton );
+        clasic = (CheckBox) findViewById( R.id.checkBoxClasic );
 
         Intent intent = getIntent();
-        email = intent.getStringExtra("email");
+        email = intent.getStringExtra( "email" );
 
-        submit = findViewById(R.id.btn_save);
-        submit.setOnClickListener(new View.OnClickListener() {
+        submit = findViewById( R.id.btn_save );
+        submit.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                comprobarCheckbox(v);
+                comprobarCheckbox( v );
                 savePreferences();
 
             }
-        });
+        } );
     }
+
     public void comprobarCheckbox(View v) {
 
-            if (metal.isChecked()){
-                music.add("metal");
-            }
-            if (rock.isChecked()){
-                music.add("rock");
-            }
-            if (pop.isChecked()){
-                music.add("pop");
-            }
-            if (regaton.isChecked()){
-                music.add("regaton");
-            }
-            if (reagge.isChecked()){
-                music.add("reagge");
-            }
-            if (clasic.isChecked()){
-                music.add("clasica");
-            }
-            if (rap.isChecked()){
-                music.add("rap");
-            }
-            if (techno.isChecked()){
-                music.add("techno");
-            }
-            if (soul.isChecked()){
-                music.add("soul");
-            }
-            if (blues.isChecked()){
-                music.add("blues");
-            }
+        if (metal.isChecked()) {
+            music.add( "metal" );
+        }
+        if (rock.isChecked()) {
+            music.add( "rock" );
+        }
+        if (pop.isChecked()) {
+            music.add( "pop" );
+        }
+        if (regaton.isChecked()) {
+            music.add( "regaton" );
+        }
+        if (reagge.isChecked()) {
+            music.add( "reagge" );
+        }
+        if (clasic.isChecked()) {
+            music.add( "clasica" );
+        }
+        if (rap.isChecked()) {
+            music.add( "rap" );
+        }
+        if (techno.isChecked()) {
+            music.add( "techno" );
+        }
+        if (soul.isChecked()) {
+            music.add( "soul" );
+        }
+        if (blues.isChecked()) {
+            music.add( "blues" );
+        }
     }
 
-    public void savePreferences(){
+    public void savePreferences() {
 
         for (int i = 0; i < music.size(); i++) {
-            Toast.makeText(this,"Ha seleccionado: " + music.toString(), Toast.LENGTH_LONG).show();
+            Toast.makeText( this, "Ha seleccionado: " + music.toString(), Toast.LENGTH_LONG ).show();
         }
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL,
+        StringRequest stringRequest = new StringRequest( Request.Method.POST, URL,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         try {
-                            JSONObject jsonObject = new JSONObject(response);
-                            String success = jsonObject.getString("success");
+                            JSONObject jsonObject = new JSONObject( response );
+                            String success = jsonObject.getString( "success" );
 
-                            if (success.equals("1")) {
-                                Toast.makeText(MusicPreferencesActivity.this, "Preferencias guardadas", Toast.LENGTH_SHORT).show();
+                            if (success.equals( "1" )) {
+                                Toast.makeText( MusicPreferencesActivity.this, "Preferencias guardadas", Toast.LENGTH_SHORT ).show();
                             }
 
                         } catch (JSONException e) {
                             e.printStackTrace();
-                            Toast.makeText(MusicPreferencesActivity.this, "JSON Error " + e.toString(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText( MusicPreferencesActivity.this, "JSON Error " + e.toString(), Toast.LENGTH_SHORT ).show();
                         }
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(MusicPreferencesActivity.this, "Response Error " + error.toString(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText( MusicPreferencesActivity.this, "Response Error " + error.toString(), Toast.LENGTH_SHORT ).show();
                     }
-                }) {
+                } ) {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
-                params.put("email", email);
-                params.put("music", music.toString());
+                params.put( "email", email );
+                params.put( "music", music.toString() );
                 return params;
             }
         };
 
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
-        requestQueue.add(stringRequest);
+        RequestQueue requestQueue = Volley.newRequestQueue( this );
+        requestQueue.add( stringRequest );
     }
 
 }

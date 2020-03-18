@@ -255,26 +255,25 @@ public class DialogFragmentPreferences extends DialogFragment implements
     }
 
     @Override
-    public void dismiss () {
+    public void dismiss() {
         super.dismiss();
     }
 
-    public void savePreferences(){
+    public void savePreferences() {
 
         String url_updatePreferences = "https://proyectogrupodapp.000webhostapp.com/users/setPreferences.php";
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, url_updatePreferences,
+        StringRequest stringRequest = new StringRequest( Request.Method.POST, url_updatePreferences,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         try {
-                            JSONObject jsonObject = new JSONObject(response);
-                            String success = jsonObject.getString("success");
+                            JSONObject jsonObject = new JSONObject( response );
+                            String success = jsonObject.getString( "success" );
 
-                            if (success.equals("1")) {
+                            if (success.equals( "1" )) {
 
-                            }
-                            else{
+                            } else {
 
                             }
 
@@ -288,13 +287,13 @@ public class DialogFragmentPreferences extends DialogFragment implements
                     public void onErrorResponse(VolleyError error) {
                         Toast.makeText( getContext(), "Response Error " + error.toString(), Toast.LENGTH_SHORT ).show();
                     }
-                }) {
+                } ) {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
-                params.put("email", email);
+                params.put( "email", email );
                 String formattedString = preferencesList.toString().replace( "[", "" ).replace( "]", "" ).trim();
-                params.put("preferences",formattedString);
+                params.put( "preferences", formattedString );
                 return params;
             }
         };

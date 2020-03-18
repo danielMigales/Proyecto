@@ -15,7 +15,6 @@ public class Plannings {
     Bitmap activity_picture;
 
 
-
     public Plannings(int activity_id, String activity_name, String activity_title, float activity_rating, String activitiy_category, String activity_subcategory,
                      String activity_start_date, String activity_end_date, Bitmap activity_picture) {
 

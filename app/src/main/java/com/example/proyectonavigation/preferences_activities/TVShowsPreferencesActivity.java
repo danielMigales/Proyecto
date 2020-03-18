@@ -10,8 +10,8 @@ public class TVShowsPreferencesActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView( R.layout.activity_tvshows_preferences);
+        super.onCreate( savedInstanceState );
+        setContentView( R.layout.activity_tvshows_preferences );
 
         getSupportActionBar().hide();
     }

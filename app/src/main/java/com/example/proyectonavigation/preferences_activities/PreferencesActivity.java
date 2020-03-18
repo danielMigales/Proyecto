@@ -45,115 +45,115 @@ public class PreferencesActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView( R.layout.activity_preferences);
+        super.onCreate( savedInstanceState );
+        setContentView( R.layout.activity_preferences );
 
         getSupportActionBar().hide();
 
-        cinema = (CheckBox) findViewById(R.id.checkBoxCinema);
-        food = (CheckBox) findViewById(R.id.checkBoxFood);
-        music = (CheckBox) findViewById(R.id.checkBoxMusic);
-        outdoor = (CheckBox) findViewById(R.id.checkBoxOutdoor);
-        tv = (CheckBox) findViewById(R.id.checkBoxTV);
-        culture = (CheckBox) findViewById(R.id.checkBoxCulture);
-        books = (CheckBox) findViewById(R.id.checkBoxBooks);
-        videogames = (CheckBox) findViewById(R.id.checkBoxVideoGames);
-        sports= (CheckBox) findViewById(R.id.checkBoxSports);
+        cinema = (CheckBox) findViewById( R.id.checkBoxCinema );
+        food = (CheckBox) findViewById( R.id.checkBoxFood );
+        music = (CheckBox) findViewById( R.id.checkBoxMusic );
+        outdoor = (CheckBox) findViewById( R.id.checkBoxOutdoor );
+        tv = (CheckBox) findViewById( R.id.checkBoxTV );
+        culture = (CheckBox) findViewById( R.id.checkBoxCulture );
+        books = (CheckBox) findViewById( R.id.checkBoxBooks );
+        videogames = (CheckBox) findViewById( R.id.checkBoxVideoGames );
+        sports = (CheckBox) findViewById( R.id.checkBoxSports );
 
         Intent intent = getIntent();
-        final String email = intent.getStringExtra("email");
-        final String name = intent.getStringExtra("name");
+        final String email = intent.getStringExtra( "email" );
+        final String name = intent.getStringExtra( "name" );
 
-        submit = findViewById(R.id.btn_save);
-        submit.setOnClickListener(new View.OnClickListener() {
+        submit = findViewById( R.id.btn_save );
+        submit.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                comprobarCheckbox(v);
+                comprobarCheckbox( v );
                 savePreferences();
-                Intent intent = new Intent(PreferencesActivity.this, MainActivity.class);
-                intent.putExtra("email", email);
-                intent.putExtra("name", name);
-                startActivity(intent);
+                Intent intent = new Intent( PreferencesActivity.this, MainActivity.class );
+                intent.putExtra( "email", email );
+                intent.putExtra( "name", name );
+                startActivity( intent );
             }
-        });
+        } );
     }
 
     public void comprobarCheckbox(View v) {
 
-        if (cinema.isChecked()){
-            preferences.add("cine");
+        if (cinema.isChecked()) {
+            preferences.add( "cine" );
         }
-        if (food.isChecked()){
-            preferences.add("gastronomia");
+        if (food.isChecked()) {
+            preferences.add( "gastronomia" );
         }
-        if (music.isChecked()){
-            preferences.add("musica");
+        if (music.isChecked()) {
+            preferences.add( "musica" );
         }
-        if (outdoor.isChecked()){
-            preferences.add("salir");
+        if (outdoor.isChecked()) {
+            preferences.add( "salir" );
         }
-        if (tv.isChecked()){
-            preferences.add("television");
+        if (tv.isChecked()) {
+            preferences.add( "television" );
         }
-        if (culture.isChecked()){
-            preferences.add("cultura");
+        if (culture.isChecked()) {
+            preferences.add( "cultura" );
         }
-        if (books.isChecked()){
-            preferences.add("literatura");
+        if (books.isChecked()) {
+            preferences.add( "literatura" );
         }
-        if (videogames.isChecked()){
-            preferences.add("videojuegos");
+        if (videogames.isChecked()) {
+            preferences.add( "videojuegos" );
         }
-        if (sports.isChecked()){
-            preferences.add("deportes");
+        if (sports.isChecked()) {
+            preferences.add( "deportes" );
         }
     }
 
-    public void savePreferences(){
+    public void savePreferences() {
 
         for (int i = 0; i < preferences.size(); i++) {
-            Toast.makeText(this,"Preferencias guardadas: " + preferences.toString(), Toast.LENGTH_LONG).show();
+            Toast.makeText( this, "Preferencias guardadas: " + preferences.toString(), Toast.LENGTH_LONG ).show();
         }
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_PREFER,
+        StringRequest stringRequest = new StringRequest( Request.Method.POST, URL_PREFER,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         try {
-                            JSONObject jsonObject = new JSONObject(response);
-                            String success = jsonObject.getString("success");
+                            JSONObject jsonObject = new JSONObject( response );
+                            String success = jsonObject.getString( "success" );
 
-                            if (success.equals("1")) {
-                                Toast.makeText(PreferencesActivity.this, "Preferencias guardadas", Toast.LENGTH_SHORT).show();
+                            if (success.equals( "1" )) {
+                                Toast.makeText( PreferencesActivity.this, "Preferencias guardadas", Toast.LENGTH_SHORT ).show();
                             }
 
                         } catch (JSONException e) {
                             e.printStackTrace();
-                            Toast.makeText(PreferencesActivity.this, "JSON Error " + e.toString(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText( PreferencesActivity.this, "JSON Error " + e.toString(), Toast.LENGTH_SHORT ).show();
                         }
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(PreferencesActivity.this, "Response Error " + error.toString(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText( PreferencesActivity.this, "Response Error " + error.toString(), Toast.LENGTH_SHORT ).show();
                     }
-                }) {
+                } ) {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
 
                 Intent intent = getIntent();
-                String email = intent.getStringExtra("email");
-                params.put("email", email);
+                String email = intent.getStringExtra( "email" );
+                params.put( "email", email );
                 String formattedString = preferences.toString().replace( "[", "" ).replace( "]", "" ).trim();
-                params.put("preferences",formattedString);
+                params.put( "preferences", formattedString );
                 return params;
             }
         };
 
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
-        requestQueue.add(stringRequest);
+        RequestQueue requestQueue = Volley.newRequestQueue( this );
+        requestQueue.add( stringRequest );
     }
 
 }

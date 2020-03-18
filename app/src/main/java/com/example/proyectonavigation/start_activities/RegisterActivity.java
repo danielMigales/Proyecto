@@ -70,23 +70,20 @@ public class RegisterActivity extends AppCompatActivity {
                 String mCPassword = c_password.getText().toString().trim();
 
                 if (!mName.isEmpty()) {
-                    if(esNombreValido( mName )){
+                    if (esNombreValido( mName )) {
                         if (!mEmail.isEmpty()) {
                             if (!mPassword.isEmpty()) {
                                 if (!mCPassword.isEmpty()) {
-                                    if(esCorreoValido( mEmail)){
+                                    if (esCorreoValido( mEmail )) {
                                         Regist();
                                     }
-                                }
-                                else{
+                                } else {
                                     c_password.setError( "Confirme su password" );
                                 }
-                            }
-                            else{
+                            } else {
                                 password.setError( "Introduzca su password" );
                             }
-                        }
-                        else{
+                        } else {
                             email.setError( "Introduzca su email" );
                         }
                     }
@@ -99,23 +96,23 @@ public class RegisterActivity extends AppCompatActivity {
 
     //VALIDACION DE NOMBRE DE USUARIO
     private boolean esNombreValido(String nombre) {
-        Pattern patron = Pattern.compile("^[a-zA-Z ]+$");
-        if (!patron.matcher(nombre).matches() || nombre.length() > 30) {
-            name.setError("Nombre inválido");
+        Pattern patron = Pattern.compile( "^[a-zA-Z ]+$" );
+        if (!patron.matcher( nombre ).matches() || nombre.length() > 30) {
+            name.setError( "Nombre inválido" );
             return false;
         } else {
-            name.setError(null);
+            name.setError( null );
         }
         return true;
     }
 
     //VALIDACION DE CORREO ELECTRONICO
     private boolean esCorreoValido(String correo) {
-        if (!Patterns.EMAIL_ADDRESS.matcher(correo).matches()) {
-            email.setError("Correo electrónico inválido");
+        if (!Patterns.EMAIL_ADDRESS.matcher( correo ).matches()) {
+            email.setError( "Correo electrónico inválido" );
             return false;
         } else {
-            email.setError(null);
+            email.setError( null );
         }
         return true;
     }

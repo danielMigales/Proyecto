@@ -159,7 +159,7 @@ public class ProfileFragment extends Fragment {
     @Override
     public void onPause() {
         super.onPause();
-        handler.removeCallbacks(runnable);
+        handler.removeCallbacks( runnable );
     }
 
     //SOLICITAR PERMISOS

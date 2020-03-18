@@ -25,9 +25,9 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.My
 
         public MyViewHolder(View itemView) {
             super( itemView );
-            categories = itemView.findViewById(R.id.cardviewCategories);
-            name = itemView.findViewById(R.id.textViewCategory);
-            picture = itemView.findViewById(R.id.imageViewCategory);
+            categories = itemView.findViewById( R.id.cardviewCategories );
+            name = itemView.findViewById( R.id.textViewCategory );
+            picture = itemView.findViewById( R.id.imageViewCategory );
         }
     }
 
@@ -35,16 +35,16 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.My
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View v = LayoutInflater.from(parent.getContext()).inflate( R.layout.categories_cardview, parent, false);
-        MyViewHolder viewHolder = new MyViewHolder(v);
+        View v = LayoutInflater.from( parent.getContext() ).inflate( R.layout.categories_cardview, parent, false );
+        MyViewHolder viewHolder = new MyViewHolder( v );
         return viewHolder;
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
-        holder.name.setText(categories.get(position).name);
-        holder.picture.setImageResource(categories.get(position).picture);
+        holder.name.setText( categories.get( position ).name );
+        holder.picture.setImageResource( categories.get( position ).picture );
     }
 
     @Override
@@ -54,7 +54,7 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.My
 
     List<Categories> categories;
 
-    public CategoriesAdapter(List<Categories> categories){
+    public CategoriesAdapter(List<Categories> categories) {
         this.categories = categories;
     }
 

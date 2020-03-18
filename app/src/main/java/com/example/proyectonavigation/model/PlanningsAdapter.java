@@ -32,11 +32,11 @@ public class PlanningsAdapter extends RecyclerView.Adapter<PlanningsAdapter.MyVi
 
         public MyViewHolder(View itemView) {
             super( itemView );
-            planning = itemView.findViewById( R.id.cardviewActivityPlan);
-            name = itemView.findViewById(R.id.textViewCardviewActivity);
-            picture = itemView.findViewById(R.id.imageViewCardviewActivity);
-            tags = itemView.findViewById(R.id.textViewTagsCardviewActivity);
-            rating = itemView.findViewById(R.id.ratingBarCardviewActivity);
+            planning = itemView.findViewById( R.id.cardviewActivityPlan );
+            name = itemView.findViewById( R.id.textViewCardviewActivity );
+            picture = itemView.findViewById( R.id.imageViewCardviewActivity );
+            tags = itemView.findViewById( R.id.textViewTagsCardviewActivity );
+            rating = itemView.findViewById( R.id.ratingBarCardviewActivity );
 
         }
     }
@@ -45,30 +45,30 @@ public class PlanningsAdapter extends RecyclerView.Adapter<PlanningsAdapter.MyVi
     @Override
     public PlanningsAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View v = LayoutInflater.from(parent.getContext()).inflate( R.layout.home_cardview, parent, false);
-        PlanningsAdapter.MyViewHolder viewHolder = new PlanningsAdapter.MyViewHolder(v);
+        View v = LayoutInflater.from( parent.getContext() ).inflate( R.layout.home_cardview, parent, false );
+        PlanningsAdapter.MyViewHolder viewHolder = new PlanningsAdapter.MyViewHolder( v );
         return viewHolder;
     }
 
     @Override
     public void onBindViewHolder(@NonNull PlanningsAdapter.MyViewHolder holder, final int position) {
 
-        holder.planning.setOnClickListener(new View.OnClickListener() {
+        holder.planning.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(view.getContext(), CardActivity.class);
-                intent.putExtra("activity_id", plans.get(position).activity_id);
+                Intent intent = new Intent( view.getContext(), CardActivity.class );
+                intent.putExtra( "activity_id", plans.get( position ).activity_id );
                 intent.putExtra( "activity_category", plans.get( position ).activitiy_category );
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                view.getContext().startActivity(intent);
+                intent.addFlags( Intent.FLAG_ACTIVITY_NEW_TASK );
+                view.getContext().startActivity( intent );
             }
-        });
+        } );
 
-        holder.name.setText(plans.get(position).activity_title);
-        holder.tags.setText( plans.get(position).activitiy_category + ", " + plans.get(position).activity_subcategory );
-        holder.picture.setImageBitmap(plans.get(position).activity_picture);
-        holder.rating.setRating( plans.get(position).activity_rating );
+        holder.name.setText( plans.get( position ).activity_title );
+        holder.tags.setText( plans.get( position ).activitiy_category + ", " + plans.get( position ).activity_subcategory );
+        holder.picture.setImageBitmap( plans.get( position ).activity_picture );
+        holder.rating.setRating( plans.get( position ).activity_rating );
     }
 
     @Override
@@ -76,7 +76,7 @@ public class PlanningsAdapter extends RecyclerView.Adapter<PlanningsAdapter.MyVi
         return plans.size();
     }
 
-    public PlanningsAdapter(ArrayList<Plannings> plans){
+    public PlanningsAdapter(ArrayList<Plannings> plans) {
         this.plans = plans;
     }
 

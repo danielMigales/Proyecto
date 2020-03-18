@@ -10,8 +10,8 @@ public class OutdoorPreferencesActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView( R.layout.activity_outdoor_preferences);
+        super.onCreate( savedInstanceState );
+        setContentView( R.layout.activity_outdoor_preferences );
 
         getSupportActionBar().hide();
     }
