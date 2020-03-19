@@ -47,6 +47,7 @@ public class CardActivity extends AppCompatActivity implements OnMapReadyCallbac
     TextView textviewPrice;
     TextView textviewPhone;
     TextView textviewTimetable;
+    TextView textviewTimetable2;
     TextView textviewDescription;
     TextView textviewURL;
 
@@ -78,6 +79,7 @@ public class CardActivity extends AppCompatActivity implements OnMapReadyCallbac
         textviewPrice = findViewById( R.id.textviewPrice );
         textviewPhone = findViewById( R.id.textviewPhone );
         textviewTimetable = findViewById( R.id.textviewTimetable );
+        textviewTimetable2 = findViewById( R.id.textviewTimetable_2 );
         textviewDescription = findViewById( R.id.textviewDescription );
         textviewURL = findViewById( R.id.textViewURL );
 
@@ -155,7 +157,9 @@ public class CardActivity extends AppCompatActivity implements OnMapReadyCallbac
                                 String activity_phone = jsonObject.getString( "activity_phone" );
                                 textviewPhone.setText( activity_phone );
                                 String activity_timetable = jsonObject.getString( "activity_timetable" );
-                                textviewTimetable.setText( activity_timetable );
+                                textviewTimetable.setText( timeWithoutSeconds( activity_timetable ) );
+                                String activity_timetable_2 = jsonObject.getString( "activity_timetable_2" );
+                                textviewTimetable2.setText( timeWithoutSeconds( activity_timetable_2 ) );
                                 String activity_description = jsonObject.getString( "activity_description" );
                                 textviewDescription.setText( activity_description );
                                 String activity_url = jsonObject.getString( "activity_url" );
@@ -306,6 +310,16 @@ public class CardActivity extends AppCompatActivity implements OnMapReadyCallbac
                 Toast.makeText( this, "Error de permisos", Toast.LENGTH_LONG ).show();
             }
         }
+    }
+
+    //METODO PARA RECORTAR EL STRING DE LA HORA Y QUITARLE LOS SEGUNDOS
+    public String timeWithoutSeconds(String timetable){
+
+        String[] parts = timetable.split(":");
+        String part1 = parts[0];
+        String part2 = parts[1];
+        String time = part1 + ":" + part2;
+        return time;
     }
 
 }

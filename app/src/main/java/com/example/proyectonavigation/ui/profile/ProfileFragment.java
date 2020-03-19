@@ -191,6 +191,7 @@ public class ProfileFragment extends Fragment {
 
     //CODIGO PARA COMRPRIMIR LA IMAGEN A STRING
     public String getStringImagen(Bitmap bmp) {
+
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         bmp.compress( Bitmap.CompressFormat.JPEG, 100, baos );
         byte[] imageBytes = baos.toByteArray();
@@ -238,11 +239,9 @@ public class ProfileFragment extends Fragment {
                 },
                 new Response.ErrorListener() {
                     @Override
-
                     public void onErrorResponse(VolleyError error) {
                         Toast.makeText( getContext(), "Error al obtener los datos", Toast.LENGTH_SHORT ).show();
                     }
-
                 } ) {
 
             @Override

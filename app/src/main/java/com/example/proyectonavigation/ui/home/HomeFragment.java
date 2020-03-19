@@ -1,5 +1,6 @@
 package com.example.proyectonavigation.ui.home;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -9,16 +10,17 @@ import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -39,8 +41,8 @@ import java.util.Map;
 
 public class HomeFragment extends Fragment {
 
-    private HomeViewModel homeViewModel;
     private String email;
+
 
     //VARIABLES PARA LA LISTA DE PREFERENCIAS EN RECYCLERVIEW
     private ArrayList<Plannings> plans;
@@ -51,8 +53,7 @@ public class HomeFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        homeViewModel =
-                ViewModelProviders.of( this ).get( HomeViewModel.class );
+        HomeViewModel homeViewModel = ViewModelProviders.of( this ).get( HomeViewModel.class );
         View view = inflater.inflate( R.layout.fragment_home, container, false );
 
 
@@ -67,15 +68,50 @@ public class HomeFragment extends Fragment {
         recyclerView.setHasFixedSize( true );
         recyclerView.setLayoutManager( layoutManager );
 
+        //IMPLEMENTACION DEL BOTON FILTRO CON ALERT DIALOG
+        Button filter = view.findViewById( R.id.buttonFilter );
+        filter.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                AlertDialog.Builder builder = new AlertDialog.Builder( getActivity() );
+                builder.setTitle( "FILTRAR ACTIVIDADES " );
+                int checkedItem = 0; // Ver todas las actividades
+                builder.setCancelable( true );
+                //LOS ITEMS QUE USA EL LISTADO ESTAN EN LA CARPETA RES/VALUES/ARRAYS. TAMBIEN SE PUEDE HACER UN ARRAY AQUI MISMO
+                builder.setSingleChoiceItems( R.array.filtradoHome, checkedItem, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        switch (which) {
+                            case 0: // Ver todas las actividades
+                                getPlans();
+                                dialog.dismiss();
+                                break;
+                            case 1: // Ver solo mis preferencias
+
+                                dialog.dismiss();
+                                break;
+                            case 2: // Ver las mejor valoradas
+
+                                dialog.dismiss();
+                                break;
+                        }
+                    }
+                } );
+                AlertDialog dialog = builder.create();
+                dialog.show();
+                Toast.makeText( getContext(), "Filtrando...", Toast.LENGTH_SHORT ).show();
+
+            }
+        } );
+
         //OBTENER LOS DATOS DE LA BD AL CARGARSE LA ACTIVIDAD
-        getData();
+        getPlans();
 
         return view;
     }
 
-
     //OBTENCION DE LOS DATOS DE LA BASE DE DATOS
-    public void getData() {
+    private void getPlans() {
 
         String url_getPlans = "https://proyectogrupodapp.000webhostapp.com/users/get_plannings_cardview.php";
 
@@ -136,7 +172,7 @@ public class HomeFragment extends Fragment {
             }
 
             @Override
-            public Map<String, String> getParams() throws AuthFailureError {
+            public Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<>();
                 params.put( "email", email );
                 return params;
@@ -147,19 +183,16 @@ public class HomeFragment extends Fragment {
     }
 
     //DECODIFCA LA IMAGEN QUE RECIBE DE LA BD EN FORMATO STRING
-    public Bitmap decodeImage(String picture) {
+    private Bitmap decodeImage(String picture) {
 
         byte[] imageBytes;
         imageBytes = Base64.decode( picture, Base64.DEFAULT );
-        Bitmap decodedImage = BitmapFactory.decodeByteArray( imageBytes, 0, imageBytes.length );
-        return decodedImage;
+        return BitmapFactory.decodeByteArray( imageBytes, 0, imageBytes.length );
     }
 
     private void initializeAdapter() {
 
         PlanningsAdapter adapter = new PlanningsAdapter( plans );
         recyclerView.setAdapter( adapter );
-
     }
-
-}
+    }

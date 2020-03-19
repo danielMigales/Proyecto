@@ -59,8 +59,8 @@ public class LoginActivity extends AppCompatActivity {
                     Login();
 
                 } else {
-                    email.setError( "Email is missing" );
-                    password.setError( "Password is missing" );
+                    email.setError( "Introduzca su email" );
+                    password.setError( "Introduzca su contraseña" );
                 }
             }
         } );

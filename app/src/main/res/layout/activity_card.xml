@@ -90,17 +90,36 @@
                 android:textColor="@android:color/black"
                 android:textSize="18sp" />
 
-            <TextView
-                android:id="@+id/textviewTimetable"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="14dp"
-                android:layout_marginEnd="10dp"
-                android:drawableStart="@android:drawable/ic_menu_recent_history"
-                android:text="Horario"
-                android:textColor="@android:color/black"
-                android:textSize="18sp" />
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textviewTimetable"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:drawableStart="@android:drawable/ic_menu_recent_history"
+                    android:text="Horario de apertura"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/textviewTimetable_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="Horario de cierre"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp" />
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/textviewDescription"

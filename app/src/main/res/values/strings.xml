@@ -5,10 +5,8 @@
     <string name="title_profile">Perfil</string>
     <string name="title_map">Mapa</string>
     <string name="tv_shows">Series de TV</string>
-
     <string name="food">Comida</string>
     <string name="cinema">Cine</string>
-
     <string name="submit">Guardar</string>
     <string name="reggaeton">Reggaeton</string>
     <string name="cultureThings">Cultura</string>
@@ -19,15 +17,12 @@
     <string name="tvThings">Television</string>
     <string name="select_your_preferences">Elige tus preferencias</string>
     <string name="videogames">Video Juegos</string>
-    <string name="music">Musica</string>
     <string name="logout">Desconectarse</string>
     <string name="Edityourname">Edita tu nombre</string>
     <string name="edityouremail">Edita tu email</string>
     <string name="editpassword">Edita tu contraseña</string>
     <string name="editage">Edita tu fecha de nacimiento</string>
     <string name="outdoor">Actividades al aire libre</string>
-
-
     <string name="ciencia_ficcion">Ciencia Ficcion</string>
     <string name="romance">Romance</string>
     <string name="misterio">Misterio</string>
@@ -51,15 +46,8 @@
     <string name="subcategoria_historia">subcategoria historia</string>
     <string name="subcategoria_comics">subcategoria comics</string>
     <string name="marque_sus_preferencias">Marque sus preferencias</string>
-    <string name="musica">Musica</string>
-    <string name="cine">Cine</string>
     <string name="salir">Salir</string>
     <string name="videojuegos">Videojuegos</string>
-    <string name="deportes">Deportes</string>
-    <string name="literatura">Literatura</string>
-    <string name="cultura">Cultura</string>
-    <string name="television">Television</string>
-    <string name="gastronomia">Gastronomia</string>
     <string name="hoy" />
     <string name="fin_de_semana" />
     <string name="proximamente" />
@@ -78,12 +66,27 @@
     <string name="tags">Tags:</string>
     <string name="fotografia_de_la_actividad">Fotografia de la actividad</string>
     <string name="asistire">asistire</string>
-
     <string name="title_activity_fullscreen_splash">FullscreenSplashActivity</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="bienvenidos">Bienvenidos</string>
     <string name="welcome">welcome</string>
-
-
+    <string name="filtrar_por">FILTRAR POR</string>
+    <string name="diahoy">Hoy</string>
+    <string name="proximo">proximo</string>
+    <string name="finde">finde</string>
+    <string name="modificar_preferencias">Modificar preferencias</string>
+    <string name="musica">Musica</string>
+    <string name="gastronomia">Gastronomia</string>
+    <string name="television">Television</string>
+    <string name="cine">Cine</string>
+    <string name="salirdecasa">salir</string>
+    <string name="cultura">Cultura</string>
+    <string name="Videojuegos">videoJuegos</string>
+    <string name="literatura">Literatura</string>
+    <string name="deportes">Deportes</string>
+    <string name="modificar_datos_de_usuario">Modificar datos de usuario</string>
+    <string name="categorybooks">categoryBooks</string>
+    <string name="libros">Libros</string>
+    <string name="categorysports">categorySports</string>
 </resources>

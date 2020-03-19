@@ -66,7 +66,7 @@ public class PlanningsAdapter extends RecyclerView.Adapter<PlanningsAdapter.MyVi
         } );
 
         holder.name.setText( plans.get( position ).activity_title );
-        holder.tags.setText( plans.get( position ).activitiy_category + ", " + plans.get( position ).activity_subcategory );
+        holder.tags.setText(plans.get( position ).activitiy_category + ", " + plans.get( position ).activity_subcategory );
         holder.picture.setImageBitmap( plans.get( position ).activity_picture );
         holder.rating.setRating( plans.get( position ).activity_rating );
     }

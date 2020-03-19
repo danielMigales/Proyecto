@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="filtradoHome">
+        <item>Ver todas las actividades</item>
+        <item>Ver solo mis preferencias</item>
+        <item>Ver las mejor valoradas</item>
+    </string-array>
+</resources>

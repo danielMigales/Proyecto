@@ -1,17 +1,20 @@
 package com.example.proyectonavigation.ui.profile;
 
+import android.app.DatePickerDialog;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
 
 import com.example.proyectonavigation.R;
-import com.example.proyectonavigation.dialogs_fragments.DialogFragmentBirthday;
+import com.example.proyectonavigation.dialogs_fragments.DatePickerFragment;
 import com.example.proyectonavigation.dialogs_fragments.DialogFragmentEmail;
 import com.example.proyectonavigation.dialogs_fragments.DialogFragmentPassword;
 import com.example.proyectonavigation.dialogs_fragments.DialogFragmentUsername;
@@ -184,9 +187,7 @@ public class ChangeProfileActivity extends AppCompatActivity {
         ChangeBirthday.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dialog();
-                DialogFragment dialogFragment = new DialogFragmentBirthday();
-                dialogFragment.show( getSupportFragmentManager(), "dialog" );
+                showDatePickerDialog();
             }
         } );
 
@@ -202,6 +203,18 @@ public class ChangeProfileActivity extends AppCompatActivity {
             }
         } );
     }
+
+    private void showDatePickerDialog() {
+        DatePickerFragment newFragment = DatePickerFragment.newInstance(new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                Toast.makeText( getApplicationContext(), "Fecha cambiada con exito", Toast.LENGTH_SHORT ).show();
+            }
+        });
+        newFragment.show(getSupportFragmentManager(), "datePicker");
+    }
+
+
 
 }
 
