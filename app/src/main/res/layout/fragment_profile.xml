@@ -12,6 +12,7 @@
         android:layout_height="130dp"
         android:layout_marginStart="1dp"
         android:layout_marginBottom="601dp"
+        android:contentDescription="@string/fondo_de_pantalla"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.428"
@@ -66,6 +67,7 @@
         android:layout_marginEnd="238dp"
         android:layout_marginBottom="547dp"
         android:background="@drawable/borde_redondo"
+        android:contentDescription="@string/fotografia_del_usuario"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -82,7 +84,7 @@
         android:layout_marginEnd="131dp"
         android:layout_marginBottom="522dp"
         android:fontFamily="@font/aladin"
-        android:text="Mis Datos (email)"
+        android:text="@string/mis_datos_email"
         android:textColor="@android:color/black"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -105,14 +107,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <TextView
         android:id="@+id/textViewActualPreferences"
         android:layout_width="235dp"
         android:layout_height="30dp"
         android:layout_marginStart="27dp"
-        android:layout_marginTop="320dp"
+        android:layout_marginTop="342dp"
         android:layout_marginEnd="131dp"
-        android:layout_marginBottom="457dp"
+        android:layout_marginBottom="435dp"
         android:fontFamily="@font/aladin"
         android:text="@string/mis_preferencias_actuales"
         android:textColor="@android:color/black"
@@ -123,15 +126,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
     <TextView
         android:id="@+id/textViewPreferencias"
         android:layout_width="310dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="27dp"
-        android:layout_marginTop="350dp"
+        android:layout_marginTop="385dp"
         android:layout_marginEnd="56dp"
-        android:layout_marginBottom="407dp"
+        android:layout_marginBottom="403dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

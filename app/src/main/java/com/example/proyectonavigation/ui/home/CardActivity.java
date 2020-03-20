@@ -305,7 +305,6 @@ public class CardActivity extends AppCompatActivity implements OnMapReadyCallbac
             if (permissions.length > 0 &&
                     permissions[0].equals( Manifest.permission.ACCESS_FINE_LOCATION ) &&
                     grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                googleMap.setMyLocationEnabled( true );
             } else {
                 Toast.makeText( this, "Error de permisos", Toast.LENGTH_LONG ).show();
             }

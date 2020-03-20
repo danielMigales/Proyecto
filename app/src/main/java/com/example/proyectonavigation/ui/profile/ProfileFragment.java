@@ -2,6 +2,7 @@ package com.example.proyectonavigation.ui.profile;
 
 import android.Manifest;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -18,6 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
@@ -108,7 +110,26 @@ public class ProfileFragment extends Fragment {
         photo.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dispatchTakePictureIntent();
+
+                final CharSequence[] items = {"Usar camara", "Escoger de la galeria", "Cancelar"};
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+
+                builder.setTitle("Añadir fotografia");
+                builder.setItems(items, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int item) {
+                        if (items[item].equals("Usar camara")) {
+                            dispatchTakePictureIntent();
+                        } else if (items[item].equals("Escoger de la galeria")) {
+
+                        } else if (items[item].equals("Cancelar")) {
+                            dialog.dismiss();
+                        }
+                    }
+                });
+                builder.show();
+
             }
         } );
 
@@ -203,17 +224,13 @@ public class ProfileFragment extends Fragment {
     public void getData() {
 
         String url_userdata = "https://proyectogrupodapp.000webhostapp.com/users/getUserData.php?email=" + email;
-
         JsonArrayRequest request = new JsonArrayRequest( Request.Method.POST, url_userdata, null,
                 new Response.Listener<JSONArray>() {
-
                     @Override
                     public void onResponse(JSONArray jsonArray) {
-
                         for (int i = 0; i < jsonArray.length(); i++) {
                             try {
                                 JSONObject jsonObject = jsonArray.getJSONObject( i );
-
                                 String user_email = jsonObject.getString( "email" );
                                 String user_picture = jsonObject.getString( "picture" );
                                 decodeImage( user_picture ); //LLAMADA AL METODO PARA DECODIFICAR LA IMAGEN QUE ES UN STRING
@@ -223,14 +240,11 @@ public class ProfileFragment extends Fragment {
                                         .replace( "[", "" )  //quitar corchete
                                         .replace( "]", "" )  //quitar corchete
                                         .trim();
-
                                 //SE PASAN LOS RESULTADOS A LOS WIDGETS DE LA INTERFAZ
                                 textEmail.setText( user_email );
                                 textName.setText( user_name );
                                 preferences.setText( formattedString );
-
                                 initializeData( formattedString );
-
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
@@ -248,7 +262,6 @@ public class ProfileFragment extends Fragment {
             public int getMethod() {
                 return Method.POST;
             }
-
             @Override
             public Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();

@@ -89,4 +89,9 @@
     <string name="categorybooks">categoryBooks</string>
     <string name="libros">Libros</string>
     <string name="categorysports">categorySports</string>
+    <string name="n_de_actividades">Nº de Actividades</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="mis_datos_email">Mis Datos (email)</string>
+    <string name="fondo_de_pantalla">fondo de pantalla</string>
+    <string name="fotografia_del_usuario">fotografia del usuario</string>
 </resources>

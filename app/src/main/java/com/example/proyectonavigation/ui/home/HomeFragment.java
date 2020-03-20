@@ -11,11 +11,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
-import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -41,25 +41,40 @@ import java.util.Map;
 
 public class HomeFragment extends Fragment {
 
+    //VARIABLE PARA EL EMAIL
     private String email;
+
+    //URL'S PARA LLAMAR AL METODO GETDATA
+    //OBTENCION DE LOS DATOS DE LA BASE DE DATOS CON EL FILTRO EN LA FECHA DE INICIO CURRENT DATE O LA FECHA FINAL NULL
+    String url_getPlans_currentDate = "https://proyectogrupodapp.000webhostapp.com/users/get_plannings_cardview.php";
+
+    //OBTENCION DE LOS DATOS DE LA BASE DE DATOS CON EL FILTRO DE FECHA HOY Y SE AÑADE OTRO PARA EL CAMPO RATING DE 5
+    String url_getPlans_currentDate_topRating = "https://proyectogrupodapp.000webhostapp.com/users/get_best_plans_cardview.php";
+
+    //OBTENCION DE LOS DATOS DE LA BASE DE DATOS CON EL FILTRO FECHA MAYOR DE HOY
+    String url_getPlans_future = "https://proyectogrupodapp.000webhostapp.com/users/get_future_plans_cardview.php";
+
+    //OBTENCION DE LOS DATOS DE LA BASE DE DATOS CON EL FILTRO DE FECHA HOY Y SE AÑADE OTRO PARA EL CAMPO CATEGORY PARA QUE SOLO MUESTRE LOS QUE COINCIDAN CON TUS CATEGORIAS FAVORITAS
+    String getUrl_getPlans_currentDate_Favorites;
+
 
 
     //VARIABLES PARA LA LISTA DE PREFERENCIAS EN RECYCLERVIEW
     private ArrayList<Plannings> plans;
     private RecyclerView recyclerView;
-
-    //INSTANCIA DE LA CARDVIEW QUE AL PULSARLA REDIRIGE A LA DESCRIPCION
-    private CardView cardviewPlan;
+    TextView activityCounter;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         HomeViewModel homeViewModel = ViewModelProviders.of( this ).get( HomeViewModel.class );
         View view = inflater.inflate( R.layout.fragment_home, container, false );
 
-
         //INTENT PARA OBTENER EL EMAIL DEL USUARIO QUE SE USA EN EL SELECT DE LA BD PARA CONSEGUIR EL RESTO DE DATOS
         Intent intent = getActivity().getIntent();
         email = intent.getStringExtra( "email" );
+
+        //OBTENER LOS DATOS DE LA BD AL CARGARSE LA ACTIVIDAD
+        //getPlans();
 
         //IMPLEMENTACION DE RECYCLERVIEW
         LinearLayoutManager layoutManager = new LinearLayoutManager( getContext() );
@@ -75,23 +90,31 @@ public class HomeFragment extends Fragment {
             public void onClick(View v) {
 
                 AlertDialog.Builder builder = new AlertDialog.Builder( getActivity() );
-                builder.setTitle( "FILTRAR ACTIVIDADES " );
-                int checkedItem = 0; // Ver todas las actividades
+                builder.setTitle( "FILTRAR ACTIVIDADES POR " );
+                final int checkedItem = 0; // Ver todas las actividades ESTO ES PARA QUE CUANDO SE ABRA EL DIALOG ESTE MARCADO EL BOX DE LA PRIMERA OPCION POR DEFECTO. ES ESTETICO NO SIRVE PARA NADA
                 builder.setCancelable( true );
                 //LOS ITEMS QUE USA EL LISTADO ESTAN EN LA CARPETA RES/VALUES/ARRAYS. TAMBIEN SE PUEDE HACER UN ARRAY AQUI MISMO
                 builder.setSingleChoiceItems( R.array.filtradoHome, checkedItem, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         switch (which) {
-                            case 0: // Ver todas las actividades
-                                getPlans();
+                            case 0: // Ver todas las actividades de hoy
+                                getPlans(url_getPlans_currentDate);
                                 dialog.dismiss();
                                 break;
-                            case 1: // Ver solo mis preferencias
-
+                            case 1: //Ver todas las actividades para el fin de semana
+                                //getPlans();
                                 dialog.dismiss();
                                 break;
-                            case 2: // Ver las mejor valoradas
-
+                            case 2: //Ver todas actividades futuras
+                                getPlans(url_getPlans_future);
+                                dialog.dismiss();
+                                break;
+                            case 3: //Ver solo las actividades que cumplan mis preferencias
+                                getPlans(getUrl_getPlans_currentDate_Favorites);
+                                dialog.dismiss();
+                                break;
+                            case 4: //Ver solo las actividades mejor valoradas
+                                getPlans(url_getPlans_currentDate_topRating);
                                 dialog.dismiss();
                                 break;
                         }
@@ -100,36 +123,27 @@ public class HomeFragment extends Fragment {
                 AlertDialog dialog = builder.create();
                 dialog.show();
                 Toast.makeText( getContext(), "Filtrando...", Toast.LENGTH_SHORT ).show();
-
             }
         } );
 
-        //OBTENER LOS DATOS DE LA BD AL CARGARSE LA ACTIVIDAD
-        getPlans();
+        //CONTADOR DE ACTIVIDADES ENCONTRADAS
+        activityCounter = view.findViewById( R.id.textViewActivityCounter );
 
         return view;
     }
 
-    //OBTENCION DE LOS DATOS DE LA BASE DE DATOS
-    private void getPlans() {
-
-        String url_getPlans = "https://proyectogrupodapp.000webhostapp.com/users/get_plannings_cardview.php";
-
-        JsonArrayRequest request = new JsonArrayRequest( Request.Method.POST, url_getPlans, null,
+    //CONEXION A LA BASE DE DATOS PARA OBTENCION DE DATOS
+    private void getPlans(String URL) {
+        JsonArrayRequest request = new JsonArrayRequest( Request.Method.POST, URL, null,
                 new Response.Listener<JSONArray>() {
-
                     @Override
                     public void onResponse(JSONArray jsonArray) {
-
                         try {
                             int contador = 0;
                             //CREACION DEL ARRAYLIST PARA LA CARDVIEW
                             plans = new ArrayList<>();
-
                             for (int i = 0; i < jsonArray.length(); i++) {
-
                                 JSONObject jsonObject = jsonArray.getJSONObject( i );
-
                                 //OBTENCION DE TODOS LOS CAMPOS DE LA TABLA
                                 int activity_id = jsonObject.getInt( "activity_id" );
                                 String activity_name = jsonObject.getString( "activity_name" );
@@ -140,17 +154,16 @@ public class HomeFragment extends Fragment {
                                 String activity_start_date = jsonObject.getString( "activity_start_date" );
                                 String activity_end_date = jsonObject.getString( "activity_end_date" );
                                 String activity_picture = jsonObject.getString( "activity_picture" );
-
                                 Bitmap decoded_activity_picture = decodeImage( activity_picture );
                                 plans.add( new Plannings( activity_id, activity_name, activity_title, activity_rating, activitiy_category, activity_subcategory,
                                         activity_start_date, activity_end_date, decoded_activity_picture ) );
-
                                 //CONTADOR PARA VER CUANTOS ENCUENTRA
                                 contador++;
-
                                 //INICIALIZADOR DEL RECYCLERVIEW
                                 initializeAdapter();
                             }
+                            System.out.println(contador);
+                            activityCounter.setText("Nº de actividades : " + contador);
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -190,9 +203,11 @@ public class HomeFragment extends Fragment {
         return BitmapFactory.decodeByteArray( imageBytes, 0, imageBytes.length );
     }
 
+    //INICIALIZA LA CARDVIEW
     private void initializeAdapter() {
 
         PlanningsAdapter adapter = new PlanningsAdapter( plans );
         recyclerView.setAdapter( adapter );
     }
-    }
+
+}
