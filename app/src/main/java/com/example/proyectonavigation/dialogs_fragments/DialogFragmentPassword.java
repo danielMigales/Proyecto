@@ -42,7 +42,7 @@ public class DialogFragmentPassword extends DialogFragment {
     private Button cancel;
     private String email;
     private String password;
-    String url_updatePassword = "https://proyectogrupodapp.000webhostapp.com/users/ChangePassword.php";
+    String url_updatePassword = "https://proyectogrupodapp.000webhostapp.com/users/user_data_queries/ChangePassword.php";
 
 
     public DialogFragmentPassword() {

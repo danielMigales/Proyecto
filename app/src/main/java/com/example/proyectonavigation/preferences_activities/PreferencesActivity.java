@@ -41,7 +41,7 @@ public class PreferencesActivity extends AppCompatActivity {
 
     ArrayList<String> preferences = new ArrayList();
 
-    private static String URL_PREFER = "https://proyectogrupodapp.000webhostapp.com/users/setPreferences.php";
+    private static String URL_PREFER = "https://proyectogrupodapp.000webhostapp.com/users/user_data_queries/setPreferences.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,7 +90,7 @@ public class PreferencesActivity extends AppCompatActivity {
             preferences.add( "musica" );
         }
         if (outdoor.isChecked()) {
-            preferences.add( "salir" );
+            preferences.add( "actividades al aire libre" );
         }
         if (tv.isChecked()) {
             preferences.add( "television" );
@@ -112,9 +112,8 @@ public class PreferencesActivity extends AppCompatActivity {
     public void savePreferences() {
 
         for (int i = 0; i < preferences.size(); i++) {
-            Toast.makeText( this, "Preferencias guardadas: " + preferences.toString(), Toast.LENGTH_LONG ).show();
+            Toast.makeText( this, "Preferencias guardadas", Toast.LENGTH_LONG ).show();
         }
-
         StringRequest stringRequest = new StringRequest( Request.Method.POST, URL_PREFER,
                 new Response.Listener<String>() {
                     @Override
@@ -122,11 +121,9 @@ public class PreferencesActivity extends AppCompatActivity {
                         try {
                             JSONObject jsonObject = new JSONObject( response );
                             String success = jsonObject.getString( "success" );
-
                             if (success.equals( "1" )) {
                                 Toast.makeText( PreferencesActivity.this, "Preferencias guardadas", Toast.LENGTH_SHORT ).show();
                             }
-
                         } catch (JSONException e) {
                             e.printStackTrace();
                             Toast.makeText( PreferencesActivity.this, "JSON Error " + e.toString(), Toast.LENGTH_SHORT ).show();
@@ -142,7 +139,6 @@ public class PreferencesActivity extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
-
                 Intent intent = getIntent();
                 String email = intent.getStringExtra( "email" );
                 params.put( "email", email );
@@ -151,7 +147,6 @@ public class PreferencesActivity extends AppCompatActivity {
                 return params;
             }
         };
-
         RequestQueue requestQueue = Volley.newRequestQueue( this );
         requestQueue.add( stringRequest );
     }

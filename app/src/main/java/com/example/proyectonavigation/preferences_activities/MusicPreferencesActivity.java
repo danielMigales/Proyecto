@@ -40,7 +40,7 @@ public class MusicPreferencesActivity extends AppCompatActivity {
     private Button submit;
     ArrayList<String> music = new ArrayList();
     private String email;
-    private static String URL = "https://proyectogrupodapp.000webhostapp.com/users/setMusic.php";
+    private static String URL = "https://proyectogrupodapp.000webhostapp.com/users/user_data_queries/setMusic.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

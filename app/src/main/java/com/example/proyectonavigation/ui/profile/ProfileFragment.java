@@ -133,7 +133,7 @@ public class ProfileFragment extends Fragment {
             }
         } );
 
-        //ESTE BOTON LLEVA A LA ACTIVIDAD PARA SELECCIONAR LAS CATEGORIAS PRINCIPALES
+        //ESTE BOTON MUESTRA EL DIALOGO PARA SELECCIONAR LAS CATEGORIAS PRINCIPALES
         addPreferences = view.findViewById( R.id.buttonAddPreferences );
         addPreferences.setOnClickListener( new View.OnClickListener() {
             @Override
@@ -153,7 +153,6 @@ public class ProfileFragment extends Fragment {
         //IMPLEMENTACION DE RECYCLERVIEW
         LinearLayoutManager layoutManager = new LinearLayoutManager( getContext() );
         layoutManager.setOrientation( LinearLayoutManager.VERTICAL );
-
         recyclerView = view.findViewById( R.id.recyclerviewPreferences );
         recyclerView.setHasFixedSize( true );
         recyclerView.setLayoutManager( layoutManager );
@@ -223,7 +222,7 @@ public class ProfileFragment extends Fragment {
     //OBTIENE LOS DATOS CARGANDOLOS DE LA BD
     public void getData() {
 
-        String url_userdata = "https://proyectogrupodapp.000webhostapp.com/users/getUserData.php?email=" + email;
+        String url_userdata = "https://proyectogrupodapp.000webhostapp.com/users/user_data_queries/getUserData.php?email=" + email;
         JsonArrayRequest request = new JsonArrayRequest( Request.Method.POST, url_userdata, null,
                 new Response.Listener<JSONArray>() {
                     @Override
@@ -285,7 +284,7 @@ public class ProfileFragment extends Fragment {
     //CODIGO PARA SUBIR IMAGEN A BASE DE DATOS
     public void uploadImage() {
 
-        String UPLOAD_URL = "https://proyectogrupodapp.000webhostapp.com/users/uploadPhoto.php";
+        String UPLOAD_URL = "https://proyectogrupodapp.000webhostapp.com/users/user_data_queries/uploadPhoto.php";
 
         //MUESTRA UN DIALOGO DE PROGRESO
         final ProgressDialog loading = ProgressDialog.show( getContext(), "Uploading...", "uploading...", false, false );
@@ -336,42 +335,33 @@ public class ProfileFragment extends Fragment {
             if (parts[i].contains( "cine" )) {
                 categories.add( new Categories( "Cine", R.drawable.cine ) );
             }
-
-            if (parts[i].contains( "musica" )) {
-                categories.add( new Categories( "Musica", R.drawable.music ) );
-            }
-
-            if (parts[i].contains( "television" )) {
-                categories.add( new Categories( "Television", R.drawable.tv ) );
-            }
-
             if (parts[i].contains( "gastronomia" )) {
                 categories.add( new Categories( "Gastronomia", R.drawable.food ) );
             }
-
+            if (parts[i].contains( "musica" )) {
+                categories.add( new Categories( "Musica", R.drawable.music ) );
+            }
+            if (parts[i].contains( "actividades al aire libre" )) {
+                categories.add( new Categories( "Actividades al aire libre", R.drawable.viaje ) );
+            }
+            if (parts[i].contains( "television" )) {
+                categories.add( new Categories( "Television", R.drawable.tv ) );
+            }
+            if (parts[i].contains( "cultura" )) {
+                categories.add( new Categories( "Cultura", R.drawable.culture ) );
+            }
             if (parts[i].contains( "literatura" )) {
                 categories.add( new Categories( "Literatura", R.drawable.books ) );
             }
-
             if (parts[i].contains( "videojuegos" )) {
                 categories.add( new Categories( "Videojuegos", R.drawable.videogames ) );
             }
-
             if (parts[i].contains( "deportes" )) {
                 categories.add( new Categories( "Deportes", R.drawable.sports ) );
-            }
-
-            if (parts[i].contains( "salir" )) {
-                categories.add( new Categories( "Actividades al aire libre", R.drawable.viaje ) );
-            }
-
-            if (parts[i].contains( "cultura" )) {
-                categories.add( new Categories( "Cultura", R.drawable.culture ) );
             }
         }
 
         CategoriesAdapter adapter = new CategoriesAdapter( categories );
         recyclerView.setAdapter( adapter );
     }
-
 }

@@ -57,7 +57,7 @@ public class DatePickerFragment extends DialogFragment implements DatePickerDial
         Intent intent = getActivity().getIntent();
         final String email = intent.getStringExtra( "email" );
 
-        String url_updateBirth = "https://proyectogrupodapp.000webhostapp.com/users/ChangeBirthday.php";
+        String url_updateBirth = "https://proyectogrupodapp.000webhostapp.com/users/user_data_queries/ChangeBirthday.php";
 
         StringRequest stringRequest = new StringRequest( Request.Method.POST, url_updateBirth,
                 new Response.Listener<String>() {

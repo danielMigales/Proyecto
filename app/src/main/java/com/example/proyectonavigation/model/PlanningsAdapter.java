@@ -28,6 +28,7 @@ public class PlanningsAdapter extends RecyclerView.Adapter<PlanningsAdapter.MyVi
         ImageView picture;
         TextView tags;
         RatingBar rating;
+        TextView date;
 
 
         public MyViewHolder(View itemView) {
@@ -37,7 +38,7 @@ public class PlanningsAdapter extends RecyclerView.Adapter<PlanningsAdapter.MyVi
             picture = itemView.findViewById( R.id.imageViewCardviewActivity );
             tags = itemView.findViewById( R.id.textViewTagsCardviewActivity );
             rating = itemView.findViewById( R.id.ratingBarCardviewActivity );
-
+            date = itemView.findViewById( R.id.textViewDate );
         }
     }
 
@@ -69,6 +70,7 @@ public class PlanningsAdapter extends RecyclerView.Adapter<PlanningsAdapter.MyVi
         holder.tags.setText(plans.get( position ).activitiy_category + ", " + plans.get( position ).activity_subcategory );
         holder.picture.setImageBitmap( plans.get( position ).activity_picture );
         holder.rating.setRating( plans.get( position ).activity_rating );
+        holder.date.setText( plans.get(position).activity_start_date + " hasta " +  plans.get( position ).activity_end_date);
     }
 
     @Override

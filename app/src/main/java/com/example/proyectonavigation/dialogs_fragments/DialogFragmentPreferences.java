@@ -119,7 +119,7 @@ public class DialogFragmentPreferences extends DialogFragment implements
 
     public void getData(String email) {
 
-        String url_userdata = "https://proyectogrupodapp.000webhostapp.com/users/getUserData.php?email=" + email;
+        String url_userdata = "https://proyectogrupodapp.000webhostapp.com/users/user_data_queries/getUserData.php?email=" + email;
 
         JsonArrayRequest request = new JsonArrayRequest( Request.Method.POST, url_userdata, null,
                 new Response.Listener<JSONArray>() {
@@ -143,37 +143,29 @@ public class DialogFragmentPreferences extends DialogFragment implements
                                     if (parts[i].contains( "cine" )) {
                                         cine.setChecked( true );
                                     }
-
-                                    if (parts[i].contains( "musica" )) {
-                                        music.setChecked( true );
-                                    }
-
-                                    if (parts[i].contains( "television" )) {
-                                        tv.setChecked( true );
-                                    }
-
                                     if (parts[i].contains( "gastronomia" )) {
                                         food.setChecked( true );
                                     }
-
+                                    if (parts[i].contains( "musica" )) {
+                                        music.setChecked( true );
+                                    }
+                                    if (parts[i].contains( "actividades al aire libre" )) {
+                                        outdoor.setChecked( true );
+                                    }
+                                    if (parts[i].contains( "television" )) {
+                                        tv.setChecked( true );
+                                    }
+                                    if (parts[i].contains( "cultura" )) {
+                                        culture.setChecked( true );
+                                    }
                                     if (parts[i].contains( "literatura" )) {
                                         books.setChecked( true );
                                     }
-
                                     if (parts[i].contains( "videojuegos" )) {
                                         games.setChecked( true );
                                     }
-
                                     if (parts[i].contains( "deportes" )) {
                                         sports.setChecked( true );
-                                    }
-
-                                    if (parts[i].contains( "salir" )) {
-                                        outdoor.setChecked( true );
-                                    }
-
-                                    if (parts[i].contains( "cultura" )) {
-                                        culture.setChecked( true );
                                     }
                                 }
 
@@ -207,41 +199,31 @@ public class DialogFragmentPreferences extends DialogFragment implements
         if (cine.isChecked()) {
             preferencesList.add( "cine" );
         }
-
-        if (books.isChecked()) {
-            preferencesList.add( "literatura" );
-        }
-
-        if (culture.isChecked()) {
-            preferencesList.add( "cultura" );
-        }
-
         if (food.isChecked()) {
             preferencesList.add( "gastronomia" );
         }
-
-        if (games.isChecked()) {
-            preferencesList.add( "videojuegos" );
-        }
-
         if (music.isChecked()) {
             preferencesList.add( "musica" );
         }
-
-
         if (outdoor.isChecked()) {
-            preferencesList.add( "salir" );
+            preferencesList.add( "actividades al aire libre" );
         }
-
-        if (sports.isChecked()) {
-            preferencesList.add( "deportes" );
-        }
-
         if (tv.isChecked()) {
             preferencesList.add( "television" );
         }
-
-        System.out.println( preferencesList.toString() );
+        if (culture.isChecked()) {
+            preferencesList.add( "cultura" );
+        }
+        if (books.isChecked()) {
+            preferencesList.add( "literatura" );
+        }
+        if (games.isChecked()) {
+            preferencesList.add( "videojuegos" );
+        }
+        if (sports.isChecked()) {
+            preferencesList.add( "deportes" );
+        }
+        //System.out.println( preferencesList.toString() );
     }
 
     @Override
@@ -261,7 +243,7 @@ public class DialogFragmentPreferences extends DialogFragment implements
 
     public void savePreferences() {
 
-        String url_updatePreferences = "https://proyectogrupodapp.000webhostapp.com/users/setPreferences.php";
+        String url_updatePreferences = "https://proyectogrupodapp.000webhostapp.com/users/user_data_queries/setPreferences.php";
 
         StringRequest stringRequest = new StringRequest( Request.Method.POST, url_updatePreferences,
                 new Response.Listener<String>() {
@@ -270,13 +252,9 @@ public class DialogFragmentPreferences extends DialogFragment implements
                         try {
                             JSONObject jsonObject = new JSONObject( response );
                             String success = jsonObject.getString( "success" );
-
                             if (success.equals( "1" )) {
-
                             } else {
-
                             }
-
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -297,7 +275,6 @@ public class DialogFragmentPreferences extends DialogFragment implements
                 return params;
             }
         };
-
         Volley.newRequestQueue( getContext() ).add( stringRequest );
     }
 

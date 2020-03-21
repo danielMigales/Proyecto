@@ -36,7 +36,7 @@ public class RegisterActivity extends AppCompatActivity {
     private Button btn_regist;
     private TextView back_login;
 
-    private static String URL_REGIST = "https://proyectogrupodapp.000webhostapp.com/users/register.php";
+    private static String URL_REGIST = "https://proyectogrupodapp.000webhostapp.com/users/user_data_queries/register.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

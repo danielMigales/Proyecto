@@ -128,7 +128,7 @@ public class CardActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         getCategory();
 
-        String url_getPlans = "https://proyectogrupodapp.000webhostapp.com/users/get_plan_activity.php?id=" + activityID + "&table_name=" + tableName;
+        String url_getPlans = "https://proyectogrupodapp.000webhostapp.com/plans/plans_queries/get_plan_activity.php?id=" + activityID + "&table_name=" + tableName;
 
         JsonArrayRequest request = new JsonArrayRequest( Request.Method.POST, url_getPlans, null,
                 new Response.Listener<JSONArray>() {
@@ -223,7 +223,7 @@ public class CardActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         //OBTENCION DE LOS DATOS DE COORDENADAS EN LA BD (REPETIDO POR NO CONSEGUIR UN OBJETO CON LOS DATOS CORECTOS, YA QUE OBTENIA NULL)
 
-        String url_getPlans = "https://proyectogrupodapp.000webhostapp.com/users/get_plan_activity.php?id=" + activityID + "&table_name=" + tableName;
+        String url_getPlans = "https://proyectogrupodapp.000webhostapp.com/plans/plans_queries/get_plan_activity.php?id=" + activityID + "&table_name=" + tableName;
         JsonArrayRequest request = new JsonArrayRequest( Request.Method.POST, url_getPlans, null,
                 new Response.Listener<JSONArray>() {
                     @Override

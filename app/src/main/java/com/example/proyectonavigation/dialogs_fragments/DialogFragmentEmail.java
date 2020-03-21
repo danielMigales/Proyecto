@@ -37,7 +37,7 @@ public class DialogFragmentEmail extends DialogFragment {
     private Button cancel;
     private String email;
     private String newEmail;
-    String url_update = "https://proyectogrupodapp.000webhostapp.com/users/ChangeEmail.php";
+    String url_update = "https://proyectogrupodapp.000webhostapp.com/users/user_data_queries/ChangeEmail.php";
 
     public DialogFragmentEmail() {
         // Required empty public constructor

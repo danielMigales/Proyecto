@@ -44,20 +44,6 @@ public class HomeFragment extends Fragment {
     //VARIABLE PARA EL EMAIL
     private String email;
 
-    //URL'S PARA LLAMAR AL METODO GETDATA
-    //OBTENCION DE LOS DATOS DE LA BASE DE DATOS CON EL FILTRO EN LA FECHA DE INICIO CURRENT DATE O LA FECHA FINAL NULL
-    String url_getPlans_currentDate = "https://proyectogrupodapp.000webhostapp.com/users/get_plannings_cardview.php";
-
-    //OBTENCION DE LOS DATOS DE LA BASE DE DATOS CON EL FILTRO DE FECHA HOY Y SE AÑADE OTRO PARA EL CAMPO RATING DE 5
-    String url_getPlans_currentDate_topRating = "https://proyectogrupodapp.000webhostapp.com/users/get_best_plans_cardview.php";
-
-    //OBTENCION DE LOS DATOS DE LA BASE DE DATOS CON EL FILTRO FECHA MAYOR DE HOY
-    String url_getPlans_future = "https://proyectogrupodapp.000webhostapp.com/users/get_future_plans_cardview.php";
-
-    //OBTENCION DE LOS DATOS DE LA BASE DE DATOS CON EL FILTRO DE FECHA HOY Y SE AÑADE OTRO PARA EL CAMPO CATEGORY PARA QUE SOLO MUESTRE LOS QUE COINCIDAN CON TUS CATEGORIAS FAVORITAS
-    String getUrl_getPlans_currentDate_Favorites;
-
-
 
     //VARIABLES PARA LA LISTA DE PREFERENCIAS EN RECYCLERVIEW
     private ArrayList<Plannings> plans;
@@ -98,6 +84,8 @@ public class HomeFragment extends Fragment {
                     public void onClick(DialogInterface dialog, int which) {
                         switch (which) {
                             case 0: // Ver todas las actividades de hoy
+                                //OBTENCION DE LOS DATOS DE LA BASE DE DATOS CON EL FILTRO EN LA FECHA DE INICIO CURRENT DATE
+                                String url_getPlans_currentDate = "https://proyectogrupodapp.000webhostapp.com/plans/plans_queries/get_today_plans_cardview.php?email=" + email;
                                 getPlans(url_getPlans_currentDate);
                                 dialog.dismiss();
                                 break;
@@ -106,15 +94,21 @@ public class HomeFragment extends Fragment {
                                 dialog.dismiss();
                                 break;
                             case 2: //Ver todas actividades futuras
+                                //OBTENCION DE LOS DATOS DE LA BASE DE DATOS CON EL FILTRO FECHA MAYOR DE HOY
+                                String url_getPlans_future = "https://proyectogrupodapp.000webhostapp.com/plans/plans_queries/get_future_plans_cardview.php?email=" + email;
                                 getPlans(url_getPlans_future);
                                 dialog.dismiss();
                                 break;
-                            case 3: //Ver solo las actividades que cumplan mis preferencias
-                                getPlans(getUrl_getPlans_currentDate_Favorites);
+                            case 3: //Ver solo las actividades mejor valoradas
+                                //OBTENCION DE LOS DATOS DE LA BASE DE DATOS CON EL FILTRO DE FECHA HOY Y SE AÑADE OTRO PARA EL CAMPO RATING DE 5
+                                String url_getPlans_currentDate_topRating = "https://proyectogrupodapp.000webhostapp.com/plans/plans_queries/get_best_plans_cardview.php?email=" + email;
+                                getPlans(url_getPlans_currentDate_topRating);
                                 dialog.dismiss();
                                 break;
-                            case 4: //Ver solo las actividades mejor valoradas
-                                getPlans(url_getPlans_currentDate_topRating);
+                            case 4: //Ver todas las actividades sin preferencias y sin fecha
+                                //OBTENCION DE TODOS DATOS DE LA BASE DE DATOS DE CUALQUIER FECHA
+                                String url_getPlans_all = "https://proyectogrupodapp.000webhostapp.com/plans/plans_queries/get_all_plans_cardview.php?email=" + email;
+                                getPlans(url_getPlans_all);
                                 dialog.dismiss();
                                 break;
                         }
@@ -210,4 +204,7 @@ public class HomeFragment extends Fragment {
         recyclerView.setAdapter( adapter );
     }
 
+    private void setCategoryName(String category){
+
+    }
 }

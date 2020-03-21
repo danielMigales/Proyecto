@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="filtradoHome">
-        <item>Actividades de hoy</item>
-        <item>Actividades fin de semana</item>
-        <item>Actividades futuras</item>
-        <item>Actividades segun preferencias</item>
-        <item>Actividades mejor valoradas</item>
+        <item>Ver actividades de hoy</item>
+        <item>Ver todas las actividades para el fin de semana</item>
+        <item>Ver todas actividades futuras</item>
+        <item>Ver solo las actividades mejor valoradas de hoy</item>
+        <item>Ver todas las actividades sin preferencias y sin fecha</item>
     </string-array>
 </resources>
 

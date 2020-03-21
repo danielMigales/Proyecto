@@ -33,7 +33,7 @@ public class LoginActivity extends AppCompatActivity {
     private Button btn_login;
     private TextView link_regist;
     private TextView forgotPassword;
-    private static String URL_LOGIN = "https://proyectogrupodapp.000webhostapp.com/users/login.php";
+    private static String URL_LOGIN = "https://proyectogrupodapp.000webhostapp.com/users/user_data_queries/login.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -39,10 +39,22 @@
         android:text="Musica" />
 
     <Switch
+        android:id="@+id/switchOutdoor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Actividades al aire libre" />
+
+    <Switch
         android:id="@+id/switchTV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Television" />
+
+    <Switch
+        android:id="@+id/switchCulture"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cultura" />
 
     <Switch
         android:id="@+id/switchBooks"
@@ -51,28 +63,16 @@
         android:text="Literatura" />
 
     <Switch
-        android:id="@+id/switchSports"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Deportes" />
-
-    <Switch
         android:id="@+id/switchGames"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Videojuegos" />
 
     <Switch
-        android:id="@+id/switchOutdoor"
+        android:id="@+id/switchSports"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Salir fuera" />
-
-    <Switch
-        android:id="@+id/switchCulture"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Cultura" />
+        android:text="Deportes" />
 
     <Button
         android:id="@+id/buttonSave"

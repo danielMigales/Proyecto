@@ -36,7 +36,7 @@ public class DialogFragmentUsername extends DialogFragment {
     private Button cancel;
     private String email;
     private String name;
-    String url_updateName = "https://proyectogrupodapp.000webhostapp.com/users/ChangeUsername.php";
+    String url_updateName = "https://proyectogrupodapp.000webhostapp.com/users/user_data_queries/ChangeUsername.php";
 
     public DialogFragmentUsername() {
         // Required empty public constructor
