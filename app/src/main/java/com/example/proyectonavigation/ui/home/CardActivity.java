@@ -128,7 +128,7 @@ public class CardActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         getCategory();
 
-        String url_getPlans = "https://proyectogrupodapp.000webhostapp.com/plans/plans_queries/get_plan_activity.php?id=" + activityID + "&table_name=" + tableName;
+        String url_getPlans = "https://proyectogrupodapp.000webhostapp.com/plans/plans_queries/get_plan_activity.php?id=" + activityID + "&tablze_name=" + tableName;
 
         JsonArrayRequest request = new JsonArrayRequest( Request.Method.POST, url_getPlans, null,
                 new Response.Listener<JSONArray>() {

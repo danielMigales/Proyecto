@@ -83,8 +83,8 @@ public class HomeFragment extends Fragment {
                 builder.setSingleChoiceItems( R.array.filtradoHome, checkedItem, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         switch (which) {
-                            case 0: // Ver todas las actividades de hoy
-                                //OBTENCION DE LOS DATOS DE LA BASE DE DATOS CON EL FILTRO EN LA FECHA DE INICIO CURRENT DATE
+                            case 0: // Ver todas las actividades de hoy ESTA ELECCION TAMBIEN SIRVE PARA VOLVER A TENERLO POR DEFECTO
+                                //OBTENCION DE LOS DATOS DE LA BASE DE DATOS CON EL FILTRO EN LA FECHA DE INICIO CURRENT DATE O NULA
                                 String url_getPlans_currentDate = "https://proyectogrupodapp.000webhostapp.com/plans/plans_queries/get_today_plans_cardview.php?email=" + email;
                                 getPlans(url_getPlans_currentDate);
                                 dialog.dismiss();

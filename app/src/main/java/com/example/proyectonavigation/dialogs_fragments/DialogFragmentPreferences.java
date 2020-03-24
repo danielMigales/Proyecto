@@ -89,23 +89,23 @@ public class DialogFragmentPreferences extends DialogFragment implements
         email = intent.getStringExtra( "email" );
 
         //SWITCHES DE PREFERENCIAS
-        music = (Switch) view.findViewById( R.id.switchMusic );
+        music = view.findViewById( R.id.switchMusic );
         music.setOnClickListener( this );
-        cine = (Switch) view.findViewById( R.id.switchCine );
+        cine = view.findViewById( R.id.switchCine );
         cine.setOnClickListener( this );
-        food = (Switch) view.findViewById( R.id.switchFood );
+        food = view.findViewById( R.id.switchFood );
         food.setOnClickListener( this );
-        sports = (Switch) view.findViewById( R.id.switchSports );
+        sports = view.findViewById( R.id.switchSports );
         sports.setOnClickListener( this );
-        tv = (Switch) view.findViewById( R.id.switchTV );
+        tv = view.findViewById( R.id.switchTV );
         tv.setOnClickListener( this );
-        outdoor = (Switch) view.findViewById( R.id.switchOutdoor );
+        outdoor = view.findViewById( R.id.switchOutdoor );
         outdoor.setOnClickListener( this );
-        books = (Switch) view.findViewById( R.id.switchBooks );
+        books = view.findViewById( R.id.switchBooks );
         books.setOnClickListener( this );
-        games = (Switch) view.findViewById( R.id.switchGames );
+        games = view.findViewById( R.id.switchGames );
         games.setOnClickListener( this );
-        culture = (Switch) view.findViewById( R.id.switchCulture );
+        culture = view.findViewById( R.id.switchCulture );
         culture.setOnClickListener( this );
         save = view.findViewById( R.id.buttonSave );
         save.setOnClickListener( this );
@@ -130,14 +130,17 @@ public class DialogFragmentPreferences extends DialogFragment implements
                         for (int i = 0; i < jsonArray.length(); i++) {
                             try {
                                 JSONObject jsonObject = jsonArray.getJSONObject( i );
-                                String user_preferences = jsonObject.getString( "preferences" );
+                                String user_preference_1 = jsonObject.getString( "preference_1" );
+                                String user_preference_2 = jsonObject.getString( "preference_2" );
+                                String user_preference_3 = jsonObject.getString( "preference_3" );
+                                String user_preference_4 = jsonObject.getString( "preference_4" );
+                                String user_preference_5 = jsonObject.getString( "preference_5" );
+                                String user_preference_6 = jsonObject.getString( "preference_6" );
+                                String user_preference_7 = jsonObject.getString( "preference_7" );
+                                String user_preference_8 = jsonObject.getString( "preference_8" );
+                                String user_preference_9 = jsonObject.getString( "preference_9" );
 
-                                String formattedString = user_preferences
-                                        .replace( "[", "" )  //quitar corchete
-                                        .replace( "]", "" )  //quitar corchete
-                                        .trim();
-
-                                String[] parts = formattedString.split( "," );
+                                String[] parts = {user_preference_1, user_preference_2, user_preference_3, user_preference_4, user_preference_5, user_preference_6, user_preference_7, user_preference_8 , user_preference_9};
 
                                 for (i = 0; i < parts.length; i++) {
                                     if (parts[i].contains( "cine" )) {

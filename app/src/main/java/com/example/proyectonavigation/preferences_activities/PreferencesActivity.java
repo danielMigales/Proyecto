@@ -41,8 +41,6 @@ public class PreferencesActivity extends AppCompatActivity {
 
     ArrayList<String> preferences = new ArrayList();
 
-    private static String URL_PREFER = "https://proyectogrupodapp.000webhostapp.com/users/user_data_queries/setPreferences.php";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
@@ -50,15 +48,15 @@ public class PreferencesActivity extends AppCompatActivity {
 
         getSupportActionBar().hide();
 
-        cinema = (CheckBox) findViewById( R.id.checkBoxCinema );
-        food = (CheckBox) findViewById( R.id.checkBoxFood );
-        music = (CheckBox) findViewById( R.id.checkBoxMusic );
-        outdoor = (CheckBox) findViewById( R.id.checkBoxOutdoor );
-        tv = (CheckBox) findViewById( R.id.checkBoxTV );
-        culture = (CheckBox) findViewById( R.id.checkBoxCulture );
-        books = (CheckBox) findViewById( R.id.checkBoxBooks );
-        videogames = (CheckBox) findViewById( R.id.checkBoxVideoGames );
-        sports = (CheckBox) findViewById( R.id.checkBoxSports );
+        cinema = findViewById( R.id.checkBoxCinema );
+        food = findViewById( R.id.checkBoxFood );
+        music = findViewById( R.id.checkBoxMusic );
+        outdoor = findViewById( R.id.checkBoxOutdoor );
+        tv = findViewById( R.id.checkBoxTV );
+        culture = findViewById( R.id.checkBoxCulture );
+        books = findViewById( R.id.checkBoxBooks );
+        videogames = findViewById( R.id.checkBoxVideoGames );
+        sports = findViewById( R.id.checkBoxSports );
 
         Intent intent = getIntent();
         final String email = intent.getStringExtra( "email" );
@@ -114,6 +112,9 @@ public class PreferencesActivity extends AppCompatActivity {
         for (int i = 0; i < preferences.size(); i++) {
             Toast.makeText( this, "Preferencias guardadas", Toast.LENGTH_LONG ).show();
         }
+
+        String URL_PREFER = "https://proyectogrupodapp.000webhostapp.com/users/user_data_queries/setPreferences.php";
+
         StringRequest stringRequest = new StringRequest( Request.Method.POST, URL_PREFER,
                 new Response.Listener<String>() {
                     @Override

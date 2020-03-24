@@ -234,11 +234,18 @@ public class ProfileFragment extends Fragment {
                                 String user_picture = jsonObject.getString( "picture" );
                                 decodeImage( user_picture ); //LLAMADA AL METODO PARA DECODIFICAR LA IMAGEN QUE ES UN STRING
                                 String user_name = jsonObject.getString( "name" );
-                                String user_preferences = jsonObject.getString( "preferences" );
-                                String formattedString = user_preferences
-                                        .replace( "[", "" )  //quitar corchete
-                                        .replace( "]", "" )  //quitar corchete
-                                        .trim();
+                                String user_preferences_1 = jsonObject.getString( "preference_1" );
+                                String user_preferences_2 = jsonObject.getString( "preference_2" );
+                                String user_preferences_3 = jsonObject.getString( "preference_3" );
+                                String user_preferences_4 = jsonObject.getString( "preference_4" );
+                                String user_preferences_5 = jsonObject.getString( "preference_5" );
+                                String user_preferences_6 = jsonObject.getString( "preference_6" );
+                                String user_preferences_7 = jsonObject.getString( "preference_7" );
+                                String user_preferences_8 = jsonObject.getString( "preference_8" );
+                                String user_preferences_9 = jsonObject.getString( "preference_9" );
+                                String formattedString = user_preferences_1 + ", " + user_preferences_2 + ", " + user_preferences_3 + ", " + user_preferences_4 + ", "
+                                        + user_preferences_5 + ", " + user_preferences_6 + ", " + user_preferences_7 + ", " + user_preferences_8 + ", " + user_preferences_9;
+
                                 //SE PASAN LOS RESULTADOS A LOS WIDGETS DE LA INTERFAZ
                                 textEmail.setText( user_email );
                                 textName.setText( user_name );
