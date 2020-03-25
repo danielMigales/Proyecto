@@ -140,7 +140,8 @@ public class DialogFragmentPreferences extends DialogFragment implements
                                 String user_preference_8 = jsonObject.getString( "preference_8" );
                                 String user_preference_9 = jsonObject.getString( "preference_9" );
 
-                                String[] parts = {user_preference_1, user_preference_2, user_preference_3, user_preference_4, user_preference_5, user_preference_6, user_preference_7, user_preference_8 , user_preference_9};
+                                String[] parts = {user_preference_1, user_preference_2, user_preference_3, user_preference_4, user_preference_5,
+                                        user_preference_6, user_preference_7, user_preference_8, user_preference_9};
 
                                 for (i = 0; i < parts.length; i++) {
                                     if (parts[i].contains( "cine" )) {

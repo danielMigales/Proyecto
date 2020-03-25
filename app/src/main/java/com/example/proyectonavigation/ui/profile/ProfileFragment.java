@@ -94,8 +94,6 @@ public class ProfileFragment extends Fragment {
         textEmail = view.findViewById( R.id.textViewEmail );
         textName = view.findViewById( R.id.textViewName );
 
-        preferences = view.findViewById( R.id.textViewPreferencias );
-
         changeData = view.findViewById( R.id.buttonChangeProfileData );
         changeData.setOnClickListener( new View.OnClickListener() {
             @Override
@@ -249,7 +247,7 @@ public class ProfileFragment extends Fragment {
                                 //SE PASAN LOS RESULTADOS A LOS WIDGETS DE LA INTERFAZ
                                 textEmail.setText( user_email );
                                 textName.setText( user_name );
-                                preferences.setText( formattedString );
+
                                 initializeData( formattedString );
                             } catch (JSONException e) {
                                 e.printStackTrace();

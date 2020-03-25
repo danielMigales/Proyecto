@@ -60,17 +60,23 @@ public class PlanningsAdapter extends RecyclerView.Adapter<PlanningsAdapter.MyVi
 
                 Intent intent = new Intent( view.getContext(), CardActivity.class );
                 intent.putExtra( "activity_id", plans.get( position ).activity_id );
-                intent.putExtra( "activity_category", plans.get( position ).activitiy_category );
+                intent.putExtra( "activity_category", plans.get( position ).activity_category );
                 intent.addFlags( Intent.FLAG_ACTIVITY_NEW_TASK );
                 view.getContext().startActivity( intent );
             }
         } );
 
         holder.name.setText( plans.get( position ).activity_title );
-        holder.tags.setText(plans.get( position ).activitiy_category + ", " + plans.get( position ).activity_subcategory );
+        holder.tags.setText( plans.get( position ).activity_category + ", " + plans.get( position ).activity_subcategory );
         holder.picture.setImageBitmap( plans.get( position ).activity_picture );
         holder.rating.setRating( plans.get( position ).activity_rating );
-        holder.date.setText( plans.get(position).activity_start_date + " hasta " +  plans.get( position ).activity_end_date);
+
+
+        String date = plans.get( position ).activity_start_date;
+        String dateParts [] = date.split("-");
+
+
+        holder.date.setText(" hasta " + plans.get( position ).activity_end_date );
     }
 
     @Override

@@ -128,7 +128,7 @@ public class CardActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         getCategory();
 
-        String url_getPlans = "https://proyectogrupodapp.000webhostapp.com/plans/plans_queries/get_plan_activity.php?id=" + activityID + "&tablze_name=" + tableName;
+        String url_getPlans = "https://proyectogrupodapp.000webhostapp.com/plans/plans_queries/get_plan_activity.php?id=" + activityID + "&table_name=" + tableName;
 
         JsonArrayRequest request = new JsonArrayRequest( Request.Method.POST, url_getPlans, null,
                 new Response.Listener<JSONArray>() {
@@ -148,8 +148,8 @@ public class CardActivity extends AppCompatActivity implements OnMapReadyCallbac
                                 String activity_picture_1 = jsonObject.getString( "activity_picture_1" );
                                 Bitmap decoded_activity_picture = decodeImage( activity_picture_1 );
                                 imageViewPicture.setImageBitmap( decoded_activity_picture );
-                                String activitiy_address = jsonObject.getString( "activity_address" );
-                                textviewAddress.setText( activitiy_address );
+                                String activity_address = jsonObject.getString( "activity_address" );
+                                textviewAddress.setText( activity_address );
                                 double activity_latitude = jsonObject.getDouble( "activity_latitude" );
                                 double activity_longitude = jsonObject.getDouble( "activity_longitude" );
                                 Double activity_price = jsonObject.getDouble( "activity_price" );
