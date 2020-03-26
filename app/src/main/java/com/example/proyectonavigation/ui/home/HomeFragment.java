@@ -1,6 +1,5 @@
 package com.example.proyectonavigation.ui.home;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -10,12 +9,13 @@ import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -41,14 +41,9 @@ import java.util.Map;
 
 public class HomeFragment extends Fragment {
 
-    //VARIABLE PARA EL EMAIL
-    private String email;
-    String url_plans_with_preferences = "https://proyectogrupodapp.000webhostapp.com/plans/plans_queries/get_plans_with_preferences_cardview.php?email=" + email;
-    String url_getPlans_future = "https://proyectogrupodapp.000webhostapp.com/plans/plans_queries/get_future_plans_cardview.php?email=" + email;
-
     //VARIABLES PARA LA LISTA DE PREFERENCIAS EN RECYCLERVIEW
-    private ArrayList<Plannings> plans;
-    private RecyclerView recyclerView;
+    public ArrayList<Plannings> plans;
+    public RecyclerView recyclerView;
     TextView activityCounter;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -58,12 +53,8 @@ public class HomeFragment extends Fragment {
 
         //INTENT PARA OBTENER EL EMAIL DEL USUARIO QUE SE USA EN EL SELECT DE LA BD PARA CONSEGUIR EL RESTO DE DATOS
         Intent intent = getActivity().getIntent();
-        email = intent.getStringExtra( "email" );
+        String email = intent.getStringExtra( "email" );
         System.out.println( email );
-
-        //OBTENER LOS DATOS DE LA BD AL CARGARSE LA ACTIVIDAD. TODAS LAS ACTIVIDADES PARA HOY BASADAS EN PREFERENCIAS PERSONALES
-        System.out.println( url_plans_with_preferences );
-        getPlans( url_plans_with_preferences );
 
         //IMPLEMENTACION DE RECYCLERVIEW
         LinearLayoutManager layoutManager = new LinearLayoutManager( getContext() );
@@ -72,68 +63,67 @@ public class HomeFragment extends Fragment {
         recyclerView.setHasFixedSize( true );
         recyclerView.setLayoutManager( layoutManager );
 
-        //IMPLEMENTACION DEL BOTON FILTRO CON ALERT DIALOG
-        Button filter = view.findViewById( R.id.buttonFilter );
-        filter.setOnClickListener( new View.OnClickListener() {
+
+        final String url_plans_with_preferences = "https://proyectogrupodapp.000webhostapp.com/plans/plans_queries/get_plans_with_preferences_cardview.php?email=" + email;
+        final String url_getPlans_future = "https://proyectogrupodapp.000webhostapp.com/plans/plans_queries/get_future_plans_cardview.php?email=" + email;
+        final String url_getPlans_currentDate_topRating = "https://proyectogrupodapp.000webhostapp.com/plans/plans_queries/get_best_plans_cardview.php?email=" + email;
+        final String url_getPlans_all = "https://proyectogrupodapp.000webhostapp.com/plans/plans_queries/get_all_plans_cardview.php?email=" + email;
+
+        getPlans( url_getPlans_all );
+
+        Spinner spinner = view.findViewById( R.id.plans_spinner );
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource( getContext(), R.array.filtradoHome, android.R.layout.simple_spinner_item );
+        adapter.setDropDownViewResource( android.R.layout.simple_spinner_dropdown_item );
+        spinner.setAdapter( adapter );
+        spinner.setOnItemSelectedListener( new AdapterView.OnItemSelectedListener() {
+
             @Override
-            public void onClick(View v) {
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
+                Object item = adapterView.getItemAtPosition( position );
+                if (item != null) {
+                    Toast.makeText( getContext(), item.toString(), Toast.LENGTH_SHORT ).show();
+                }
 
-                AlertDialog.Builder builder = new AlertDialog.Builder( getActivity() );
-                builder.setTitle( "FILTRAR ACTIVIDADES POR " );
-                final int checkedItem = 0;
-                builder.setCancelable( true );
-                //LOS ITEMS QUE USA EL LISTADO ESTAN EN LA CARPETA RES/VALUES/ARRAYS. TAMBIEN SE PUEDE HACER UN ARRAY AQUI MISMO
-                builder.setSingleChoiceItems( R.array.filtradoHome, checkedItem, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
+                switch (position) {
 
-                        //PARA OBTENER LOS DATOS DE LAS ACTIVIDADES SEGUN PREFERENCIA Y FILTRO TEMPORAL
-                        switch (which) {
-                            case 0: // Ver todas las actividades de hoy
-                                //OBTENCION DE LOS DATOS DE LA BASE DE DATOS CON EL FILTRO EN LA FECHA DE INICIO CURRENT DATE
-                                getPlans( url_plans_with_preferences );
-                                dialog.dismiss();
-                                break;
-                            case 1: //Ver todas las actividades para el fin de semana
-                                //getPlans();
-                                dialog.dismiss();
-                                break;
-                            case 2: //Ver todas actividades futuras
-                                //OBTENCION DE LOS DATOS DE LA BASE DE DATOS CON EL FILTRO FECHA MAYOR DE HOY
-                                System.out.println( url_getPlans_future );
-                                getPlans( url_getPlans_future );
-                                dialog.dismiss();
-                                break;
-                            case 3: //Ver solo las actividades mejor valoradas
-                                //OBTENCION DE LOS DATOS DE LA BASE DE DATOS CON EL FILTRO DE FECHA HOY Y SE AÑADE OTRO PARA EL CAMPO RATING DE 5
-                                String url_getPlans_currentDate_topRating = "https://proyectogrupodapp.000webhostapp.com/plans/plans_queries/get_best_plans_cardview.php?email=" + email;
-                                System.out.println( url_getPlans_currentDate_topRating );
-                                getPlans( url_getPlans_currentDate_topRating );
-                                dialog.dismiss();
-                                break;
-                            case 4: //Ver todas las actividades sin preferencias y sin fecha
-                                //OBTENCION DE TODOS DATOS DE LA BASE DE DATOS DE CUALQUIER FECHA Y ACTIVIDAD
-                                String url_getPlans_all = "https://proyectogrupodapp.000webhostapp.com/plans/plans_queries/get_all_plans_cardview.php?email=" + email;
-                                System.out.println( url_getPlans_all );
-                                getPlans( url_getPlans_all );
-                                dialog.dismiss();
-                                break;
-                        }
-                    }
-                } );
-                AlertDialog dialog = builder.create();
-                dialog.show();
-                Toast.makeText( getContext(), "Filtrando...", Toast.LENGTH_SHORT ).show();
+                    case 0:
+                        break;
+                    case 1:
+                        //OBTENCION DE LOS DATOS DE LA BASE DE DATOS CON EL FILTRO FECHA MAYOR DE HOY
+                        System.out.println( url_getPlans_future );
+                        getPlans( url_getPlans_future );
+                        break;
+                    case 2:
+                        //OBTENCION DE LOS DATOS DE LA BASE DE DATOS CON EL FILTRO DE FECHA HOY Y SE AÑADE OTRO PARA EL CAMPO RATING DE 5
+                        System.out.println( url_getPlans_currentDate_topRating );
+                        getPlans( url_getPlans_currentDate_topRating );
+                        break;
+                    case 3:
+                        //OBTENCION DE LOS DATOS DE LA BASE DE DATOS CON EL FILTRO EN LA FECHA DE INICIO CURRENT DATE
+                        System.out.println( url_plans_with_preferences );
+                        getPlans( url_plans_with_preferences );
+                        break;
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                Toast.makeText( getContext(), "No ha seleccionado nada", Toast.LENGTH_SHORT ).show();
             }
         } );
 
+
         //CONTADOR DE ACTIVIDADES ENCONTRADAS
         activityCounter = view.findViewById( R.id.textViewActivityCounter );
-
         return view;
     }
 
+
+    public void onNothingSelected(AdapterView<?> arg0) {
+    }
+
     //CONEXION A LA BASE DE DATOS PARA OBTENCION DE DATOS
-    private void getPlans(String URL) {
+    public void getPlans(String URL) {
         JsonArrayRequest request = new JsonArrayRequest( Request.Method.POST, URL, null,
                 new Response.Listener<JSONArray>() {
                     @Override
@@ -154,15 +144,11 @@ public class HomeFragment extends Fragment {
                                 String activity_subcategory_1 = jsonObject.getString( "activity_subcategory_1" );
                                 String activity_subcategory_2 = jsonObject.getString( "activity_subcategory_2" );
                                 String activity_start_date = jsonObject.getString( "activity_start_date" );
-
-
-
                                 String activity_end_date = jsonObject.getString( "activity_end_date" );
                                 String activity_picture = jsonObject.getString( "activity_picture" );
                                 Bitmap decoded_activity_picture = decodeImage( activity_picture );
                                 plans.add( new Plannings( activity_id, activity_name, activity_title, activity_rating, activity_category, activity_subcategory, activity_subcategory_1,
                                         activity_subcategory_2, activity_start_date, activity_end_date, decoded_activity_picture ) );
-
                                 //CONTADOR PARA VER CUANTOS ENCUENTRA
                                 contador++;
                                 //INICIALIZADOR DEL RECYCLERVIEW
@@ -178,21 +164,14 @@ public class HomeFragment extends Fragment {
                 },
                 new Response.ErrorListener() {
                     @Override
-
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText( getContext(), "No se han encontrado actividades para hoy", Toast.LENGTH_SHORT ).show();
                     }
-
                 } ) {
-
-            @Override
-            public int getMethod() {
-                return Method.POST;
-            }
-
             @Override
             public Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<>();
+                Intent intent = getActivity().getIntent();
+                String email = intent.getStringExtra( "email" );
                 params.put( "email", email );
                 System.out.println( email );
                 return params;
@@ -203,21 +182,16 @@ public class HomeFragment extends Fragment {
     }
 
     //DECODIFCA LA IMAGEN QUE RECIBE DE LA BD EN FORMATO STRING
-    private Bitmap decodeImage(String picture) {
-
+    public Bitmap decodeImage(String picture) {
         byte[] imageBytes;
         imageBytes = Base64.decode( picture, Base64.DEFAULT );
         return BitmapFactory.decodeByteArray( imageBytes, 0, imageBytes.length );
     }
 
     //INICIALIZA LA CARDVIEW
-    private void initializeAdapter() {
-
+    public void initializeAdapter() {
         PlanningsAdapter adapter = new PlanningsAdapter( plans );
         recyclerView.setAdapter( adapter );
-    }
-
-    private void setCategoryName(String category) {
     }
 
 

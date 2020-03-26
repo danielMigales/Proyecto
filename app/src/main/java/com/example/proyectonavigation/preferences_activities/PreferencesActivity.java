@@ -28,6 +28,8 @@ import java.util.Map;
 
 public class PreferencesActivity extends AppCompatActivity {
 
+    ArrayList<String> preferences;
+    boolean categoriesLenght = false;
     private CheckBox cinema;
     private CheckBox food;
     private CheckBox music;
@@ -39,13 +41,10 @@ public class PreferencesActivity extends AppCompatActivity {
     private CheckBox sports;
     private Button submit;
 
-    ArrayList<String> preferences = new ArrayList();
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity_preferences );
-
         getSupportActionBar().hide();
 
         cinema = findViewById( R.id.checkBoxCinema );
@@ -53,10 +52,10 @@ public class PreferencesActivity extends AppCompatActivity {
         music = findViewById( R.id.checkBoxMusic );
         outdoor = findViewById( R.id.checkBoxOutdoor );
         tv = findViewById( R.id.checkBoxTV );
-        culture = findViewById( R.id.checkBoxCulture );
         books = findViewById( R.id.checkBoxBooks );
         videogames = findViewById( R.id.checkBoxVideoGames );
         sports = findViewById( R.id.checkBoxSports );
+        culture = findViewById( R.id.checkBoxCulture );
 
         Intent intent = getIntent();
         final String email = intent.getStringExtra( "email" );
@@ -66,55 +65,78 @@ public class PreferencesActivity extends AppCompatActivity {
         submit.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                comprobarCheckbox( v );
-                savePreferences();
-                Intent intent = new Intent( PreferencesActivity.this, MainActivity.class );
-                intent.putExtra( "email", email );
-                intent.putExtra( "name", name );
-                startActivity( intent );
+                recuentoPreferencias( v );
+                if (categoriesLenght) {
+                    Intent intent = new Intent( PreferencesActivity.this, MainActivity.class );
+                    intent.putExtra( "email", email );
+                    intent.putExtra( "name", name );
+                    startActivity( intent );
+                }
             }
         } );
     }
 
     public void comprobarCheckbox(View v) {
+        int contador = 0;
+        preferences = new ArrayList<>();
 
         if (cinema.isChecked()) {
             preferences.add( "cine" );
+            contador++;
         }
         if (food.isChecked()) {
             preferences.add( "gastronomia" );
+            contador++;
         }
         if (music.isChecked()) {
             preferences.add( "musica" );
+            contador++;
         }
         if (outdoor.isChecked()) {
-            preferences.add( "actividades al aire libre" );
+            preferences.add( "outdoor" );
+            contador++;
         }
         if (tv.isChecked()) {
             preferences.add( "television" );
+            contador++;
         }
         if (culture.isChecked()) {
             preferences.add( "cultura" );
+            contador++;
         }
         if (books.isChecked()) {
             preferences.add( "literatura" );
+            contador++;
         }
         if (videogames.isChecked()) {
             preferences.add( "videojuegos" );
+            contador++;
         }
         if (sports.isChecked()) {
             preferences.add( "deportes" );
+            contador++;
+        }
+        if (contador > 3) {
+            Toast.makeText( getApplicationContext(), "Solo debe escoger tres preferencias", Toast.LENGTH_SHORT ).show();
+        } else {
+            Toast.makeText( getApplicationContext(), "Perfecto, sus gustos son excelentes.", Toast.LENGTH_SHORT ).show();
+        }
+    }
+
+    public void recuentoPreferencias(View view) {
+        comprobarCheckbox( view );
+        System.out.println( preferences.size() );
+        if (preferences.size() <= 3) {
+            savePreferences();
+            categoriesLenght = true;
+        } else {
+            Toast.makeText( PreferencesActivity.this, "Escoja un maximo de tres preferencias", Toast.LENGTH_SHORT ).show();
+            categoriesLenght = false;
         }
     }
 
     public void savePreferences() {
-
-        for (int i = 0; i < preferences.size(); i++) {
-            Toast.makeText( this, "Preferencias guardadas", Toast.LENGTH_LONG ).show();
-        }
-
         String URL_PREFER = "https://proyectogrupodapp.000webhostapp.com/users/user_data_queries/setPreferences.php";
-
         StringRequest stringRequest = new StringRequest( Request.Method.POST, URL_PREFER,
                 new Response.Listener<String>() {
                     @Override
@@ -143,15 +165,21 @@ public class PreferencesActivity extends AppCompatActivity {
                 Intent intent = getIntent();
                 String email = intent.getStringExtra( "email" );
                 params.put( "email", email );
-                String formattedString = preferences.toString().replace( "[", "" ).replace( "]", "" ).trim();
-                params.put( "preferences", formattedString );
+                String formattedString = preferences.toString().replace( "[", "" ).replace( "]", "" ).replace( " ", "" );
+                String[] parts = formattedString.split( "," );
+                String part1 = parts[0];
+                String part2 = parts[1];
+                String part3 = parts[2];
+                params.put( "preference1", part1 );
+                params.put( "preference2", part2 );
+                params.put( "preference3", part3 );
+                System.out.println( part1 + part2 + part3 );
                 return params;
             }
         };
         RequestQueue requestQueue = Volley.newRequestQueue( this );
         requestQueue.add( stringRequest );
     }
-
 }
 
 

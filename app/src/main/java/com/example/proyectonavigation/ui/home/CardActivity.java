@@ -41,6 +41,7 @@ import java.util.Map;
 
 public class CardActivity extends AppCompatActivity implements OnMapReadyCallback {
 
+    private static final int LOCATION_REQUEST_CODE = 1;
     ImageView imageViewPicture;
     TextView textViewTitulo;
     TextView textviewAddress;
@@ -50,15 +51,12 @@ public class CardActivity extends AppCompatActivity implements OnMapReadyCallbac
     TextView textviewTimetable2;
     TextView textviewDescription;
     TextView textviewURL;
-
     int activityID;
     String activity_title;
     String category;
     String tableName;
-
     MapView mapView;
     GoogleMap googleMap;
-    private static final int LOCATION_REQUEST_CODE = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,7 +104,7 @@ public class CardActivity extends AppCompatActivity implements OnMapReadyCallbac
         if (category.equals( "deportes" )) {
             tableName = "sports_plans";
         }
-        if (category.equals( "actividades al aire libre" )) {
+        if (category.equals( "outdoor" )) {
             tableName = "outdoor_plans";
         }
         if (category.equals( "gastronomia" )) {
@@ -127,15 +125,11 @@ public class CardActivity extends AppCompatActivity implements OnMapReadyCallbac
     public void getData() {
 
         getCategory();
-
         String url_getPlans = "https://proyectogrupodapp.000webhostapp.com/plans/plans_queries/get_plan_activity.php?id=" + activityID + "&table_name=" + tableName;
-
         JsonArrayRequest request = new JsonArrayRequest( Request.Method.POST, url_getPlans, null,
                 new Response.Listener<JSONArray>() {
-
                     @Override
                     public void onResponse(JSONArray jsonArray) {
-
                         try {
                             int contador = 0;
                             for (int i = 0; i < jsonArray.length(); i++) {
@@ -176,7 +170,6 @@ public class CardActivity extends AppCompatActivity implements OnMapReadyCallbac
                 },
                 new Response.ErrorListener() {
                     @Override
-
                     public void onErrorResponse(VolleyError error) {
                     }
                 } ) {
@@ -222,7 +215,6 @@ public class CardActivity extends AppCompatActivity implements OnMapReadyCallbac
         }
 
         //OBTENCION DE LOS DATOS DE COORDENADAS EN LA BD (REPETIDO POR NO CONSEGUIR UN OBJETO CON LOS DATOS CORECTOS, YA QUE OBTENIA NULL)
-
         String url_getPlans = "https://proyectogrupodapp.000webhostapp.com/plans/plans_queries/get_plan_activity.php?id=" + activityID + "&table_name=" + tableName;
         JsonArrayRequest request = new JsonArrayRequest( Request.Method.POST, url_getPlans, null,
                 new Response.Listener<JSONArray>() {
@@ -230,7 +222,6 @@ public class CardActivity extends AppCompatActivity implements OnMapReadyCallbac
                     public void onResponse(JSONArray jsonArray) {
                         try {
                             for (int i = 0; i < jsonArray.length(); i++) {
-
                                 JSONObject jsonObject = jsonArray.getJSONObject( i );
                                 double activity_latitude = jsonObject.getDouble( "activity_latitude" );
                                 double activity_longitude = jsonObject.getDouble( "activity_longitude" );
@@ -239,7 +230,7 @@ public class CardActivity extends AppCompatActivity implements OnMapReadyCallbac
                                 LatLng latilongi = new LatLng( activity_latitude, activity_longitude );
 
                                 googleMap.getUiSettings().setZoomControlsEnabled( true );
-                                googleMap.setMapType( GoogleMap.MAP_TYPE_HYBRID );
+                                //googleMap.setMapType( GoogleMap.MAP_TYPE_HYBRID );
 
                                 googleMap.addMarker( new MarkerOptions()
                                         .position( latilongi ) );
@@ -312,9 +303,9 @@ public class CardActivity extends AppCompatActivity implements OnMapReadyCallbac
     }
 
     //METODO PARA RECORTAR EL STRING DE LA HORA Y QUITARLE LOS SEGUNDOS
-    public String timeWithoutSeconds(String timetable){
+    public String timeWithoutSeconds(String timetable) {
 
-        String[] parts = timetable.split(":");
+        String[] parts = timetable.split( ":" );
         String part1 = parts[0];
         String part2 = parts[1];
         String time = part1 + ":" + part2;

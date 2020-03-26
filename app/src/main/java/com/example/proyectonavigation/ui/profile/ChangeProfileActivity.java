@@ -205,15 +205,14 @@ public class ChangeProfileActivity extends AppCompatActivity {
     }
 
     private void showDatePickerDialog() {
-        DatePickerFragment newFragment = DatePickerFragment.newInstance(new DatePickerDialog.OnDateSetListener() {
+        DatePickerFragment newFragment = DatePickerFragment.newInstance( new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
                 Toast.makeText( getApplicationContext(), "Fecha cambiada con exito", Toast.LENGTH_SHORT ).show();
             }
-        });
-        newFragment.show(getSupportFragmentManager(), "datePicker");
+        } );
+        newFragment.show( getSupportFragmentManager(), "datePicker" );
     }
-
 
 
 }

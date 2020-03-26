@@ -37,9 +37,9 @@ public class DialogFragmentPreferences extends DialogFragment implements
     //PARAMETROS POR DEFECTO
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    List<String> preferencesList = new ArrayList<String>();
     private String mParam1;
     private String mParam2;
-
     //VARIABLES
     private Switch music;
     private Switch cine;
@@ -51,8 +51,6 @@ public class DialogFragmentPreferences extends DialogFragment implements
     private Switch games;
     private Switch culture;
     private Button save;
-
-    List<String> preferencesList = new ArrayList<String>();
     private String email;
 
     //CONSTRUCTORES POR DEFECTO
@@ -133,15 +131,8 @@ public class DialogFragmentPreferences extends DialogFragment implements
                                 String user_preference_1 = jsonObject.getString( "preference_1" );
                                 String user_preference_2 = jsonObject.getString( "preference_2" );
                                 String user_preference_3 = jsonObject.getString( "preference_3" );
-                                String user_preference_4 = jsonObject.getString( "preference_4" );
-                                String user_preference_5 = jsonObject.getString( "preference_5" );
-                                String user_preference_6 = jsonObject.getString( "preference_6" );
-                                String user_preference_7 = jsonObject.getString( "preference_7" );
-                                String user_preference_8 = jsonObject.getString( "preference_8" );
-                                String user_preference_9 = jsonObject.getString( "preference_9" );
 
-                                String[] parts = {user_preference_1, user_preference_2, user_preference_3, user_preference_4, user_preference_5,
-                                        user_preference_6, user_preference_7, user_preference_8, user_preference_9};
+                                String[] parts = {user_preference_1, user_preference_2, user_preference_3};
 
                                 for (i = 0; i < parts.length; i++) {
                                     if (parts[i].contains( "cine" )) {
@@ -153,7 +144,7 @@ public class DialogFragmentPreferences extends DialogFragment implements
                                     if (parts[i].contains( "musica" )) {
                                         music.setChecked( true );
                                     }
-                                    if (parts[i].contains( "actividades al aire libre" )) {
+                                    if (parts[i].contains( "outdoor" )) {
                                         outdoor.setChecked( true );
                                     }
                                     if (parts[i].contains( "television" )) {
@@ -181,11 +172,9 @@ public class DialogFragmentPreferences extends DialogFragment implements
                 },
                 new Response.ErrorListener() {
                     @Override
-
                     public void onErrorResponse(VolleyError error) {
                         Toast.makeText( getContext(), "Error al obtener los datos", Toast.LENGTH_SHORT ).show();
                     }
-
                 } ) {
 
             @Override
@@ -210,7 +199,7 @@ public class DialogFragmentPreferences extends DialogFragment implements
             preferencesList.add( "musica" );
         }
         if (outdoor.isChecked()) {
-            preferencesList.add( "actividades al aire libre" );
+            preferencesList.add( "outdoor" );
         }
         if (tv.isChecked()) {
             preferencesList.add( "television" );
@@ -281,6 +270,4 @@ public class DialogFragmentPreferences extends DialogFragment implements
         };
         Volley.newRequestQueue( getContext() ).add( stringRequest );
     }
-
-
 }

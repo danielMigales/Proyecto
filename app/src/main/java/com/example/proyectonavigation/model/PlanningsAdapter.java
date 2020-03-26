@@ -21,25 +21,8 @@ public class PlanningsAdapter extends RecyclerView.Adapter<PlanningsAdapter.MyVi
 
     ArrayList<Plannings> plans;
 
-    public static class MyViewHolder extends RecyclerView.ViewHolder {
-
-        CardView planning;
-        TextView name;
-        ImageView picture;
-        TextView tags;
-        RatingBar rating;
-        TextView date;
-
-
-        public MyViewHolder(View itemView) {
-            super( itemView );
-            planning = itemView.findViewById( R.id.cardviewActivityPlan );
-            name = itemView.findViewById( R.id.textViewCardviewActivity );
-            picture = itemView.findViewById( R.id.imageViewCardviewActivity );
-            tags = itemView.findViewById( R.id.textViewTagsCardviewActivity );
-            rating = itemView.findViewById( R.id.ratingBarCardviewActivity );
-            date = itemView.findViewById( R.id.textViewDate );
-        }
+    public PlanningsAdapter(ArrayList<Plannings> plans) {
+        this.plans = plans;
     }
 
     @NonNull
@@ -67,16 +50,10 @@ public class PlanningsAdapter extends RecyclerView.Adapter<PlanningsAdapter.MyVi
         } );
 
         holder.name.setText( plans.get( position ).activity_title );
-        holder.tags.setText( plans.get( position ).activity_category + ", " + plans.get( position ).activity_subcategory );
+        holder.tags.setText( plans.get( position ).activity_category + ", " + plans.get( position ).activity_subcategory + ", " + plans.get( position ).activity_subcategory_1 );
         holder.picture.setImageBitmap( plans.get( position ).activity_picture );
         holder.rating.setRating( plans.get( position ).activity_rating );
-
-
-        String date = plans.get( position ).activity_start_date;
-        String dateParts [] = date.split("-");
-
-
-        holder.date.setText(" hasta " + plans.get( position ).activity_end_date );
+        holder.date.setText( "A partir de " + plans.get( position ).activity_start_date + " hasta " + plans.get( position ).activity_end_date );
     }
 
     @Override
@@ -84,12 +61,29 @@ public class PlanningsAdapter extends RecyclerView.Adapter<PlanningsAdapter.MyVi
         return plans.size();
     }
 
-    public PlanningsAdapter(ArrayList<Plannings> plans) {
-        this.plans = plans;
-    }
-
     @Override
     public void onAttachedToRecyclerView(@NonNull RecyclerView recyclerView) {
         super.onAttachedToRecyclerView( recyclerView );
+    }
+
+    public static class MyViewHolder extends RecyclerView.ViewHolder {
+
+        CardView planning;
+        TextView name;
+        ImageView picture;
+        TextView tags;
+        RatingBar rating;
+        TextView date;
+
+
+        public MyViewHolder(View itemView) {
+            super( itemView );
+            planning = itemView.findViewById( R.id.cardviewActivityPlan );
+            name = itemView.findViewById( R.id.textViewCardviewActivity );
+            picture = itemView.findViewById( R.id.imageViewCardviewActivity );
+            tags = itemView.findViewById( R.id.textViewTagsCardviewActivity );
+            rating = itemView.findViewById( R.id.ratingBarCardviewActivity );
+            date = itemView.findViewById( R.id.textViewDate );
+        }
     }
 }

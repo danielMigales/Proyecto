@@ -33,16 +33,15 @@ public class DialogFragmentPassword extends DialogFragment {
     //VARIABLES POR DEFECTO AL CREAR EL FRAGMENT
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    String url_updatePassword = "https://proyectogrupodapp.000webhostapp.com/users/user_data_queries/ChangePassword.php";
     private String mParam1;
     private String mParam2;
-
     //VARIABLES DE LOS WIDGETS
     private TextView enterPassword;
     private Button save;
     private Button cancel;
     private String email;
     private String password;
-    String url_updatePassword = "https://proyectogrupodapp.000webhostapp.com/users/user_data_queries/ChangePassword.php";
 
 
     public DialogFragmentPassword() {
@@ -56,6 +55,26 @@ public class DialogFragmentPassword extends DialogFragment {
         args.putString( ARG_PARAM2, param2 );
         fragment.setArguments( args );
         return fragment;
+    }
+
+    //Metodo que recibe el password desde el textview y lo convierte a hash
+    public static byte[] hash(String password) {
+
+        byte[] hash = null;
+        try {
+            byte[] data = password.getBytes();
+            MessageDigest md = MessageDigest.getInstance( "SHA-256" );
+            hash = md.digest( data );
+        } catch (Exception ex) {
+
+        }
+        return hash;
+    }
+
+    //Metodo que convierte el password con hash de nuevo a String
+    public static String byteToHex(byte[] bytes) {
+        BigInteger bi = new BigInteger( 1, bytes );
+        return String.format( "%0" + (bytes.length << 1) + "X", bi );
     }
 
     @Override
@@ -160,26 +179,6 @@ public class DialogFragmentPassword extends DialogFragment {
         RequestQueue requestQueue = Volley.newRequestQueue( getContext() );
         requestQueue.add( stringRequest );
 
-    }
-
-    //Metodo que recibe el password desde el textview y lo convierte a hash
-    public static byte[] hash(String password) {
-
-        byte[] hash = null;
-        try {
-            byte[] data = password.getBytes();
-            MessageDigest md = MessageDigest.getInstance( "SHA-256" );
-            hash = md.digest( data );
-        } catch (Exception ex) {
-
-        }
-        return hash;
-    }
-
-    //Metodo que convierte el password con hash de nuevo a String
-    public static String byteToHex(byte[] bytes) {
-        BigInteger bi = new BigInteger( 1, bytes );
-        return String.format( "%0" + (bytes.length << 1) + "X", bi );
     }
 
 }

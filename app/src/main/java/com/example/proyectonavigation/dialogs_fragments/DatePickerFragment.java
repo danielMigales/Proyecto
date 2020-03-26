@@ -26,7 +26,7 @@ public class DatePickerFragment extends DialogFragment implements DatePickerDial
 
     public static DatePickerFragment newInstance(DatePickerDialog.OnDateSetListener listener) {
         DatePickerFragment fragment = new DatePickerFragment();
-        fragment.setListener(listener);
+        fragment.setListener( listener );
         return fragment;
     }
 
@@ -38,18 +38,18 @@ public class DatePickerFragment extends DialogFragment implements DatePickerDial
     public Dialog onCreateDialog(Bundle savedInstanceState) {
 
         final Calendar c = Calendar.getInstance();
-        int year = c.get(Calendar.YEAR);
-        int month = c.get(Calendar.MONTH);
-        int day = c.get(Calendar.DAY_OF_MONTH);
+        int year = c.get( Calendar.YEAR );
+        int month = c.get( Calendar.MONTH );
+        int day = c.get( Calendar.DAY_OF_MONTH );
 
-        return new DatePickerDialog(getActivity(), this, year, month, day);
+        return new DatePickerDialog( getActivity(), this, year, month, day );
     }
 
     @Override
     public void onDateSet(DatePicker view, int year, int month, int day) {
-        final String selectedDate = year + "-" + (month+1) + "-" + day;
-        updateBirthday(selectedDate);
-        Toast.makeText(getActivity(), "Fecha cambiada con exito", Toast.LENGTH_LONG).show();
+        final String selectedDate = year + "-" + (month + 1) + "-" + day;
+        updateBirthday( selectedDate );
+        Toast.makeText( getActivity(), "Fecha cambiada con exito", Toast.LENGTH_LONG ).show();
     }
 
     public void updateBirthday(final String selectedDate) {

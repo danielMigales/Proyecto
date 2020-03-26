@@ -28,16 +28,15 @@ public class DialogFragmentEmail extends DialogFragment {
     //VARIABLES POR DEFECTO AL CREAR EL FRAGMENT
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    String url_update = "https://proyectogrupodapp.000webhostapp.com/users/user_data_queries/ChangeEmail.php";
     private String mParam1;
     private String mParam2;
-
     //VARIABLES DE LOS WIDGETS
     private TextView enterMail;
     private Button save;
     private Button cancel;
     private String email;
     private String newEmail;
-    String url_update = "https://proyectogrupodapp.000webhostapp.com/users/user_data_queries/ChangeEmail.php";
 
     public DialogFragmentEmail() {
         // Required empty public constructor

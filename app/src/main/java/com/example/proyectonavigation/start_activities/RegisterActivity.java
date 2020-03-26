@@ -32,11 +32,29 @@ import java.util.regex.Pattern;
 
 public class RegisterActivity extends AppCompatActivity {
 
+    private static String URL_REGIST = "https://proyectogrupodapp.000webhostapp.com/users/user_data_queries/register.php";
+    boolean correoOk = false;
     private EditText name, email, password, c_password;
     private Button btn_regist;
     private TextView back_login;
 
-    private static String URL_REGIST = "https://proyectogrupodapp.000webhostapp.com/users/user_data_queries/register.php";
+    //Metodo que recibe el password desde el textview y lo convierte a hash
+    public static byte[] hash(String password) {
+        byte[] hash = null;
+        try {
+            byte[] data = password.getBytes();
+            MessageDigest md = MessageDigest.getInstance( "SHA-256" );
+            hash = md.digest( data );
+        } catch (Exception ex) {
+        }
+        return hash;
+    }
+
+    //Metodo que convierte el password con hash de nuevo a String
+    public static String byteToHex(byte[] bytes) {
+        BigInteger bi = new BigInteger( 1, bytes );
+        return String.format( "%0" + (bytes.length << 1) + "X", bi );
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,9 +68,7 @@ public class RegisterActivity extends AppCompatActivity {
         password = findViewById( R.id.password );
         c_password = findViewById( R.id.c_password );
         btn_regist = findViewById( R.id.btn_regist );
-
         back_login = findViewById( R.id.loginTxt );
-
         back_login.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -75,7 +91,10 @@ public class RegisterActivity extends AppCompatActivity {
                             if (!mPassword.isEmpty()) {
                                 if (!mCPassword.isEmpty()) {
                                     if (esCorreoValido( mEmail )) {
-                                        Regist();
+                                        comprobarDuplicados();
+                                        if (correoOk) {
+                                            Regist();
+                                        }
                                     }
                                 } else {
                                     c_password.setError( "Confirme su password" );
@@ -108,6 +127,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     //VALIDACION DE CORREO ELECTRONICO
     private boolean esCorreoValido(String correo) {
+
         if (!Patterns.EMAIL_ADDRESS.matcher( correo ).matches()) {
             email.setError( "Correo electrónico inválido" );
             return false;
@@ -120,7 +140,6 @@ public class RegisterActivity extends AppCompatActivity {
     private void Regist() {
 
         btn_regist.setVisibility( View.GONE );
-
         final String name = this.name.getText().toString().trim();
         final String email = this.email.getText().toString().trim();
         final String password = this.password.getText().toString().trim();
@@ -181,23 +200,49 @@ public class RegisterActivity extends AppCompatActivity {
 
     }
 
-    //Metodo que recibe el password desde el textview y lo convierte a hash
-    public static byte[] hash(String password) {
+    private boolean comprobarDuplicados() {
 
-        byte[] hash = null;
-        try {
-            byte[] data = password.getBytes();
-            MessageDigest md = MessageDigest.getInstance( "SHA-256" );
-            hash = md.digest( data );
-        } catch (Exception ex) {
-
-        }
-        return hash;
+        final String email = this.email.getText().toString().trim();
+        String URL = "https://proyectogrupodapp.000webhostapp.com/users/user_data_queries/comprobarUsuario.php";
+        StringRequest stringRequest = new StringRequest( Request.Method.POST, URL,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONObject jsonObject = new JSONObject( response );
+                            String success = jsonObject.getString( "success" );
+                            if (success.equals( "1" )) {
+                                correoOk = true;
+                                Toast.makeText( RegisterActivity.this, "Su direccion de correo ya esta registrada", Toast.LENGTH_SHORT ).show();
+                            } else {
+                                Toast.makeText( RegisterActivity.this, "Direccion de correo correcta", Toast.LENGTH_SHORT ).show();
+                                correoOk = false;
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                            Toast.makeText( RegisterActivity.this, "JSON Error "
+                                    + e.toString(), Toast.LENGTH_SHORT ).show();
+                            btn_regist.setVisibility( View.VISIBLE );
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText( RegisterActivity.this, "Response Error " + error.toString(), Toast.LENGTH_SHORT ).show();
+                        btn_regist.setVisibility( View.VISIBLE );
+                    }
+                } ) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                params.put( "email", email );
+                return params;
+            }
+        };
+        RequestQueue requestQueue = Volley.newRequestQueue( this );
+        requestQueue.add( stringRequest );
+        return correoOk;
     }
 
-    //Metodo que convierte el password con hash de nuevo a String
-    public static String byteToHex(byte[] bytes) {
-        BigInteger bi = new BigInteger( 1, bytes );
-        return String.format( "%0" + (bytes.length << 1) + "X", bi );
-    }
 }

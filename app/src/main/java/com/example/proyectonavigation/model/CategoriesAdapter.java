@@ -16,19 +16,10 @@ import java.util.List;
 
 public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.MyViewHolder> {
 
-    public static class MyViewHolder extends RecyclerView.ViewHolder {
+    List<Categories> categories;
 
-        CardView categories;
-        TextView name;
-        ImageView picture;
-
-
-        public MyViewHolder(View itemView) {
-            super( itemView );
-            categories = itemView.findViewById( R.id.cardviewCategories );
-            name = itemView.findViewById( R.id.textViewCategory );
-            picture = itemView.findViewById( R.id.imageViewCategory );
-        }
+    public CategoriesAdapter(List<Categories> categories) {
+        this.categories = categories;
     }
 
     @NonNull
@@ -52,14 +43,23 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.My
         return categories.size();
     }
 
-    List<Categories> categories;
-
-    public CategoriesAdapter(List<Categories> categories) {
-        this.categories = categories;
-    }
-
     @Override
     public void onAttachedToRecyclerView(@NonNull RecyclerView recyclerView) {
         super.onAttachedToRecyclerView( recyclerView );
+    }
+
+    public static class MyViewHolder extends RecyclerView.ViewHolder {
+
+        CardView categories;
+        TextView name;
+        ImageView picture;
+
+
+        public MyViewHolder(View itemView) {
+            super( itemView );
+            categories = itemView.findViewById( R.id.cardviewCategories );
+            name = itemView.findViewById( R.id.textViewCategory );
+            picture = itemView.findViewById( R.id.imageViewCategory );
+        }
     }
 }

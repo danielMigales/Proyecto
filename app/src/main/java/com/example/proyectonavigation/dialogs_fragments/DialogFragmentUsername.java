@@ -27,16 +27,15 @@ public class DialogFragmentUsername extends DialogFragment {
     //VARIABLES POR DEFECTO AL CREAR EL FRAGMENT
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    String url_updateName = "https://proyectogrupodapp.000webhostapp.com/users/user_data_queries/ChangeUsername.php";
     private String mParam1;
     private String mParam2;
-
     //VARIABLES DE LOS WIDGETS
     private TextView enterName;
     private Button save;
     private Button cancel;
     private String email;
     private String name;
-    String url_updateName = "https://proyectogrupodapp.000webhostapp.com/users/user_data_queries/ChangeUsername.php";
 
     public DialogFragmentUsername() {
         // Required empty public constructor

@@ -27,6 +27,8 @@ import java.util.Map;
 
 public class MusicPreferencesActivity extends AppCompatActivity {
 
+    private static String URL = "https://proyectogrupodapp.000webhostapp.com/users/user_data_queries/setMusic.php";
+    ArrayList<String> music = new ArrayList();
     private CheckBox metal;
     private CheckBox pop;
     private CheckBox rock;
@@ -38,9 +40,7 @@ public class MusicPreferencesActivity extends AppCompatActivity {
     private CheckBox regaton;
     private CheckBox clasic;
     private Button submit;
-    ArrayList<String> music = new ArrayList();
     private String email;
-    private static String URL = "https://proyectogrupodapp.000webhostapp.com/users/user_data_queries/setMusic.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -52,6 +52,9 @@ import java.util.Map;
 
 public class ProfileFragment extends Fragment {
 
+    public static final long PERIODO = 1000; // 1 segundos (1 * 1000 millisegundos)
+    //VARIABLE PARA OBTENER FOTO DE CAMARA
+    private static final int REQUEST_IMAGE_CAPTURE = 1;
     //VARIABLES DE WIDGETS
     private String email;
     private Bitmap imageBitmap;
@@ -61,15 +64,9 @@ public class ProfileFragment extends Fragment {
     private TextView preferences;
     private Button addPreferences;
     private Button changeData;
-
-    //VARIABLE PARA OBTENER FOTO DE CAMARA
-    private static final int REQUEST_IMAGE_CAPTURE = 1;
-
     //VARIABLES PARA LA LISTA DE PREFERENCIAS EN RECYCLERVIEW
     private List<Categories> categories;
     private RecyclerView recyclerView;
-
-    public static final long PERIODO = 1000; // 1 segundos (1 * 1000 millisegundos)
     private Handler handler;
     private Runnable runnable;
 
@@ -111,21 +108,21 @@ public class ProfileFragment extends Fragment {
 
                 final CharSequence[] items = {"Usar camara", "Escoger de la galeria", "Cancelar"};
 
-                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                AlertDialog.Builder builder = new AlertDialog.Builder( getContext() );
 
-                builder.setTitle("Añadir fotografia");
-                builder.setItems(items, new DialogInterface.OnClickListener() {
+                builder.setTitle( "Añadir fotografia" );
+                builder.setItems( items, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int item) {
-                        if (items[item].equals("Usar camara")) {
+                        if (items[item].equals( "Usar camara" )) {
                             dispatchTakePictureIntent();
-                        } else if (items[item].equals("Escoger de la galeria")) {
+                        } else if (items[item].equals( "Escoger de la galeria" )) {
 
-                        } else if (items[item].equals("Cancelar")) {
+                        } else if (items[item].equals( "Cancelar" )) {
                             dialog.dismiss();
                         }
                     }
-                });
+                } );
                 builder.show();
 
             }
@@ -136,7 +133,6 @@ public class ProfileFragment extends Fragment {
         addPreferences.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 DialogFragmentPreferences dialogFragment = new DialogFragmentPreferences();
                 FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
                 Fragment prev = getActivity().getSupportFragmentManager().findFragmentByTag( "dialog" );
@@ -163,7 +159,6 @@ public class ProfileFragment extends Fragment {
     public void onResume() {
         super.onResume();
         this.onCreate( null );
-
         handler = new Handler();
         runnable = new Runnable() {
             @Override
@@ -209,7 +204,6 @@ public class ProfileFragment extends Fragment {
 
     //CODIGO PARA COMRPRIMIR LA IMAGEN A STRING
     public String getStringImagen(Bitmap bmp) {
-
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         bmp.compress( Bitmap.CompressFormat.JPEG, 100, baos );
         byte[] imageBytes = baos.toByteArray();
@@ -219,7 +213,6 @@ public class ProfileFragment extends Fragment {
 
     //OBTIENE LOS DATOS CARGANDOLOS DE LA BD
     public void getData() {
-
         String url_userdata = "https://proyectogrupodapp.000webhostapp.com/users/user_data_queries/getUserData.php?email=" + email;
         JsonArrayRequest request = new JsonArrayRequest( Request.Method.POST, url_userdata, null,
                 new Response.Listener<JSONArray>() {
@@ -235,19 +228,10 @@ public class ProfileFragment extends Fragment {
                                 String user_preferences_1 = jsonObject.getString( "preference_1" );
                                 String user_preferences_2 = jsonObject.getString( "preference_2" );
                                 String user_preferences_3 = jsonObject.getString( "preference_3" );
-                                String user_preferences_4 = jsonObject.getString( "preference_4" );
-                                String user_preferences_5 = jsonObject.getString( "preference_5" );
-                                String user_preferences_6 = jsonObject.getString( "preference_6" );
-                                String user_preferences_7 = jsonObject.getString( "preference_7" );
-                                String user_preferences_8 = jsonObject.getString( "preference_8" );
-                                String user_preferences_9 = jsonObject.getString( "preference_9" );
-                                String formattedString = user_preferences_1 + ", " + user_preferences_2 + ", " + user_preferences_3 + ", " + user_preferences_4 + ", "
-                                        + user_preferences_5 + ", " + user_preferences_6 + ", " + user_preferences_7 + ", " + user_preferences_8 + ", " + user_preferences_9;
-
+                                String formattedString = user_preferences_1 + ", " + user_preferences_2 + ", " + user_preferences_3;
                                 //SE PASAN LOS RESULTADOS A LOS WIDGETS DE LA INTERFAZ
                                 textEmail.setText( user_email );
                                 textName.setText( user_name );
-
                                 initializeData( formattedString );
                             } catch (JSONException e) {
                                 e.printStackTrace();
@@ -261,11 +245,11 @@ public class ProfileFragment extends Fragment {
                         Toast.makeText( getContext(), "Error al obtener los datos", Toast.LENGTH_SHORT ).show();
                     }
                 } ) {
-
             @Override
             public int getMethod() {
                 return Method.POST;
             }
+
             @Override
             public Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
@@ -288,12 +272,9 @@ public class ProfileFragment extends Fragment {
 
     //CODIGO PARA SUBIR IMAGEN A BASE DE DATOS
     public void uploadImage() {
-
         String UPLOAD_URL = "https://proyectogrupodapp.000webhostapp.com/users/user_data_queries/uploadPhoto.php";
-
         //MUESTRA UN DIALOGO DE PROGRESO
         final ProgressDialog loading = ProgressDialog.show( getContext(), "Uploading...", "uploading...", false, false );
-
         StringRequest stringRequest = new StringRequest( Request.Method.POST, UPLOAD_URL,
                 new Response.Listener<String>() {
                     @Override
@@ -309,7 +290,6 @@ public class ProfileFragment extends Fragment {
                         Toast.makeText( getContext(), volleyError.getMessage(), Toast.LENGTH_LONG ).show();
                     }
                 } ) {
-
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
@@ -321,10 +301,8 @@ public class ProfileFragment extends Fragment {
                 return params;
             }
         };
-
         //Creación de una cola de solicitudes
         RequestQueue requestQueue = Volley.newRequestQueue( getContext() );
-
         //Agregar solicitud a la cola
         requestQueue.add( stringRequest );
     }
@@ -346,8 +324,8 @@ public class ProfileFragment extends Fragment {
             if (parts[i].contains( "musica" )) {
                 categories.add( new Categories( "Musica", R.drawable.music ) );
             }
-            if (parts[i].contains( "actividades al aire libre" )) {
-                categories.add( new Categories( "Actividades al aire libre", R.drawable.viaje ) );
+            if (parts[i].contains( "outdoor" )) {
+                categories.add( new Categories( "Outdoor", R.drawable.viaje ) );
             }
             if (parts[i].contains( "television" )) {
                 categories.add( new Categories( "Television", R.drawable.tv ) );

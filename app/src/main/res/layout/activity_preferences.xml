@@ -36,7 +36,7 @@
                     android:layout_marginEnd="40dp"
                     android:layout_marginBottom="1520dp"
                     android:fontFamily="@font/aladin"
-                    android:text="@string/select_your_preferences"
+                    android:text="Seleccione tres preferencias"
                     android:textAlignment="center"
                     android:textColor="@android:color/black"
                     android:textSize="30sp"

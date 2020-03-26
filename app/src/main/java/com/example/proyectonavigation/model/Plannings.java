@@ -5,16 +5,16 @@ import android.graphics.Bitmap;
 public class Plannings {
 
     int activity_id;
-    String activity_name;
     String activity_title;
     float activity_rating;
     String activity_category;
     String activity_subcategory;
     String activity_subcategory_1;
-    String activity_subcategory_2;
     String activity_start_date;
     String activity_end_date;
     Bitmap activity_picture;
+    private String activity_name;
+    private String activity_subcategory_2;
 
     public Plannings(int activity_id, String activity_name, String activity_title, float activity_rating, String activity_category, String activity_subcategory,
                      String activity_subcategory_1, String activity_subcategory_2, String activity_start_date, String activity_end_date, Bitmap activity_picture) {
