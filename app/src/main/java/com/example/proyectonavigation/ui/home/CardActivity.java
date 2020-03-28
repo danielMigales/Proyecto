@@ -84,7 +84,7 @@ public class CardActivity extends AppCompatActivity implements OnMapReadyCallbac
         //DATOS DE LA BD
         getData();
 
-        mapView = (MapView) findViewById( R.id.mapViewPlan );
+        mapView = findViewById( R.id.mapViewPlan );
         mapView.onCreate( savedInstanceState );
         mapView.getMapAsync( this );
     }

@@ -49,16 +49,16 @@ public class MusicPreferencesActivity extends AppCompatActivity {
 
         getSupportActionBar().hide();
 
-        metal = (CheckBox) findViewById( R.id.checkBoxMetal );
-        pop = (CheckBox) findViewById( R.id.checkBoxPop );
-        rock = (CheckBox) findViewById( R.id.checkBoxRock );
-        soul = (CheckBox) findViewById( R.id.checkBoxSoul );
-        reagge = (CheckBox) findViewById( R.id.checkBoxReage );
-        techno = (CheckBox) findViewById( R.id.checkBoxTechno );
-        blues = (CheckBox) findViewById( R.id.checkBoxBlues );
-        rap = (CheckBox) findViewById( R.id.checkBoxRap );
-        regaton = (CheckBox) findViewById( R.id.checkBoxRegaton );
-        clasic = (CheckBox) findViewById( R.id.checkBoxClasic );
+        metal = findViewById( R.id.checkBoxMetal );
+        pop = findViewById( R.id.checkBoxPop );
+        rock = findViewById( R.id.checkBoxRock );
+        soul = findViewById( R.id.checkBoxSoul );
+        reagge = findViewById( R.id.checkBoxReage );
+        techno = findViewById( R.id.checkBoxTechno );
+        blues = findViewById( R.id.checkBoxBlues );
+        rap = findViewById( R.id.checkBoxRap );
+        regaton = findViewById( R.id.checkBoxRegaton );
+        clasic = findViewById( R.id.checkBoxClasic );
 
         Intent intent = getIntent();
         email = intent.getStringExtra( "email" );

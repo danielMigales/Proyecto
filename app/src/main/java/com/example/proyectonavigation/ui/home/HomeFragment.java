@@ -9,15 +9,12 @@ import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProviders;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -41,20 +38,27 @@ import java.util.Map;
 
 public class HomeFragment extends Fragment {
 
+    private HomeViewModel homeViewModel;
+    private String email;
+
+
     //VARIABLES PARA LA LISTA DE PREFERENCIAS EN RECYCLERVIEW
-    public ArrayList<Plannings> plans;
-    public RecyclerView recyclerView;
-    TextView activityCounter;
+    private ArrayList<Plannings> plans;
+    private RecyclerView recyclerView;
+    PlanningsAdapter adapter;
+
+    //INSTANCIA DE LA CARDVIEW QUE AL PULSARLA REDIRIGE A LA DESCRIPCION
+    private CardView cardviewPlan;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        HomeViewModel homeViewModel = ViewModelProviders.of( this ).get( HomeViewModel.class );
+        homeViewModel = new ViewModelProvider(this).get( HomeViewModel.class );
         View view = inflater.inflate( R.layout.fragment_home, container, false );
+
 
         //INTENT PARA OBTENER EL EMAIL DEL USUARIO QUE SE USA EN EL SELECT DE LA BD PARA CONSEGUIR EL RESTO DE DATOS
         Intent intent = getActivity().getIntent();
-        String email = intent.getStringExtra( "email" );
-        System.out.println( email );
+        email = intent.getStringExtra( "email" );
 
         //IMPLEMENTACION DE RECYCLERVIEW
         LinearLayoutManager layoutManager = new LinearLayoutManager( getContext() );
@@ -62,74 +66,21 @@ public class HomeFragment extends Fragment {
         recyclerView = view.findViewById( R.id.recyclerViewPlans );
         recyclerView.setHasFixedSize( true );
         recyclerView.setLayoutManager( layoutManager );
-
-
-        final String url_plans_with_preferences = "https://proyectogrupodapp.000webhostapp.com/plans/plans_queries/get_plans_with_preferences_cardview.php?email=" + email;
-        final String url_getPlans_future = "https://proyectogrupodapp.000webhostapp.com/plans/plans_queries/get_future_plans_cardview.php?email=" + email;
-        final String url_getPlans_currentDate_topRating = "https://proyectogrupodapp.000webhostapp.com/plans/plans_queries/get_best_plans_cardview.php?email=" + email;
-        final String url_getPlans_all = "https://proyectogrupodapp.000webhostapp.com/plans/plans_queries/get_all_plans_cardview.php?email=" + email;
-
-        getPlans( url_getPlans_all );
-
-        Spinner spinner = view.findViewById( R.id.plans_spinner );
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource( getContext(), R.array.filtradoHome, android.R.layout.simple_spinner_item );
-        adapter.setDropDownViewResource( android.R.layout.simple_spinner_dropdown_item );
-        spinner.setAdapter( adapter );
-        spinner.setOnItemSelectedListener( new AdapterView.OnItemSelectedListener() {
-
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
-                Object item = adapterView.getItemAtPosition( position );
-                if (item != null) {
-                    Toast.makeText( getContext(), item.toString(), Toast.LENGTH_SHORT ).show();
-                }
-
-                switch (position) {
-
-                    case 0:
-                        break;
-                    case 1:
-                        //OBTENCION DE LOS DATOS DE LA BASE DE DATOS CON EL FILTRO FECHA MAYOR DE HOY
-                        System.out.println( url_getPlans_future );
-                        getPlans( url_getPlans_future );
-                        break;
-                    case 2:
-                        //OBTENCION DE LOS DATOS DE LA BASE DE DATOS CON EL FILTRO DE FECHA HOY Y SE AÑADE OTRO PARA EL CAMPO RATING DE 5
-                        System.out.println( url_getPlans_currentDate_topRating );
-                        getPlans( url_getPlans_currentDate_topRating );
-                        break;
-                    case 3:
-                        //OBTENCION DE LOS DATOS DE LA BASE DE DATOS CON EL FILTRO EN LA FECHA DE INICIO CURRENT DATE
-                        System.out.println( url_plans_with_preferences );
-                        getPlans( url_plans_with_preferences );
-                        break;
-                }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-                Toast.makeText( getContext(), "No ha seleccionado nada", Toast.LENGTH_SHORT ).show();
-            }
-        } );
-
-
-        //CONTADOR DE ACTIVIDADES ENCONTRADAS
-        activityCounter = view.findViewById( R.id.textViewActivityCounter );
+        String url_getPlans = "https://proyectogrupodapp.000webhostapp.com/plans/plans_queries/get_plans_with_preferences_cardview.php?email=" + email;
+        System.out.println(url_getPlans);
+        getPlans(url_getPlans);
+        PlanningsAdapter adapter = new PlanningsAdapter( plans, getContext() );
+        adapter.notifyDataSetChanged();
+        recyclerView.setAdapter( adapter );
         return view;
     }
 
-
-    public void onNothingSelected(AdapterView<?> arg0) {
-    }
-
-    //CONEXION A LA BASE DE DATOS PARA OBTENCION DE DATOS
-    public void getPlans(String URL) {
+    private void getPlans(String URL) {
         JsonArrayRequest request = new JsonArrayRequest( Request.Method.POST, URL, null,
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray jsonArray) {
                         try {
-                            int contador = 0;
                             //CREACION DEL ARRAYLIST PARA LA CARDVIEW
                             plans = new ArrayList<>();
                             for (int i = 0; i < jsonArray.length(); i++) {
@@ -147,33 +98,29 @@ public class HomeFragment extends Fragment {
                                 String activity_end_date = jsonObject.getString( "activity_end_date" );
                                 String activity_picture = jsonObject.getString( "activity_picture" );
                                 Bitmap decoded_activity_picture = decodeImage( activity_picture );
-                                plans.add( new Plannings( activity_id, activity_name, activity_title, activity_rating, activity_category, activity_subcategory, activity_subcategory_1,
-                                        activity_subcategory_2, activity_start_date, activity_end_date, decoded_activity_picture ) );
-                                //CONTADOR PARA VER CUANTOS ENCUENTRA
-                                contador++;
-                                //INICIALIZADOR DEL RECYCLERVIEW
-                                initializeAdapter();
+                                plans.add( new Plannings( activity_id, activity_name, activity_title, activity_rating, activity_category, activity_subcategory, activity_subcategory_1, activity_subcategory_2,
+                                        activity_start_date, activity_end_date, decoded_activity_picture ) );
                             }
-                            System.out.println( contador );
-                            activityCounter.setText( "Nº de actividades : " + contador );
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
                     }
-
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
+                        Toast.makeText( getContext(), "No se han encontrado actividades para hoy", Toast.LENGTH_SHORT ).show();
                     }
                 } ) {
             @Override
+            public int getMethod() {
+                return Method.POST;
+            }
+
+            @Override
             public Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<>();
-                Intent intent = getActivity().getIntent();
-                String email = intent.getStringExtra( "email" );
                 params.put( "email", email );
-                System.out.println( email );
                 return params;
             }
         };
@@ -183,16 +130,11 @@ public class HomeFragment extends Fragment {
 
     //DECODIFCA LA IMAGEN QUE RECIBE DE LA BD EN FORMATO STRING
     public Bitmap decodeImage(String picture) {
+
         byte[] imageBytes;
         imageBytes = Base64.decode( picture, Base64.DEFAULT );
-        return BitmapFactory.decodeByteArray( imageBytes, 0, imageBytes.length );
+        Bitmap decodedImage = BitmapFactory.decodeByteArray( imageBytes, 0, imageBytes.length );
+        return decodedImage;
     }
-
-    //INICIALIZA LA CARDVIEW
-    public void initializeAdapter() {
-        PlanningsAdapter adapter = new PlanningsAdapter( plans );
-        recyclerView.setAdapter( adapter );
-    }
-
 
 }

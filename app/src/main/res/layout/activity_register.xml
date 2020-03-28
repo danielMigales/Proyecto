@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/holo_blue_dark"
+    android:background="@android:color/black"
     android:orientation="vertical"
     android:paddingLeft="30dp"
     android:paddingTop="60dp"
@@ -78,7 +78,8 @@
         android:layout_marginLeft="50dp"
         android:layout_marginTop="90dp"
         android:layout_marginRight="50dp"
-        android:background="@drawable/borde_redondo"
+        android:background="@drawable/borde_redondo_preferences"
+        android:backgroundTint="@color/colorPrimary"
         android:text="Registrarse"
         android:textColor="@android:color/white"></Button>
 

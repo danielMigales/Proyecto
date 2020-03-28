@@ -92,8 +92,11 @@ public class RegisterActivity extends AppCompatActivity {
                                 if (!mCPassword.isEmpty()) {
                                     if (esCorreoValido( mEmail )) {
                                         comprobarDuplicados();
-                                        if (correoOk) {
+                                        if (correoOk=true) {
                                             Regist();
+                                        }
+                                        else{
+                                            Toast.makeText( RegisterActivity.this, "Introduzca datos correctos", Toast.LENGTH_SHORT ).show();
                                         }
                                     }
                                 } else {
@@ -213,9 +216,9 @@ public class RegisterActivity extends AppCompatActivity {
                             String success = jsonObject.getString( "success" );
                             if (success.equals( "1" )) {
                                 correoOk = true;
-                                Toast.makeText( RegisterActivity.this, "Su direccion de correo ya esta registrada", Toast.LENGTH_SHORT ).show();
-                            } else {
                                 Toast.makeText( RegisterActivity.this, "Direccion de correo correcta", Toast.LENGTH_SHORT ).show();
+                            } else {
+                                Toast.makeText( RegisterActivity.this, "Su direccion de correo ya esta registrada", Toast.LENGTH_SHORT ).show();
                                 correoOk = false;
                             }
                         } catch (JSONException e) {

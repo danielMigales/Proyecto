@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/background_light">
@@ -19,8 +18,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.027"
-        app:srcCompat="@android:color/holo_blue_dark"
-        tools:srcCompat="@android:color/holo_blue_dark" />
+        app:srcCompat="@android:color/black" />
 
     <TextView
         android:id="@+id/textViewName"
@@ -66,7 +64,7 @@
         android:layout_marginTop="34dp"
         android:layout_marginEnd="238dp"
         android:layout_marginBottom="547dp"
-        android:background="@drawable/borde_redondo"
+        android:background="@drawable/borde_redondo_negro"
         android:contentDescription="@string/fotografia_del_usuario"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -142,9 +140,9 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
-        android:layout_width="394dp"
-        android:layout_height="373dp"
-        android:layout_marginTop="439dp"
+        android:layout_width="0dp"
+        android:layout_height="350dp"
+        android:layout_marginTop="350dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -154,7 +152,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerviewPreferences"
             android:layout_width="match_parent"
-            android:layout_height="315dp"
+            android:layout_height="330dp"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp" />
     </LinearLayout>

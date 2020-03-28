@@ -117,7 +117,7 @@ public class DialogFragmentPreferences extends DialogFragment implements
 
     public void getData(String email) {
 
-        String url_userdata = "https://proyectogrupodapp.000webhostapp.com/users/user_data_queries/getUserData.php?email=" + email;
+        String url_userdata = "https://androidplannings.es/users/getUserData.php?email=" + email;
 
         JsonArrayRequest request = new JsonArrayRequest( Request.Method.POST, url_userdata, null,
                 new Response.Listener<JSONArray>() {
@@ -223,9 +223,19 @@ public class DialogFragmentPreferences extends DialogFragment implements
     public void onClick(View view) {
 
         if (view.getId() == R.id.buttonSave) {
-            comprobarEstados();
+            boolean maximo = true;
+            do {
+                comprobarEstados();
+                if (preferencesList.size() < 2) {
+                    maximo = false;
+                }
+                else{
+                    Toast.makeText( getContext(), "Elija tres categorias ", Toast.LENGTH_SHORT ).show();
+                }
+            } while (maximo);
             savePreferences();
             dismiss();
+
         }
     }
 
@@ -237,7 +247,6 @@ public class DialogFragmentPreferences extends DialogFragment implements
     public void savePreferences() {
 
         String url_updatePreferences = "https://proyectogrupodapp.000webhostapp.com/users/user_data_queries/setPreferences.php";
-
         StringRequest stringRequest = new StringRequest( Request.Method.POST, url_updatePreferences,
                 new Response.Listener<String>() {
                     @Override

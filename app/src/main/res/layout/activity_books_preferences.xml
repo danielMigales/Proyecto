@@ -470,8 +470,8 @@
         android:layout_marginTop="605dp"
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="6dp"
-
-        android:background="@drawable/borde_redondo"
+        android:background="@drawable/borde_redondo_preferences"
+        android:backgroundTint="@color/colorPrimary"
         android:fontFamily="casual"
         android:text="@string/submit"
         android:textColor="@android:color/white"

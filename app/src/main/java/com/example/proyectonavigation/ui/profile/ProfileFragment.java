@@ -23,7 +23,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.lifecycle.ViewModelProviders;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -74,8 +74,7 @@ public class ProfileFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        profileViewModel =
-                ViewModelProviders.of( this ).get( ProfileViewModel.class );
+        profileViewModel = new ViewModelProvider(this).get( ProfileViewModel.class );
         View view = inflater.inflate( R.layout.fragment_profile, container, false );
 
         //INTENT PARA OBTENER EL EMAIL DEL USUARIO QUE SE USA EN EL SELECT DE LA BD PARA CONSEGUIR EL RESTO DE DATOS
@@ -311,7 +310,6 @@ public class ProfileFragment extends Fragment {
     private void initializeData(String lista) {
 
         String[] parts = lista.split( "," );
-
         categories = new ArrayList<>();
 
         for (int i = 0; i < parts.length; i++) {
@@ -345,6 +343,7 @@ public class ProfileFragment extends Fragment {
         }
 
         CategoriesAdapter adapter = new CategoriesAdapter( categories );
+        adapter.notifyDataSetChanged();
         recyclerView.setAdapter( adapter );
     }
 }

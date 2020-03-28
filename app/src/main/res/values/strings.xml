@@ -79,4 +79,18 @@
     <string name="fondo_de_pantalla">fondo de pantalla</string>
     <string name="fotografia_del_usuario">fotografia del usuario</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="proximos">Proximos</string>
+    <string name="mejor_valorados">Mejor valorados</string>
+    <string name="ndeactividades">Nº DE ACTIVIDADES</string>
+    <string name="todo">TODO</string>
+    <string name="mapa">Mapa</string>
+    <string name="direccion_del_evento">Direccion del evento</string>
+    <string name="imagen_del_evento">imagen del evento</string>
+    <string name="nombre_actividad">Nombre actividad</string>
+    <string name="horario_de_apertura">Horario de apertura</string>
+    <string name="horario_de_cierre">Horario de cierre</string>
+    <string name="telefono_de_contacto">Telefono de contacto</string>
+    <string name="descripcion_exhaustiva">Descripcion exhaustiva</string>
+    <string name="url">URL</string>
+    <string name="precio_del_evento">Precio del evento</string>
 </resources>

@@ -21,9 +21,9 @@
         <ImageView
             android:id="@+id/imageViewCardviewActivity"
             android:layout_width="match_parent"
-            android:layout_height="240dp"
-            android:layout_marginTop="60dp"
-            android:adjustViewBounds="false"
+            android:layout_height="290dp"
+            android:layout_marginTop="0dp"
+            android:adjustViewBounds="true"
             android:contentDescription="@string/fotografia_de_la_actividad"
             android:scaleType="fitXY"
             app:srcCompat="@drawable/wella" />
@@ -31,14 +31,16 @@
         <TextView
             android:id="@+id/textViewCardviewActivity"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_gravity="top"
-            android:background="@android:color/holo_blue_dark"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="40dp"
+            android:background="@android:color/transparent"
             android:clickable="false"
             android:fontFamily="@font/aladin"
             android:gravity="center"
             android:inputType="textLongMessage"
             android:text="@string/titulo_de_la_actividad"
+            android:textAlignment="center"
             android:textColor="@android:color/white"
             android:textSize="24sp"
             android:textStyle="bold" />
@@ -61,7 +63,7 @@
             android:layout_width="130dp"
             android:layout_height="50dp"
             android:layout_gravity="bottom|center|right"
-            android:backgroundTint="@android:color/holo_blue_light"
+            android:backgroundTint="@android:color/black"
             android:drawableStart="@drawable/baseline_favorite_border_black_18dp"
             android:drawableTint="#F44336"
             android:text="@string/asistire"
@@ -74,7 +76,7 @@
             android:layout_gravity="right"
             android:layout_marginTop="310dp"
             android:text="@string/tags"
-            android:textSize="14sp" />
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/textViewTagsLabel"

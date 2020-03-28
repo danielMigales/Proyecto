@@ -14,7 +14,7 @@
     <item
         android:id="@+id/navigation_map"
         android:icon="@android:drawable/ic_dialog_map"
-        android:title="Mapa"
+        android:title="@string/mapa"
         android:visible="true" />
 
     <item

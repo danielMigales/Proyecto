@@ -30,30 +30,12 @@ import java.util.Map;
 public class LoginActivity extends AppCompatActivity {
 
     private static String URL_LOGIN = "https://proyectogrupodapp.000webhostapp.com/users/user_data_queries/login.php";
+
     private EditText email, password;
     private Button btn_login;
     private TextView link_regist;
     private TextView forgotPassword;
 
-    //Metodo que recibe el password desde el textview y lo convierte a hash AÑADIDO DIA 24/01
-    public static byte[] hash(String password) {
-
-        byte[] hash = null;
-        try {
-            byte[] data = password.getBytes();
-            MessageDigest md = MessageDigest.getInstance( "SHA-256" );
-            hash = md.digest( data );
-        } catch (Exception ex) {
-
-        }
-        return hash;
-    }
-
-    //Metodo que convierte el password con hash de nuevo a String AÑADIDO DIA 24/01
-    public static String byteToHex(byte[] bytes) {
-        BigInteger bi = new BigInteger( 1, bytes );
-        return String.format( "%0" + (bytes.length << 1) + "X", bi );
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +43,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView( R.layout.activity_login );
 
         getSupportActionBar().hide();
-
+        System.out.println(URL_LOGIN);
         email = findViewById( R.id.email );
         password = findViewById( R.id.password );
         btn_login = findViewById( R.id.btn_login );
@@ -151,4 +133,26 @@ public class LoginActivity extends AppCompatActivity {
         }
         ft.addToBackStack( null );
     }
+
+    //Metodo que recibe el password desde el textview y lo convierte a hash AÑADIDO DIA 24/01
+    public static byte[] hash(String password) {
+
+        byte[] hash = null;
+        try {
+            byte[] data = password.getBytes();
+            MessageDigest md = MessageDigest.getInstance( "SHA-256" );
+            hash = md.digest( data );
+        } catch (Exception ex) {
+
+        }
+        return hash;
+    }
+
+    //Metodo que convierte el password con hash de nuevo a String AÑADIDO DIA 24/01
+    public static String byteToHex(byte[] bytes) {
+        BigInteger bi = new BigInteger( 1, bytes );
+        return String.format( "%0" + (bytes.length << 1) + "X", bi );
+    }
+
+
 }

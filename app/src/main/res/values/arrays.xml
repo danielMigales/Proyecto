@@ -2,9 +2,9 @@
 <resources>
     <string-array name="filtradoHome">
         <item>Seleccione una opcion</item>
-        <item>Ver actividades de hoy</item>
         <item>Ver todas actividades futuras</item>
         <item>Ver solo las actividades mejor valoradas de hoy</item>
+        <item>Ver todas las actividades disponibles</item>
     </string-array>
 </resources>
 

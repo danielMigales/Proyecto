@@ -126,7 +126,7 @@ public class PreferencesActivity extends AppCompatActivity {
     public void recuentoPreferencias(View view) {
         comprobarCheckbox( view );
         System.out.println( preferences.size() );
-        if (preferences.size() <= 3) {
+        if (preferences.size() == 3) {
             savePreferences();
             categoriesLenght = true;
         } else {

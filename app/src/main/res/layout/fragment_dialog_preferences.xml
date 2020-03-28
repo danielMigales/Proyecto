@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/linearLayout"
     android:layout_width="300dp"
-    android:layout_height="450dp"
+    android:layout_height="350dp"
     android:orientation="vertical"
     android:padding="10dp"
     tools:context=".dialogs_fragments.DialogFragmentPreferences">
@@ -17,7 +17,7 @@
         android:text="Seleccione sus preferencias"
         android:textAlignment="textStart"
         android:textAllCaps="false"
-        android:textColor="@android:color/holo_blue_dark"
+        android:textColor="@android:color/black"
         android:textStyle="bold" />
 
     <Switch
@@ -80,7 +80,7 @@
         android:layout_height="30dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
-        android:background="@android:color/holo_blue_dark"
+        android:background="@color/colorPrimary"
         android:text="guardar"
         android:textAlignment="center"
         android:textColor="@android:color/white" />

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/holo_blue_dark"
+    android:background="@android:color/black"
     android:paddingLeft="30dp"
     android:paddingTop="80dp"
     android:paddingRight="30dp"
@@ -61,7 +61,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/layoutPassword"
         android:layout_marginTop="50dp"
-        android:background="@drawable/borde_redondo"
+        android:background="@drawable/borde_redondo_preferences"
+        android:backgroundTint="@color/colorPrimary"
         android:text="Acceder"
         android:textColor="@android:color/white" />
 

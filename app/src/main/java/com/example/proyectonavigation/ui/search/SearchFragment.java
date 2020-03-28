@@ -15,7 +15,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProviders;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -44,7 +44,8 @@ public class SearchFragment extends Fragment {
     //VARIABLE PARA EL EMAIL
     private String email;
     private String rating;
-
+    private String url_category = "https://proyectogrupodapp.000webhostapp.com/plans/plans_queries/get_all_plans_category.php?categoria=";
+    private String url_subcategory = "https://proyectogrupodapp.000webhostapp.com/plans/plans_queries/get_all_plans_subcategory.php?subcategoria=";
 
     //VARIABLES PARA LA LISTA DE PREFERENCIAS EN RECYCLERVIEW
     private ArrayList<Plannings> plans;
@@ -54,10 +55,8 @@ public class SearchFragment extends Fragment {
     private HorizontalScrollView scrollView_Subcategorias;
 
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-        searchViewModel =
-                ViewModelProviders.of( this ).get( SearchViewModel.class );
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        searchViewModel = new ViewModelProvider(this).get( SearchViewModel.class );
         final View view = inflater.inflate( R.layout.fragment_search, container, false );
 
 
@@ -67,7 +66,7 @@ public class SearchFragment extends Fragment {
         //rating = intent.getStringExtra("ratingbarActivity");
 
         //IMPLEMENTACION DE RECYCLERVIEW
-        LinearLayoutManager layoutManager = new LinearLayoutManager( getContext() );
+        LinearLayoutManager layoutManager = new LinearLayoutManager( getContext());
         layoutManager.setOrientation( LinearLayoutManager.VERTICAL );
         recyclerView = view.findViewById( R.id.recyclerViewPlans );
         recyclerView.setHasFixedSize( true );
@@ -118,22 +117,19 @@ public class SearchFragment extends Fragment {
                 subcateg_btn1.setText( "museo" );
                 subcateg_btn2.setText( "Teatro" );
                 String categoria = "cultura";
-                String url_getPlans_cultura = "https://proyectogrupodapp.000webhostapp.com/plans/plans_queries/get_all_plans_category.php?categoria=" + categoria;
-                getPlans( url_getPlans_cultura );
+                getPlans( url_category + categoria );
                 subcateg_btn1.setOnClickListener( new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         String subcategoria = "museo";
-                        String url_getPlans_cultura_museo = "https://proyectogrupodapp.000webhostapp.com/plans/plans_queries/get_all_plans_subcategory.php?subcategoria=" + subcategoria;
-                        getPlans( url_getPlans_cultura_museo );
+                        getPlans( url_subcategory + subcategoria );
                     }
                 } );
                 subcateg_btn2.setOnClickListener( new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         String subcategoria = "teatro";
-                        String url_getPlans_cultura_teatro = "https://proyectogrupodapp.000webhostapp.com/plans/plans_queries/get_all_plans_subcategory.php?subcategoria=" + subcategoria;
-                        getPlans( url_getPlans_cultura_teatro );
+                        getPlans( url_subcategory + subcategoria );
                     }
                 } );
             }
@@ -143,8 +139,7 @@ public class SearchFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 String categoria = "musica";
-                String url_getPlans_music = "https://proyectogrupodapp.000webhostapp.com/plans/plans_queries/get_all_plans_category.php?categoria=" + categoria;
-                getPlans( url_getPlans_music );
+                getPlans( url_category + categoria );
                 scrollView_Subcategorias.setVisibility( View.VISIBLE );
                 subcateg_btn1.setVisibility( View.VISIBLE );
                 subcateg_btn2.setVisibility( View.VISIBLE );
@@ -161,24 +156,21 @@ public class SearchFragment extends Fragment {
                     @Override
                     public void onClick(View v) {
                         String subcategoria = "rock";
-                        String url_getPlans_music_rock = "https://proyectogrupodapp.000webhostapp.com/plans/plans_queries/get_all_plans_subcategory.php?subcategoria=" + subcategoria;
-                        getPlans( url_getPlans_music_rock );
+                        getPlans( url_subcategory + subcategoria );
                     }
                 } );
                 subcateg_btn2.setOnClickListener( new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         String subcategoria = "flamenco";
-                        String url_getPlans_music_flamenco = "https://proyectogrupodapp.000webhostapp.com/plans/plans_queries/get_all_plans_subcategory.php?subcategoria=" + subcategoria;
-                        getPlans( url_getPlans_music_flamenco );
+                        getPlans( url_subcategory + subcategoria );
                     }
                 } );
                 subcateg_btn3.setOnClickListener( new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         String subcategoria = "metal";
-                        String url_getPlans_music_metal = "https://proyectogrupodapp.000webhostapp.com/plans/plans_queries/get_all_plans_subcategory.php?subcategoria=" + subcategoria;
-                        getPlans( url_getPlans_music_metal );
+                        getPlans( url_subcategory + subcategoria );
                     }
                 } );
             }
@@ -188,8 +180,7 @@ public class SearchFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 String categoria = "gastronomia";
-                String url_getPlans_food = "https://proyectogrupodapp.000webhostapp.com/plans/plans_queries/get_all_plans_category.php?categoria=" + categoria;
-                getPlans( url_getPlans_food );
+                getPlans( url_category + categoria );
                 scrollView_Subcategorias.setVisibility( View.VISIBLE );
                 subcateg_btn1.setVisibility( View.VISIBLE );
                 subcateg_btn2.setVisibility( View.VISIBLE );
@@ -207,40 +198,35 @@ public class SearchFragment extends Fragment {
                     @Override
                     public void onClick(View v) {
                         String subcategoria = "bar";
-                        String url_getPlans_food_subcategoria = "https://proyectogrupodapp.000webhostapp.com/plans/plans_queries/get_all_plans_subcategory.php?subcategoria=" + subcategoria;
-                        getPlans( url_getPlans_food_subcategoria );
+                        getPlans( url_subcategory + subcategoria );
                     }
                 } );
                 subcateg_btn2.setOnClickListener( new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         String subcategoria = "española";
-                        String url_getPlans_food_subcategoria = "https://proyectogrupodapp.000webhostapp.com/plans/plans_queries/get_all_plans_subcategory.php?subcategoria=" + subcategoria;
-                        getPlans( url_getPlans_food_subcategoria );
+                        getPlans( url_subcategory + subcategoria );
                     }
                 } );
                 subcateg_btn3.setOnClickListener( new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         String subcategoria = "china";
-                        String url_getPlans_food_subcategoria = "https://proyectogrupodapp.000webhostapp.com/plans/plans_queries/get_all_plans_subcategory.php?subcategoria=" + subcategoria;
-                        getPlans( url_getPlans_food_subcategoria );
+                        getPlans( url_subcategory + subcategoria );
                     }
                 } );
                 subcateg_btn4.setOnClickListener( new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         String subcategoria = "mexicano";
-                        String url_getPlans_food_subcategoria = "https://proyectogrupodapp.000webhostapp.com/plans/plans_queries/get_all_plans_subcategory.php?subcategoria=" + subcategoria;
-                        getPlans( url_getPlans_food_subcategoria );
+                        getPlans( url_subcategory + subcategoria );
                     }
                 } );
                 subcateg_btn5.setOnClickListener( new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         String subcategoria = "india";
-                        String url_getPlans_food_subcategoria = "https://proyectogrupodapp.000webhostapp.com/plans/plans_queries/get_all_plans_subcategory.php?subcategoria=" + subcategoria;
-                        getPlans( url_getPlans_food_subcategoria );
+                        getPlans( url_subcategory + subcategoria );
                     }
                 } );
             }
@@ -259,24 +245,21 @@ public class SearchFragment extends Fragment {
                 subcateg_btn6.setVisibility( View.GONE );
                 subcateg_btn7.setVisibility( View.GONE );
                 String categoria = "cine";
-                String url_getPlans_cine = "https://proyectogrupodapp.000webhostapp.com/plans/plans_queries/get_all_plans_category.php?categoria=" + categoria;
-                getPlans( url_getPlans_cine );
+                getPlans( url_category + categoria );
                 subcateg_btn1.setText( "animación" );
                 subcateg_btn2.setText( "infantil" );
                 subcateg_btn1.setOnClickListener( new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         String subcategoria = "animacion";
-                        String url_getPlans_cine_subcategoria = "https://proyectogrupodapp.000webhostapp.com/plans/plans_queries/get_all_plans_subcategory.php?subcategoria=" + subcategoria;
-                        getPlans( url_getPlans_cine_subcategoria );
+                        getPlans( url_subcategory + subcategoria );
                     }
                 } );
                 subcateg_btn2.setOnClickListener( new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         String subcategoria = "infantil";
-                        String url_getPlans_cine_subcategoria = "https://proyectogrupodapp.000webhostapp.com/plans/plans_queries/get_all_plans_subcategory.php?subcategoria=" + subcategoria;
-                        getPlans( url_getPlans_cine_subcategoria );
+                        getPlans( url_subcategory + subcategoria );
                     }
                 } );
             }
@@ -299,38 +282,33 @@ public class SearchFragment extends Fragment {
                 subcateg_btn3.setText( "paintball" );
                 subcateg_btn4.setText( "playa" );
                 String categoria = "actividades al aire libre";
-                String url_getPlans_cine = "https://proyectogrupodapp.000webhostapp.com/plans/plans_queries/get_all_plans_category.php?categoria=" + categoria;
-                getPlans( url_getPlans_cine );
+                getPlans( url_category + categoria );
                 subcateg_btn1.setOnClickListener( new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         String subcategoria = "pasear";
-                        String url_getPlans_outdoors_subcategoria = "https://proyectogrupodapp.000webhostapp.com/plans/plans_queries/get_all_plans_subcategory.php?subcategoria=" + subcategoria;
-                        getPlans( url_getPlans_outdoors_subcategoria );
+                        getPlans( url_subcategory + subcategoria );
                     }
                 } );
                 subcateg_btn2.setOnClickListener( new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         String subcategoria = "excursion";
-                        String url_getPlans_outdoors_subcategoria = "https://proyectogrupodapp.000webhostapp.com/plans/plans_queries/get_all_plans_subcategory.php?subcategoria=" + subcategoria;
-                        getPlans( url_getPlans_outdoors_subcategoria );
+                        getPlans( url_subcategory + subcategoria );
                     }
                 } );
                 subcateg_btn3.setOnClickListener( new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         String subcategoria = "paintball";
-                        String url_getPlans_outdoors_subcategoria = "https://proyectogrupodapp.000webhostapp.com/plans/plans_queries/get_all_plans_subcategory.php?subcategoria=" + subcategoria;
-                        getPlans( url_getPlans_outdoors_subcategoria );
+                        getPlans( url_subcategory + subcategoria );
                     }
                 } );
                 subcateg_btn4.setOnClickListener( new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         String subcategoria = "playa";
-                        String url_getPlans_outdoors_subcategoria = "https://proyectogrupodapp.000webhostapp.com/plans/plans_queries/get_all_plans_subcategory.php?subcategoria=" + subcategoria;
-                        getPlans( url_getPlans_outdoors_subcategoria );
+                        getPlans( url_subcategory + subcategoria );
                     }
                 } );
             }
@@ -423,7 +401,7 @@ public class SearchFragment extends Fragment {
     //INICIALIZA LA CARDVIEW
     private void initializeAdapter() {
 
-        PlanningsAdapter adapter = new PlanningsAdapter( plans );
+        PlanningsAdapter adapter = new PlanningsAdapter( plans, getContext() );
         recyclerView.setAdapter( adapter );
     }
 

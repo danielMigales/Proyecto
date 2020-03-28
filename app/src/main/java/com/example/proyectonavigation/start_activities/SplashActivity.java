@@ -29,7 +29,7 @@ public class SplashActivity extends AppCompatActivity {
         int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_FULLSCREEN;
         decorView.setSystemUiVisibility( uiOptions );
         //oculta la varra superior
-        //getSupportActionBar().hide();
+        getSupportActionBar().hide();
         setContentView( activity_splash );
 
         loading = findViewById( R.id.loading );
