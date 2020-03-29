@@ -151,14 +151,13 @@ public class CardActivity extends AppCompatActivity implements OnMapReadyCallbac
                                 String activity_phone = jsonObject.getString( "activity_phone" );
                                 textviewPhone.setText( activity_phone );
                                 String activity_timetable = jsonObject.getString( "activity_timetable" );
-                                textviewTimetable.setText( timeWithoutSeconds( activity_timetable ) );
+                                textviewTimetable.setText( activity_timetable );
                                 String activity_timetable_2 = jsonObject.getString( "activity_timetable_2" );
-                                textviewTimetable2.setText( timeWithoutSeconds( activity_timetable_2 ) );
+                                textviewTimetable2.setText( activity_timetable_2 );
                                 String activity_description = jsonObject.getString( "activity_description" );
                                 textviewDescription.setText( activity_description );
                                 String activity_url = jsonObject.getString( "activity_url" );
                                 textviewURL.setText( activity_url );
-
                                 //CONTADOR PARA VER CUANTOS ENCUENTRA
                                 contador++;
                                 System.out.println( contador );
@@ -199,7 +198,6 @@ public class CardActivity extends AppCompatActivity implements OnMapReadyCallbac
     //METODOS PARA IMPLEMENTACION DEL MAPVIEW
     @Override
     public void onMapReady(final GoogleMap googleMap) {
-
         // Controles UI
         if (ContextCompat.checkSelfPermission( this, Manifest.permission.ACCESS_FINE_LOCATION )
                 == PackageManager.PERMISSION_GRANTED) {
@@ -225,21 +223,16 @@ public class CardActivity extends AppCompatActivity implements OnMapReadyCallbac
                                 JSONObject jsonObject = jsonArray.getJSONObject( i );
                                 double activity_latitude = jsonObject.getDouble( "activity_latitude" );
                                 double activity_longitude = jsonObject.getDouble( "activity_longitude" );
-
                                 //OBJETO DE COORDENADAS CON LOS DATOS DE LA CONSULTA
                                 LatLng latilongi = new LatLng( activity_latitude, activity_longitude );
-
                                 googleMap.getUiSettings().setZoomControlsEnabled( true );
                                 //googleMap.setMapType( GoogleMap.MAP_TYPE_HYBRID );
-
                                 googleMap.addMarker( new MarkerOptions()
                                         .position( latilongi ) );
-
                                 CameraPosition cameraPosition = CameraPosition.builder()
                                         .target( latilongi )
                                         .zoom( 15 )
                                         .build();
-
                                 googleMap.moveCamera( CameraUpdateFactory.newCameraPosition( cameraPosition ) );
                             }
                         } catch (JSONException e) {
@@ -302,9 +295,8 @@ public class CardActivity extends AppCompatActivity implements OnMapReadyCallbac
         }
     }
 
-    //METODO PARA RECORTAR EL STRING DE LA HORA Y QUITARLE LOS SEGUNDOS
+    //METODO PARA RECORTAR EL STRING DE LA HORA Y QUITARLE LOS SEGUNDOS    ¿¿¿¿¿¿¿¿¿¿¿FALLA PORQUE SALTA QUE EL ARRAY ESTA FUERA DE LIMITES ?????????????
     public String timeWithoutSeconds(String timetable) {
-
         String[] parts = timetable.split( ":" );
         String part1 = parts[0];
         String part2 = parts[1];

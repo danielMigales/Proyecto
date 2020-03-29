@@ -56,7 +56,7 @@ public class SearchFragment extends Fragment {
 
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        searchViewModel = new ViewModelProvider(this).get( SearchViewModel.class );
+        searchViewModel = new ViewModelProvider( this ).get( SearchViewModel.class );
         final View view = inflater.inflate( R.layout.fragment_search, container, false );
 
 
@@ -66,7 +66,7 @@ public class SearchFragment extends Fragment {
         //rating = intent.getStringExtra("ratingbarActivity");
 
         //IMPLEMENTACION DE RECYCLERVIEW
-        LinearLayoutManager layoutManager = new LinearLayoutManager( getContext());
+        LinearLayoutManager layoutManager = new LinearLayoutManager( getContext() );
         layoutManager.setOrientation( LinearLayoutManager.VERTICAL );
         recyclerView = view.findViewById( R.id.recyclerViewPlans );
         recyclerView.setHasFixedSize( true );

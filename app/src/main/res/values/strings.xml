@@ -93,4 +93,9 @@
     <string name="descripcion_exhaustiva">Descripcion exhaustiva</string>
     <string name="url">URL</string>
     <string name="precio_del_evento">Precio del evento</string>
+    <string name="hoy">HOY</string>
+    <string name="proximo">PROXIMO</string>
+    <string name="mejores">MEJORES</string>
+    <string name="n_de_actividades_encontradas">Nº DE ACTIVIDADES ENCONTRADAS</string>
+
 </resources>

@@ -111,27 +111,21 @@ public class DialogFragmentPreferences extends DialogFragment implements
         //OBTENCION DE LAS PREFERENCIAS DE LA BASE DE DATOS PARA MARCAR DE INICIO LAS QUE YA ESTAN ESCOGIDAS
         getData( email );
 
-
         return view;
     }
 
     public void getData(String email) {
-
         String url_userdata = "https://androidplannings.es/users/getUserData.php?email=" + email;
-
         JsonArrayRequest request = new JsonArrayRequest( Request.Method.POST, url_userdata, null,
                 new Response.Listener<JSONArray>() {
-
                     @Override
                     public void onResponse(JSONArray jsonArray) {
-
                         for (int i = 0; i < jsonArray.length(); i++) {
                             try {
                                 JSONObject jsonObject = jsonArray.getJSONObject( i );
                                 String user_preference_1 = jsonObject.getString( "preference_1" );
                                 String user_preference_2 = jsonObject.getString( "preference_2" );
                                 String user_preference_3 = jsonObject.getString( "preference_3" );
-
                                 String[] parts = {user_preference_1, user_preference_2, user_preference_3};
 
                                 for (i = 0; i < parts.length; i++) {
@@ -163,7 +157,6 @@ public class DialogFragmentPreferences extends DialogFragment implements
                                         sports.setChecked( true );
                                     }
                                 }
-
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
@@ -176,7 +169,6 @@ public class DialogFragmentPreferences extends DialogFragment implements
                         Toast.makeText( getContext(), "Error al obtener los datos", Toast.LENGTH_SHORT ).show();
                     }
                 } ) {
-
             @Override
             public Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
@@ -223,19 +215,13 @@ public class DialogFragmentPreferences extends DialogFragment implements
     public void onClick(View view) {
 
         if (view.getId() == R.id.buttonSave) {
-            boolean maximo = true;
-            do {
                 comprobarEstados();
                 if (preferencesList.size() < 2) {
-                    maximo = false;
-                }
-                else{
+                    savePreferences();
+                    dismiss();
+                } else {
                     Toast.makeText( getContext(), "Elija tres categorias ", Toast.LENGTH_SHORT ).show();
                 }
-            } while (maximo);
-            savePreferences();
-            dismiss();
-
         }
     }
 

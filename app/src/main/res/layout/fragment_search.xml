@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#313131">
 
     <ImageView
         android:id="@+id/imageView"
@@ -15,7 +17,8 @@
         android:layout_marginTop="0dp"
         android:layout_marginEnd="0dp"
         android:layout_weight="1"
-        android:background="#000000"
+        android:background="@color/colorPrimary"
+        android:contentDescription="fondo"
         android:scaleType="fitXY" />
 
     <LinearLayout
@@ -140,8 +143,8 @@
                 android:background="@drawable/borde_redondo_negro"
                 android:drawableLeft="@drawable/baseline_local_dining_black_24dp"
                 android:drawableTint="#ffffffff"
-                android:text="comida"
-                android:textColor="#ffffffff" />
+                android:textColor="#ffffffff"
+                tools:text="comida" />
 
             <Button
                 android:id="@+id/button17"
@@ -153,7 +156,6 @@
                 android:background="@drawable/borde_redondo_negro"
                 android:drawableLeft="@drawable/baseline_local_dining_black_24dp"
                 android:drawableTint="#ffffffff"
-                android:text="comida"
                 android:textColor="#ffffffff" />
 
             <Button
@@ -166,7 +168,7 @@
                 android:background="@drawable/borde_redondo_negro"
                 android:drawableLeft="@drawable/baseline_local_dining_black_24dp"
                 android:drawableTint="#ffffffff"
-                android:text="comida"
+                android:text="@string/food"
                 android:textColor="#ffffffff" />
 
         </LinearLayout>

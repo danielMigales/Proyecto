@@ -74,7 +74,7 @@ public class ProfileFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        profileViewModel = new ViewModelProvider(this).get( ProfileViewModel.class );
+        profileViewModel = new ViewModelProvider( this ).get( ProfileViewModel.class );
         View view = inflater.inflate( R.layout.fragment_profile, container, false );
 
         //INTENT PARA OBTENER EL EMAIL DEL USUARIO QUE SE USA EN EL SELECT DE LA BD PARA CONSEGUIR EL RESTO DE DATOS

@@ -29,7 +29,7 @@ public class MapFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated( savedInstanceState );
-        mViewModel = new ViewModelProvider(this).get( MapViewModel.class );
+        mViewModel = new ViewModelProvider( this ).get( MapViewModel.class );
 
     }
 

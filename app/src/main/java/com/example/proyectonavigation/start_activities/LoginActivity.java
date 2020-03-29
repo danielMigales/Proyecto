@@ -36,14 +36,13 @@ public class LoginActivity extends AppCompatActivity {
     private TextView link_regist;
     private TextView forgotPassword;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity_login );
 
         getSupportActionBar().hide();
-        System.out.println(URL_LOGIN);
+        System.out.println( URL_LOGIN );
         email = findViewById( R.id.email );
         password = findViewById( R.id.password );
         btn_login = findViewById( R.id.btn_login );
@@ -53,13 +52,10 @@ public class LoginActivity extends AppCompatActivity {
         btn_login.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 String mEmail = email.getText().toString().trim();
                 String mPassword = password.getText().toString().trim();
-
                 if (!mEmail.isEmpty() || !mPassword.isEmpty()) {
                     Login();
-
                 } else {
                     email.setError( "Introduzca su email" );
                     password.setError( "Introduzca su contraseña" );
@@ -116,7 +112,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
-                params.put( "email", email.toString().trim() );
+                params.put( "email", email.trim() );
                 //Se le añade la variable nueva de password con hash AÑADIDO DIA 24/01
                 params.put( "password", passwordHash );
                 return params;
@@ -153,6 +149,4 @@ public class LoginActivity extends AppCompatActivity {
         BigInteger bi = new BigInteger( 1, bytes );
         return String.format( "%0" + (bytes.length << 1) + "X", bi );
     }
-
-
 }

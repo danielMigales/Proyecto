@@ -92,10 +92,9 @@ public class RegisterActivity extends AppCompatActivity {
                                 if (!mCPassword.isEmpty()) {
                                     if (esCorreoValido( mEmail )) {
                                         comprobarDuplicados();
-                                        if (correoOk=true) {
+                                        if (correoOk = true) {
                                             Regist();
-                                        }
-                                        else{
+                                        } else {
                                             Toast.makeText( RegisterActivity.this, "Introduzca datos correctos", Toast.LENGTH_SHORT ).show();
                                         }
                                     }

@@ -131,7 +131,7 @@ public class DialogFragmentEmail extends DialogFragment {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
-                params.put( "email", email.toString().trim() );
+                params.put( "email", email.trim() );
                 params.put( "newEmail", newEmail );
                 return params;
             }
