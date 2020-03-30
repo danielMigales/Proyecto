@@ -8,6 +8,18 @@
     tools:layout_editor_absoluteY="25dp">
 
 
+    <ImageView
+        android:id="@+id/imageViewfondo"
+        android:layout_width="391dp"
+        android:layout_height="120dp"
+        android:layout_marginBottom="696dp"
+        android:background="@color/colorPrimary"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/textViewTotalPreferencies"
         android:layout_width="wrap_content"
@@ -18,7 +30,7 @@
         android:layout_marginBottom="732dp"
         android:fontFamily="@font/aladin"
         android:text="@string/modificar_preferencias"
-        android:textColor="@android:color/black"
+        android:textColor="@android:color/white"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"

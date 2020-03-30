@@ -26,8 +26,8 @@ public class SplashActivity extends AppCompatActivity {
 
         View decorView = getWindow().getDecorView();
         //La bandera View.SYSTEM_UI_FLAG_HIDE_NAVIGATION permite ocultar el menú de navegación típico, y la bandera View.SYSTEM_UI_FLAG_FULLSCREEN activa el modo fullscreen.
-        int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_FULLSCREEN;
-        decorView.setSystemUiVisibility( uiOptions );
+        //int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_FULLSCREEN;
+        //decorView.setSystemUiVisibility( uiOptions );
         //oculta la varra superior
         getSupportActionBar().hide();
         setContentView( activity_splash );
