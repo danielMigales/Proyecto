@@ -36,6 +36,7 @@
                     android:layout_marginEnd="25dp"
                     android:layout_marginBottom="1365dp"
                     android:fontFamily="@font/aladin"
+                    android:text="Generos Musicales"
                     android:textAlignment="center"
                     android:textColor="@android:color/white"
                     android:textSize="30sp"
@@ -55,13 +56,14 @@
                     android:layout_marginEnd="218dp"
                     android:layout_marginBottom="1180dp"
                     android:background="@drawable/borde_redondo_preferences"
+                    android:contentDescription="@string/musica_metal"
                     android:scaleType="fitXY"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:srcCompat="@drawable/metal"
-                    android:contentDescription="@string/musica_metal" />
+                    app:srcCompat="@drawable/metal"
+                    tools:srcCompat="@drawable/metal" />
 
                 <CheckBox
                     android:id="@+id/checkBoxMetal"
@@ -75,6 +77,7 @@
                     android:background="@drawable/borde_redondo_preferences"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
+                    android:text="@string/musica_metal"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
@@ -115,6 +118,7 @@
                     android:background="@drawable/borde_redondo_preferences"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
+                    android:text="@string/musica_pop"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"

@@ -8,7 +8,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cardviewActivityPlan"
         android:layout_width="match_parent"
-        android:layout_height="450dp"
+        android:layout_height="480dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:clickable="true"
@@ -33,9 +33,9 @@
         <TextView
             android:id="@+id/textViewCardviewActivity"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="50dp"
             android:layout_gravity="center"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="80dp"
             android:background="@android:color/transparent"
             android:clickable="false"
             android:fontFamily="@font/aladin"
@@ -72,10 +72,10 @@
 
         <TextView
             android:id="@+id/textViewTagsCardviewActivity"
-            android:layout_width="300dp"
+            android:layout_width="315dp"
             android:layout_height="40dp"
             android:layout_gravity="end"
-            android:layout_marginTop="310dp"
+            android:layout_marginTop="340dp"
             android:text="@string/tags"
             android:textColor="@android:color/white"
             android:textSize="18sp" />
@@ -84,7 +84,7 @@
             android:id="@+id/textViewTagsLabel"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
-            android:layout_marginTop="310dp"
+            android:layout_marginTop="340dp"
             android:text="@string/tags"
             android:textColor="@android:color/white"
             android:textSize="24sp" />
@@ -94,7 +94,7 @@
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:layout_alignParentStart="true"
-            android:layout_marginTop="355dp"
+            android:layout_marginTop="385dp"
             android:text="@string/fecha"
             android:textColor="@android:color/white"
             android:textSize="24sp" />

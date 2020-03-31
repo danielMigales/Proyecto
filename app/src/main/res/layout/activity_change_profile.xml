@@ -8,7 +8,6 @@
     tools:context=".ui.profile.ChangeProfileActivity"
     tools:layout_editor_absoluteY="25dp">
 
-
     <ImageView
         android:id="@+id/imageViewfondo"
         android:layout_width="391dp"
@@ -250,8 +249,10 @@
         android:layout_marginEnd="6dp"
         android:layout_marginBottom="350dp"
         android:background="@color/colorPrimary"
+        android:drawableStart="@drawable/outline_perm_identity_white_18dp"
         android:drawableEnd="@drawable/arrow_right_black_18dp"
         android:drawableTint="#FFFFFF"
+        android:drawablePadding="10dp"
         android:text="@string/Edityourname"
         android:textAlignment="viewStart"
         android:textColor="@android:color/white"
@@ -261,7 +262,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="Nombre de usuario" />
+        tools:text="\t\tNombre de usuario" />
 
     <Button
         android:id="@+id/buttonEmail"
@@ -272,9 +273,11 @@
         android:layout_marginEnd="6dp"
         android:layout_marginBottom="288dp"
         android:background="@color/colorPrimary"
+        android:drawableStart="@drawable/baseline_alternate_email_black_18dp"
         android:drawableEnd="@drawable/arrow_right_black_18dp"
         android:drawableTint="#FFFFFF"
         android:lineSpacingExtra="10sp"
+        android:drawablePadding="10dp"
         android:text="@string/edityouremail"
         android:textAlignment="viewStart"
         android:textColor="@android:color/white"
@@ -284,7 +287,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="Email" />
+        tools:text="\t\tEmail" />
 
     <Button
         android:id="@+id/buttonPassword"
@@ -295,8 +298,10 @@
         android:layout_marginEnd="7dp"
         android:layout_marginBottom="233dp"
         android:background="@color/colorPrimary"
+        android:drawableStart="@drawable/baseline_https_black_18dp"
         android:drawableEnd="@drawable/arrow_right_black_18dp"
         android:drawableTint="#FFFFFF"
+        android:drawablePadding="10dp"
         android:text="@string/editpassword"
         android:textAlignment="viewStart"
         android:textColor="@android:color/white"
@@ -306,7 +311,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="Contraseña" />
+        tools:text="\t\tContraseña" />
 
     <Button
         android:id="@+id/buttonBirthday"
@@ -317,8 +322,10 @@
         android:layout_marginEnd="6dp"
         android:layout_marginBottom="173dp"
         android:background="@color/colorPrimary"
+        android:drawableStart="@drawable/baseline_event_black_18dp"
         android:drawableEnd="@drawable/arrow_right_black_18dp"
         android:drawableTint="#FFFFFF"
+        android:drawablePadding="10dp"
         android:text="@string/editage"
         android:textAlignment="viewStart"
         android:textColor="@android:color/white"
@@ -327,7 +334,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="Fecha de nacimiento" />
+        tools:text="\t\tFecha de nacimiento" />
 
     <Button
         android:id="@+id/buttonLogOut"
@@ -338,8 +345,10 @@
         android:layout_marginEnd="6dp"
         android:layout_marginBottom="113dp"
         android:background="@color/colorPrimary"
+        android:drawableStart="@drawable/baseline_power_off_black_18dp"
         android:drawableEnd="@drawable/arrow_right_black_18dp"
         android:drawableTint="#FFFFFF"
+        android:drawablePadding="10dp"
         android:text="@string/logout"
         android:textAlignment="viewStart"
         android:textColor="@android:color/white"
@@ -350,6 +359,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
-        tools:text="Desconectarse" />
+        tools:text="\t\tDesconectarse" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

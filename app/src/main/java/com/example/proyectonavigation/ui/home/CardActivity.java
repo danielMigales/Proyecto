@@ -146,8 +146,8 @@ public class CardActivity extends AppCompatActivity implements OnMapReadyCallbac
                                 textviewAddress.setText( activity_address );
                                 double activity_latitude = jsonObject.getDouble( "activity_latitude" );
                                 double activity_longitude = jsonObject.getDouble( "activity_longitude" );
-                                Double activity_price = jsonObject.getDouble( "activity_price" );
-                                textviewPrice.setText( activity_price.toString() );
+                                String activity_price = jsonObject.getString( "activity_price" );
+                                textviewPrice.setText( activity_price );
                                 String activity_phone = jsonObject.getString( "activity_phone" );
                                 textviewPhone.setText( activity_phone );
                                 String activity_timetable = jsonObject.getString( "activity_timetable" );

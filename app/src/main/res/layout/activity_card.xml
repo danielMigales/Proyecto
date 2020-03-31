@@ -98,8 +98,8 @@
 
                 <TextView
                     android:id="@+id/textviewTimetable"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="200dp"
+                    android:layout_height="40dp"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="10dp"
@@ -111,9 +111,8 @@
 
                 <TextView
                     android:id="@+id/textviewTimetable_2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
+                    android:layout_width="160dp"
+                    android:layout_height="40dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="10dp"
                     android:layout_marginBottom="10dp"
@@ -144,6 +143,7 @@
                 android:drawableStart="@drawable/outline_http_white_18dp"
                 android:drawableTint="@android:color/darker_gray"
                 android:text="@string/url"
+                android:autoLink="web"
                 android:textColor="#2196F3"
                 android:textSize="18sp" />
 

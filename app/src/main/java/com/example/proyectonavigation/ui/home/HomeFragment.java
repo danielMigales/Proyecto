@@ -205,7 +205,7 @@ public class HomeFragment extends Fragment {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText( getContext(), "error de respuesta", Toast.LENGTH_SHORT ).show();
+                        Toast.makeText( getContext(), "No hay actividades para hoy", Toast.LENGTH_SHORT ).show();
                     }
                 } ) {
             @Override

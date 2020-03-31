@@ -46,7 +46,6 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
     GoogleMap googleMap;
     private static final int LOCATION_REQUEST_CODE = 1;
 
-
     public static MapFragment newInstance() {
         return new MapFragment();
     }
@@ -57,12 +56,13 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         mViewModel = new ViewModelProvider( this ).get( MapViewModel.class );
         View view = inflater.inflate( R.layout.fragment_map, container, false );
 
-
+        //IMPLEMENTACION DEL MAPA
         mapView = view.findViewById( R.id.mapViewFragment );
         mapView.onCreate( savedInstanceState );
         mapView.getMapAsync( (OnMapReadyCallback) this );
 
         return view;
+
     }
 
     @Override
@@ -172,5 +172,6 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
             }
         }
     }
+
 
 }
