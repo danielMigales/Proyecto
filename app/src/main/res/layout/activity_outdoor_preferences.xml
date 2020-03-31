@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/background_light"
+    android:background="@android:color/background_dark"
     tools:context=".preferences_activities.OutdoorPreferencesActivity">
 
     <ScrollView
@@ -40,7 +40,7 @@
                     android:fontFamily="@font/aladin"
                     android:text="Actividades al aire libre"
                     android:textAlignment="center"
-                    android:textColor="@android:color/black"
+                    android:textColor="@android:color/white"
                     android:textSize="30sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -461,8 +461,7 @@
         android:layout_marginTop="605dp"
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="6dp"
-        android:background="@drawable/borde_redondo_preferences"
-        android:backgroundTint="@color/colorPrimary"
+        android:background="@drawable/borde_redondo_blanco"
         android:fontFamily="casual"
         android:text="@string/submit"
         android:textColor="@android:color/white"

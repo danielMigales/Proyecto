@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/background_light"
+    android:background="@android:color/background_dark"
     tools:context=".ui.home.CardActivity">
 
 
@@ -29,7 +29,7 @@
         android:gravity="center"
         android:text="@string/nombre_actividad"
         android:textAlignment="center"
-        android:textColor="@android:color/black"
+        android:textColor="@android:color/white"
         android:textSize="18sp"
         android:textStyle="bold|italic"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -63,7 +63,7 @@
                 android:drawableStart="@android:drawable/ic_menu_directions"
                 android:gravity="fill"
                 android:text="@string/direccion_del_evento"
-                android:textColor="@android:color/black"
+                android:textColor="@android:color/white"
                 android:textSize="18sp" />
 
             <TextView
@@ -76,7 +76,7 @@
                 android:drawableStart="@drawable/outline_euro_symbol_white_18dp"
                 android:drawableTint="@android:color/darker_gray"
                 android:text="@string/precio_del_evento"
-                android:textColor="@android:color/black"
+                android:textColor="@android:color/white"
                 android:textSize="18sp" />
 
             <TextView
@@ -88,7 +88,7 @@
                 android:layout_marginEnd="10dp"
                 android:drawableStart="@android:drawable/ic_menu_call"
                 android:text="@string/telefono_de_contacto"
-                android:textColor="@android:color/black"
+                android:textColor="@android:color/white"
                 android:textSize="18sp" />
 
             <LinearLayout
@@ -106,7 +106,7 @@
                     android:layout_marginBottom="10dp"
                     android:drawableStart="@android:drawable/ic_menu_recent_history"
                     android:text="@string/horario_de_apertura"
-                    android:textColor="@android:color/black"
+                    android:textColor="@android:color/white"
                     android:textSize="18sp" />
 
                 <TextView
@@ -118,7 +118,7 @@
                     android:layout_marginEnd="10dp"
                     android:layout_marginBottom="10dp"
                     android:text="@string/horario_de_cierre"
-                    android:textColor="@android:color/black"
+                    android:textColor="@android:color/white"
                     android:textSize="18sp" />
             </LinearLayout>
 
@@ -131,7 +131,7 @@
                 android:layout_marginEnd="10dp"
                 android:drawableStart="@android:drawable/ic_menu_edit"
                 android:text="@string/descripcion_exhaustiva"
-                android:textColor="@android:color/black" />
+                android:textColor="@android:color/white" />
 
             <TextView
                 android:id="@+id/textViewURL"

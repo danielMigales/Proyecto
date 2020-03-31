@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/background_light"
+    android:background="@android:color/background_dark"
     tools:context=".preferences_activities.TVShowsPreferencesActivity">
 
     <ScrollView
@@ -36,9 +36,9 @@
                     android:layout_marginEnd="25dp"
                     android:layout_marginBottom="1365dp"
                     android:fontFamily="@font/aladin"
-                    android:text="Generos televisivos"
+                    android:text="@string/generos_televisivos"
                     android:textAlignment="center"
-                    android:textColor="@android:color/black"
+                    android:textColor="@android:color/white"
                     android:textSize="30sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -61,7 +61,8 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/tvsupernatural"
-                    tools:srcCompat="@drawable/tvsupernatural" />
+                    tools:srcCompat="@drawable/tvsupernatural"
+                    android:contentDescription="TODO" />
 
                 <CheckBox
                     android:id="@+id/checkBoxTVsupernatural"
@@ -75,7 +76,7 @@
                     android:background="@drawable/borde_redondo_preferences"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="Supernatural"
+                    android:text="@string/supernatural"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
@@ -95,16 +96,14 @@
                     android:layout_marginEnd="32dp"
                     android:layout_marginBottom="1180dp"
                     android:background="@drawable/borde_redondo_preferences"
+                    android:contentDescription="telecomedia"
                     android:scaleType="fitXY"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-
                     app:srcCompat="@drawable/tvcomedy"
                     tools:srcCompat="@drawable/tvcomedy" />
-
 
                 <CheckBox
                     android:id="@+id/checkBoxTVComedy"
@@ -118,7 +117,7 @@
                     android:background="@drawable/borde_redondo_preferences"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="Telecomedia"
+                    android:text="@string/telecomedia"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
@@ -138,6 +137,7 @@
                     android:layout_marginEnd="218dp"
                     android:layout_marginBottom="1016dp"
                     android:background="@drawable/borde_redondo_preferences"
+                    android:contentDescription="@string/tv_accion"
                     android:scaleType="fitXY"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -158,7 +158,7 @@
                     android:background="@drawable/borde_redondo_preferences"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="Accion"
+                    android:text="@string/accion"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
@@ -200,7 +200,7 @@
                     android:background="@drawable/borde_redondo_preferences"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="Heroes"
+                    android:text="@string/heroes"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
@@ -211,7 +211,6 @@
                     app:layout_constraintTop_toTopOf="parent"
                     tools:text="Heroes" />
 
-
                 <ImageView
                     android:id="@+id/imageViewTVScifi"
                     android:layout_width="161dp"
@@ -221,13 +220,12 @@
                     android:layout_marginEnd="218dp"
                     android:layout_marginBottom="842dp"
                     android:background="@drawable/borde_redondo_preferences"
+                    android:contentDescription="@string/tv_ciencia"
                     android:scaleType="fitXY"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-
                     app:srcCompat="@drawable/tvscifi"
                     tools:srcCompat="@drawable/tvscifi" />
 
@@ -243,17 +241,15 @@
                     android:background="@drawable/borde_redondo_preferences"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="Ciencia Ficcion"
+                    android:text="@string/ciencia_ficcion"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-
                     tools:text="Ciencia Ficcion" />
 
                 <ImageView
@@ -287,7 +283,7 @@
                     android:background="@drawable/borde_redondo_preferences"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="Fantasia"
+                    android:text="@string/fantasia"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
@@ -307,10 +303,10 @@
                     android:layout_marginEnd="218dp"
                     android:layout_marginBottom="676dp"
                     android:background="@drawable/borde_redondo_preferences"
+                    android:contentDescription="tv drama"
                     android:scaleType="fitXY"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/tvdrama"
@@ -328,7 +324,7 @@
                     android:background="@drawable/borde_redondo_preferences"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="Drama"
+                    android:text="@string/drama"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
@@ -351,10 +347,8 @@
                     android:scaleType="fitXY"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-
                     app:srcCompat="@drawable/tvcrime"
                     tools:srcCompat="@drawable/tvcrime" />
 
@@ -370,7 +364,7 @@
                     android:background="@drawable/borde_redondo_preferences"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="Crimen"
+                    android:text="@string/crimen"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
@@ -390,16 +384,14 @@
                     android:layout_marginEnd="32dp"
                     android:layout_marginBottom="499dp"
                     android:background="@drawable/borde_redondo_preferences"
+                    android:contentDescription="tv animacion"
                     android:scaleType="fitXY"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-
                     app:srcCompat="@drawable/tvanimation"
                     tools:srcCompat="@drawable/tvanimation" />
-
 
                 <CheckBox
                     android:id="@+id/checkBoxAnimation"
@@ -453,7 +445,7 @@
                     android:background="@drawable/borde_redondo_preferences"
                     android:buttonTint="@android:color/white"
                     android:gravity="bottom"
-                    android:text="Thriller"
+                    android:text="@string/thriller"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
@@ -477,8 +469,7 @@
         android:layout_marginTop="605dp"
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="6dp"
-        android:background="@drawable/borde_redondo_preferences"
-        android:backgroundTint="@color/colorPrimary"
+        android:background="@drawable/borde_redondo_blanco"
         android:fontFamily="casual"
         android:text="@string/submit"
         android:textColor="@android:color/white"

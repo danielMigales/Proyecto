@@ -53,12 +53,12 @@ public class MusicPreferencesActivity extends AppCompatActivity {
         pop = findViewById( R.id.checkBoxPop );
         rock = findViewById( R.id.checkBoxRock );
         soul = findViewById( R.id.checkBoxSoul );
-        reagge = findViewById( R.id.checkBoxReage );
-        techno = findViewById( R.id.checkBoxTechno );
+        reagge = findViewById( R.id.checkBoxReagge );
+        techno = findViewById( R.id.checkBoxTecno );
         blues = findViewById( R.id.checkBoxBlues );
         rap = findViewById( R.id.checkBoxRap );
         regaton = findViewById( R.id.checkBoxRegaton );
-        clasic = findViewById( R.id.checkBoxClasic );
+        clasic = findViewById( R.id.checkBoxClasica );
 
         Intent intent = getIntent();
         email = intent.getStringExtra( "email" );

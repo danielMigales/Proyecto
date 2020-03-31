@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/background_light"
+    android:background="@android:color/background_dark"
     tools:context=".preferences_activities.VideoGamesPreferencesActivity">
 
     <ScrollView
-        android:layout_width="399dp"
+        android:layout_width="0dp"
         android:layout_height="640dp"
         android:layout_marginBottom="81dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -36,7 +36,7 @@
                     android:fontFamily="@font/aladin"
                     android:text="Video Juegos"
                     android:textAlignment="center"
-                    android:textColor="@android:color/black"
+                    android:textColor="@android:color/white"
                     android:textSize="30sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -458,8 +458,7 @@
         android:layout_marginTop="605dp"
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="6dp"
-        android:background="@drawable/borde_redondo_preferences"
-        android:backgroundTint="@color/colorPrimary"
+        android:background="@drawable/borde_redondo_blanco"
         android:fontFamily="casual"
         android:text="@string/submit"
         android:textColor="@android:color/white"
