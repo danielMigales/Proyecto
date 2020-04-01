@@ -27,19 +27,12 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 
 public class DialogFragmentPreferences extends DialogFragment implements
         View.OnClickListener {
 
-    //PARAMETROS POR DEFECTO
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-    List<String> preferencesList = new ArrayList<String>();
-    private String mParam1;
-    private String mParam2;
     //VARIABLES
     private Switch music;
     private Switch cine;
@@ -52,6 +45,8 @@ public class DialogFragmentPreferences extends DialogFragment implements
     private Switch culture;
     private Button save;
     private String email;
+    ArrayList<String> preferencesList;
+    boolean categoriesLenght = false;
 
     //CONSTRUCTORES POR DEFECTO
     public DialogFragmentPreferences() {
@@ -61,8 +56,6 @@ public class DialogFragmentPreferences extends DialogFragment implements
     public static DialogFragmentPreferences newInstance(String param1, String param2) {
         DialogFragmentPreferences fragment = new DialogFragmentPreferences();
         Bundle args = new Bundle();
-        args.putString( ARG_PARAM1, param1 );
-        args.putString( ARG_PARAM2, param2 );
         fragment.setArguments( args );
         return fragment;
     }
@@ -70,10 +63,6 @@ public class DialogFragmentPreferences extends DialogFragment implements
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString( ARG_PARAM1 );
-            mParam2 = getArguments().getString( ARG_PARAM2 );
-        }
     }
 
     @Override
@@ -114,8 +103,23 @@ public class DialogFragmentPreferences extends DialogFragment implements
         return view;
     }
 
+    @Override
+    public void onClick(View view) {
+
+        if (view.getId() == R.id.buttonSave) {
+            recuentoPreferencias();
+            if (categoriesLenght) {
+                savePreferences();
+                Toast.makeText( getContext(), "Sus cambios han sido guardados.", Toast.LENGTH_SHORT ).show();
+                dismiss();
+            } else {
+                Toast.makeText( getContext(), "Sus cambios no han sido guardados.", Toast.LENGTH_SHORT ).show();
+            }
+        }
+    }
+
     public void getData(String email) {
-        String url_userdata = "https://androidplannings.es/users/getUserData.php?email=" + email;
+        String url_userdata = "https://proyectogrupodapp.000webhostapp.com/users/user_data_queries/getUserData.php?email=" + email;
         JsonArrayRequest request = new JsonArrayRequest( Request.Method.POST, url_userdata, null,
                 new Response.Listener<JSONArray>() {
                     @Override
@@ -181,53 +185,60 @@ public class DialogFragmentPreferences extends DialogFragment implements
 
     public void comprobarEstados() {
 
+        int contador = 0;
+        preferencesList = new ArrayList<>();
+
         if (cine.isChecked()) {
             preferencesList.add( "cine" );
+            contador++;
         }
         if (food.isChecked()) {
             preferencesList.add( "gastronomia" );
+            contador++;
         }
         if (music.isChecked()) {
             preferencesList.add( "musica" );
+            contador++;
         }
         if (outdoor.isChecked()) {
             preferencesList.add( "outdoor" );
+            contador++;
         }
         if (tv.isChecked()) {
             preferencesList.add( "television" );
+            contador++;
         }
         if (culture.isChecked()) {
             preferencesList.add( "cultura" );
+            contador++;
         }
         if (books.isChecked()) {
             preferencesList.add( "literatura" );
+            contador++;
         }
         if (games.isChecked()) {
             preferencesList.add( "videojuegos" );
+            contador++;
         }
         if (sports.isChecked()) {
             preferencesList.add( "deportes" );
+            contador++;
         }
-        //System.out.println( preferencesList.toString() );
-    }
-
-    @Override
-    public void onClick(View view) {
-
-        if (view.getId() == R.id.buttonSave) {
-                comprobarEstados();
-                if (preferencesList.size() < 2) {
-                    savePreferences();
-                    dismiss();
-                } else {
-                    Toast.makeText( getContext(), "Elija tres categorias ", Toast.LENGTH_SHORT ).show();
-                }
+        if (contador == 3) {
+            Toast.makeText( getContext(), "Perfecto, sus gustos son excelentes.", Toast.LENGTH_SHORT ).show();
+        } else {
+            Toast.makeText( getContext(), "Debe escoger tres preferencias", Toast.LENGTH_SHORT ).show();
         }
     }
 
-    @Override
-    public void dismiss() {
-        super.dismiss();
+    public void recuentoPreferencias() {
+        comprobarEstados();
+        System.out.println( preferencesList.size() );
+        if (preferencesList.size() == 3) {
+            categoriesLenght = true;
+        } else {
+            categoriesLenght = false;
+        }
     }
 
     public void savePreferences() {
@@ -258,11 +269,24 @@ public class DialogFragmentPreferences extends DialogFragment implements
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
                 params.put( "email", email );
-                String formattedString = preferencesList.toString().replace( "[", "" ).replace( "]", "" ).trim();
-                params.put( "preferences", formattedString );
+                String formattedString = preferencesList.toString().replace( "[", "" ).replace( "]", "" ).replace( " ", "" );
+                String[] parts = formattedString.split( "," );
+                String part1 = parts[0];
+                String part2 = parts[1];
+                String part3 = parts[2];
+                params.put( "preference1", part1 );
+                params.put( "preference2", part2 );
+                params.put( "preference3", part3 );
+                System.out.println( part1 + part2 + part3 );
                 return params;
             }
         };
         Volley.newRequestQueue( getContext() ).add( stringRequest );
     }
+
+    @Override
+    public void dismiss() {
+        super.dismiss();
+    }
+
 }

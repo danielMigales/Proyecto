@@ -110,7 +110,6 @@ public class HomeFragment extends Fragment {
     //OBTENER LAS PREFERENCIAS DEL USUARIO DE LA BASE DE DATOS Y LLAMAR AL METODO QUE OBTIENE LOS DATOS DE LAS ACTIVIDADES
     public void getPreferences(final String php) {
         String url_userdata = "https://proyectogrupodapp.000webhostapp.com/users/user_data_queries/getUserData.php?email=" + email;
-        System.out.println( url_userdata );
         JsonArrayRequest request = new JsonArrayRequest( Request.Method.POST, url_userdata, null,
                 new Response.Listener<JSONArray>() {
                     @Override

@@ -30,7 +30,6 @@ import java.util.Map;
 public class LoginActivity extends AppCompatActivity {
 
     private static String URL_LOGIN = "https://proyectogrupodapp.000webhostapp.com/users/user_data_queries/login.php";
-
     private EditText email, password;
     private Button btn_login;
     private TextView link_regist;
@@ -42,7 +41,6 @@ public class LoginActivity extends AppCompatActivity {
         setContentView( R.layout.activity_login );
 
         getSupportActionBar().hide();
-        System.out.println( URL_LOGIN );
         email = findViewById( R.id.email );
         password = findViewById( R.id.password );
         btn_login = findViewById( R.id.btn_login );

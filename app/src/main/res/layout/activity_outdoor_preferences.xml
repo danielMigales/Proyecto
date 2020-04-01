@@ -38,7 +38,7 @@
                     android:layout_marginEnd="40dp"
                     android:layout_marginBottom="1520dp"
                     android:fontFamily="@font/aladin"
-                    android:text="Actividades al aire libre"
+                    android:text="Actividades de ocio"
                     android:textAlignment="center"
                     android:textColor="@android:color/white"
                     android:textSize="30sp"
@@ -47,7 +47,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:text="Actividades al aire libre" />
+                    tools:text="Actividades de ocio" />
 
                 <ImageView
                     android:id="@+id/imageViewPaintball"
