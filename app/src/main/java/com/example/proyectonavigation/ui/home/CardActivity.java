@@ -117,7 +117,7 @@ public class CardActivity extends AppCompatActivity implements OnMapReadyCallbac
             tableName = "videogames_plans";
         }
         if (category.equals( "television" )) {
-            tableName = "tv_plans";
+            tableName = "television_plans";
         }
     }
 

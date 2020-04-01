@@ -1,5 +1,6 @@
 package com.example.proyectonavigation.ui.search;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -11,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.HorizontalScrollView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -46,13 +48,18 @@ public class SearchFragment extends Fragment {
     private String rating;
     private String url_category = "https://proyectogrupodapp.000webhostapp.com/plans/plans_queries/get_all_plans_category.php?categoria=";
     private String url_subcategory = "https://proyectogrupodapp.000webhostapp.com/plans/plans_queries/get_all_plans_subcategory.php?subcategoria=";
+    private String url_rating_best = "https://proyectogrupodapp.000webhostapp.com/plans/plans_queries/get_all_plans_best_category.php?categoria=";
+
+
+    private String starRatingNum;
 
     //VARIABLES PARA LA LISTA DE PREFERENCIAS EN RECYCLERVIEW
     private ArrayList<Plannings> plans;
     private RecyclerView recyclerView;
-    private Button music_btn, culture_btn, food_btn, cinema_btn, outdoor_btn, rating_btn;
+    private Button music_btn, culture_btn, food_btn, cinema_btn, outdoor_btn, rating_btn, ocio_btn, deporte_btn, tvshow_btn, videogames_btn;
     private Button subcateg_btn1, subcateg_btn2, subcateg_btn3, subcateg_btn4, subcateg_btn5, subcateg_btn6, subcateg_btn7;
     private HorizontalScrollView scrollView_Subcategorias;
+    private LinearLayout lineaFoto;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -78,7 +85,12 @@ public class SearchFragment extends Fragment {
         food_btn = view.findViewById( R.id.button_Food );
         cinema_btn = view.findViewById( R.id.cine_btn );
         outdoor_btn = view.findViewById( R.id.button_outdoors );
-        //rating_btn = view.findViewById(R.id.ratingBar);
+        ocio_btn = view.findViewById( R.id.button_ocio );
+        deporte_btn = view.findViewById( R.id.deporte_btn );
+        rating_btn = view.findViewById( R.id.buttonBestSelected );
+        tvshow_btn = view.findViewById( R.id.button_tvshow );
+        videogames_btn = view.findViewById( R.id.button_videojuegos );
+        lineaFoto = view.findViewById( R.id.linearLayoutfoto );
 
         //declaracion de los botones de las subcategorias
         subcateg_btn1 = view.findViewById( R.id.button1_subcategoria );
@@ -103,6 +115,15 @@ public class SearchFragment extends Fragment {
         scrollView_Subcategorias = view.findViewById( R.id.scrollView_Subcategory );
         scrollView_Subcategorias.setVisibility( View.GONE );
 
+        rating_btn.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText( getActivity(), "Debes seleccionar alguna categoria", Toast.LENGTH_SHORT ).show();
+            }
+        } );
+
+
+
         culture_btn.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -116,8 +137,14 @@ public class SearchFragment extends Fragment {
                 subcateg_btn7.setVisibility( View.GONE );
                 subcateg_btn1.setText( "museo" );
                 subcateg_btn2.setText( "Teatro" );
-                String categoria = "cultura";
+                final String categoria = "cultura";
                 getPlans( url_category + categoria );
+                rating_btn.setOnClickListener( new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        getPlans( url_rating_best + categoria );
+                    }
+                } );
                 subcateg_btn1.setOnClickListener( new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -138,20 +165,30 @@ public class SearchFragment extends Fragment {
         music_btn.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String categoria = "musica";
+                final String categoria = "musica";
                 getPlans( url_category + categoria );
                 scrollView_Subcategorias.setVisibility( View.VISIBLE );
                 subcateg_btn1.setVisibility( View.VISIBLE );
                 subcateg_btn2.setVisibility( View.VISIBLE );
                 subcateg_btn3.setVisibility( View.VISIBLE );
-                subcateg_btn4.setVisibility( View.GONE );
-                subcateg_btn5.setVisibility( View.GONE );
-                subcateg_btn6.setVisibility( View.GONE );
-                subcateg_btn7.setVisibility( View.GONE );
+                subcateg_btn4.setVisibility( View.VISIBLE );
+                subcateg_btn5.setVisibility( View.VISIBLE );
+                subcateg_btn6.setVisibility( View.VISIBLE );
+                subcateg_btn7.setVisibility( View.VISIBLE );
                 //cambiamos el nombre de los botones de la subcategoria
                 subcateg_btn1.setText( "Rock" );
                 subcateg_btn2.setText( "Flamenco" );
                 subcateg_btn3.setText( "Metal" );
+                subcateg_btn4.setText( "soul" );
+                subcateg_btn5.setText( "rap" );
+                subcateg_btn6.setText( "reggaeton" );
+                subcateg_btn7.setText( "clasica" );
+                rating_btn.setOnClickListener( new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        getPlans( url_rating_best + categoria );
+                    }
+                } );
                 subcateg_btn1.setOnClickListener( new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -169,17 +206,47 @@ public class SearchFragment extends Fragment {
                 subcateg_btn3.setOnClickListener( new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        String subcategoria = "metal";
+                        String subcategoria = "pop";
                         getPlans( url_subcategory + subcategoria );
                     }
                 } );
+                subcateg_btn4.setOnClickListener( new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String subcategoria = "soul";
+                        getPlans( url_subcategory + subcategoria );
+                    }
+                } );
+                subcateg_btn5.setOnClickListener( new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String subcategoria = "rap";
+                        getPlans( url_subcategory + subcategoria );
+                    }
+                } );
+                subcateg_btn6.setOnClickListener( new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String subcategoria = "reggaeton";
+                        getPlans( url_subcategory + subcategoria );
+                    }
+                } );
+                subcateg_btn7.setOnClickListener( new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String subcategoria = "clasica";
+                        getPlans( url_subcategory + subcategoria );
+                    }
+                } );
+
             }
         } );
+
 
         food_btn.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String categoria = "gastronomia";
+                final String categoria = "gastronomia";
                 getPlans( url_category + categoria );
                 scrollView_Subcategorias.setVisibility( View.VISIBLE );
                 subcateg_btn1.setVisibility( View.VISIBLE );
@@ -194,6 +261,12 @@ public class SearchFragment extends Fragment {
                 subcateg_btn3.setText( "china" );
                 subcateg_btn4.setText( "mexicana" );
                 subcateg_btn5.setText( "india" );
+                rating_btn.setOnClickListener( new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        getPlans( url_rating_best + categoria );
+                    }
+                } );
                 subcateg_btn1.setOnClickListener( new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -244,7 +317,13 @@ public class SearchFragment extends Fragment {
                 subcateg_btn5.setVisibility( View.GONE );
                 subcateg_btn6.setVisibility( View.GONE );
                 subcateg_btn7.setVisibility( View.GONE );
-                String categoria = "cine";
+                final String categoria = "cine";
+                rating_btn.setOnClickListener( new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        getPlans( url_rating_best + categoria );
+                    }
+                } );
                 getPlans( url_category + categoria );
                 subcateg_btn1.setText( "animación" );
                 subcateg_btn2.setText( "infantil" );
@@ -281,7 +360,13 @@ public class SearchFragment extends Fragment {
                 subcateg_btn2.setText( "excursión" );
                 subcateg_btn3.setText( "paintball" );
                 subcateg_btn4.setText( "playa" );
-                String categoria = "actividades al aire libre";
+                final String categoria = "outdoor";
+                rating_btn.setOnClickListener( new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        getPlans( url_rating_best + categoria );
+                    }
+                } );
                 getPlans( url_category + categoria );
                 subcateg_btn1.setOnClickListener( new View.OnClickListener() {
                     @Override
@@ -313,6 +398,240 @@ public class SearchFragment extends Fragment {
                 } );
             }
         } );
+        //de momento ocio esta relacionado como la outdoor hasta nuevo aviso por el estado de alarma, que el rey es el primer soldado
+        ocio_btn.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                scrollView_Subcategorias.setVisibility( View.VISIBLE );
+                subcateg_btn1.setVisibility( View.GONE );
+                subcateg_btn2.setVisibility( View.GONE );
+                subcateg_btn3.setVisibility( View.GONE );
+                subcateg_btn4.setVisibility( View.GONE );
+                subcateg_btn5.setVisibility( View.GONE );
+                subcateg_btn6.setVisibility( View.GONE );
+                subcateg_btn7.setVisibility( View.GONE );
+                final String sub_categoria1 = "ocio";
+                rating_btn.setOnClickListener( new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        getPlans( url_rating_best + sub_categoria1 );
+                    }
+                } );
+                getPlans( url_subcategory + sub_categoria1 );
+
+            }
+        } );
+
+        deporte_btn.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                scrollView_Subcategorias.setVisibility( View.VISIBLE );
+                subcateg_btn1.setVisibility( View.VISIBLE );
+                subcateg_btn2.setVisibility( View.VISIBLE );
+                subcateg_btn3.setVisibility( View.VISIBLE );
+                subcateg_btn4.setVisibility( View.VISIBLE );
+                subcateg_btn5.setVisibility( View.GONE );
+                subcateg_btn6.setVisibility( View.GONE );
+                subcateg_btn7.setVisibility( View.GONE );
+                subcateg_btn1.setText( "futbol" );
+                subcateg_btn2.setText( "basketball" );
+                subcateg_btn3.setText( "tennis" );
+                subcateg_btn4.setText( "natación" );
+
+                final String categoria = "deportes";
+                rating_btn.setOnClickListener( new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        getPlans( url_rating_best + categoria );
+                    }
+                } );
+                getPlans( url_category + categoria );
+                subcateg_btn1.setOnClickListener( new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String subcategoria = "futbol";
+                        getPlans( url_subcategory + subcategoria );
+                    }
+                } );
+                subcateg_btn2.setOnClickListener( new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String subcategoria = "basketball";
+                        getPlans( url_subcategory + subcategoria );
+                    }
+                } );
+                subcateg_btn3.setOnClickListener( new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String subcategoria = "tennis";
+                        getPlans( url_subcategory + subcategoria );
+                    }
+                } );
+                subcateg_btn4.setOnClickListener( new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String subcategoria = "natación";
+                        getPlans( url_subcategory + subcategoria );
+                    }
+                } );
+            }
+        } );
+
+
+        tvshow_btn.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                scrollView_Subcategorias.setVisibility( View.VISIBLE );
+                subcateg_btn1.setVisibility( View.VISIBLE );
+                subcateg_btn2.setVisibility( View.VISIBLE );
+                subcateg_btn3.setVisibility( View.VISIBLE );
+                subcateg_btn4.setVisibility( View.VISIBLE );
+                subcateg_btn5.setVisibility( View.VISIBLE );
+                subcateg_btn6.setVisibility( View.VISIBLE );
+                subcateg_btn7.setVisibility( View.GONE );
+                final String categoria = "television";
+                rating_btn.setOnClickListener( new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        getPlans( url_rating_best + categoria );
+                    }
+                } );
+                getPlans( url_category + categoria );
+                subcateg_btn1.setText( "comedia" );
+                subcateg_btn2.setText( "acción" );
+                subcateg_btn3.setText( "drama" );
+                subcateg_btn4.setText( "animación" );
+                subcateg_btn5.setText( "supernatural" );
+                subcateg_btn6.setText( "heroes" );
+
+                subcateg_btn1.setOnClickListener( new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String subcategoria = "comedia";
+                        getPlans( url_subcategory + subcategoria );
+                    }
+                } );
+                subcateg_btn2.setOnClickListener( new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String subcategoria = "acción";
+                        getPlans( url_subcategory + subcategoria );
+                    }
+                } );
+                subcateg_btn3.setOnClickListener( new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String subcategoria = "drama";
+                        getPlans( url_subcategory + subcategoria );
+                    }
+                } );
+                subcateg_btn4.setOnClickListener( new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String subcategoria = "animación";
+                        getPlans( url_subcategory + subcategoria );
+                    }
+                } );
+                subcateg_btn5.setOnClickListener( new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String subcategoria = "supernatural";
+                        getPlans( url_subcategory + subcategoria );
+                    }
+                } );
+                subcateg_btn6.setOnClickListener( new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String subcategoria = "heroes";
+                        getPlans( url_subcategory + subcategoria );
+                    }
+                } );
+            }
+        } );
+
+
+        videogames_btn.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                scrollView_Subcategorias.setVisibility( View.VISIBLE );
+                subcateg_btn1.setVisibility( View.VISIBLE );
+                subcateg_btn2.setVisibility( View.VISIBLE );
+                subcateg_btn3.setVisibility( View.VISIBLE );
+                subcateg_btn4.setVisibility( View.VISIBLE );
+                subcateg_btn5.setVisibility( View.VISIBLE );
+                subcateg_btn6.setVisibility( View.VISIBLE );
+                subcateg_btn7.setVisibility( View.VISIBLE );
+                final String categoria = "videojuegos";
+                rating_btn.setOnClickListener( new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        getPlans( url_rating_best + categoria );
+                    }
+                } );
+                getPlans( url_category + categoria );
+                subcateg_btn1.setText( "aventura" );
+                subcateg_btn2.setText( "disparos" );
+                subcateg_btn3.setText( "plataformas" );
+                subcateg_btn4.setText( "carreras" );
+                subcateg_btn5.setText( "deportes" );
+                subcateg_btn6.setText( "arcade" );
+                subcateg_btn7.setText( "lucha" );
+
+                subcateg_btn1.setOnClickListener( new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String subcategoria = "aventura";
+                        getPlans( url_subcategory + subcategoria );
+                    }
+                } );
+                subcateg_btn2.setOnClickListener( new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String subcategoria = "disparos";
+                        getPlans( url_subcategory + subcategoria );
+                    }
+                } );
+                subcateg_btn3.setOnClickListener( new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String subcategoria = "plataformas";
+                        getPlans( url_subcategory + subcategoria );
+                    }
+                } );
+                subcateg_btn4.setOnClickListener( new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String subcategoria = "carreras";
+                        getPlans( url_subcategory + subcategoria );
+                    }
+                } );
+                subcateg_btn5.setOnClickListener( new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String subcategoria = "deportes";
+                        getPlans( url_subcategory + subcategoria );
+                    }
+                } );
+                subcateg_btn6.setOnClickListener( new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String subcategoria = "arcade";
+                        getPlans( url_subcategory + subcategoria );
+                    }
+                } );
+                subcateg_btn6.setOnClickListener( new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String subcategoria = "lucha";
+                        getPlans( url_subcategory + subcategoria );
+                    }
+                } );
+            }
+        } );
+
+
+
+
 
 
         //intentand
@@ -335,6 +654,7 @@ public class SearchFragment extends Fragment {
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray jsonArray) {
+
                         try {
                             //CREACION DEL ARRAYLIST PARA LA CARDVIEW
                             plans = new ArrayList<>();
@@ -366,7 +686,6 @@ public class SearchFragment extends Fragment {
                 },
                 new Response.ErrorListener() {
                     @Override
-
                     public void onErrorResponse(VolleyError error) {
                         Toast.makeText( getContext(), "No se han encontrado actividades para hoy", Toast.LENGTH_SHORT ).show();
                     }
@@ -413,4 +732,14 @@ public class SearchFragment extends Fragment {
         }
         ft.addToBackStack( null );
     }*/
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        if (resultCode == Activity.RESULT_OK) {
+            Bundle bundle = data.getExtras();
+            starRatingNum = bundle.getString( "numStars" );
+            Toast.makeText( getActivity(), starRatingNum, Toast.LENGTH_SHORT ).show();
+        }
+
+    }
 }

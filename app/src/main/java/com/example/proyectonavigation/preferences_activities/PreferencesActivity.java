@@ -165,18 +165,15 @@ public class PreferencesActivity extends AppCompatActivity {
                 Intent intent = getIntent();
                 String email = intent.getStringExtra( "email" );
                 params.put( "email", email );
-                String formattedString = preferences.toString().replace( "[", "" ).replace( "]", "" );
+                String formattedString = preferences.toString().replace( "[", "" ).replace( "]", "" ).replace( " ", "" );
                 String[] parts = formattedString.split( "," );
-                for (int i = 0; i < parts.length; i++) {
-                    String part1 = parts[0];
-                    String part2 = parts[1];
-                    String part3 = parts[2];
-                    params.put( "preference1", part1 );
-                    params.put( "preference2", part2 );
-                    params.put( "preference3", part3 );
-                    System.out.println( part1 + part2 + part3 );
-                }
-
+                String part1 = parts[0];
+                String part2 = parts[1];
+                String part3 = parts[2];
+                params.put( "preference1", part1 );
+                params.put( "preference2", part2 );
+                params.put( "preference3", part3 );
+                System.out.println( part1 + part2 + part3 );
                 return params;
             }
         };

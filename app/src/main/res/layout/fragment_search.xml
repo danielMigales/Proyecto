@@ -1,10 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#313131">
+
+    <Button
+        android:id="@+id/buttonBestSelected"
+        android:layout_width="wrap_content"
+        android:layout_height="41dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="353dp"
+        android:background="@drawable/twotone_stars_white_18dp"
+        android:backgroundTint="#ffffff"
+        android:textColor="@android:color/white" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -14,7 +25,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="0dp"
-        android:layout_marginTop="0dp"
+        android:layout_marginTop="-2dp"
         android:layout_marginEnd="0dp"
         android:layout_weight="1"
         android:background="@color/colorPrimary"
@@ -22,6 +33,7 @@
         android:scaleType="fitXY" />
 
     <LinearLayout
+        android:id="@+id/linearLayoutfoto"
         android:layout_width="match_parent"
         android:layout_height="580dp"
         android:layout_alignParentStart="true"
@@ -63,7 +75,7 @@
                 android:layout_marginEnd="2dp"
                 android:layout_weight="1"
                 android:background="@drawable/borde_redondo_negro"
-                android:drawableLeft="@drawable/ic_music_note_black_24dp"
+                android:drawableLeft="@drawable/baseline_music_note_black_24dp"
                 android:drawableTint="#ffffffff"
                 android:text="music"
                 android:textColor="#ffffffff" />
@@ -134,41 +146,42 @@
                 android:textColor="#ffffff" />
 
             <Button
-                android:id="@+id/button16"
+                android:id="@+id/deporte_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="2dp"
                 android:layout_marginEnd="2dp"
                 android:layout_weight="1"
                 android:background="@drawable/borde_redondo_negro"
-                android:drawableLeft="@drawable/baseline_local_dining_black_24dp"
+                android:drawableLeft="@drawable/baseline_sports_football_black_24dp"
                 android:drawableTint="#ffffffff"
-                android:textColor="#ffffffff"
-                tools:text="comida" />
+                android:text="deporte"
+                android:textColor="#ffffffff" />
 
             <Button
-                android:id="@+id/button17"
+                android:id="@+id/button_tvshow"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="2dp"
                 android:layout_marginEnd="2dp"
                 android:layout_weight="1"
+                android:text="tvshows"
                 android:background="@drawable/borde_redondo_negro"
-                android:drawableLeft="@drawable/baseline_local_dining_black_24dp"
+                android:drawableLeft="@drawable/baseline_live_tv_black_24dp"
                 android:drawableTint="#ffffffff"
                 android:textColor="#ffffffff" />
 
             <Button
-                android:id="@+id/button18"
+                android:id="@+id/button_videojuegos"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="2dp"
                 android:layout_marginEnd="2dp"
                 android:layout_weight="1"
                 android:background="@drawable/borde_redondo_negro"
-                android:drawableLeft="@drawable/baseline_local_dining_black_24dp"
+                android:drawableLeft="@drawable/baseline_videogame_asset_black_24dp"
                 android:drawableTint="#ffffffff"
-                android:text="@string/food"
+                android:text="@string/videogames"
                 android:textColor="#ffffffff" />
 
         </LinearLayout>
@@ -176,12 +189,12 @@
 
     <HorizontalScrollView
         android:id="@+id/scrollView_Subcategory"
-        android:layout_width="356dp"
-        android:layout_height="35dp"
+        android:layout_width="347dp"
+        android:layout_height="37dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="51dp"
-        android:layout_marginEnd="53dp">
+        android:layout_marginEnd="2dp">
 
         <LinearLayout
             android:layout_width="wrap_content"
