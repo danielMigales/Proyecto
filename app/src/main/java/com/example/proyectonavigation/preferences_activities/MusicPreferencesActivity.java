@@ -69,7 +69,6 @@ public class MusicPreferencesActivity extends AppCompatActivity {
             public void onClick(View v) {
                 comprobarCheckbox( v );
                 savePreferences();
-
             }
         } );
     }

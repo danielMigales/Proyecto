@@ -81,7 +81,7 @@ public class PlanningsAdapter extends RecyclerView.Adapter<PlanningsAdapter.MyVi
         holder.tags.setText( plans.get( position ).activity_category + ", " + plans.get( position ).activity_subcategory + ", " + plans.get( position ).activity_subcategory_1 );
         holder.picture.setImageBitmap( plans.get( position ).activity_picture );
         holder.rating.setRating( plans.get( position ).activity_rating );
-        holder.date.setText( plans.get( position ).activity_start_date );
+        holder.date.setText( "A partir de " + plans.get( position ).activity_start_date );
 
     }
 

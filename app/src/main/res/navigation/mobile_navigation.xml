@@ -10,6 +10,7 @@
         android:name="com.example.proyectonavigation.ui.home.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
+
     <fragment
         android:id="@+id/navigation_search"
         android:name="com.example.proyectonavigation.ui.search.SearchFragment"
@@ -20,6 +21,13 @@
         android:name="com.example.proyectonavigation.ui.map.MapFragment"
         android:label="@string/title_map"
         tools:layout="@layout/fragment_map" />
+
+    <fragment
+        android:id="@+id/navigation_calendar"
+        android:name="com.example.proyectonavigation.ui.calendar.CalendarFragment"
+        android:label="Calendario"
+        tools:layout="@layout/calendar_fragment" />
+
     <fragment
         android:id="@+id/navigation_profile"
         android:name="com.example.proyectonavigation.ui.profile.ProfileFragment"

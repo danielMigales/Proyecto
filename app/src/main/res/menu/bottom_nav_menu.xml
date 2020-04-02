@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
+
     <item
         android:id="@+id/navigation_home"
         android:icon="@drawable/ic_home_black_24dp"
@@ -16,6 +17,11 @@
         android:icon="@android:drawable/ic_dialog_map"
         android:title="@string/mapa"
         android:visible="true" />
+
+    <item
+        android:id="@+id/navigation_calendar"
+        android:icon="@drawable/twotone_date_range_white_18dp"
+        android:title="@string/calendario" />
 
     <item
         android:id="@+id/navigation_profile"
