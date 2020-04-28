@@ -6,7 +6,7 @@
     android:layout_height="350dp"
     android:orientation="vertical"
     android:padding="10dp"
-    tools:context=".dialogs_fragments.DialogFragmentPreferences">
+    tools:context=".modelo.activities.dialogs_fragments.DialogFragmentPreferences">
 
 
     <TextView

@@ -28,29 +28,29 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".start_activities.SplashActivity">
+        <activity android:name=".modelo.activities.start_activities.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".preferences_activities.SportsPreferencesActivity" />
-        <activity android:name=".ui.home.CardActivity" />
-        <activity android:name=".ui.profile.ChangeProfileActivity" />
-        <activity android:name=".preferences_activities.CulturePreferencesActivity" />
-        <activity android:name=".preferences_activities.VideoGamesPreferencesActivity" />
-        <activity android:name=".preferences_activities.BooksPreferencesActivity" />
-        <activity android:name=".preferences_activities.OutdoorPreferencesActivity" />
-        <activity android:name=".preferences_activities.TVShowsPreferencesActivity" />
-        <activity android:name=".preferences_activities.MusicPreferencesActivity" />
-        <activity android:name=".preferences_activities.FoodPreferencesActivity" />
-        <activity android:name=".preferences_activities.CinemaPreferencesActivity" />
-        <activity android:name=".preferences_activities.PreferencesActivity" />
-        <activity android:name=".start_activities.RegisterActivity" />
-        <activity android:name=".start_activities.LoginActivity" />
+        <activity android:name=".modelo.activities.SportsPreferencesActivity" />
+        <activity android:name=".vista.home.CardActivity" />
+        <activity android:name=".vista.profile.ChangeProfileActivity" />
+        <activity android:name=".modelo.activities.CulturePreferencesActivity" />
+        <activity android:name=".modelo.activities.VideoGamesPreferencesActivity" />
+        <activity android:name=".modelo.activities.BooksPreferencesActivity" />
+        <activity android:name=".modelo.activities.OutdoorPreferencesActivity" />
+        <activity android:name=".modelo.activities.TVShowsPreferencesActivity" />
+        <activity android:name=".modelo.activities.MusicPreferencesActivity" />
+        <activity android:name=".modelo.activities.FoodPreferencesActivity" />
+        <activity android:name=".modelo.activities.CinemaPreferencesActivity" />
+        <activity android:name=".modelo.activities.PreferencesActivity" />
+        <activity android:name=".modelo.activities.start_activities.RegisterActivity" />
+        <activity android:name=".modelo.activities.start_activities.LoginActivity" />
         <activity
-            android:name=".start_activities.MainActivity"
+            android:name=".modelo.activities.start_activities.MainActivity"
             android:label="@string/app_name" />
 
         <meta-data

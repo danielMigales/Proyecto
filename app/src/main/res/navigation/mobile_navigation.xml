@@ -7,30 +7,30 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.example.proyectonavigation.ui.home.HomeFragment"
+        android:name="com.example.proyectonavigation.vista.home.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_search"
-        android:name="com.example.proyectonavigation.ui.search.SearchFragment"
+        android:name="com.example.proyectonavigation.vista.search.SearchFragment"
         android:label="@string/title_search"
         tools:layout="@layout/fragment_search" />
     <fragment
         android:id="@+id/navigation_map"
-        android:name="com.example.proyectonavigation.ui.map.MapFragment"
+        android:name="com.example.proyectonavigation.vista.map.MapFragment"
         android:label="@string/title_map"
         tools:layout="@layout/fragment_map" />
 
     <fragment
         android:id="@+id/navigation_calendar"
-        android:name="com.example.proyectonavigation.ui.calendar.CalendarFragment"
+        android:name="com.example.proyectonavigation.vista.calendar.CalendarFragment"
         android:label="Calendario"
         tools:layout="@layout/calendar_fragment" />
 
     <fragment
         android:id="@+id/navigation_profile"
-        android:name="com.example.proyectonavigation.ui.profile.ProfileFragment"
+        android:name="com.example.proyectonavigation.vista.profile.ProfileFragment"
         android:label="@string/title_profile"
         tools:layout="@layout/fragment_profile" />
 </navigation>
